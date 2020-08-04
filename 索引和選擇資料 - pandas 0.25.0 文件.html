@@ -1,0 +1,3381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html data-sfz><meta charset='utf-8'><title>ç´¢å¼•å’Œé¸æ“‡æ•¸æ“šâ€” pandas 0.25.0.dev0 + 752.g49f33f0dæ–‡æª”</title><body hidden><div id='sfz-wait-message'>Please wait...</div><div id='sfz-error-message'><strong>Error</strong>: Cannot open the page from the filesystem.<ul style='line-height:20px;'><li style='margin-bottom:10px'><strong>Chrome</strong>: Install <a href='https://chrome.google.com/webstore/detail/singlefilez/offkdfbbigofcgdokjemgjpdockaafjg'>SingleFileZ</a> and enable the option "Allow access to file URLs" in the details page of the extension (chrome://extensions/?id=offkdfbbigofcgdokjemgjpdockaafjg). Otherwise, start the browser with the switch "--allow-file-access-from-files".</li><li><strong>Safari</strong>: Select "Disable Local File Restrictions" in the "Develop" menu.</li></ul></div><script>!function(e){"use strict";var t,i="File format is not recognized.",n="CRC failed.",r="File contains encrypted entry.",a="File is using Zip64 (4gb+ file size).",o="Error while reading zip file.",s="Error while writing zip file.",l="Error while writing file data.",f="Error while reading file data.",_="File already exists.",d=524288,u="text/plain";try{t=0===new Blob([new DataView(new ArrayBuffer(0))]).size}catch(e){}function c(){this.crc=-1}function w(){}function b(e,t){var i,n;return i=new ArrayBuffer(e),n=new Uint8Array(i),t&&n.set(t,0),{buffer:i,array:n,view:new DataView(i)}}function h(){}function v(e){var t,i=this;i.size=0,i.init=function(n,r){var a=new Blob([e],{type:u});(t=new y(a)).init(function(){i.size=t.size,n()},r)},i.readUint8Array=function(e,i,n,r){t.readUint8Array(e,i,n,r)}}function x(t){var i,n=this;n.size=0,n.init=function(e){for(var r=t.length;"="==t.charAt(r-1);)r--;i=t.indexOf(",")+1,n.size=Math.floor(.75*(r-i)),e()},n.readUint8Array=function(n,r,a){var o,s=b(r),l=4*Math.floor(n/3),f=4*Math.ceil((n+r)/3),_=e.atob(t.substring(l+i,f+i)),d=n-3*Math.floor(l/4);for(o=d;o<d+r;o++)s.array[o-d]=_.charCodeAt(o);a(s.array)}}function y(e){var t=this;t.size=0,t.init=function(i){t.size=e.size,i()},t.readUint8Array=function(t,i,n,r){var a=new FileReader;a.onload=function(e){n(new Uint8Array(e.target.result))},a.onerror=r;try{a.readAsArrayBuffer(function(e,t,i){if(t<0||i<0||t+i>e.size)throw new RangeError("offset:"+t+", length:"+i+", size:"+e.size);return e.slice?e.slice(t,t+i):e.webkitSlice?e.webkitSlice(t,t+i):e.mozSlice?e.mozSlice(t,t+i):e.msSlice?e.msSlice(t,t+i):void 0}(e,t,i))}catch(e){r(e)}}}function p(){}function m(e){var i;this.init=function(e){i=new Blob([],{type:u}),e()},this.writeUint8Array=function(e,n){i=new Blob([i,t?e:e.buffer],{type:u}),n()},this.getData=function(t,n){var r=new FileReader;r.onload=function(e){t(e.target.result)},r.onerror=n,r.readAsText(i,e)}}function g(t){var i="",n="";this.init=function(e){i+="data:"+(t||"")+";base64,",e()},this.writeUint8Array=function(t,r){var a,o=n.length,s=n;for(n="",a=0;a<3*Math.floor((o+t.length)/3)-o;a++)s+=String.fromCharCode(t[a]);for(;a<t.length;a++)n+=String.fromCharCode(t[a]);s.length>2?i+=e.btoa(s):n=s,r()},this.getData=function(t){t(i+e.btoa(n))}}function k(e){var i;this.init=function(t){this.offset=0,i=new Blob([],{type:e}),t()},this.writeUint8Array=function(n,r){i=new Blob([i,t?n:n.buffer],{type:e}),this.offset=i.size,r()},this.getData=function(e){e(i)}}function U(e,t,i,n,r,a,o,s,l,f){var _,u,c,w=0,b=t.sn;function h(){e.removeEventListener("message",v,!1),s(u,c)}function v(t){var i=t.data,r=i.data,s=i.error;if(s)return s.toString=function(){return"Error: "+this.message},void l(s);if(i.sn===b)switch("number"==typeof i.codecTime&&(e.codecTime+=i.codecTime),"number"==typeof i.crcTime&&(e.crcTime+=i.crcTime),i.type){case"append":r?(u+=r.length,n.writeUint8Array(r,function(){x()},f)):x();break;case"flush":c=i.crc,r?(u+=r.length,n.writeUint8Array(r,function(){h()},f)):h();break;case"progress":o&&o(_+i.loaded,a);break;case"importScripts":case"newTask":case"echo":break;default:console.warn("zip.js:launchWorkerProcess: unknown message: ",i)}}function x(){(_=w*d)<=a?i.readUint8Array(r+_,Math.min(d,a-_),function(i){o&&o(_,a);var n=0===_?t:{sn:b};n.type="append",n.data=i;try{e.postMessage(n,[i.buffer])}catch(t){e.postMessage(n)}w++},l):e.postMessage({sn:b,type:"flush"})}u=0,e.addEventListener("message",v,!1),x()}function z(e,t,i,n,r,a,o,s,l,f){var _,u=0,w=0,b="input"===a,h="output"===a,v=new c;function x(){u*d<r?setTimeout(y,0):y()}function y(){var a;if((_=u*d)<r)t.readUint8Array(n+_,Math.min(d,r-_),function(t){var n;try{n=e.append(t,function(e){o&&o(_+e,r)})}catch(e){return void l(e)}n?(w+=n.length,i.writeUint8Array(n,function(){u++,x()},f),h&&v.append(n)):(u++,x()),b&&v.append(t),o&&o(_,r)},l);else{try{a=e.flush()}catch(e){return void l(e)}a?(h&&v.append(a),w+=a.length,i.writeUint8Array(a,function(){s(w,v.get())},f)):s(w,v.get())}}y()}function A(t,i,n,r,a,o,s,l,f,_,d){e.zip.useWebWorkers&&s?U(t,{sn:i,codecClass:"NOOP",crcType:"input"},n,r,a,o,f,l,_,d):z(new w,n,r,a,o,"input",f,l,_,d)}function S(e){var t,i,n="",r=["Ã‡","Ã¼","Ã©","Ã¢","Ã¤","Ã ","Ã¥","Ã§","Ãª","Ã«","Ã¨","Ã¯","Ã®","Ã¬","Ã„","Ã…","Ã‰","Ã¦","Ã†","Ã´","Ã¶","Ã²","Ã»","Ã¹","Ã¿","Ã–","Ãœ","Ã¸","Â£","Ã˜","Ã—","Æ’","Ã¡","Ã­","Ã³","Ãº","Ã±","Ã‘","Âª","Âº","Â¿","Â®","Â¬","Â½","Â¼","Â¡","Â«","Â»","_","_","_","Â¦","Â¦","Ã","Ã‚","Ã€","Â©","Â¦","Â¦","+","+","Â¢","Â¥","+","+","-","-","+","-","+","Ã£","Ãƒ","+","+","-","-","Â¦","-","+","Â¤","Ã°","Ã","ÃŠ","Ã‹","Ãˆ","i","Ã","Ã","Ã","+","+","_","_","Â¦","ÃŒ","_","Ã“","ÃŸ","Ã”","Ã’","Ãµ","Ã•","Âµ","Ã¾","Ã","Ãš","Ã›","Ã™","Ã½","Ã","Â¯","Â´","Â­","Â±","_","Â¾","Â¶","Â§","Ã·","Â¸","Â°","Â¨","Â·","Â¹","Â³","Â²","_"," "];for(t=0;t<e.length;t++)n+=(i=255&e.charCodeAt(t))>127?r[i-128]:String.fromCharCode(i);return n}function E(e){return decodeURIComponent(escape(e))}function D(e){var t,i="";for(t=0;t<e.length;t++)i+=String.fromCharCode(e[t]);return i}function L(e,t,i,n,o){e.version=t.view.getUint16(i,!0),e.bitFlag=t.view.getUint16(i+2,!0),e.compressionMethod=t.view.getUint16(i+4,!0),e.lastModDateRaw=t.view.getUint32(i+6,!0),e.lastModDate=function(e){var t=(4294901760&e)>>16,i=65535&e;try{return new Date(1980+((65024&t)>>9),((480&t)>>5)-1,31&t,(63488&i)>>11,(2016&i)>>5,2*(31&i),0)}catch(e){}}(e.lastModDateRaw),1!=(1&e.bitFlag)?((n||8!=(8&e.bitFlag))&&(e.crc32=t.view.getUint32(i+10,!0),e.compressedSize=t.view.getUint32(i+14,!0),e.uncompressedSize=t.view.getUint32(i+18,!0)),4294967295!==e.compressedSize&&4294967295!==e.uncompressedSize?(e.filenameLength=t.view.getUint16(i+22,!0),e.extraFieldLength=t.view.getUint16(i+24,!0)):o(a)):o(r)}function M(t,r,a){var s=0;function _(){}_.prototype.getData=function(r,o,_,d){var u=this;function c(e,t){d&&!function(e){var t=b(4);return t.view.setUint32(0,e),u.crc32==t.view.getUint32(0)}(t)?a(n):r.getData(function(e){o(e)})}function w(e){a(e||f)}function h(e){a(e||l)}t.readUint8Array(u.offset,30,function(n){var o,l=b(n.length,n);1347093252==l.view.getUint32(0)?(L(u,l,4,!1,a),o=u.offset+30+u.filenameLength+u.extraFieldLength,r.init(function(){0===u.compressionMethod?A(u._worker,s++,t,r,o,u.compressedSize,d,c,_,w,h):function(t,i,n,r,a,o,s,l,f,_,d){var u=s?"output":"none";e.zip.useWebWorkers?U(t,{sn:i,codecClass:"Inflater",crcType:u},n,r,a,o,f,l,_,d):z(new e.zip.Inflater,n,r,a,o,u,f,l,_,d)}(u._worker,s++,t,r,o,u.compressedSize,d,c,_,w,h)},h)):a(i)},w)};var d={getEntries:function(e){var n=this._worker;!function(e){var n=22;if(t.size<n)a(i);else{var r=n+65536;s(n,function(){s(Math.min(r,t.size),function(){a(i)})})}function s(i,r){t.readUint8Array(t.size-i,i,function(t){for(var i=t.length-n;i>=0;i--)if(80===t[i]&&75===t[i+1]&&5===t[i+2]&&6===t[i+3])return void e(new DataView(t.buffer,i,n));r()},function(){a(o)})}}(function(r){var s,l;s=r.getUint32(16,!0),l=r.getUint16(8,!0),s<0||s>=t.size?a(i):t.readUint8Array(s,t.size-s,function(t){var r,o,s,f,d=0,u=[],c=b(t.length,t);for(r=0;r<l;r++){if((o=new _)._worker=n,1347092738!=c.view.getUint32(d))return void a(i);L(o,c,d+6,!0,a),o.commentLength=c.view.getUint16(d+32,!0),o.directory=16==(16&c.view.getUint8(d+38)),o.offset=c.view.getUint32(d+42,!0),s=D(c.array.subarray(d+46,d+46+o.filenameLength)),o.filename=2048==(2048&o.bitFlag)?E(s):S(s),o.directory||"/"!=o.filename.charAt(o.filename.length-1)||(o.directory=!0),f=D(c.array.subarray(d+46+o.filenameLength+o.extraFieldLength,d+46+o.filenameLength+o.extraFieldLength+o.commentLength)),o.comment=2048==(2048&o.bitFlag)?E(f):S(f),u.push(o),d+=46+o.filenameLength+o.extraFieldLength+o.commentLength}e(u)},function(){a(o)})})},close:function(e){this._worker&&(this._worker.terminate(),this._worker=null),e&&e()},_worker:null};e.zip.useWebWorkers?T("inflater",function(e){d._worker=e,r(d)},function(e){a(e)}):r(d)}function W(e){return unescape(encodeURIComponent(e))}function C(e){var t,i=[];for(t=0;t<e.length;t++)i.push(e.charCodeAt(t));return i}function F(t,i,n,r){var a={},o=[],l=t.offset,d=0;function u(e){n(e||s)}function c(e){n(e||f)}var w={add:function(i,s,f,w,h){var v,x,y,p=this._worker;function m(e,i){var n=b(16);l+=e||0,n.view.setUint32(0,1347094280),void 0!==i&&(v.view.setUint32(10,i,!0),n.view.setUint32(4,i,!0)),s&&(n.view.setUint32(8,e,!0),v.view.setUint32(14,e,!0),n.view.setUint32(12,s.size,!0),v.view.setUint32(18,s.size,!0)),t.writeUint8Array(n.array,function(){l+=16,f()},u)}function g(){var f,g;(h=h||{},i=i.trim(),h.directory&&"/"!=i.charAt(i.length-1)&&(i+="/"),a.hasOwnProperty(i))?n(_):(x=C(W(i)),o.push(i),f=function(){s?r||0===h.level?A(p,d++,s,t,0,s.size,!0,m,w,c,u):function(t,i,n,r,a,o,s,l,f){e.zip.useWebWorkers?U(t,{sn:i,options:{level:a},codecClass:"Deflater",crcType:"input"},n,r,0,n.size,s,o,l,f):z(new e.zip.Deflater,n,r,0,n.size,"input",s,o,l,f)}(p,d++,s,t,h.level,m,w,c,u):m()},y=h.lastModDate||new Date,v=b(26),a[i]={headerArray:v.array,directory:h.directory,filename:x,offset:l,comment:C(W(h.comment||""))},v.view.setUint32(0,335546376),h.version&&v.view.setUint8(0,h.version),r||0===h.level||h.directory||v.view.setUint16(4,2048),v.view.setUint16(6,(y.getHours()<<6|y.getMinutes())<<5|y.getSeconds()/2,!0),v.view.setUint16(8,(y.getFullYear()-1980<<4|y.getMonth()+1)<<5|y.getDate(),!0),v.view.setUint16(22,x.length,!0),(g=b(30+x.length)).view.setUint32(0,1347093252),g.array.set(v.array,4),g.array.set(x,30),l+=g.array.length,t.writeUint8Array(g.array,f,u))}s?s.init(g,c):g()},close:function(e,i){this._worker&&(this._worker.terminate(),this._worker=null);var n,r,s,f=0,_=0;for(r=0;r<o.length;r++)f+=46+(s=a[o[r]]).filename.length+s.comment.length;for(n=b(f+22),r=0;r<o.length;r++)s=a[o[r]],n.view.setUint32(_,1347092738),n.view.setUint16(_+4,5120),n.array.set(s.headerArray,_+6),n.view.setUint16(_+32,s.comment.length,!0),s.directory&&n.view.setUint8(_+38,16),n.view.setUint32(_+42,s.offset,!0),n.array.set(s.filename,_+46),n.array.set(s.comment,_+46+s.filename.length),_+=46+s.filename.length+s.comment.length;n.view.setUint32(_,1347093766),n.view.setUint16(_+8,o.length,!0),n.view.setUint16(_+10,o.length,!0),n.view.setUint32(_+12,f,!0),n.view.setUint32(_+16,l,!0),i&&n.view.setUint16(_+20,i,!0),t.writeUint8Array(n.array,function(){t.getData(e)},u)},_worker:null};e.zip.useWebWorkers?T("deflater",function(e){w._worker=e,i(w)},function(e){n(e)}):i(w)}c.prototype.append=function(e){for(var t=0|this.crc,i=this.table,n=0,r=0|e.length;n<r;n++)t=t>>>8^i[255&(t^e[n])];this.crc=t},c.prototype.get=function(){return~this.crc},c.prototype.table=function(){var e,t,i,n=[];for(e=0;e<256;e++){for(i=e,t=0;t<8;t++)1&i?i=i>>>1^3988292384:i>>>=1;n[e]=i}return n}(),w.prototype.append=function(e,t){return e},w.prototype.flush=function(){},v.prototype=new h,v.prototype.constructor=v,x.prototype=new h,x.prototype.constructor=x,y.prototype=new h,y.prototype.constructor=y,p.prototype.getData=function(e){e(this.data)},m.prototype=new p,m.prototype.constructor=m,g.prototype=new p,g.prototype.constructor=g,k.prototype=new p,k.prototype.constructor=k;var I={deflater:["z-worker.js","deflate.js"],inflater:["z-worker.js","inflate.js"]};function T(t,i,n){if(null===e.zip.workerScripts||null===e.zip.workerScriptsPath){var r,a,o;if(e.zip.workerScripts){if(r=e.zip.workerScripts[t],!Array.isArray(r))return void n(new Error("zip.workerScripts."+t+" is not an array!"));a=r,o=document.createElement("a"),r=a.map(function(e){return o.href=e,o.href})}else(r=I[t].slice(0))[0]=(e.zip.workerScriptsPath||"")+r[0];var s=new Worker(r[0]);s.codecTime=s.crcTime=0,s.postMessage({type:"importScripts",scripts:r.slice(1)}),s.addEventListener("message",function e(t){var r=t.data;if(r.error)return s.terminate(),void n(r.error);"importScripts"===r.type&&(s.removeEventListener("message",e),s.removeEventListener("error",l),i(s))}),s.addEventListener("error",l)}else n(new Error("Either zip.workerScripts or zip.workerScriptsPath may be set, not both."));function l(e){s.terminate(),n(e)}}function R(e){console.error(e)}e.zip={Reader:h,Writer:p,BlobReader:y,Data64URIReader:x,TextReader:v,BlobWriter:k,Data64URIWriter:g,TextWriter:m,createReader:function(e,t,i){i=i||R,e.init(function(){M(e,t,i)},i)},createWriter:function(e,t,i,n){F(e,t,i=i||R,n=!!n)},useWebWorkers:!0,workerScriptsPath:null,workerScripts:null}}(this),function(e){"use strict";var t=0,i=1,n=2,r=-2,a=-3,o=-4,s=-5,l=[0,1,3,7,15,31,63,127,255,511,1023,2047,4095,8191,16383,32767,65535],f=1440,_=0,d=4,u=[96,7,256,0,8,80,0,8,16,84,8,115,82,7,31,0,8,112,0,8,48,0,9,192,80,7,10,0,8,96,0,8,32,0,9,160,0,8,0,0,8,128,0,8,64,0,9,224,80,7,6,0,8,88,0,8,24,0,9,144,83,7,59,0,8,120,0,8,56,0,9,208,81,7,17,0,8,104,0,8,40,0,9,176,0,8,8,0,8,136,0,8,72,0,9,240,80,7,4,0,8,84,0,8,20,85,8,227,83,7,43,0,8,116,0,8,52,0,9,200,81,7,13,0,8,100,0,8,36,0,9,168,0,8,4,0,8,132,0,8,68,0,9,232,80,7,8,0,8,92,0,8,28,0,9,152,84,7,83,0,8,124,0,8,60,0,9,216,82,7,23,0,8,108,0,8,44,0,9,184,0,8,12,0,8,140,0,8,76,0,9,248,80,7,3,0,8,82,0,8,18,85,8,163,83,7,35,0,8,114,0,8,50,0,9,196,81,7,11,0,8,98,0,8,34,0,9,164,0,8,2,0,8,130,0,8,66,0,9,228,80,7,7,0,8,90,0,8,26,0,9,148,84,7,67,0,8,122,0,8,58,0,9,212,82,7,19,0,8,106,0,8,42,0,9,180,0,8,10,0,8,138,0,8,74,0,9,244,80,7,5,0,8,86,0,8,22,192,8,0,83,7,51,0,8,118,0,8,54,0,9,204,81,7,15,0,8,102,0,8,38,0,9,172,0,8,6,0,8,134,0,8,70,0,9,236,80,7,9,0,8,94,0,8,30,0,9,156,84,7,99,0,8,126,0,8,62,0,9,220,82,7,27,0,8,110,0,8,46,0,9,188,0,8,14,0,8,142,0,8,78,0,9,252,96,7,256,0,8,81,0,8,17,85,8,131,82,7,31,0,8,113,0,8,49,0,9,194,80,7,10,0,8,97,0,8,33,0,9,162,0,8,1,0,8,129,0,8,65,0,9,226,80,7,6,0,8,89,0,8,25,0,9,146,83,7,59,0,8,121,0,8,57,0,9,210,81,7,17,0,8,105,0,8,41,0,9,178,0,8,9,0,8,137,0,8,73,0,9,242,80,7,4,0,8,85,0,8,21,80,8,258,83,7,43,0,8,117,0,8,53,0,9,202,81,7,13,0,8,101,0,8,37,0,9,170,0,8,5,0,8,133,0,8,69,0,9,234,80,7,8,0,8,93,0,8,29,0,9,154,84,7,83,0,8,125,0,8,61,0,9,218,82,7,23,0,8,109,0,8,45,0,9,186,0,8,13,0,8,141,0,8,77,0,9,250,80,7,3,0,8,83,0,8,19,85,8,195,83,7,35,0,8,115,0,8,51,0,9,198,81,7,11,0,8,99,0,8,35,0,9,166,0,8,3,0,8,131,0,8,67,0,9,230,80,7,7,0,8,91,0,8,27,0,9,150,84,7,67,0,8,123,0,8,59,0,9,214,82,7,19,0,8,107,0,8,43,0,9,182,0,8,11,0,8,139,0,8,75,0,9,246,80,7,5,0,8,87,0,8,23,192,8,0,83,7,51,0,8,119,0,8,55,0,9,206,81,7,15,0,8,103,0,8,39,0,9,174,0,8,7,0,8,135,0,8,71,0,9,238,80,7,9,0,8,95,0,8,31,0,9,158,84,7,99,0,8,127,0,8,63,0,9,222,82,7,27,0,8,111,0,8,47,0,9,190,0,8,15,0,8,143,0,8,79,0,9,254,96,7,256,0,8,80,0,8,16,84,8,115,82,7,31,0,8,112,0,8,48,0,9,193,80,7,10,0,8,96,0,8,32,0,9,161,0,8,0,0,8,128,0,8,64,0,9,225,80,7,6,0,8,88,0,8,24,0,9,145,83,7,59,0,8,120,0,8,56,0,9,209,81,7,17,0,8,104,0,8,40,0,9,177,0,8,8,0,8,136,0,8,72,0,9,241,80,7,4,0,8,84,0,8,20,85,8,227,83,7,43,0,8,116,0,8,52,0,9,201,81,7,13,0,8,100,0,8,36,0,9,169,0,8,4,0,8,132,0,8,68,0,9,233,80,7,8,0,8,92,0,8,28,0,9,153,84,7,83,0,8,124,0,8,60,0,9,217,82,7,23,0,8,108,0,8,44,0,9,185,0,8,12,0,8,140,0,8,76,0,9,249,80,7,3,0,8,82,0,8,18,85,8,163,83,7,35,0,8,114,0,8,50,0,9,197,81,7,11,0,8,98,0,8,34,0,9,165,0,8,2,0,8,130,0,8,66,0,9,229,80,7,7,0,8,90,0,8,26,0,9,149,84,7,67,0,8,122,0,8,58,0,9,213,82,7,19,0,8,106,0,8,42,0,9,181,0,8,10,0,8,138,0,8,74,0,9,245,80,7,5,0,8,86,0,8,22,192,8,0,83,7,51,0,8,118,0,8,54,0,9,205,81,7,15,0,8,102,0,8,38,0,9,173,0,8,6,0,8,134,0,8,70,0,9,237,80,7,9,0,8,94,0,8,30,0,9,157,84,7,99,0,8,126,0,8,62,0,9,221,82,7,27,0,8,110,0,8,46,0,9,189,0,8,14,0,8,142,0,8,78,0,9,253,96,7,256,0,8,81,0,8,17,85,8,131,82,7,31,0,8,113,0,8,49,0,9,195,80,7,10,0,8,97,0,8,33,0,9,163,0,8,1,0,8,129,0,8,65,0,9,227,80,7,6,0,8,89,0,8,25,0,9,147,83,7,59,0,8,121,0,8,57,0,9,211,81,7,17,0,8,105,0,8,41,0,9,179,0,8,9,0,8,137,0,8,73,0,9,243,80,7,4,0,8,85,0,8,21,80,8,258,83,7,43,0,8,117,0,8,53,0,9,203,81,7,13,0,8,101,0,8,37,0,9,171,0,8,5,0,8,133,0,8,69,0,9,235,80,7,8,0,8,93,0,8,29,0,9,155,84,7,83,0,8,125,0,8,61,0,9,219,82,7,23,0,8,109,0,8,45,0,9,187,0,8,13,0,8,141,0,8,77,0,9,251,80,7,3,0,8,83,0,8,19,85,8,195,83,7,35,0,8,115,0,8,51,0,9,199,81,7,11,0,8,99,0,8,35,0,9,167,0,8,3,0,8,131,0,8,67,0,9,231,80,7,7,0,8,91,0,8,27,0,9,151,84,7,67,0,8,123,0,8,59,0,9,215,82,7,19,0,8,107,0,8,43,0,9,183,0,8,11,0,8,139,0,8,75,0,9,247,80,7,5,0,8,87,0,8,23,192,8,0,83,7,51,0,8,119,0,8,55,0,9,207,81,7,15,0,8,103,0,8,39,0,9,175,0,8,7,0,8,135,0,8,71,0,9,239,80,7,9,0,8,95,0,8,31,0,9,159,84,7,99,0,8,127,0,8,63,0,9,223,82,7,27,0,8,111,0,8,47,0,9,191,0,8,15,0,8,143,0,8,79,0,9,255],c=[80,5,1,87,5,257,83,5,17,91,5,4097,81,5,5,89,5,1025,85,5,65,93,5,16385,80,5,3,88,5,513,84,5,33,92,5,8193,82,5,9,90,5,2049,86,5,129,192,5,24577,80,5,2,87,5,385,83,5,25,91,5,6145,81,5,7,89,5,1537,85,5,97,93,5,24577,80,5,4,88,5,769,84,5,49,92,5,12289,82,5,13,90,5,3073,86,5,193,192,5,24577],w=[3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258,0,0],b=[0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,0,112,112],h=[1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577],v=[0,0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13],x=15;function y(){var e,i,n,r,l,_;function d(e,i,o,d,u,c,w,b,h,v,y){var p,m,g,k,U,z,A,S,E,D,L,M,W,C,F;D=0,U=o;do{n[e[i+D]]++,D++,U--}while(0!==U);if(n[0]==o)return w[0]=-1,b[0]=0,t;for(S=b[0],z=1;z<=x&&0===n[z];z++);for(A=z,S<z&&(S=z),U=x;0!==U&&0===n[U];U--);for(g=U,S>U&&(S=U),b[0]=S,C=1<<z;z<U;z++,C<<=1)if((C-=n[z])<0)return a;if((C-=n[U])<0)return a;for(n[U]+=C,_[1]=z=0,D=1,W=2;0!=--U;)_[W]=z+=n[D],W++,D++;U=0,D=0;do{0!==(z=e[i+D])&&(y[_[z]++]=U),D++}while(++U<o);for(o=_[g],_[0]=U=0,D=0,k=-1,M=-S,l[0]=0,L=0,F=0;A<=g;A++)for(p=n[A];0!=p--;){for(;A>M+S;){if(k++,F=(F=g-(M+=S))>S?S:F,(m=1<<(z=A-M))>p+1&&(m-=p+1,W=A,z<F))for(;++z<F&&!((m<<=1)<=n[++W]);)m-=n[W];if(F=1<<z,v[0]+F>f)return a;l[k]=L=v[0],v[0]+=F,0!==k?(_[k]=U,r[0]=z,r[1]=S,z=U>>>M-S,r[2]=L-l[k-1]-z,h.set(r,3*(l[k-1]+z))):w[0]=L}for(r[1]=A-M,D>=o?r[0]=192:y[D]<d?(r[0]=y[D]<256?0:96,r[2]=y[D++]):(r[0]=c[y[D]-d]+16+64,r[2]=u[y[D++]-d]),m=1<<A-M,z=U>>>M;z<F;z+=m)h.set(r,3*(L+z));for(z=1<<A-1;0!=(U&z);z>>>=1)U^=z;for(U^=z,E=(1<<M)-1;(U&E)!=_[k];)k--,E=(1<<(M-=S))-1}return 0!==C&&1!=g?s:t}function u(t){var a;for(e||(e=[],i=[],n=new Int32Array(x+1),r=[],l=new Int32Array(x),_=new Int32Array(x+1)),i.length<t&&(i=[]),a=0;a<t;a++)i[a]=0;for(a=0;a<x+1;a++)n[a]=0;for(a=0;a<3;a++)r[a]=0;l.set(n.subarray(0,x),0),_.set(n.subarray(0,x+1),0)}this.inflate_trees_bits=function(t,n,r,o,l){var f;return u(19),e[0]=0,(f=d(t,0,19,19,null,null,r,n,o,e,i))==a?l.msg="oversubscribed dynamic bit lengths tree":f!=s&&0!==n[0]||(l.msg="incomplete dynamic bit lengths tree",f=a),f},this.inflate_trees_dynamic=function(n,r,l,f,_,c,x,y,p){var m;return u(288),e[0]=0,(m=d(l,0,n,257,w,b,c,f,y,e,i))!=t||0===f[0]?(m==a?p.msg="oversubscribed literal/length tree":m!=o&&(p.msg="incomplete literal/length tree",m=a),m):(u(288),(m=d(l,n,r,0,h,v,x,_,y,e,i))!=t||0===_[0]&&n>257?(m==a?p.msg="oversubscribed distance tree":m==s?(p.msg="incomplete distance tree",m=a):m!=o&&(p.msg="empty distance tree with lengths",m=a),m):t)}}y.inflate_trees_fixed=function(e,i,n,r){return e[0]=9,i[0]=5,n[0]=u,r[0]=c,t};var p=0,m=1,g=2,k=3,U=4,z=5,A=6,S=7,E=8,D=9;var L=[16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15],M=0,W=1,C=2,F=3,I=4,T=5,R=6,B=7,P=8,j=9;function O(e,n){var o,_=this,d=M,u=0,c=0,w=0,b=[0],h=[0],v=new function(){var e,n,o,s,f=0,_=0,d=0,u=0,c=0,w=0,b=0,h=0,v=0,x=0;function y(e,n,r,o,s,f,_,d){var u,c,w,b,h,v,x,y,p,m,g,k,U,z,A,S;x=d.next_in_index,y=d.avail_in,h=_.bitb,v=_.bitk,m=(p=_.write)<_.read?_.read-p-1:_.end-p,g=l[e],k=l[n];do{for(;v<20;)y--,h|=(255&d.read_byte(x++))<<v,v+=8;if(0!==(b=(c=r)[S=3*((w=o)+(u=h&g))]))for(;;){if(h>>=c[S+1],v-=c[S+1],0!=(16&b)){for(b&=15,U=c[S+2]+(h&l[b]),h>>=b,v-=b;v<15;)y--,h|=(255&d.read_byte(x++))<<v,v+=8;for(b=(c=s)[S=3*((w=f)+(u=h&k))];;){if(h>>=c[S+1],v-=c[S+1],0!=(16&b)){for(b&=15;v<b;)y--,h|=(255&d.read_byte(x++))<<v,v+=8;if(z=c[S+2]+(h&l[b]),h>>=b,v-=b,m-=U,p>=z)p-(A=p-z)>0&&2>p-A?(_.window[p++]=_.window[A++],_.window[p++]=_.window[A++],U-=2):(_.window.set(_.window.subarray(A,A+2),p),p+=2,A+=2,U-=2);else{A=p-z;do{A+=_.end}while(A<0);if(U>(b=_.end-A)){if(U-=b,p-A>0&&b>p-A)do{_.window[p++]=_.window[A++]}while(0!=--b);else _.window.set(_.window.subarray(A,A+b),p),p+=b,A+=b,b=0;A=0}}if(p-A>0&&U>p-A)do{_.window[p++]=_.window[A++]}while(0!=--U);else _.window.set(_.window.subarray(A,A+U),p),p+=U,A+=U,U=0;break}if(0!=(64&b))return d.msg="invalid distance code",y+=U=v>>3<(U=d.avail_in-y)?v>>3:U,x-=U,v-=U<<3,_.bitb=h,_.bitk=v,d.avail_in=y,d.total_in+=x-d.next_in_index,d.next_in_index=x,_.write=p,a;u+=c[S+2],b=c[S=3*(w+(u+=h&l[b]))]}break}if(0!=(64&b))return 0!=(32&b)?(y+=U=v>>3<(U=d.avail_in-y)?v>>3:U,x-=U,v-=U<<3,_.bitb=h,_.bitk=v,d.avail_in=y,d.total_in+=x-d.next_in_index,d.next_in_index=x,_.write=p,i):(d.msg="invalid literal/length code",y+=U=v>>3<(U=d.avail_in-y)?v>>3:U,x-=U,v-=U<<3,_.bitb=h,_.bitk=v,d.avail_in=y,d.total_in+=x-d.next_in_index,d.next_in_index=x,_.write=p,a);if(u+=c[S+2],0===(b=c[S=3*(w+(u+=h&l[b]))])){h>>=c[S+1],v-=c[S+1],_.window[p++]=c[S+2],m--;break}}else h>>=c[S+1],v-=c[S+1],_.window[p++]=c[S+2],m--}while(m>=258&&y>=10);return y+=U=v>>3<(U=d.avail_in-y)?v>>3:U,x-=U,v-=U<<3,_.bitb=h,_.bitk=v,d.avail_in=y,d.total_in+=x-d.next_in_index,d.next_in_index=x,_.write=p,t}this.init=function(t,i,r,a,l,f){e=p,b=t,h=i,o=r,v=a,s=l,x=f,n=null},this.proc=function(L,M,W){var C,F,I,T,R,B,P,j=0,O=0,V=0;for(V=M.next_in_index,T=M.avail_in,j=L.bitb,O=L.bitk,B=(R=L.write)<L.read?L.read-R-1:L.end-R;;)switch(e){case p:if(B>=258&&T>=10&&(L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,W=y(b,h,o,v,s,x,L,M),V=M.next_in_index,T=M.avail_in,j=L.bitb,O=L.bitk,B=(R=L.write)<L.read?L.read-R-1:L.end-R,W!=t)){e=W==i?S:D;break}d=b,n=o,_=v,e=m;case m:for(C=d;O<C;){if(0===T)return L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W);W=t,T--,j|=(255&M.read_byte(V++))<<O,O+=8}if(F=3*(_+(j&l[C])),j>>>=n[F+1],O-=n[F+1],0===(I=n[F])){u=n[F+2],e=A;break}if(0!=(16&I)){c=15&I,f=n[F+2],e=g;break}if(0==(64&I)){d=I,_=F/3+n[F+2];break}if(0!=(32&I)){e=S;break}return e=D,M.msg="invalid literal/length code",W=a,L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W);case g:for(C=c;O<C;){if(0===T)return L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W);W=t,T--,j|=(255&M.read_byte(V++))<<O,O+=8}f+=j&l[C],j>>=C,O-=C,d=h,n=s,_=x,e=k;case k:for(C=d;O<C;){if(0===T)return L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W);W=t,T--,j|=(255&M.read_byte(V++))<<O,O+=8}if(F=3*(_+(j&l[C])),j>>=n[F+1],O-=n[F+1],0!=(16&(I=n[F]))){c=15&I,w=n[F+2],e=U;break}if(0==(64&I)){d=I,_=F/3+n[F+2];break}return e=D,M.msg="invalid distance code",W=a,L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W);case U:for(C=c;O<C;){if(0===T)return L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W);W=t,T--,j|=(255&M.read_byte(V++))<<O,O+=8}w+=j&l[C],j>>=C,O-=C,e=z;case z:for(P=R-w;P<0;)P+=L.end;for(;0!==f;){if(0===B&&(R==L.end&&0!==L.read&&(B=(R=0)<L.read?L.read-R-1:L.end-R),0===B&&(L.write=R,W=L.inflate_flush(M,W),B=(R=L.write)<L.read?L.read-R-1:L.end-R,R==L.end&&0!==L.read&&(B=(R=0)<L.read?L.read-R-1:L.end-R),0===B)))return L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W);L.window[R++]=L.window[P++],B--,P==L.end&&(P=0),f--}e=p;break;case A:if(0===B&&(R==L.end&&0!==L.read&&(B=(R=0)<L.read?L.read-R-1:L.end-R),0===B&&(L.write=R,W=L.inflate_flush(M,W),B=(R=L.write)<L.read?L.read-R-1:L.end-R,R==L.end&&0!==L.read&&(B=(R=0)<L.read?L.read-R-1:L.end-R),0===B)))return L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W);W=t,L.window[R++]=u,B--,e=p;break;case S:if(O>7&&(O-=8,T++,V--),L.write=R,W=L.inflate_flush(M,W),B=(R=L.write)<L.read?L.read-R-1:L.end-R,L.read!=L.write)return L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W);e=E;case E:return W=i,L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W);case D:return W=a,L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W);default:return W=r,L.bitb=j,L.bitk=O,M.avail_in=T,M.total_in+=V-M.next_in_index,M.next_in_index=V,L.write=R,L.inflate_flush(M,W)}},this.free=function(){}},x=0,O=new Int32Array(3*f),V=new y;_.bitk=0,_.bitb=0,_.window=new Uint8Array(n),_.end=n,_.read=0,_.write=0,_.reset=function(e,t){t&&(t[0]=0),d==R&&v.free(e),d=M,_.bitk=0,_.bitb=0,_.read=_.write=0},_.reset(e,null),_.inflate_flush=function(e,i){var n,r,a;return r=e.next_out_index,(n=((a=_.read)<=_.write?_.write:_.end)-a)>e.avail_out&&(n=e.avail_out),0!==n&&i==s&&(i=t),e.avail_out-=n,e.total_out+=n,e.next_out.set(_.window.subarray(a,a+n),r),r+=n,(a+=n)==_.end&&(a=0,_.write==_.end&&(_.write=0),(n=_.write-a)>e.avail_out&&(n=e.avail_out),0!==n&&i==s&&(i=t),e.avail_out-=n,e.total_out+=n,e.next_out.set(_.window.subarray(a,a+n),r),r+=n,a+=n),e.next_out_index=r,_.read=a,i},_.proc=function(e,n){var s,f,p,m,g,k,U,z;for(m=e.next_in_index,g=e.avail_in,f=_.bitb,p=_.bitk,U=(k=_.write)<_.read?_.read-k-1:_.end-k;;)switch(d){case M:for(;p<3;){if(0===g)return _.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);n=t,g--,f|=(255&e.read_byte(m++))<<p,p+=8}switch(x=1&(s=7&f),s>>>1){case 0:f>>>=3,f>>>=s=7&(p-=3),p-=s,d=W;break;case 1:var A=[],S=[],E=[[]],D=[[]];y.inflate_trees_fixed(A,S,E,D),v.init(A[0],S[0],E[0],0,D[0],0),f>>>=3,p-=3,d=R;break;case 2:f>>>=3,p-=3,d=F;break;case 3:return f>>>=3,p-=3,d=j,e.msg="invalid block type",n=a,_.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n)}break;case W:for(;p<32;){if(0===g)return _.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);n=t,g--,f|=(255&e.read_byte(m++))<<p,p+=8}if((~f>>>16&65535)!=(65535&f))return d=j,e.msg="invalid stored block lengths",n=a,_.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);u=65535&f,f=p=0,d=0!==u?C:0!==x?B:M;break;case C:if(0===g)return _.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);if(0===U&&(k==_.end&&0!==_.read&&(U=(k=0)<_.read?_.read-k-1:_.end-k),0===U&&(_.write=k,n=_.inflate_flush(e,n),U=(k=_.write)<_.read?_.read-k-1:_.end-k,k==_.end&&0!==_.read&&(U=(k=0)<_.read?_.read-k-1:_.end-k),0===U)))return _.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);if(n=t,(s=u)>g&&(s=g),s>U&&(s=U),_.window.set(e.read_buf(m,s),k),m+=s,g-=s,k+=s,U-=s,0!=(u-=s))break;d=0!==x?B:M;break;case F:for(;p<14;){if(0===g)return _.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);n=t,g--,f|=(255&e.read_byte(m++))<<p,p+=8}if(c=s=16383&f,(31&s)>29||(s>>5&31)>29)return d=j,e.msg="too many length or distance symbols",n=a,_.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);if(s=258+(31&s)+(s>>5&31),!o||o.length<s)o=[];else for(z=0;z<s;z++)o[z]=0;f>>>=14,p-=14,w=0,d=I;case I:for(;w<4+(c>>>10);){for(;p<3;){if(0===g)return _.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);n=t,g--,f|=(255&e.read_byte(m++))<<p,p+=8}o[L[w++]]=7&f,f>>>=3,p-=3}for(;w<19;)o[L[w++]]=0;if(b[0]=7,(s=V.inflate_trees_bits(o,b,h,O,e))!=t)return(n=s)==a&&(o=null,d=j),_.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);w=0,d=T;case T:for(;!(w>=258+(31&(s=c))+(s>>5&31));){var H,N;for(s=b[0];p<s;){if(0===g)return _.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);n=t,g--,f|=(255&e.read_byte(m++))<<p,p+=8}if(s=O[3*(h[0]+(f&l[s]))+1],(N=O[3*(h[0]+(f&l[s]))+2])<16)f>>>=s,p-=s,o[w++]=N;else{for(z=18==N?7:N-14,H=18==N?11:3;p<s+z;){if(0===g)return _.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);n=t,g--,f|=(255&e.read_byte(m++))<<p,p+=8}if(p-=s,H+=(f>>>=s)&l[z],f>>>=z,p-=z,(z=w)+H>258+(31&(s=c))+(s>>5&31)||16==N&&z<1)return o=null,d=j,e.msg="invalid bit length repeat",n=a,_.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);N=16==N?o[z-1]:0;do{o[z++]=N}while(0!=--H);w=z}}h[0]=-1;var Y=[],Z=[],q=[],G=[];if(Y[0]=9,Z[0]=6,s=c,(s=V.inflate_trees_dynamic(257+(31&s),1+(s>>5&31),o,Y,Z,q,G,O,e))!=t)return s==a&&(o=null,d=j),n=s,_.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);v.init(Y[0],Z[0],O,q[0],O,G[0]),d=R;case R:if(_.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,(n=v.proc(_,e,n))!=i)return _.inflate_flush(e,n);if(n=t,v.free(e),m=e.next_in_index,g=e.avail_in,f=_.bitb,p=_.bitk,U=(k=_.write)<_.read?_.read-k-1:_.end-k,0===x){d=M;break}d=B;case B:if(_.write=k,n=_.inflate_flush(e,n),U=(k=_.write)<_.read?_.read-k-1:_.end-k,_.read!=_.write)return _.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);d=P;case P:return n=i,_.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);case j:return n=a,_.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n);default:return n=r,_.bitb=f,_.bitk=p,e.avail_in=g,e.total_in+=m-e.next_in_index,e.next_in_index=m,_.write=k,_.inflate_flush(e,n)}},_.free=function(e){_.reset(e,null),_.window=null,O=null},_.set_dictionary=function(e,t,i){_.window.set(e.subarray(t,t+i),0),_.read=_.write=i},_.sync_point=function(){return d==W?1:0}}var V=32,H=8,N=0,Y=1,Z=2,q=3,G=4,J=5,K=6,Q=7,X=12,$=13,ee=[0,0,255,255];function te(){}te.prototype={inflateInit:function(e){return this.istate=new function(){var e=this;function o(e){return e&&e.istate?(e.total_in=e.total_out=0,e.msg=null,e.istate.mode=Q,e.istate.blocks.reset(e,null),t):r}e.mode=0,e.method=0,e.was=[0],e.need=0,e.marker=0,e.wbits=0,e.inflateEnd=function(i){return e.blocks&&e.blocks.free(i),e.blocks=null,t},e.inflateInit=function(i,n){return i.msg=null,e.blocks=null,n<8||n>15?(e.inflateEnd(i),r):(e.wbits=n,i.istate.blocks=new O(i,1<<n),o(i),t)},e.inflate=function(e,o){var l,f;if(!e||!e.istate||!e.next_in)return r;for(o=o==d?s:t,l=s;;)switch(e.istate.mode){case N:if(0===e.avail_in)return l;if(l=o,e.avail_in--,e.total_in++,(15&(e.istate.method=e.read_byte(e.next_in_index++)))!=H){e.istate.mode=$,e.msg="unknown compression method",e.istate.marker=5;break}if(8+(e.istate.method>>4)>e.istate.wbits){e.istate.mode=$,e.msg="invalid window size",e.istate.marker=5;break}e.istate.mode=Y;case Y:if(0===e.avail_in)return l;if(l=o,e.avail_in--,e.total_in++,f=255&e.read_byte(e.next_in_index++),((e.istate.method<<8)+f)%31!=0){e.istate.mode=$,e.msg="incorrect header check",e.istate.marker=5;break}if(0==(f&V)){e.istate.mode=Q;break}e.istate.mode=Z;case Z:if(0===e.avail_in)return l;l=o,e.avail_in--,e.total_in++,e.istate.need=(255&e.read_byte(e.next_in_index++))<<24&4278190080,e.istate.mode=q;case q:if(0===e.avail_in)return l;l=o,e.avail_in--,e.total_in++,e.istate.need+=(255&e.read_byte(e.next_in_index++))<<16&16711680,e.istate.mode=G;case G:if(0===e.avail_in)return l;l=o,e.avail_in--,e.total_in++,e.istate.need+=(255&e.read_byte(e.next_in_index++))<<8&65280,e.istate.mode=J;case J:return 0===e.avail_in?l:(l=o,e.avail_in--,e.total_in++,e.istate.need+=255&e.read_byte(e.next_in_index++),e.istate.mode=K,n);case K:return e.istate.mode=$,e.msg="need dictionary",e.istate.marker=0,r;case Q:if((l=e.istate.blocks.proc(e,l))==a){e.istate.mode=$,e.istate.marker=0;break}if(l==t&&(l=o),l!=i)return l;l=o,e.istate.blocks.reset(e,e.istate.was),e.istate.mode=X;case X:return i;case $:return a;default:return r}},e.inflateSetDictionary=function(e,i,n){var a=0,o=n;return e&&e.istate&&e.istate.mode==K?(o>=1<<e.istate.wbits&&(a=n-(o=(1<<e.istate.wbits)-1)),e.istate.blocks.set_dictionary(i,a,o),e.istate.mode=Q,t):r},e.inflateSync=function(e){var i,n,l,f,_;if(!e||!e.istate)return r;if(e.istate.mode!=$&&(e.istate.mode=$,e.istate.marker=0),0===(i=e.avail_in))return s;for(n=e.next_in_index,l=e.istate.marker;0!==i&&l<4;)e.read_byte(n)==ee[l]?l++:l=0!==e.read_byte(n)?0:4-l,n++,i--;return e.total_in+=n-e.next_in_index,e.next_in_index=n,e.avail_in=i,e.istate.marker=l,4!=l?a:(f=e.total_in,_=e.total_out,o(e),e.total_in=f,e.total_out=_,e.istate.mode=Q,t)},e.inflateSyncPoint=function(e){return e&&e.istate&&e.istate.blocks?e.istate.blocks.sync_point():r}},e||(e=15),this.istate.inflateInit(this,e)},inflate:function(e){return this.istate?this.istate.inflate(this,e):r},inflateEnd:function(){if(!this.istate)return r;var e=this.istate.inflateEnd(this);return this.istate=null,e},inflateSync:function(){return this.istate?this.istate.inflateSync(this):r},inflateSetDictionary:function(e,t){return this.istate?this.istate.inflateSetDictionary(this,e,t):r},read_byte:function(e){return this.next_in.subarray(e,e+1)[0]},read_buf:function(e,t){return this.next_in.subarray(e,e+t)}};var ie=e.zip||e;ie.Inflater=ie._jzlib_Inflater=function(){var e=new te,n=_,r=new Uint8Array(512),a=!1;e.inflateInit(),e.next_out=r,this.append=function(o,l){var f,_,d=[],u=0,c=0,w=0;if(0!==o.length){e.next_in_index=0,e.next_in=o,e.avail_in=o.length;do{if(e.next_out_index=0,e.avail_out=512,0!==e.avail_in||a||(e.next_in_index=0,a=!0),f=e.inflate(n),a&&f===s){if(0!==e.avail_in)throw new Error("inflating: bad input")}else if(f!==t&&f!==i)throw new Error("inflating: "+e.msg);if((a||f===i)&&e.avail_in===o.length)throw new Error("inflating: bad input");e.next_out_index&&(512===e.next_out_index?d.push(new Uint8Array(r)):d.push(new Uint8Array(r.subarray(0,e.next_out_index)))),w+=e.next_out_index,l&&e.next_in_index>0&&e.next_in_index!=u&&(l(e.next_in_index),u=e.next_in_index)}while(e.avail_in>0||0===e.avail_out);return _=new Uint8Array(w),d.forEach(function(e){_.set(e,c),c+=e.length}),_}},this.flush=function(){e.inflateEnd()}}}(this);(function bootstrapCode() {let bootstrapStarted;zip.useWebWorkers = false;const xhr = new XMLHttpRequest();let displayTimeout;Array.from(document.documentElement.childNodes).forEach(node => {if (node != document.body && node != document.head) {node.remove();}});xhr.responseType = "blob";xhr.open("GET", "");xhr.onerror = () => displayTimeout = displayMessage("sfz-error-message");xhr.send();xhr.onload = async () => bootstrap(xhr.response);this.bootstrap = bootstrap;async function bootstrap(content) {if (bootstrapStarted) {return;}bootstrapStarted = true;stop();if (displayTimeout) {clearTimeout(displayTimeout);}displayTimeout = displayMessage("sfz-wait-message");if (Array.isArray(content)) {content = new Blob([new Uint8Array(content)]);}const zipReader = await new Promise((resolve, reject) => zip.createReader(new zip.BlobReader(content), resolve, reject));const entries = await new Promise(resolve => zipReader.getEntries(resolve));let resources = [];for (const entry of entries) {let dataWriter, content, textContent;if (entry.filename.match(/index\.html$/) || entry.filename.match(/stylesheet_[0-9]+\.css/) || entry.filename.match(/scripts\/[0-9]+\.js/)) {dataWriter = new zip.TextWriter();textContent = await new Promise(resolve => entry.getData(dataWriter, resolve));} else {const mimeType = entry.filename.match(/\.svg$/) ? "image/svg+xml" : "application/octet-stream";if (entry.filename.match(/frames\//)) {content = await new Promise(resolve => entry.getData(new zip.Data64URIWriter(mimeType), resolve));} else {content = URL.createObjectURL(await new Promise(resolve => entry.getData(new zip.BlobWriter(mimeType), resolve)));}}resources.push({ filename: entry.filename, content, textContent });}resources = resources.sort((resourceLeft, resourceRight) => resourceRight.filename.length - resourceLeft.filename.length);let docContent;for (const resource of resources) {if (resource.textContent !== undefined) {let prefixPath = "";const prefixPathMatch = resource.filename.match(/(.*\/)[^/]+$/);if (prefixPathMatch && prefixPathMatch[1]) {prefixPath = prefixPathMatch[1];}const isScript = resource.filename.match(/scripts\/[0-9]+\.js/);if (!isScript) {resources.forEach(innerResource => {if (innerResource.filename.startsWith(prefixPath) && innerResource.filename != resource.filename) {const filename = innerResource.filename.substring(prefixPath.length);resource.textContent = resource.textContent.replace(new RegExp(filename, "g"), innerResource.content);}});}let mimeType;if (resource.filename.match(/stylesheet_[0-9]+\.css/)) {mimeType = "text/css";} else if (isScript) {mimeType = "text/javascript";} else if (resource.filename.match(/index\.html$/)) {mimeType = "text/html";}if (resource.filename == "index.html") {docContent = resource.textContent;} else {const reader = new FileReader();reader.readAsDataURL(new Blob([resource.textContent], { type: mimeType + ";charset=utf-8" }));resource.content = await new Promise((resolve, reject) => {reader.addEventListener("load", () => resolve(reader.result), false);reader.addEventListener("error", reject, false);});}}}const DISABLED_NOSCRIPT_ATTRIBUTE_NAME = "data-single-filez-disabled-noscript";const doc = (new DOMParser()).parseFromString(docContent, "text/html");doc.querySelectorAll("noscript:not([" + DISABLED_NOSCRIPT_ATTRIBUTE_NAME + "])").forEach(element => {element.setAttribute(DISABLED_NOSCRIPT_ATTRIBUTE_NAME, element.innerHTML);element.textContent = "";});clearTimeout(displayTimeout);document.replaceChild(document.importNode(doc.documentElement, true), document.documentElement);document.querySelectorAll("link[rel*=icon]").forEach(element => element.parentElement.replaceChild(element, element));document.open = document.write = document.close = () => { };for (let element of Array.from(document.querySelectorAll("script"))) {await new Promise((resolve, reject) => {const scriptElement = document.createElement("script");Array.from(element.attributes).forEach(attribute => scriptElement.setAttribute(attribute.name, attribute.value));const async = element.getAttribute("async") == "" || element.getAttribute("async") == "async";if (element.textContent) {scriptElement.textContent = element.textContent;} else if (!async) {scriptElement.addEventListener("load", resolve);scriptElement.addEventListener("error", reject);}element.parentElement.replaceChild(scriptElement, element);if (element.textContent || async) {resolve();}});}document.dispatchEvent(new CustomEvent("single-file-display-infobar"));}function displayMessage(elementId) {return setTimeout(() => {Array.from(document.body.childNodes).forEach(node => {if (node.id != elementId) {node.remove();}});document.body.hidden = false;}, 1500);}})()</script>
+<main hidden>
+æŒ‡æ•¸
+ 
+ æ¨¡å¡Š |
+ 
+ ä¸‹ä¸€å€‹ |
+ 
+ ä¸Šä¸€å€‹ |
+ pandas 0.25.0.dev0 + 752.g49f33f0dæ–‡æª” Â»
+ ç”¨æˆ¶æŒ‡å— Â» 
+ 
+ 
+
+ 
+ 
+ 
+ ç›®éŒ„
+ 
+0.25.0çš„æ–°å¢åŠŸèƒ½
+å®‰è£
+å…¥é–€
+ç”¨æˆ¶æŒ‡å—
+IOå·¥å…·ï¼ˆæ–‡æœ¬ï¼ŒCSVï¼ŒHDF5ç­‰ï¼‰
+ç´¢å¼•å’Œé¸æ“‡æ•¸æ“š
+ç´¢å¼•çš„ä¸åŒé¸æ“‡
+åŸºæœ¬
+å±¬æ€§è¨ªå•
+åˆ‡ç‰‡ç¯„åœ
+æŒ‰æ¨™ç±¤é¸æ“‡
+æŒ‰ä½ç½®é¸æ“‡
+é€šéå¯èª¿ç”¨é¸æ“‡
+IX Indexerå·²æ£„ç”¨
+ä¸å»ºè­°ä½¿ç”¨ç¼ºå°‘æ¨™ç±¤çš„åˆ—è¡¨å»ºç«‹ç´¢å¼•
+é¸æ“‡éš¨æ©Ÿæ¨£æœ¬
+æ”¾å¤§è¨­ç½®
+å¿«é€Ÿç²å–å’Œè¨­ç½®æ¨™é‡å€¼
+å¸ƒçˆ¾ç´¢å¼•
+ç”¨isinç·¨åˆ¶ç´¢å¼•
+è©²where()æ–¹æ³•å’Œå±è”½
+è©²query()æ–¹æ³•
+è³‡æ–™é‡è¤‡
+é¡å­—å…¸get()æ³•
+è©²lookup()æ–¹æ³•
+ç´¢å¼•å°è±¡
+è¨­ç½®/é‡ç½®ç´¢å¼•
+è¿”å›è¦–åœ–èˆ‡å‰¯æœ¬
+
+
+å¤šç´¢å¼•/é«˜ç´šç´¢å¼•
+åˆä½µï¼ŒåŠ å…¥å’Œé€£æ¥
+é‡å¡‘å’Œæ•¸æ“šé€è¦–è¡¨
+è™•ç†æ–‡æœ¬æ•¸æ“š
+è™•ç†ä¸Ÿå¤±çš„æ•¸æ“š
+åˆ†é¡æ•¸æ“š
+å¯ç©ºæ•´æ•¸æ•¸æ“šé¡å‹
+å¯è¦–åŒ–
+è¨ˆç®—å·¥å…·
+åˆ†çµ„ä¾æ“šï¼šsplit-apply-combine
+æ™‚é–“åºåˆ—/æ—¥æœŸåŠŸèƒ½
+æ™‚é–“å¢é‡
+é€ å‹
+é¸é …å’Œè¨­ç½®
+æå‡ç¸¾æ•ˆ
+ç¨€ç–çš„æ•¸æ“šçµæ§‹
+å¸¸è¦‹å•é¡Œè§£ç­”ï¼ˆFAQï¼‰
+é£Ÿè­œ
+
+
+ç†Šè²“ç”Ÿæ…‹ç³»çµ±
+APIåƒè€ƒ
+ç™¼å±•æ­·ç¨‹
+ç™¼è¡Œèªªæ˜
+
+ æœç´¢
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ è¼¸å…¥æœç´¢è©æˆ–æ¨¡å¡Šï¼Œé¡æˆ–å‡½æ•¸åç¨±ã€‚
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ç´¢å¼•å’Œé¸æ“‡æ•¸æ“šÂ¶
+pandaså°åƒä¸­çš„è»¸æ¨™ç±¤ä¿¡æ¯æœ‰è¨±å¤šç”¨é€”ï¼š
+
+ä½¿ç”¨å·²çŸ¥çš„æŒ‡æ¨™æ¨™è­˜æ•¸æ“šï¼ˆå³æä¾›å…ƒæ•¸æ“šï¼‰ï¼Œé€™å°æ–¼åˆ†æï¼Œå¯è¦–åŒ–å’Œäº¤äº’å¼æ§åˆ¶å°é¡¯ç¤ºå¾ˆé‡è¦ã€‚
+å•Ÿç”¨è‡ªå‹•å’Œé¡¯å¼æ•¸æ“šå°é½Šã€‚
+å…è¨±ç›´è§€åœ°ç²å–å’Œè¨­ç½®æ•¸æ“šé›†çš„å­é›†ã€‚
+
+åœ¨æœ¬ç¯€ä¸­ï¼Œæˆ‘å€‘å°‡é‡é»é—œæ³¨æœ€å¾Œä¸€é»ï¼šå³å¦‚ä½•åˆ‡ç‰‡ï¼Œåˆ‡å¡Šï¼Œä»¥åŠé€šå¸¸å¦‚ä½•ç²å–å’Œè¨­ç½®ç†Šè²“å°è±¡çš„å­é›†ã€‚ä¸»è¦é‡é»å°‡æ”¾åœ¨Serieså’ŒDataFrameä¸Šï¼Œå› ç‚ºå®ƒå€‘åœ¨è©²é ˜åŸŸå¾—åˆ°äº†æ›´å¤šçš„é–‹ç™¼é—œæ³¨ã€‚
+
+æ³¨æ„
+Pythonå’ŒNumPyç´¢å¼•é‹ç®—ç¬¦[]å’Œå±¬æ€§é‹ç®—ç¬¦.
+å¯åœ¨å„ç¨®ç”¨ä¾‹ä¸­å¿«é€Ÿè¼•é¬†åœ°è¨ªå•ç†Šè²“æ•¸æ“šçµæ§‹ã€‚é€™ä½¿äº¤äº’å¼å·¥ä½œè®Šå¾—ç›´è§€ï¼Œå› ç‚ºå¦‚æœæ‚¨å·²ç¶“çŸ¥é“å¦‚ä½•è™•ç†Pythonå­—å…¸å’ŒNumPyæ•¸çµ„ï¼Œå‰‡æ²’æœ‰ä»€éº¼æ–°çš„çŸ¥è­˜è¦å­¸ç¿’ã€‚ä½†æ˜¯ï¼Œç”±æ–¼äº‹å…ˆä¸çŸ¥é“è¦è¨ªå•çš„æ•¸æ“šé¡å‹ï¼Œå› æ­¤ç›´æ¥ä½¿ç”¨æ¨™æº–é‹ç®—ç¬¦å­˜åœ¨ä¸€äº›å„ªåŒ–é™åˆ¶ã€‚å°æ–¼ç”Ÿç”¢ä»£ç¢¼ï¼Œæˆ‘å€‘å»ºè­°æ‚¨åˆ©ç”¨æœ¬ç« ä¸­ä»‹ç´¹çš„å„ªåŒ–çš„ç†Šè²“æ•¸æ“šè¨ªå•æ–¹æ³•ã€‚
+
+
+è­¦å‘Š
+è¿”å›å‰¯æœ¬é‚„æ˜¯åƒè€ƒä»¥é€²è¡Œè¨­ç½®æ“ä½œï¼Œå¯èƒ½å–æ±ºæ–¼ä¸Šä¸‹æ–‡ã€‚é€™æœ‰æ™‚è¢«ç¨±ç‚ºï¼Œæ‡‰è©²é¿å…ã€‚è«‹åƒé–±è¿”å›è¦–åœ–èˆ‡å¾©åˆ¶ã€‚chained assignment
+
+
+è­¦å‘Š
+åœ¨0.18.0ä¸­å·²ç¶“é—¡æ˜äº†å°åŸºæ–¼æ•´æ•¸çš„å¸¶æœ‰æµ®é»æ•¸çš„ç´¢å¼•çš„ç´¢å¼•ï¼Œæœ‰é—œæ›´æ”¹çš„æ‘˜è¦ï¼Œè«‹åƒè¦‹æ­¤è™•ã€‚
+
+è¦‹å¤šæŒ‡æ¨™/é«˜ç´šç´¢å¼•çš„MultiIndexå’Œæ›´å…ˆé€²çš„ç´¢å¼•æ–‡ä»¶ã€‚
+æœ‰é—œæŸäº›é«˜ç´šç­–ç•¥ï¼Œè«‹åƒé–±æœ¬é£Ÿè­œã€‚
+
+ä¸åŒçš„é¸æ“‡ç´¢å¼•Â¶
+å°è±¡é¸æ“‡å…·æœ‰è¨±å¤šç”¨æˆ¶è«‹æ±‚çš„æ·»åŠ é …ï¼Œä»¥æ”¯æŒæ›´æ˜ç¢ºçš„åŸºæ–¼ä½ç½®çš„ç´¢å¼•ã€‚ç†Šè²“ç¾åœ¨æ”¯æŒä¸‰ç¨®é¡å‹çš„å¤šè»¸ç´¢å¼•ã€‚
+
+.locä¸»è¦åŸºæ–¼æ¨™ç±¤ï¼Œä½†ä¹Ÿå¯ä»¥èˆ‡å¸ƒçˆ¾æ•¸çµ„ä¸€èµ·ä½¿ç”¨ã€‚æ‰¾ä¸åˆ°ç‰©å“æ™‚.locæœƒå‡é«˜KeyErrorã€‚å…è¨±çš„è¼¸å…¥ç‚ºï¼š
+
+
+å–®å€‹æ¨™ç±¤ï¼Œä¾‹å¦‚5æˆ–'a'ï¼ˆæ³¨æ„ï¼Œå®ƒ5è¢«è§£é‡‹ç‚ºç´¢å¼•çš„
+ æ¨™ç±¤ã€‚æ­¤ç”¨æ³•ä¸æ˜¯æ²¿ç´¢å¼•çš„æ•´æ•¸ä½ç½®ã€‚ï¼‰ã€‚
+
+æ¨™ç±¤åˆ—è¡¨æˆ–æ•¸çµ„ã€‚['a', 'b', 'c']
+
+å¸¶æ¨™ç±¤çš„åˆ‡ç‰‡å°è±¡'a':'f'ï¼ˆæ³¨æ„ï¼Œç›¸åæ™®é€šçš„Pythonç‰‡ï¼Œéƒ½é–‹å§‹å’Œåœæ­¢éƒ½åŒ…æ‹¬åœ¨å…§ï¼Œå­˜åœ¨æ–¼ç´¢å¼•æ™‚ï¼è¦‹åˆ‡ç‰‡ç”¨æ¨™ç±¤ï¼‰ã€‚
+
+å¸ƒçˆ¾æ•¸çµ„
+
+ä¸€å€‹callableå¸¶æœ‰ä¸€å€‹åƒæ•¸ï¼ˆèª¿ç”¨Seriesæˆ–DataFrameï¼‰çš„å‡½æ•¸ï¼Œè©²å‡½æ•¸è¿”å›ç”¨æ–¼ç´¢å¼•çš„æœ‰æ•ˆè¼¸å‡ºï¼ˆä¸Šè¿°ä¹‹ä¸€ï¼‰ã€‚
+
+0.18.1ç‰ˆä¸­çš„æ–°åŠŸèƒ½ã€‚
+
+
+
+
+æœ‰é—œæ›´å¤šä¿¡æ¯ï¼Œè«‹åƒè¦‹æŒ‰æ¨™ç±¤é¸æ“‡ã€‚
+
+.ilocä¸»è¦æ˜¯æ•´æ•¸ä½ç½®ï¼ˆä¾†è‡ª0æ–¼
+ length-1æ‰€è¿°è»¸ç·šçš„ï¼‰ï¼Œä½†ä¹Ÿå¯ä»¥ç”¨å¸ƒçˆ¾é™£åˆ—ä½¿ç”¨ã€‚ å¦‚æœè«‹æ±‚çš„ç´¢å¼•å™¨è¶…å‡ºé‚Šç•Œï¼Œ.ilocå‰‡å°‡å¢åŠ IndexErrorï¼Œä½†åˆ‡ç‰‡ç´¢å¼•å™¨é™¤å¤–ï¼Œè©²ç´¢å¼•å…è¨±è¶Šç•Œç´¢å¼•ã€‚ï¼ˆé€™ç¬¦åˆPython / NumPy slice 
+èªç¾©ï¼‰ã€‚å…è¨±çš„è¼¸å…¥ç‚ºï¼š
+
+
+æ•´æ•¸ï¼Œä¾‹å¦‚5ã€‚
+
+æ•´æ•¸åˆ—è¡¨æˆ–æ•¸çµ„ã€‚[4, 3, 0]
+
+å…·æœ‰intçš„sliceå°è±¡1:7ã€‚
+
+å¸ƒçˆ¾æ•¸çµ„ã€‚
+
+ä¸€å€‹callableå¸¶æœ‰ä¸€å€‹åƒæ•¸ï¼ˆèª¿ç”¨Seriesæˆ–DataFrameï¼‰çš„å‡½æ•¸ï¼Œè©²å‡½æ•¸è¿”å›ç”¨æ–¼ç´¢å¼•çš„æœ‰æ•ˆè¼¸å‡ºï¼ˆä¸Šè¿°ä¹‹ä¸€ï¼‰ã€‚
+
+0.18.1ç‰ˆä¸­çš„æ–°åŠŸèƒ½ã€‚
+
+
+
+
+è«‹åƒé–±â€œ æŒ‰ä½ç½®é¸æ“‡â€ï¼Œâ€œ
+ é«˜ç´šç´¢å¼•ç·¨åˆ¶â€å’Œâ€œ é«˜ç´šå±¤æ¬¡çµæ§‹â€ã€‚
+
+.locï¼Œ.ilocä»¥åŠ[]ç´¢å¼•ä¹Ÿå¯ä»¥æ¥å—callableä½œç‚ºç´¢å¼•å™¨ã€‚åœ¨â€œ æŒ‰å‘¼å«é¸æ“‡â€ä¸­æŸ¥çœ‹æ›´å¤šä¿¡æ¯ã€‚
+
+
+å¾å…·æœ‰å¤šè»¸é¸æ“‡çš„å°.locåƒä¸­ç²å–å€¼ä½¿ç”¨ä»¥ä¸‹ç¬¦è™Ÿï¼ˆä½œç‚ºç¤ºä¾‹ï¼Œä½†ä»¥ä¸‹å…§å®¹åŒæ¨£é©ç”¨.ilocï¼‰ã€‚ä»»ä½•è»¸è¨ªå•å™¨éƒ½å¯ä»¥ç‚ºnull slice :ã€‚è»¸å†·è½çš„è¦æ ¼è¢«å‡å®šç‚º:ï¼Œä¾‹å¦‚p.loc['a']ç›¸ç•¶æ–¼
+ ã€‚p.loc['a', :, :]
+
+
+
+
+
+
+å°åƒé¡å‹
+ç´¢å¼•å™¨
+
+
+
+ç³»åˆ—
+s.loc[indexer]
+
+æ•¸æ“šæ¡†
+df.loc[row_indexer,column_indexer]
+
+
+
+
+
+åŸºç¤Â¶
+æ­£å¦‚åœ¨ä¸Šä¸€ç¯€ä»‹ç´¹æ•¸æ“šçµæ§‹æ™‚æ‰€æåˆ°çš„é‚£æ¨£ï¼Œä½¿ç”¨é€²è¡Œç´¢å¼•[]ï¼ˆ__getitem__
+å°æ–¼ç†Ÿæ‚‰Pythonä¸­å¯¦ç¾é¡è¡Œç‚ºçš„äººå€‘ä¾†èªªï¼‰çš„ä¸»è¦åŠŸèƒ½æ˜¯é¸æ“‡ä½ç¶­åˆ‡ç‰‡ã€‚ä¸‹è¡¨é¡¯ç¤ºäº†ä½¿ç”¨ç´¢å¼•pandaså°è±¡æ™‚çš„è¿”å›é¡å‹å€¼[]ï¼š
+
+
+
+
+
+
+
+å°åƒé¡å‹
+é¸æ‹”
+è¿”å›å€¼é¡å‹
+
+
+
+ç³»åˆ—
+series[label]
+æ¨™é‡å€¼
+
+æ•¸æ“šæ¡†
+frame[colname]
+Series å°æ‡‰æ–¼å§“
+
+
+
+åœ¨é€™è£¡ï¼Œæˆ‘å€‘æ§‹é€ äº†ä¸€å€‹ç°¡å–®çš„æ™‚é–“åºåˆ—æ•¸æ“šé›†ï¼Œç”¨æ–¼èªªæ˜ç´¢å¼•åŠŸèƒ½ï¼š
+In [1]: dates = pd.date_range('1/1/2000', periods=8)
+
+In [2]: df = pd.DataFrame(np.random.randn(8, 4),
+   ...:                   index=dates, columns=['A', 'B', 'C', 'D'])
+   ...: 
+
+In [3]: df
+Out[3]: 
+                   A         B         C         D
+2000-01-01  0.469112 -0.282863 -1.509059 -1.135632
+2000-01-02  1.212112 -0.173215  0.119209 -1.044236
+2000-01-03 -0.861849 -2.104569 -0.494929  1.071804
+2000-01-04  0.721555 -0.706771 -1.039575  0.271860
+2000-01-05 -0.424972  0.567020  0.276232 -1.087401
+2000-01-06 -0.673690  0.113648 -1.478427  0.524988
+2000-01-07  0.404705  0.577046 -1.715002 -1.039268
+2000-01-08 -0.370647 -1.157892 -1.344312  0.844885
+
+
+
+æ³¨æ„
+é™¤éç‰¹åˆ¥èªªæ˜ï¼Œå¦å‰‡æ‰€æœ‰ç´¢å¼•åŠŸèƒ½éƒ½ä¸æ˜¯ç‰¹å®šæ–¼æ™‚é–“åºåˆ—çš„ã€‚
+
+å› æ­¤ï¼Œå¦‚ä¸Šæ‰€è¿°ï¼Œæˆ‘å€‘ä½¿ç”¨[]ä»¥ä¸‹æ–¹æ³•é€²è¡Œäº†æœ€åŸºæœ¬çš„ç´¢å¼•ç·¨åˆ¶ï¼š
+In [4]: s = df['A']
+
+In [5]: s[dates[5]]
+Out[5]: -0.6736897080883706
+
+
+æ‚¨å¯ä»¥å°‡åˆ—åˆ—è¡¨å‚³é[]çµ¦ä»¥è©²é †åºé¸æ“‡åˆ—ã€‚å¦‚æœDataFrameä¸­ä¸åŒ…å«åˆ—ï¼Œå‰‡å°‡å¼•ç™¼ç•°å¸¸ã€‚ä¹Ÿå¯ä»¥ä»¥é€™ç¨®æ–¹å¼è¨­ç½®å¤šåˆ—ï¼š
+In [6]: df
+Out[6]: 
+                   A         B         C         D
+2000-01-01  0.469112 -0.282863 -1.509059 -1.135632
+2000-01-02  1.212112 -0.173215  0.119209 -1.044236
+2000-01-03 -0.861849 -2.104569 -0.494929  1.071804
+2000-01-04  0.721555 -0.706771 -1.039575  0.271860
+2000-01-05 -0.424972  0.567020  0.276232 -1.087401
+2000-01-06 -0.673690  0.113648 -1.478427  0.524988
+2000-01-07  0.404705  0.577046 -1.715002 -1.039268
+2000-01-08 -0.370647 -1.157892 -1.344312  0.844885
+
+In [7]: df[['B', 'A']] = df[['A', 'B']]
+
+In [8]: df
+Out[8]: 
+                   A         B         C         D
+2000-01-01 -0.282863  0.469112 -1.509059 -1.135632
+2000-01-02 -0.173215  1.212112  0.119209 -1.044236
+2000-01-03 -2.104569 -0.861849 -0.494929  1.071804
+2000-01-04 -0.706771  0.721555 -1.039575  0.271860
+2000-01-05  0.567020 -0.424972  0.276232 -1.087401
+2000-01-06  0.113648 -0.673690 -1.478427  0.524988
+2000-01-07  0.577046  0.404705 -1.715002 -1.039268
+2000-01-08 -1.157892 -0.370647 -1.344312  0.844885
+
+
+æ‚¨å¯èƒ½æœƒç™¼ç¾é€™å°æ–¼å°‡è½‰æ›ï¼ˆå°±åœ°ï¼‰æ‡‰ç”¨æ–¼åˆ—çš„å­é›†å¾ˆæœ‰ç”¨ã€‚
+
+è­¦å‘Š
+è¨­ç½®Serieså’ŒDataFrameå¾.locå’Œä¸­æ™‚ï¼Œpandasæœƒå°é½Šæ‰€æœ‰è»¸.ilocã€‚
+é€™ä¸æœƒä¿®æ”¹ï¼Œdfå› ç‚ºåˆ—å°é½Šæ˜¯åœ¨è³¦å€¼ä¹‹å‰ã€‚
+In [9]: df[['A', 'B']]
+Out[9]: 
+                   A         B
+2000-01-01 -0.282863  0.469112
+2000-01-02 -0.173215  1.212112
+2000-01-03 -2.104569 -0.861849
+2000-01-04 -0.706771  0.721555
+2000-01-05  0.567020 -0.424972
+2000-01-06  0.113648 -0.673690
+2000-01-07  0.577046  0.404705
+2000-01-08 -1.157892 -0.370647
+
+In [10]: df.loc[:, ['B', 'A']] = df[['A', 'B']]
+
+In [11]: df[['A', 'B']]
+Out[11]: 
+                   A         B
+2000-01-01 -0.282863  0.469112
+2000-01-02 -0.173215  1.212112
+2000-01-03 -2.104569 -0.861849
+2000-01-04 -0.706771  0.721555
+2000-01-05  0.567020 -0.424972
+2000-01-06  0.113648 -0.673690
+2000-01-07  0.577046  0.404705
+2000-01-08 -1.157892 -0.370647
+
+
+äº¤æ›åˆ—å€¼çš„æ­£ç¢ºæ–¹æ³•æ˜¯ä½¿ç”¨åŸå§‹å€¼ï¼š
+In [12]: df.loc[:, ['B', 'A']] = df[['A', 'B']].to_numpy()
+
+In [13]: df[['A', 'B']]
+Out[13]: 
+                   A         B
+2000-01-01  0.469112 -0.282863
+2000-01-02  1.212112 -0.173215
+2000-01-03 -0.861849 -2.104569
+2000-01-04  0.721555 -0.706771
+2000-01-05 -0.424972  0.567020
+2000-01-06 -0.673690  0.113648
+2000-01-07  0.404705  0.577046
+2000-01-08 -0.370647 -1.157892
+
+
+
+
+
+å±¬æ€§è¨ªå•Â¶
+æ‚¨å¯ä»¥ç›´æ¥å°‡Seriesæˆ–ä¸Šçš„ç´¢å¼•DataFrameä½œç‚ºå±¬æ€§è¨ªå•ï¼š
+In [14]: sa = pd.Series([1, 2, 3], index=list('abc'))
+
+In [15]: dfa = df.copy()
+
+
+In [16]: sa.b
+Out[16]: 2
+
+In [17]: dfa.A
+Out[17]: 
+2000-01-01    0.469112
+2000-01-02    1.212112
+2000-01-03   -0.861849
+2000-01-04    0.721555
+2000-01-05   -0.424972
+2000-01-06   -0.673690
+2000-01-07    0.404705
+2000-01-08   -0.370647
+Freq: D, Name: A, dtype: float64
+
+
+In [18]: sa.a = 5
+
+In [19]: sa
+Out[19]: 
+a    5
+b    2
+c    3
+dtype: int64
+
+In [20]: dfa.A = list(range(len(dfa.index)))  # ok if A already exists
+
+In [21]: dfa
+Out[21]: 
+            A         B         C         D
+2000-01-01  0 -0.282863 -1.509059 -1.135632
+2000-01-02  1 -0.173215  0.119209 -1.044236
+2000-01-03  2 -2.104569 -0.494929  1.071804
+2000-01-04  3 -0.706771 -1.039575  0.271860
+2000-01-05  4  0.567020  0.276232 -1.087401
+2000-01-06  5  0.113648 -1.478427  0.524988
+2000-01-07  6  0.577046 -1.715002 -1.039268
+2000-01-08  7 -1.157892 -1.344312  0.844885
+
+In [22]: dfa['A'] = list(range(len(dfa.index)))  # use this form to create a new column
+
+In [23]: dfa
+Out[23]: 
+            A         B         C         D
+2000-01-01  0 -0.282863 -1.509059 -1.135632
+2000-01-02  1 -0.173215  0.119209 -1.044236
+2000-01-03  2 -2.104569 -0.494929  1.071804
+2000-01-04  3 -0.706771 -1.039575  0.271860
+2000-01-05  4  0.567020  0.276232 -1.087401
+2000-01-06  5  0.113648 -1.478427  0.524988
+2000-01-07  6  0.577046 -1.715002 -1.039268
+2000-01-08  7 -1.157892 -1.344312  0.844885
+
+
+
+è­¦å‘Š
+
+åƒ…ç•¶indexå…ƒç´ æ˜¯æœ‰æ•ˆçš„Pythonæ¨™è­˜ç¬¦ï¼ˆä¾‹å¦‚s.1ï¼Œä¸å…è¨±ä½¿ç”¨ï¼‰æ™‚ï¼Œæ‰èƒ½ä½¿ç”¨æ­¤è¨ªå•æ¬Šé™ã€‚æœ‰é—œæœ‰æ•ˆæ¨™è­˜ç¬¦çš„èªªæ˜ï¼Œè«‹åƒè¦‹æ­¤è™•ã€‚
+å¦‚æœè©²å±¬æ€§èˆ‡ç¾æœ‰æ–¹æ³•åç¨±è¡çªï¼ˆä¾‹å¦‚s.minä¸å…è¨±ï¼‰ï¼Œå‰‡è©²å±¬æ€§å°‡ä¸å¯ç”¨ã€‚
+åŒæ¨£ï¼Œè©²å±¬æ€§å°‡ä¸å¯ç”¨ï¼Œå¦‚æœå®ƒèˆ‡ä¸‹åˆ—ä»»ä½•åå–®çš„è¡çªï¼šindexï¼Œ
+ major_axisï¼Œminor_axisï¼Œitemsã€‚
+åœ¨ä»»ä½•ä¸€ç¨®æƒ…æ³ä¸‹ï¼Œæ¨™æº–ç´¢å¼•ä»ç„¶å¯ä»¥å·¥ä½œï¼Œä¾‹å¦‚s['1']ï¼Œs['min']å’Œs['index']å°‡è¨ªå•ç›¸æ‡‰çš„å…ƒç´ æˆ–åˆ—ã€‚
+
+
+å¦‚æœä½¿ç”¨çš„æ˜¯IPythonç’°å¢ƒï¼Œå‰‡é‚„å¯ä»¥ä½¿ç”¨è£½è¡¨ç¬¦è£œå…¨ä¾†æŸ¥çœ‹é€™äº›å¯è¨ªå•çš„å±¬æ€§ã€‚
+æ‚¨é‚„å¯ä»¥å°‡åˆ†é…dictçµ¦çš„ä¸€è¡ŒDataFrameï¼š
+In [24]: x = pd.DataFrame({'x': [1, 2, 3], 'y': [3, 4, 5]})
+
+In [25]: x.iloc[1] = {'x': 9, 'y': 99}
+
+In [26]: x
+Out[26]: 
+   x   y
+0  1   3
+1  9  99
+2  3   5
+
+
+æ‚¨å¯ä»¥ä½¿ç”¨å±¬æ€§è¨ªå•ä¾†ä¿®æ”¹Seriesæˆ–DataFrameåˆ—çš„ç¾æœ‰å…ƒç´ ï¼Œä½†è¦å°å¿ƒï¼›å¦‚æœæ‚¨å˜—è©¦ä½¿ç”¨å±¬æ€§è¨ªå•ä¾†å‰µå»ºæ–°åˆ—ï¼Œå‰‡å®ƒå°‡å‰µå»ºä¸€å€‹æ–°å±¬æ€§è€Œä¸æ˜¯ä¸€å€‹æ–°åˆ—ã€‚åœ¨0.21.0åŠæ›´é«˜ç‰ˆæœ¬ä¸­ï¼Œé€™å°‡å¼•ç™¼UserWarningï¼š
+In [1]: df = pd.DataFrame({'one': [1., 2., 3.]})
+In [2]: df.two = [4, 5, 6]
+UserWarning: Pandas doesn't allow Series to be assigned into nonexistent columns - see https://pandas.pydata.org/pandas-docs/stable/indexing.html#attribute_access
+In [3]: df
+Out[3]:
+   one
+0  1.0
+1  2.0
+2  3.0
+
+
+
+
+åˆ‡ç‰‡ç¯„åœÂ¶
+åœ¨â€œ æŒ‰ä½ç½®é¸æ“‡â€éƒ¨åˆ†è©³ç´°ä»‹ç´¹äº†è©².ilocæ–¹æ³•ï¼Œä»‹ç´¹äº†æ²¿ä»»æ„è»¸åˆ‡ç‰‡ç¯„åœçš„æœ€å¯é ä¸”æœ€ä¸€è‡´çš„æ–¹æ³•ã€‚ç¾åœ¨ï¼Œæˆ‘å€‘è§£é‡‹ä½¿ç”¨[]é‹ç®—ç¬¦é€²è¡Œåˆ‡ç‰‡çš„èªç¾©ã€‚
+ä½¿ç”¨Seriesæ™‚ï¼Œèªæ³•èˆ‡ndarrayå®Œå…¨ä¸€æ¨£ï¼Œè¿”å›å€¼çš„ä¸€éƒ¨åˆ†å’Œç›¸æ‡‰çš„æ¨™ç±¤ï¼š
+In [27]: s[:5]
+Out[27]: 
+2000-01-01    0.469112
+2000-01-02    1.212112
+2000-01-03   -0.861849
+2000-01-04    0.721555
+2000-01-05   -0.424972
+Freq: D, Name: A, dtype: float64
+
+In [28]: s[::2]
+Out[28]: 
+2000-01-01    0.469112
+2000-01-03   -0.861849
+2000-01-05   -0.424972
+2000-01-07    0.404705
+Freq: 2D, Name: A, dtype: float64
+
+In [29]: s[::-1]
+Out[29]: 
+2000-01-08   -0.370647
+2000-01-07    0.404705
+2000-01-06   -0.673690
+2000-01-05   -0.424972
+2000-01-04    0.721555
+2000-01-03   -0.861849
+2000-01-02    1.212112
+2000-01-01    0.469112
+Freq: -1D, Name: A, dtype: float64
+
+
+è«‹æ³¨æ„ï¼Œè¨­ç½®åŒæ¨£é©ç”¨ï¼š
+In [30]: s2 = s.copy()
+
+In [31]: s2[:5] = 0
+
+In [32]: s2
+Out[32]: 
+2000-01-01    0.000000
+2000-01-02    0.000000
+2000-01-03    0.000000
+2000-01-04    0.000000
+2000-01-05    0.000000
+2000-01-06   -0.673690
+2000-01-07    0.404705
+2000-01-08   -0.370647
+Freq: D, Name: A, dtype: float64
+
+
+ä½¿ç”¨DataFrameæ™‚ï¼Œ[] åœ¨rowsä¸­å°åˆ‡ç‰‡é€²è¡Œåˆ‡ç‰‡ã€‚ç”±æ–¼é€™æ˜¯ä¸€ç¨®å¸¸è¦‹çš„æ“ä½œï¼Œå› æ­¤å¾ˆå¤§ç¨‹åº¦ä¸Šæ˜¯ç‚ºäº†æ–¹ä¾¿è€Œæä¾›ã€‚
+In [33]: df[:3]
+Out[33]: 
+                   A         B         C         D
+2000-01-01  0.469112 -0.282863 -1.509059 -1.135632
+2000-01-02  1.212112 -0.173215  0.119209 -1.044236
+2000-01-03 -0.861849 -2.104569 -0.494929  1.071804
+
+In [34]: df[::-1]
+Out[34]: 
+                   A         B         C         D
+2000-01-08 -0.370647 -1.157892 -1.344312  0.844885
+2000-01-07  0.404705  0.577046 -1.715002 -1.039268
+2000-01-06 -0.673690  0.113648 -1.478427  0.524988
+2000-01-05 -0.424972  0.567020  0.276232 -1.087401
+2000-01-04  0.721555 -0.706771 -1.039575  0.271860
+2000-01-03 -0.861849 -2.104569 -0.494929  1.071804
+2000-01-02  1.212112 -0.173215  0.119209 -1.044236
+2000-01-01  0.469112 -0.282863 -1.509059 -1.135632
+
+
+
+
+æŒ‰æ¨™ç±¤é¸æ“‡Â¶
+
+è­¦å‘Š
+è¿”å›å‰¯æœ¬é‚„æ˜¯åƒè€ƒä»¥é€²è¡Œè¨­ç½®æ“ä½œï¼Œå¯èƒ½å–æ±ºæ–¼ä¸Šä¸‹æ–‡ã€‚é€™æœ‰æ™‚è¢«ç¨±ç‚ºï¼Œæ‡‰è©²é¿å…ã€‚è«‹åƒé–±è¿”å›è¦–åœ–èˆ‡å¾©åˆ¶ã€‚chained assignment
+
+
+è­¦å‘Š
+
+.locç•¶æ‚¨æä¾›èˆ‡ç´¢å¼•é¡å‹ä¸å…¼å®¹ï¼ˆæˆ–å¯è½‰æ›ï¼‰çš„åˆ‡ç‰‡å™¨æ™‚ï¼Œå®ƒæ˜¯åš´æ ¼çš„ã€‚ä¾‹å¦‚åœ¨ä¸­ä½¿ç”¨æ•´æ•¸DatetimeIndexã€‚é€™äº›å°‡å¼•ç™¼ä¸€å€‹TypeErrorã€‚
+In [35]: dfl = pd.DataFrame(np.random.randn(5, 4),
+   ....:                    columns=list('ABCD'),
+   ....:                    index=pd.date_range('20130101', periods=5))
+   ....: 
+
+In [36]: dfl
+Out[36]: 
+                   A         B         C         D
+2013-01-01  1.075770 -0.109050  1.643563 -1.469388
+2013-01-02  0.357021 -0.674600 -1.776904 -0.968914
+2013-01-03 -1.294524  0.413738  0.276662 -0.472035
+2013-01-04 -0.013960 -0.362543 -0.006154 -0.923061
+2013-01-05  0.895717  0.805244 -1.206412  2.565646
+
+
+In [4]: dfl.loc[2:3]
+TypeError: cannot do slice indexing on &lt;class 'pandas.tseries.index.DatetimeIndex'&gt; with these indexers [2] of &lt;type 'int'&gt;
+
+
+åˆ‡ç‰‡ä¸­çš„å­—ç¬¦ä¸²å–œæ­¡å¯ä»¥è½‰æ›ç‚ºç´¢å¼•çš„é¡å‹ä¸¦å°è‡´è‡ªç„¶åˆ‡ç‰‡ã€‚
+In [37]: dfl.loc['20130102':'20130104']
+Out[37]: 
+                   A         B         C         D
+2013-01-02  0.357021 -0.674600 -1.776904 -0.968914
+2013-01-03 -1.294524  0.413738  0.276662 -0.472035
+2013-01-04 -0.013960 -0.362543 -0.006154 -0.923061
+
+
+
+
+è­¦å‘Š
+å¾0.21.0é–‹å§‹ï¼Œpandaså°‡é¡¯ç¤ºFutureWarningifç´¢å¼•ï¼Œå…¶ä¸­åŒ…å«ç¼ºå°‘æ¨™ç±¤çš„åˆ—è¡¨ã€‚åœ¨æœªä¾†ï¼Œé€™å°‡å¼•ç™¼KeyErrorã€‚è«‹åƒè¦‹é¡ä¼¼åˆ—è¡¨çš„åˆ—è¡¨ã€‚ä¸æ¨è–¦ä½¿ç”¨åœ¨åˆ—è¡¨ä¸­ç¼ºå°‘éµçš„locã€‚
+
+ç†Šè²“æä¾›äº†ä¸€æ•´å¥—æ–¹æ³•ï¼Œä»¥ä¾¿å…·æœ‰ç´”åŸºæ–¼æ¨™ç±¤çš„ç´¢å¼•ã€‚é€™æ˜¯ä¸€å€‹åŸºæ–¼åš´æ ¼åŒ…å«çš„å”è­°ã€‚è¦æ±‚çš„æ¯å€‹æ¨™ç±¤éƒ½å¿…é ˆåœ¨ç´¢å¼•ä¸­ï¼Œå¦å‰‡KeyErrorå°‡å¼•ç™¼aã€‚åˆ‡ç‰‡æ™‚ï¼Œå¦‚æœç´¢å¼•ä¸­å­˜åœ¨èµ·å§‹é‚Šç•Œå’Œçµ‚æ­¢é‚Šç•Œï¼Œå‰‡éƒ½å°‡åŒ…æ‹¬åœ¨å…§ã€‚æ•´æ•¸æ˜¯æœ‰æ•ˆçš„æ¨™ç±¤ï¼Œä½†å®ƒå€‘å¼•ç”¨çš„æ˜¯æ¨™ç±¤ï¼Œè€Œä¸æ˜¯positionã€‚
+è©².locå±¬æ€§æ˜¯ä¸»è¦çš„è¨ªå•æ–¹æ³•ã€‚ä»¥ä¸‹æ˜¯æœ‰æ•ˆè¼¸å…¥ï¼š
+
+å–®å€‹æ¨™ç±¤ï¼Œä¾‹å¦‚5æˆ–'a'ï¼ˆæ³¨æ„ï¼Œå®ƒ5è¢«è§£é‡‹ç‚ºç´¢å¼•çš„æ¨™ç±¤ã€‚æ­¤ç”¨æ³•ä¸æ˜¯æ²¿ç´¢å¼•çš„æ•´æ•¸ä½ç½®ã€‚ï¼‰ã€‚
+æ¨™ç±¤åˆ—è¡¨æˆ–æ•¸çµ„ã€‚['a', 'b', 'c']
+å¸¶æ¨™ç±¤çš„åˆ‡ç‰‡å°è±¡'a':'f'ï¼ˆæ³¨æ„ï¼Œç›¸åæ™®é€šçš„Pythonç‰‡ï¼Œéƒ½é–‹å§‹å’Œåœæ­¢éƒ½åŒ…æ‹¬åœ¨å…§ï¼Œå­˜åœ¨æ–¼ç´¢å¼•æ™‚ï¼è¦‹åˆ‡ç‰‡ç”¨æ¨™ç±¤ï¼‰ã€‚
+å¸ƒçˆ¾æ•¸çµ„ã€‚
+A callableï¼Œè«‹åƒè¦‹æŒ‰å¯èª¿ç”¨é¸æ“‡ã€‚
+
+In [38]: s1 = pd.Series(np.random.randn(6), index=list('abcdef'))
+
+In [39]: s1
+Out[39]: 
+a    1.431256
+b    1.340309
+c   -1.170299
+d   -0.226169
+e    0.410835
+f    0.813850
+dtype: float64
+
+In [40]: s1.loc['c':]
+Out[40]: 
+c   -1.170299
+d   -0.226169
+e    0.410835
+f    0.813850
+dtype: float64
+
+In [41]: s1.loc['b']
+Out[41]: 1.3403088497993827
+
+
+è«‹æ³¨æ„ï¼Œè¨­ç½®åŒæ¨£é©ç”¨ï¼š
+In [42]: s1.loc['c':] = 0
+
+In [43]: s1
+Out[43]: 
+a    1.431256
+b    1.340309
+c    0.000000
+d    0.000000
+e    0.000000
+f    0.000000
+dtype: float64
+
+
+ä½¿ç”¨DataFrameï¼š
+In [44]: df1 = pd.DataFrame(np.random.randn(6, 4),
+   ....:                    index=list('abcdef'),
+   ....:                    columns=list('ABCD'))
+   ....: 
+
+In [45]: df1
+Out[45]: 
+          A         B         C         D
+a  0.132003 -0.827317 -0.076467 -1.187678
+b  1.130127 -1.436737 -1.413681  1.607920
+c  1.024180  0.569605  0.875906 -2.211372
+d  0.974466 -2.006747 -0.410001 -0.078638
+e  0.545952 -1.219217 -1.226825  0.769804
+f -1.281247 -0.727707 -0.121306 -0.097883
+
+In [46]: df1.loc[['a', 'b', 'd'], :]
+Out[46]: 
+          A         B         C         D
+a  0.132003 -0.827317 -0.076467 -1.187678
+b  1.130127 -1.436737 -1.413681  1.607920
+d  0.974466 -2.006747 -0.410001 -0.078638
+
+
+é€šéæ¨™ç±¤åˆ‡ç‰‡è¨ªå•ï¼š
+In [47]: df1.loc['d':, 'A':'C']
+Out[47]: 
+          A         B         C
+d  0.974466 -2.006747 -0.410001
+e  0.545952 -1.219217 -1.226825
+f -1.281247 -0.727707 -0.121306
+
+
+è¦ä½¿ç”¨æ¨™ç±¤ï¼ˆç›¸ç•¶æ–¼df.xs('a')ï¼‰ç²å–æ©«æˆªé¢ï¼š
+In [48]: df1.loc['a']
+Out[48]: 
+A    0.132003
+B   -0.827317
+C   -0.076467
+D   -1.187678
+Name: a, dtype: float64
+
+
+è¦ä½¿ç”¨å¸ƒçˆ¾æ•¸çµ„ç²å–å€¼ï¼š
+In [49]: df1.loc['a'] &gt; 0
+Out[49]: 
+A     True
+B    False
+C    False
+D    False
+Name: a, dtype: bool
+
+In [50]: df1.loc[:, df1.loc['a'] &gt; 0]
+Out[50]: 
+          A
+a  0.132003
+b  1.130127
+c  1.024180
+d  0.974466
+e  0.545952
+f -1.281247
+
+
+ç‚ºäº†é¡¯å¼ç²å–å€¼ï¼ˆç­‰æ•ˆæ–¼deprecated df.get_value('a','A')ï¼‰ï¼š
+# this is also equivalent to ``df1.at['a','A']``
+In [51]: df1.loc['a', 'A']
+Out[51]: 0.13200317033032932
+
+
+
+å¸¶æ¨™ç±¤åˆ‡ç‰‡Â¶
+.locèˆ‡åˆ‡ç‰‡ä¸€èµ·ä½¿ç”¨æ™‚ï¼Œå¦‚æœç´¢å¼•ä¸­åŒæ™‚åŒ…å«é–‹å§‹æ¨™ç±¤å’Œåœæ­¢æ¨™ç±¤ï¼Œå‰‡è¿”å›ä½æ–¼å…©è€…ä¹‹é–“çš„å…ƒç´ ï¼ˆåŒ…æ‹¬å®ƒå€‘ï¼‰ï¼š
+In [52]: s = pd.Series(list('abcde'), index=[0, 3, 2, 5, 4])
+
+In [53]: s.loc[3:5]
+Out[53]: 
+3    b
+2    c
+5    d
+dtype: object
+
+
+å¦‚æœé€™å…©å€‹ä¸­çš„è‡³å°‘ä¸€å€‹ä¸å­˜åœ¨çš„ï¼Œä½†è©²æŒ‡æ•¸é€²è¡Œæ’åºï¼Œä¸¦èƒ½å°å•Ÿå‹•å’Œåœæ­¢çš„æ¨™ç±¤é€²è¡Œæ¯”è¼ƒï¼Œç„¶å¾Œåˆ‡ç‰‡ä»ç„¶æœƒæŒ‰é æœŸæ–¹å¼å·¥ä½œï¼Œé€šéé¸æ“‡çš„æ¨™ç±¤ï¼Œå…¶æ’ååœ¨å…©è€…ä¹‹é–“ï¼š
+In [54]: s.sort_index()
+Out[54]: 
+0    a
+2    c
+3    b
+4    e
+5    d
+dtype: object
+
+In [55]: s.sort_index().loc[1:6]
+Out[55]: 
+2    c
+3    b
+4    e
+5    d
+dtype: object
+
+
+ä½†æ˜¯ï¼Œå¦‚æœä¸å­˜åœ¨å…©è€…ä¸­çš„è‡³å°‘ä¸€å€‹ä¸¦ä¸”æœªå°ç´¢å¼•é€²è¡Œæ’åºï¼Œå‰‡æœƒå¼•ç™¼éŒ¯èª¤ï¼ˆå› ç‚ºé€™æ¨£åšæœƒå°è‡´è¨ˆç®—é‡å¤§ï¼Œä¸¦ä¸”å¯èƒ½å°æ··åˆé¡å‹ç´¢å¼•é€ æˆæ­§ç¾©ï¼‰ã€‚ä¾‹å¦‚ï¼Œåœ¨ä¸Šé¢çš„ç¤ºä¾‹ä¸­ï¼Œs.loc[1:6]å°‡ä¸Šå‡KeyErrorã€‚
+
+
+
+æŒ‰ä½ç½®é¸æ“‡Â¶
+
+è­¦å‘Š
+è¿”å›å‰¯æœ¬é‚„æ˜¯åƒè€ƒä»¥é€²è¡Œè¨­ç½®æ“ä½œï¼Œå¯èƒ½å–æ±ºæ–¼ä¸Šä¸‹æ–‡ã€‚é€™æœ‰æ™‚è¢«ç¨±ç‚ºï¼Œæ‡‰è©²é¿å…ã€‚è«‹åƒé–±è¿”å›è¦–åœ–èˆ‡å¾©åˆ¶ã€‚chained assignment
+
+Pandasæä¾›äº†ä¸€çµ„æ–¹æ³•ï¼Œä»¥ä¾¿ç²å¾—ç´”ç²¹åŸºæ–¼æ•´æ•¸çš„ç´¢å¼•ã€‚èªç¾©åš´æ ¼éµå¾ªPythonå’ŒNumPyåˆ‡ç‰‡ã€‚é€™äº›æ­£åœ¨0-basedç´¢å¼•ã€‚åˆ‡ç‰‡æ™‚ï¼ŒåŒ…æ‹¬é–‹å§‹é‚Šç•Œï¼Œä½†ä¸åŒ…æ‹¬ä¸Šé™ã€‚å˜—è©¦ä½¿ç”¨éæ•´æ•¸ï¼Œå³ä½¿æœ‰æ•ˆæ¨™ç±¤ä¹Ÿæœƒå¼•ç™¼ã€‚IndexError
+è©².ilocå±¬æ€§æ˜¯ä¸»è¦çš„è¨ªå•æ–¹æ³•ã€‚ä»¥ä¸‹æ˜¯æœ‰æ•ˆè¼¸å…¥ï¼š
+
+æ•´æ•¸ï¼Œä¾‹å¦‚5ã€‚
+æ•´æ•¸åˆ—è¡¨æˆ–æ•¸çµ„ã€‚[4, 3, 0]
+å…·æœ‰intçš„sliceå°è±¡1:7ã€‚
+å¸ƒçˆ¾æ•¸çµ„ã€‚
+A callableï¼Œè«‹åƒè¦‹æŒ‰å¯èª¿ç”¨é¸æ“‡ã€‚
+
+In [56]: s1 = pd.Series(np.random.randn(5), index=list(range(0, 10, 2)))
+
+In [57]: s1
+Out[57]: 
+0    0.695775
+2    0.341734
+4    0.959726
+6   -1.110336
+8   -0.619976
+dtype: float64
+
+In [58]: s1.iloc[:3]
+Out[58]: 
+0    0.695775
+2    0.341734
+4    0.959726
+dtype: float64
+
+In [59]: s1.iloc[3]
+Out[59]: -1.110336102891167
+
+
+è«‹æ³¨æ„ï¼Œè¨­ç½®åŒæ¨£é©ç”¨ï¼š
+In [60]: s1.iloc[:3] = 0
+
+In [61]: s1
+Out[61]: 
+0    0.000000
+2    0.000000
+4    0.000000
+6   -1.110336
+8   -0.619976
+dtype: float64
+
+
+ä½¿ç”¨DataFrameï¼š
+In [62]: df1 = pd.DataFrame(np.random.randn(6, 4),
+   ....:                    index=list(range(0, 12, 2)),
+   ....:                    columns=list(range(0, 8, 2)))
+   ....: 
+
+In [63]: df1
+Out[63]: 
+           0         2         4         6
+0   0.149748 -0.732339  0.687738  0.176444
+2   0.403310 -0.154951  0.301624 -2.179861
+4  -1.369849 -0.954208  1.462696 -1.743161
+6  -0.826591 -0.345352  1.314232  0.690579
+8   0.995761  2.396780  0.014871  3.357427
+10 -0.317441 -1.236269  0.896171 -0.487602
+
+
+é€šéæ•´æ•¸åˆ‡ç‰‡é¸æ“‡ï¼š
+In [64]: df1.iloc[:3]
+Out[64]: 
+          0         2         4         6
+0  0.149748 -0.732339  0.687738  0.176444
+2  0.403310 -0.154951  0.301624 -2.179861
+4 -1.369849 -0.954208  1.462696 -1.743161
+
+In [65]: df1.iloc[1:5, 2:4]
+Out[65]: 
+          4         6
+2  0.301624 -2.179861
+4  1.462696 -1.743161
+6  1.314232  0.690579
+8  0.014871  3.357427
+
+
+é€šéæ•´æ•¸åˆ—è¡¨é¸æ“‡ï¼š
+In [66]: df1.iloc[[1, 3, 5], [1, 3]]
+Out[66]: 
+           2         6
+2  -0.154951 -2.179861
+6  -0.345352  0.690579
+10 -1.236269 -0.487602
+
+
+In [67]: df1.iloc[1:3, :]
+Out[67]: 
+          0         2         4         6
+2  0.403310 -0.154951  0.301624 -2.179861
+4 -1.369849 -0.954208  1.462696 -1.743161
+
+
+In [68]: df1.iloc[:, 1:3]
+Out[68]: 
+           2         4
+0  -0.732339  0.687738
+2  -0.154951  0.301624
+4  -0.954208  1.462696
+6  -0.345352  1.314232
+8   2.396780  0.014871
+10 -1.236269  0.896171
+
+
+# this is also equivalent to ``df1.iat[1,1]``
+In [69]: df1.iloc[1, 1]
+Out[69]: -0.1549507744249032
+
+
+è¦ä½¿ç”¨æ•´æ•¸ä½ç½®ï¼ˆç­‰æ–¼df.xs(1)ï¼‰ç²å–æ©«æˆªé¢ï¼š
+In [70]: df1.iloc[1]
+Out[70]: 
+0    0.403310
+2   -0.154951
+4    0.301624
+6   -2.179861
+Name: 2, dtype: float64
+
+
+è¶…å‡ºç¯„åœåˆ‡ç‰‡ç´¢å¼•çš„è™•ç†æ–¹å¼èˆ‡Python / Numpyä¸­ä¸€æ¨£ã€‚
+# these are allowed in python/numpy.
+In [71]: x = list('abcdef')
+
+In [72]: x
+Out[72]: ['a', 'b', 'c', 'd', 'e', 'f']
+
+In [73]: x[4:10]
+Out[73]: ['e', 'f']
+
+In [74]: x[8:10]
+Out[74]: []
+
+In [75]: s = pd.Series(x)
+
+In [76]: s
+Out[76]: 
+0    a
+1    b
+2    c
+3    d
+4    e
+5    f
+dtype: object
+
+In [77]: s.iloc[4:10]
+Out[77]: 
+4    e
+5    f
+dtype: object
+
+In [78]: s.iloc[8:10]
+Out[78]: Series([], dtype: object)
+
+
+è«‹æ³¨æ„ï¼Œä½¿ç”¨è¶…å‡ºç¯„åœçš„åˆ‡ç‰‡å¯èƒ½æœƒå°è‡´ä¸€å€‹ç©ºè»¸ï¼ˆä¾‹å¦‚ï¼Œè¿”å›ä¸€å€‹ç©ºçš„DataFrameï¼‰ã€‚
+In [79]: dfl = pd.DataFrame(np.random.randn(5, 2), columns=list('AB'))
+
+In [80]: dfl
+Out[80]: 
+          A         B
+0 -0.082240 -2.182937
+1  0.380396  0.084844
+2  0.432390  1.519970
+3 -0.493662  0.600178
+4  0.274230  0.132885
+
+In [81]: dfl.iloc[:, 2:3]
+Out[81]: 
+Empty DataFrame
+Columns: []
+Index: [0, 1, 2, 3, 4]
+
+In [82]: dfl.iloc[:, 1:3]
+Out[82]: 
+          B
+0 -2.182937
+1  0.084844
+2  1.519970
+3  0.600178
+4  0.132885
+
+In [83]: dfl.iloc[4:6]
+Out[83]: 
+         A         B
+4  0.27423  0.132885
+
+
+è¶…å‡ºç¯„åœçš„å–®å€‹ç´¢å¼•å™¨å°‡å¼•ç™¼IndexErrorã€‚ä»»ä½•å…ƒç´ è¶…å‡ºç¯„åœçš„ç´¢å¼•å™¨åˆ—è¡¨éƒ½æœƒå¼•ç™¼
+ IndexErrorã€‚
+&gt;&gt;&gt; dfl.iloc[[4, 5, 6]]
+IndexError: positional indexers are out-of-bounds
+
+&gt;&gt;&gt; dfl.iloc[:, 4]
+IndexError: single positional indexer is out-of-bounds
+
+
+
+
+é€šéå¯èª¿ç”¨é¸æ“‡Â¶
+
+0.18.1ç‰ˆä¸­çš„æ–°åŠŸèƒ½ã€‚
+
+.locï¼Œ.ilocä»¥åŠ[]ç´¢å¼•ä¹Ÿå¯ä»¥æ¥å—callableä½œç‚ºç´¢å¼•å™¨ã€‚åœ¨callableå¿…é ˆèˆ‡ä¸€å€‹åƒæ•¸ï¼ˆå‘¼å«ç³»åˆ—æˆ–æ•¸æ“šå¹€ï¼‰è¿”å›çš„æœ‰æ•ˆè¼¸å‡ºç´¢å¼•åŠŸèƒ½ã€‚
+In [84]: df1 = pd.DataFrame(np.random.randn(6, 4),
+   ....:                    index=list('abcdef'),
+   ....:                    columns=list('ABCD'))
+   ....: 
+
+In [85]: df1
+Out[85]: 
+          A         B         C         D
+a -0.023688  2.410179  1.450520  0.206053
+b -0.251905 -2.213588  1.063327  1.266143
+c  0.299368 -0.863838  0.408204 -1.048089
+d -0.025747 -0.988387  0.094055  1.262731
+e  1.289997  0.082423 -0.055758  0.536580
+f -0.489682  0.369374 -0.034571 -2.484478
+
+In [86]: df1.loc[lambda df: df.A &gt; 0, :]
+Out[86]: 
+          A         B         C         D
+c  0.299368 -0.863838  0.408204 -1.048089
+e  1.289997  0.082423 -0.055758  0.536580
+
+In [87]: df1.loc[:, lambda df: ['A', 'B']]
+Out[87]: 
+          A         B
+a -0.023688  2.410179
+b -0.251905 -2.213588
+c  0.299368 -0.863838
+d -0.025747 -0.988387
+e  1.289997  0.082423
+f -0.489682  0.369374
+
+In [88]: df1.iloc[:, lambda df: [0, 1]]
+Out[88]: 
+          A         B
+a -0.023688  2.410179
+b -0.251905 -2.213588
+c  0.299368 -0.863838
+d -0.025747 -0.988387
+e  1.289997  0.082423
+f -0.489682  0.369374
+
+In [89]: df1[lambda df: df.columns[0]]
+Out[89]: 
+a   -0.023688
+b   -0.251905
+c    0.299368
+d   -0.025747
+e    1.289997
+f   -0.489682
+Name: A, dtype: float64
+
+
+æ‚¨å¯ä»¥åœ¨ä¸­ä½¿ç”¨å¯èª¿ç”¨ç´¢å¼•Seriesã€‚
+In [90]: df1.A.loc[lambda s: s &gt; 0]
+Out[90]: 
+c    0.299368
+e    1.289997
+Name: A, dtype: float64
+
+
+ä½¿ç”¨é€™äº›æ–¹æ³•/ç´¢å¼•å™¨ï¼Œæ‚¨å¯ä»¥éˆæ¥æ•¸æ“šé¸æ“‡æ“ä½œï¼Œè€Œç„¡éœ€ä½¿ç”¨è‡¨æ™‚è®Šé‡ã€‚
+In [91]: bb = pd.read_csv('data/baseball.csv', index_col='id')
+
+In [92]: (bb.groupby(['year', 'team']).sum()
+   ....:    .loc[lambda df: df.r &gt; 100])
+   ....: 
+Out[92]: 
+           stint    g    ab    r    h  X2b  ...     so   ibb   hbp    sh    sf  gidp
+year team                                   ...                                     
+2007 CIN       6  379   745  101  203   35  ...  127.0  14.0   1.0   1.0  15.0  18.0
+     DET       5  301  1062  162  283   54  ...  176.0   3.0  10.0   4.0   8.0  28.0
+     HOU       4  311   926  109  218   47  ...  212.0   3.0   9.0  16.0   6.0  17.0
+     LAN      11  413  1021  153  293   61  ...  141.0   8.0   9.0   3.0   8.0  29.0
+     NYN      13  622  1854  240  509  101  ...  310.0  24.0  23.0  18.0  15.0  48.0
+     SFN       5  482  1305  198  337   67  ...  188.0  51.0   8.0  16.0   6.0  41.0
+     TEX       2  198   729  115  200   40  ...  140.0   4.0   5.0   2.0   8.0  16.0
+     TOR       4  459  1408  187  378   96  ...  265.0  16.0  12.0   4.0  16.0  38.0
+
+[8 rows x 18 columns]
+
+
+
+
+IX Indexerå·²æ£„ç”¨Â¶
+
+è­¦å‘Š
+åœ¨0.20.0é–‹å§‹ï¼Œ.ixç´¢å¼•å™¨å·²è¢«æ£„ç”¨ï¼Œè´Šæˆæ›´åŠ åš´æ ¼.iloc
+å’Œ.locç´¢å¼•ã€‚
+
+.ixåœ¨æ¨æ–·ç”¨æˆ¶æƒ³è¦åšä»€éº¼æ–¹é¢æä¾›äº†å¾ˆå¤šé­”åŠ›ã€‚ä¹Ÿå°±æ˜¯èªªï¼Œ.ixå¯ä»¥æ ¹æ“šç´¢å¼•çš„æ•¸æ“šé¡å‹æ±ºå®šæ˜¯å¦é€šéæ¨™ç±¤å°ä½ç½®é€²è¡Œç´¢å¼•ã€‚å¤šå¹´ä¾†ï¼Œé€™å¼•èµ·äº†ç›¸ç•¶å¤šçš„ç”¨æˆ¶æ··äº‚ã€‚
+æ¨è–¦çš„ç´¢å¼•ç·¨åˆ¶æ–¹æ³•æ˜¯ï¼š
+
+.locå¦‚æœè¦æ¨™è¨˜ç´¢å¼•ã€‚
+.ilocå¦‚æœè¦ä½ç½®ç´¢å¼•ã€‚
+
+In [93]: dfd = pd.DataFrame({'A': [1, 2, 3],
+   ....:                     'B': [4, 5, 6]},
+   ....:                    index=list('abc'))
+   ....: 
+
+In [94]: dfd
+Out[94]: 
+   A  B
+a  1  4
+b  2  5
+c  3  6
+
+
+å…ˆå‰çš„è¡Œç‚ºï¼Œæ‚¨å¸Œæœ›å¾â€œ Aâ€åˆ—çš„ç´¢å¼•ä¸­ç²å–ç¬¬0å’Œç¬¬2å€‹å…ƒç´ ã€‚
+In [3]: dfd.ix[[0, 2], 'A']
+Out[3]:
+a    1
+c    3
+Name: A, dtype: int64
+
+
+ä½¿ç”¨.locã€‚åœ¨é€™è£¡ï¼Œæˆ‘å€‘å°‡å¾ç´¢å¼•ä¸­é¸æ“‡é©ç•¶çš„ç´¢å¼•ï¼Œç„¶å¾Œä½¿ç”¨æ¨™ç±¤ç´¢å¼•ã€‚
+In [95]: dfd.loc[dfd.index[[0, 2]], 'A']
+Out[95]: 
+a    1
+c    3
+Name: A, dtype: int64
+
+
+ä¹Ÿå¯ä»¥ä½¿ç”¨ä¾†è¡¨é”é€™ä¸€é».ilocï¼Œæ–¹æ³•æ˜¯æ˜ç¢ºç²å–ç´¢å¼•å™¨ä¸Šçš„ä½ç½®ï¼Œä¸¦ä½¿ç”¨
+ ä½ç½®ç´¢å¼•ä¾†é¸æ“‡äº‹ç‰©ã€‚
+In [96]: dfd.iloc[[0, 2], dfd.columns.get_loc('A')]
+Out[96]: 
+a    1
+c    3
+Name: A, dtype: int64
+
+
+è¦ç²å–å¤šå€‹ç´¢å¼•å™¨ï¼Œè«‹ä½¿ç”¨.get_indexerï¼š
+In [97]: dfd.iloc[[0, 2], dfd.columns.get_indexer(['A', 'B'])]
+Out[97]: 
+   A  B
+a  1  4
+c  3  6
+
+
+
+
+ä¸æ¨è–¦ä½¿ç”¨å¸¶æœ‰ç¼ºå°‘æ¨™ç±¤çš„åˆ—è¡¨å»ºç«‹ç´¢å¼•Â¶
+
+è­¦å‘Š
+å¾0.21.0é–‹å§‹ï¼Œä¸æ¨è–¦ä½¿ç”¨.locæˆ–[]ä½¿ç”¨å¸¶æœ‰ä¸€å€‹æˆ–å¤šå€‹ç¼ºå°‘æ¨™ç±¤çš„åˆ—è¡¨ï¼Œè€Œæ¨è–¦ä½¿ç”¨.reindexã€‚
+
+åœ¨ä»¥å‰çš„ç‰ˆæœ¬ä¸­ï¼Œ.loc[list-of-labels]åªè¦æ‰¾åˆ°è‡³å°‘ä¸€å€‹éµå°±å¯ä»¥ä½¿ç”¨using ï¼ˆå¦å‰‡æœƒå¼•ç™¼KeyErrorï¼‰ã€‚ä¸å»ºè­°ä½¿ç”¨æ­¤è¡Œç‚ºï¼Œå®ƒå°‡é¡¯ç¤ºä¸€æ¢è­¦å‘Šæ¶ˆæ¯ï¼ŒæŒ‡å‘æ­¤éƒ¨åˆ†ã€‚æ¨è–¦çš„æ›¿ä»£æ–¹æ³•æ˜¯ä½¿ç”¨.reindex()ã€‚
+ä¾‹å¦‚ã€‚
+In [98]: s = pd.Series([1, 2, 3])
+
+In [99]: s
+Out[99]: 
+0    1
+1    2
+2    3
+dtype: int64
+
+
+æ‰¾åˆ°æ‰€æœ‰éµçš„é¸æ“‡ä¿æŒä¸è®Šã€‚
+In [100]: s.loc[[1, 2]]
+Out[100]: 
+1    2
+2    3
+dtype: int64
+
+
+ä»¥å‰çš„è¡Œç‚º
+In [4]: s.loc[[1, 2, 3]]
+Out[4]:
+1    2.0
+2    3.0
+3    NaN
+dtype: float64
+
+
+ç•¶å‰è¡Œç‚º
+In [4]: s.loc[[1, 2, 3]]
+Passing list-likes to .loc with any non-matching elements will raise
+KeyError in the future, you can use .reindex() as an alternative.
+
+See the documentation here:
+http://pandas.pydata.org/pandas-docs/stable/indexing.html#deprecate-loc-reindex-listlike
+
+Out[4]:
+1    2.0
+2    3.0
+3    NaN
+dtype: float64
+
+
+
+é‡å»ºç´¢å¼•Â¶
+å¯¦ç¾é¸æ“‡æ½›åœ¨æœªæ‰¾åˆ°å…ƒç´ çš„æ…£ç”¨æ–¹å¼æ˜¯é€šé.reindex()ã€‚å¦è«‹åƒé–±â€œ é‡æ–°ç´¢å¼•ç·¨åˆ¶ â€éƒ¨åˆ†ã€‚
+In [101]: s.reindex([1, 2, 3])
+Out[101]: 
+1    2.0
+2    3.0
+3    NaN
+dtype: float64
+
+
+å¦å¤–ï¼Œå¦‚æœæ‚¨åªæƒ³é¸æ“‡æœ‰æ•ˆçš„å¯†é‘°ï¼Œå‰‡ä»¥ä¸‹æ˜¯æ…£ç”¨ä¸”æœ‰æ•ˆçš„ï¼›ä¿è­‰ä¿ç•™é¸æ“‡çš„dtypeã€‚
+In [102]: labels = [1, 2, 3]
+
+In [103]: s.loc[s.index.intersection(labels)]
+Out[103]: 
+1    2
+2    3
+dtype: int64
+
+
+ç´¢å¼•é‡è¤‡æœƒç”¢ç”Ÿ.reindex()ï¼š
+In [104]: s = pd.Series(np.arange(4), index=['a', 'a', 'b', 'c'])
+
+In [105]: labels = ['c', 'd']
+
+
+In [17]: s.reindex(labels)
+ValueError: cannot reindex from a duplicate axis
+
+
+é€šå¸¸ï¼Œæ‚¨å¯ä»¥å°‡æ‰€éœ€æ¨™ç±¤èˆ‡ç•¶å‰è»¸ç›¸äº¤ï¼Œç„¶å¾Œé‡æ–°ç´¢å¼•ã€‚
+In [106]: s.loc[s.index.intersection(labels)].reindex(labels)
+Out[106]: 
+c    3.0
+d    NaN
+dtype: float64
+
+
+ä½†æ˜¯ï¼Œå¦‚æœæ‚¨å¾—åˆ°çš„ç´¢å¼•é‡è¤‡ï¼Œé€™ä»ç„¶æœƒå¢åŠ ã€‚
+In [41]: labels = ['a', 'd']
+
+In [42]: s.loc[s.index.intersection(labels)].reindex(labels)
+ValueError: cannot reindex from a duplicate axis
+
+
+
+
+
+é¸æ“‡éš¨æ©Ÿæ¨£æœ¬Â¶
+ä½¿ç”¨è©²sample()æ–¹æ³•å¾Seriesæˆ–DataFrameä¸­éš¨æ©Ÿé¸æ“‡è¡Œæˆ–åˆ—ã€‚è©²æ–¹æ³•é»˜èªæƒ…æ³ä¸‹å°‡å°è¡Œé€²è¡Œæ¡æ¨£ï¼Œä¸¦æ¥å—è¦è¿”å›çš„ç‰¹å®šæ•¸é‡çš„è¡Œ/åˆ—ï¼Œæˆ–ä¸€éƒ¨åˆ†è¡Œã€‚
+In [107]: s = pd.Series([0, 1, 2, 3, 4, 5])
+
+# When no arguments are passed, returns 1 row.
+In [108]: s.sample()
+Out[108]: 
+4    4
+dtype: int64
+
+# One may specify either a number of rows:
+In [109]: s.sample(n=3)
+Out[109]: 
+0    0
+4    4
+1    1
+dtype: int64
+
+# Or a fraction of the rows:
+In [110]: s.sample(frac=0.5)
+Out[110]: 
+5    5
+3    3
+1    1
+dtype: int64
+
+
+é»˜èªæƒ…æ³ä¸‹ï¼Œsampleå°‡æœ€å¤šè¿”å›æ¯ä¸€è¡Œä¸€æ¬¡ï¼Œä½†æ˜¯ä¹Ÿå¯ä»¥ä½¿ç”¨ä»¥ä¸‹replaceé¸é …é€²è¡Œæ›¿æ›æ¡æ¨£ï¼š
+In [111]: s = pd.Series([0, 1, 2, 3, 4, 5])
+
+# Without replacement (default):
+In [112]: s.sample(n=6, replace=False)
+Out[112]: 
+0    0
+1    1
+5    5
+3    3
+2    2
+4    4
+dtype: int64
+
+# With replacement:
+In [113]: s.sample(n=6, replace=True)
+Out[113]: 
+0    0
+4    4
+3    3
+2    2
+4    4
+4    4
+dtype: int64
+
+
+é»˜èªæƒ…æ³ä¸‹ï¼Œæ¯è¡Œè¢«é¸æ“‡çš„æ¦‚ç‡ç›¸åŒï¼Œä½†æ˜¯å¦‚æœæ‚¨å¸Œæœ›è¡Œå…·æœ‰ä¸åŒçš„æ¦‚ç‡ï¼Œå‰‡å¯ä»¥å°‡sampleå‡½æ•¸æ¡æ¨£æ¬Šé‡å‚³éç‚º
+ weightsã€‚é€™äº›æ¬Šé‡å¯ä»¥æ˜¯åˆ—è¡¨ï¼ŒNumPyæ•¸çµ„æˆ–ç³»åˆ—ï¼Œä½†å®ƒå€‘çš„é•·åº¦å¿…é ˆèˆ‡è¦æ¡æ¨£çš„å°è±¡ç›¸åŒã€‚ç¼ºå°‘çš„å€¼å°‡è¢«è¦–ç‚ºæ¬Šé‡ç‚ºé›¶ï¼Œä¸¦ä¸”ä¸å…è¨±ä½¿ç”¨infå€¼ã€‚å¦‚æœæ¬Šé‡ä¸ç­‰æ–¼1ï¼Œå°‡é€šéå°‡æ‰€æœ‰æ¬Šé‡é™¤ä»¥æ¬Šé‡ä¹‹å’Œä¾†é‡æ–°æ­¸ä¸€åŒ–ã€‚ä¾‹å¦‚ï¼š
+In [114]: s = pd.Series([0, 1, 2, 3, 4, 5])
+
+In [115]: example_weights = [0, 0, 0.2, 0.2, 0.2, 0.4]
+
+In [116]: s.sample(n=3, weights=example_weights)
+Out[116]: 
+5    5
+4    4
+3    3
+dtype: int64
+
+# Weights will be re-normalized automatically
+In [117]: example_weights2 = [0.5, 0, 0, 0, 0, 0]
+
+In [118]: s.sample(n=1, weights=example_weights2)
+Out[118]: 
+0    0
+dtype: int64
+
+
+æ‡‰ç”¨æ–¼DataFrameæ™‚ï¼Œåªéœ€å°‡åˆ—åä½œç‚ºå­—ç¬¦ä¸²å‚³éï¼Œå°±å¯ä»¥å°‡DataFrameçš„ä¸€åˆ—ç”¨ä½œæ¡æ¨£æ¬Šé‡ï¼ˆå‰ææ˜¯è¦å°è¡Œè€Œä¸æ˜¯åˆ—é€²è¡Œæ¡æ¨£ï¼‰ã€‚
+In [119]: df2 = pd.DataFrame({'col1': [9, 8, 7, 6],
+   .....:                     'weight_column': [0.5, 0.4, 0.1, 0]})
+   .....: 
+
+In [120]: df2.sample(n=3, weights='weight_column')
+Out[120]: 
+   col1  weight_column
+1     8            0.4
+0     9            0.5
+2     7            0.1
+
+
+sampleé‚„å…è¨±ç”¨æˆ¶ä½¿ç”¨axisåƒæ•¸å°åˆ—è€Œä¸æ˜¯è¡Œé€²è¡Œæ¡æ¨£ã€‚
+In [121]: df3 = pd.DataFrame({'col1': [1, 2, 3], 'col2': [2, 3, 4]})
+
+In [122]: df3.sample(n=1, axis=1)
+Out[122]: 
+   col1
+0     1
+1     2
+2     3
+
+
+æœ€å¾Œï¼Œé‚„å¯ä»¥sampleä½¿ç”¨random_stateåƒæ•¸ç‚ºçš„éš¨æ©Ÿæ•¸ç”Ÿæˆå™¨è¨­ç½®ç¨®å­ï¼Œè©²ç¨®å­å°‡æ¥å—æ•´æ•¸ï¼ˆä½œç‚ºç¨®å­ï¼‰æˆ–NumPy RandomStateå°è±¡ã€‚
+In [123]: df4 = pd.DataFrame({'col1': [1, 2, 3], 'col2': [2, 3, 4]})
+
+# With a given seed, the sample will always draw the same rows.
+In [124]: df4.sample(n=2, random_state=2)
+Out[124]: 
+   col1  col2
+2     3     4
+1     2     3
+
+In [125]: df4.sample(n=2, random_state=2)
+Out[125]: 
+   col1  col2
+2     3     4
+1     2     3
+
+
+
+
+æ”¾å¤§è¨­ç½®Â¶
+.loc/[]ç•¶ç‚ºè©²è»¸è¨­ç½®ä¸å­˜åœ¨çš„éµæ™‚ï¼Œé€™äº›æ“ä½œå¯ä»¥åŸ·è¡Œæ”¾å¤§ã€‚
+åœ¨é€™ç¨®Seriesæƒ…æ³ä¸‹ï¼Œé€™å¯¦éš›ä¸Šæ˜¯é™„åŠ æ“ä½œã€‚
+In [126]: se = pd.Series([1, 2, 3])
+
+In [127]: se
+Out[127]: 
+0    1
+1    2
+2    3
+dtype: int64
+
+In [128]: se[5] = 5.
+
+In [129]: se
+Out[129]: 
+0    1.0
+1    2.0
+2    3.0
+5    5.0
+dtype: float64
+
+
+é˜¿DataFrameå¯ä»¥åœ¨ä»»ä¸€è»¸é€šéè¢«æ”¾å¤§.locã€‚
+In [130]: dfi = pd.DataFrame(np.arange(6).reshape(3, 2),
+   .....:                    columns=['A', 'B'])
+   .....: 
+
+In [131]: dfi
+Out[131]: 
+   A  B
+0  0  1
+1  2  3
+2  4  5
+
+In [132]: dfi.loc[:, 'C'] = dfi.loc[:, 'A']
+
+In [133]: dfi
+Out[133]: 
+   A  B  C
+0  0  1  0
+1  2  3  2
+2  4  5  4
+
+
+é€™å°±åƒå°çš„appendæ“ä½œDataFrameã€‚
+In [134]: dfi.loc[3] = 5
+
+In [135]: dfi
+Out[135]: 
+   A  B  C
+0  0  1  0
+1  2  3  2
+2  4  5  4
+3  5  5  5
+
+
+
+
+å¿«é€Ÿç²å–å’Œè¨­ç½®æ¨™é‡å€¼Â¶
+ç”±æ–¼withçš„ç´¢å¼•[]å¿…é ˆè™•ç†å¾ˆå¤šæƒ…æ³ï¼ˆå–®æ¨™ç±¤è¨ªå•ï¼Œåˆ‡ç‰‡ï¼Œå¸ƒçˆ¾ç´¢å¼•ç­‰ï¼‰ï¼Œå› æ­¤è¦å¼„æ¸…æ¥šæ‚¨è¦çš„å…§å®¹æœ‰ä¸€äº›é–‹éŠ·ã€‚å¦‚æœåªæƒ³è¨ªå•æ¨™é‡å€¼ï¼Œæœ€å¿«çš„æ–¹æ³•æ˜¯ä½¿ç”¨atå’Œiatæ–¹æ³•ï¼Œé€™äº›æ–¹æ³•åœ¨æ‰€æœ‰æ•¸æ“šçµæ§‹ä¸Šå¯¦ç¾ã€‚
+èˆ‡ç›¸ä¼¼locï¼Œatæä¾›åŸºæ–¼æ¨™ç±¤çš„æ¨™é‡æŸ¥æ‰¾ï¼Œè€Œç›¸ä¼¼åœ°iatæä¾›èˆ‡åŸºæ–¼æ•´æ•¸çš„æŸ¥æ‰¾iloc
+In [136]: s.iat[5]
+Out[136]: 5
+
+In [137]: df.at[dates[5], 'A']
+Out[137]: -0.6736897080883706
+
+In [138]: df.iat[3, 0]
+Out[138]: 0.7215551622443669
+
+
+æ‚¨ä¹Ÿå¯ä»¥ä½¿ç”¨é€™äº›ç›¸åŒçš„ç´¢å¼•å™¨é€²è¡Œè¨­ç½®ã€‚
+In [139]: df.at[dates[5], 'E'] = 7
+
+In [140]: df.iat[3, 0] = 7
+
+
+at å¦‚æœç¼ºå°‘ç´¢å¼•å™¨ï¼Œå¯èƒ½æœƒåƒä¸Šé¢ä¸€æ¨£å°±åœ°æ”¾å¤§å°è±¡ã€‚
+In [141]: df.at[dates[-1] + pd.Timedelta('1 day'), 0] = 7
+
+In [142]: df
+Out[142]: 
+                   A         B         C         D    E    0
+2000-01-01  0.469112 -0.282863 -1.509059 -1.135632  NaN  NaN
+2000-01-02  1.212112 -0.173215  0.119209 -1.044236  NaN  NaN
+2000-01-03 -0.861849 -2.104569 -0.494929  1.071804  NaN  NaN
+2000-01-04  7.000000 -0.706771 -1.039575  0.271860  NaN  NaN
+2000-01-05 -0.424972  0.567020  0.276232 -1.087401  NaN  NaN
+2000-01-06 -0.673690  0.113648 -1.478427  0.524988  7.0  NaN
+2000-01-07  0.404705  0.577046 -1.715002 -1.039268  NaN  NaN
+2000-01-08 -0.370647 -1.157892 -1.344312  0.844885  NaN  NaN
+2000-01-09       NaN       NaN       NaN       NaN  NaN  7.0
+
+
+
+
+å¸ƒçˆ¾ç´¢å¼•Â¶
+å¦ä¸€å€‹å¸¸è¦‹çš„æ“ä½œæ˜¯ä½¿ç”¨å¸ƒçˆ¾å‘é‡ä¾†éæ¿¾æ•¸æ“šã€‚é‹ç®—ç¬¦æ˜¯ï¼š|for orï¼Œ&for andå’Œ~for notã€‚é€™äº›å¿…é ˆé€šéä½¿ç”¨æ‹¬è™Ÿä¸­ï¼Œç”±æ–¼é»˜èªPythonæœƒè¨ˆç®—è¡¨é”å¼å¦‚è¢«åˆ†çµ„ç‚º
+ ï¼Œè€Œæ‰€å¸Œæœ›çš„è©•åƒ¹é †åºæ˜¯
+ ã€‚df.A &gt; 2 & df.B &lt; 3df.A &gt; (2 & df.B) &lt; 3(df.A &gt; 2) & (df.B &lt; 3)
+ä½¿ç”¨å¸ƒçˆ¾å‘é‡ç‚ºSeriesç·¨åˆ¶ç´¢å¼•çš„æ–¹å¼èˆ‡NumPy ndarrayå®Œå…¨ç›¸åŒï¼š
+In [143]: s = pd.Series(range(-3, 4))
+
+In [144]: s
+Out[144]: 
+0   -3
+1   -2
+2   -1
+3    0
+4    1
+5    2
+6    3
+dtype: int64
+
+In [145]: s[s &gt; 0]
+Out[145]: 
+4    1
+5    2
+6    3
+dtype: int64
+
+In [146]: s[(s &lt; -1) | (s &gt; 0.5)]
+Out[146]: 
+0   -3
+1   -2
+4    1
+5    2
+6    3
+dtype: int64
+
+In [147]: s[~(s &lt; 0)]
+Out[147]: 
+3    0
+4    1
+5    2
+6    3
+dtype: int64
+
+
+æ‚¨å¯ä»¥ä½¿ç”¨å¸ƒçˆ¾å‘é‡å¾DataFrameä¸­é¸æ“‡è¡Œï¼Œè©²å¸ƒçˆ¾å‘é‡çš„é•·åº¦èˆ‡DataFrameçš„ç´¢å¼•ç›¸åŒï¼ˆä¾‹å¦‚ï¼Œå¾DataFrameçš„åˆ—ä¹‹ä¸€æ´¾ç”Ÿçš„å€¼ï¼‰ï¼š
+In [148]: df[df['A'] &gt; 0]
+Out[148]: 
+                   A         B         C         D   E   0
+2000-01-01  0.469112 -0.282863 -1.509059 -1.135632 NaN NaN
+2000-01-02  1.212112 -0.173215  0.119209 -1.044236 NaN NaN
+2000-01-04  7.000000 -0.706771 -1.039575  0.271860 NaN NaN
+2000-01-07  0.404705  0.577046 -1.715002 -1.039268 NaN NaN
+
+
+åˆ—è¡¨æ¨å°å’ŒmapSeriesæ–¹æ³•ä¹Ÿå¯ä»¥ç”¨æ–¼ç”¢ç”Ÿæ›´è¤‡é›œçš„æ¢ä»¶ï¼š
+In [149]: df2 = pd.DataFrame({'a': ['one', 'one', 'two', 'three', 'two', 'one', 'six'],
+   .....:                     'b': ['x', 'y', 'y', 'x', 'y', 'x', 'x'],
+   .....:                     'c': np.random.randn(7)})
+   .....: 
+
+# only want 'two' or 'three'
+In [150]: criterion = df2['a'].map(lambda x: x.startswith('t'))
+
+In [151]: df2[criterion]
+Out[151]: 
+       a  b         c
+2    two  y  0.041290
+3  three  x  0.361719
+4    two  y -0.238075
+
+# equivalent but slower
+In [152]: df2[[x.startswith('t') for x in df2['a']]]
+Out[152]: 
+       a  b         c
+2    two  y  0.041290
+3  three  x  0.361719
+4    two  y -0.238075
+
+# Multiple criteria
+In [153]: df2[criterion & (df2['b'] == 'x')]
+Out[153]: 
+       a  b         c
+3  three  x  0.361719
+
+
+ä½¿ç”¨é¸æ“‡æ–¹æ³•â€œ æŒ‰æ¨™ç±¤é¸æ“‡â€ï¼Œâ€œæŒ‰ä½ç½®é¸æ“‡â€å’Œâ€œ é«˜ç´šç´¢å¼• â€é¸æ“‡æ–¹æ³•ï¼Œæ‚¨å¯ä»¥çµåˆä½¿ç”¨å¸ƒçˆ¾å‘é‡å’Œå…¶ä»–ç´¢å¼•è¡¨é”å¼æ²¿å¤šå€‹è»¸é€²è¡Œé¸æ“‡ã€‚
+In [154]: df2.loc[criterion & (df2['b'] == 'x'), 'b':'c']
+Out[154]: 
+   b         c
+3  x  0.361719
+
+
+
+
+ç”¨isinç´¢å¼•Â¶
+è€ƒæ…®isin()æ–¹æ³•Seriesï¼Œè©²æ–¹æ³•å°‡è¿”å›ä¸€å€‹å¸ƒçˆ¾å‘é‡ï¼Œè©²å¸ƒçˆ¾å‘é‡Seriesåœ¨å‚³éçš„åˆ—è¡¨ä¸­å­˜åœ¨çš„ä»»ä½•å…ƒç´ è™•éƒ½ç‚ºçœŸã€‚é€™ä½¿æ‚¨å¯ä»¥é¸æ“‡ä¸€è¡Œæˆ–å¤šåˆ—å…·æœ‰æ‰€éœ€å€¼çš„è¡Œï¼š
+In [155]: s = pd.Series(np.arange(5), index=np.arange(5)[::-1], dtype='int64')
+
+In [156]: s
+Out[156]: 
+4    0
+3    1
+2    2
+1    3
+0    4
+dtype: int64
+
+In [157]: s.isin([2, 4, 6])
+Out[157]: 
+4    False
+3    False
+2     True
+1    False
+0     True
+dtype: bool
+
+In [158]: s[s.isin([2, 4, 6])]
+Out[158]: 
+2    2
+0    4
+dtype: int64
+
+
+ç›¸åŒçš„æ–¹æ³•å¯ç”¨æ–¼Indexå°è±¡ï¼Œä¸¦ä¸”åœ¨æ‚¨ä¸çŸ¥é“å¯¦éš›ä¸Šå­˜åœ¨å“ªäº›æ‰€å°‹æ±‚æ¨™ç±¤çš„æƒ…æ³ä¸‹éå¸¸æœ‰ç”¨ï¼š
+In [159]: s[s.index.isin([2, 4, 6])]
+Out[159]: 
+4    0
+2    2
+dtype: int64
+
+# compare it to the following
+In [160]: s.reindex([2, 4, 6])
+Out[160]: 
+2    2.0
+4    0.0
+6    NaN
+dtype: float64
+
+
+é™¤æ­¤ä¹‹å¤–ï¼Œé‚„MultiIndexå…è¨±é¸æ“‡ä¸€å€‹å–®ç¨çš„ç´šåˆ¥ä»¥ç”¨æ–¼æˆå“¡è³‡æ ¼æª¢æŸ¥ï¼š
+In [161]: s_mi = pd.Series(np.arange(6),
+   .....:                  index=pd.MultiIndex.from_product([[0, 1], ['a', 'b', 'c']]))
+   .....: 
+
+In [162]: s_mi
+Out[162]: 
+0  a    0
+   b    1
+   c    2
+1  a    3
+   b    4
+   c    5
+dtype: int64
+
+In [163]: s_mi.iloc[s_mi.index.isin([(1, 'a'), (2, 'b'), (0, 'c')])]
+Out[163]: 
+0  c    2
+1  a    3
+dtype: int64
+
+In [164]: s_mi.iloc[s_mi.index.isin(['a', 'c', 'e'], level=1)]
+Out[164]: 
+0  a    0
+   c    2
+1  a    3
+   c    5
+dtype: int64
+
+
+DataFrameä¹Ÿæœ‰ä¸€å€‹isin()æ–¹æ³•ã€‚èª¿ç”¨æ™‚isinï¼Œå°‡ä¸€çµ„å€¼ä½œç‚ºæ•¸çµ„æˆ–dictå‚³éã€‚å¦‚æœvaluesæ˜¯ä¸€å€‹æ•¸çµ„ï¼Œå‰‡isinè¿”å›ä¸€å€‹èˆ‡åŸå§‹DataFrameå½¢ç‹€ç›¸åŒçš„å¸ƒçˆ¾å€¼DataFrameï¼Œç„¡è«–å…ƒç´ åœ¨å€¼åºåˆ—ä¸­çš„ä»€éº¼ä½ç½®éƒ½ç‚ºTrueã€‚
+In [165]: df = pd.DataFrame({'vals': [1, 2, 3, 4], 'ids': ['a', 'b', 'f', 'n'],
+   .....:                    'ids2': ['a', 'n', 'c', 'n']})
+   .....: 
+
+In [166]: values = ['a', 'b', 1, 3]
+
+In [167]: df.isin(values)
+Out[167]: 
+    vals    ids   ids2
+0   True   True   True
+1  False   True  False
+2   True  False  False
+3  False  False  False
+
+
+é€šå¸¸ï¼Œæ‚¨éœ€è¦å°‡æŸäº›å€¼èˆ‡æŸäº›åˆ—åŒ¹é…ã€‚åªéœ€å°‡å€¼è¨­ç½®ç‚ºaå³å¯dictï¼Œéµæ˜¯åˆ—ï¼Œè€Œå€¼æ˜¯è¦æª¢æŸ¥çš„é …ç›®åˆ—è¡¨ã€‚
+In [168]: values = {'ids': ['a', 'b'], 'vals': [1, 3]}
+
+In [169]: df.isin(values)
+Out[169]: 
+    vals    ids   ids2
+0   True   True  False
+1  False   True  False
+2   True  False  False
+3  False  False  False
+
+
+å°‡DataFrame isinèˆ‡any()å’Œall()æ–¹æ³•çµåˆä½¿ç”¨ï¼Œå¯ä»¥å¿«é€Ÿé¸æ“‡æ»¿è¶³çµ¦å®šæ¢ä»¶çš„æ•¸æ“šå­é›†ã€‚è¦é¸æ“‡æ¯ä¸€åˆ—å‡ç¬¦åˆå…¶æ¢ä»¶çš„è¡Œï¼š
+In [170]: values = {'ids': ['a', 'b'], 'ids2': ['a', 'c'], 'vals': [1, 3]}
+
+In [171]: row_mask = df.isin(values).all(1)
+
+In [172]: df[row_mask]
+Out[172]: 
+   vals ids ids2
+0     1   a    a
+
+
+
+
+è©²where()æ–¹æ³•å’Œå±è”½Â¶
+å¾å…·æœ‰å¸ƒçˆ¾å‘é‡çš„Seriesä¸­é¸æ“‡å€¼é€šå¸¸æœƒè¿”å›æ•¸æ“šçš„å­é›†ã€‚ç‚ºäº†ç¢ºä¿é¸æ“‡è¼¸å‡ºå…·æœ‰èˆ‡åŸå§‹æ•¸æ“šç›¸åŒçš„å½¢ç‹€ï¼Œå¯ä»¥whereåœ¨Serieså’Œä¸­ä½¿ç”¨æ–¹æ³•DataFrameã€‚
+è¦åƒ…è¿”å›é¸å®šçš„è¡Œï¼š
+In [173]: s[s &gt; 0]
+Out[173]: 
+3    1
+2    2
+1    3
+0    4
+dtype: int64
+
+
+è¦è¿”å›èˆ‡åŸå§‹å½¢ç‹€ç›¸åŒçš„ç³»åˆ—ï¼š
+In [174]: s.where(s &gt; 0)
+Out[174]: 
+4    NaN
+3    1.0
+2    2.0
+1    3.0
+0    4.0
+dtype: float64
+
+
+ç¾åœ¨ï¼Œå¾å…·æœ‰å¸ƒçˆ¾æ¢ä»¶çš„DataFrameä¸­é¸æ“‡å€¼é‚„å¯ä»¥ä¿ç•™è¼¸å…¥æ•¸æ“šçš„å½¢ç‹€ã€‚whereåœ¨å¾Œå°ä½¿ç”¨ä½œç‚ºå¯¦ç¾ã€‚ä»¥ä¸‹ä»£ç¢¼ç­‰æ•ˆæ–¼ã€‚df.where(df &lt; 0)
+In [175]: df[df &lt; 0]
+Out[175]: 
+                   A         B         C         D
+2000-01-01 -2.104139 -1.309525       NaN       NaN
+2000-01-02 -0.352480       NaN -1.192319       NaN
+2000-01-03 -0.864883       NaN -0.227870       NaN
+2000-01-04       NaN -1.222082       NaN -1.233203
+2000-01-05       NaN -0.605656 -1.169184       NaN
+2000-01-06       NaN -0.948458       NaN -0.684718
+2000-01-07 -2.670153 -0.114722       NaN -0.048048
+2000-01-08       NaN       NaN -0.048788 -0.808838
+
+
+å¦å¤–ï¼Œåœ¨è¿”å›çš„å‰¯æœ¬ä¸­ï¼Œä½¿ç”¨whereä¸€å€‹å¯é¸otheråƒæ•¸æ›¿æ›æ¢ä»¶ç‚ºFalseçš„å€¼ã€‚
+In [176]: df.where(df &lt; 0, -df)
+Out[176]: 
+                   A         B         C         D
+2000-01-01 -2.104139 -1.309525 -0.485855 -0.245166
+2000-01-02 -0.352480 -0.390389 -1.192319 -1.655824
+2000-01-03 -0.864883 -0.299674 -0.227870 -0.281059
+2000-01-04 -0.846958 -1.222082 -0.600705 -1.233203
+2000-01-05 -0.669692 -0.605656 -1.169184 -0.342416
+2000-01-06 -0.868584 -0.948458 -2.297780 -0.684718
+2000-01-07 -2.670153 -0.114722 -0.168904 -0.048048
+2000-01-08 -0.801196 -1.392071 -0.048788 -0.808838
+
+
+æ‚¨å¯èƒ½å¸Œæœ›æ ¹æ“šæŸäº›å¸ƒçˆ¾æ¢ä»¶è¨­ç½®å€¼ã€‚å¯ä»¥åƒé€™æ¨£ç›´è§€åœ°å®Œæˆï¼š
+In [177]: s2 = s.copy()
+
+In [178]: s2[s2 &lt; 0] = 0
+
+In [179]: s2
+Out[179]: 
+4    0
+3    1
+2    2
+1    3
+0    4
+dtype: int64
+
+In [180]: df2 = df.copy()
+
+In [181]: df2[df2 &lt; 0] = 0
+
+In [182]: df2
+Out[182]: 
+                   A         B         C         D
+2000-01-01  0.000000  0.000000  0.485855  0.245166
+2000-01-02  0.000000  0.390389  0.000000  1.655824
+2000-01-03  0.000000  0.299674  0.000000  0.281059
+2000-01-04  0.846958  0.000000  0.600705  0.000000
+2000-01-05  0.669692  0.000000  0.000000  0.342416
+2000-01-06  0.868584  0.000000  2.297780  0.000000
+2000-01-07  0.000000  0.000000  0.168904  0.000000
+2000-01-08  0.801196  1.392071  0.000000  0.000000
+
+
+é»˜èªæƒ…æ³ä¸‹ï¼Œwhereè¿”å›æ•¸æ“šçš„ä¿®æ”¹å¾Œçš„å‰¯æœ¬ã€‚æœ‰ä¸€å€‹å¯é¸åƒæ•¸ï¼Œinplaceä»¥ä¾¿å¯ä»¥åœ¨ä¸å‰µå»ºå‰¯æœ¬çš„æƒ…æ³ä¸‹ä¿®æ”¹åŸå§‹æ•¸æ“šï¼š
+In [183]: df_orig = df.copy()
+
+In [184]: df_orig.where(df &gt; 0, -df, inplace=True)
+
+In [185]: df_orig
+Out[185]: 
+                   A         B         C         D
+2000-01-01  2.104139  1.309525  0.485855  0.245166
+2000-01-02  0.352480  0.390389  1.192319  1.655824
+2000-01-03  0.864883  0.299674  0.227870  0.281059
+2000-01-04  0.846958  1.222082  0.600705  1.233203
+2000-01-05  0.669692  0.605656  1.169184  0.342416
+2000-01-06  0.868584  0.948458  2.297780  0.684718
+2000-01-07  2.670153  0.114722  0.168904  0.048048
+2000-01-08  0.801196  1.392071  0.048788  0.808838
+
+
+
+æ³¨æ„
+çš„ç°½åDataFrame.where()ä¸åŒæ–¼numpy.where()ã€‚å¤§è‡´ç›¸ç•¶æ–¼ã€‚df1.where(m, df2)np.where(m, df1, df2)
+In [186]: df.where(df &lt; 0, -df) == np.where(df &lt; 0, df, -df)
+Out[186]: 
+               A     B     C     D
+2000-01-01  True  True  True  True
+2000-01-02  True  True  True  True
+2000-01-03  True  True  True  True
+2000-01-04  True  True  True  True
+2000-01-05  True  True  True  True
+2000-01-06  True  True  True  True
+2000-01-07  True  True  True  True
+2000-01-08  True  True  True  True
+
+
+
+å°æº–
+æ­¤å¤–ï¼Œwhereå°é½Šè¼¸å…¥çš„å¸ƒçˆ¾æ¢ä»¶ï¼ˆndarrayæˆ–DataFrameï¼‰ï¼Œä»¥ä¾¿å¯ä»¥é€šéè¨­ç½®é€²è¡Œéƒ¨åˆ†é¸æ“‡ã€‚é€™é¡ä¼¼æ–¼é€šéé€²è¡Œéƒ¨åˆ†è¨­ç½®.locï¼ˆä½†åœ¨å…§å®¹è€Œéè»¸æ¨™ç±¤ä¸Šï¼‰ã€‚
+In [187]: df2 = df.copy()
+
+In [188]: df2[df2[1:4] &gt; 0] = 3
+
+In [189]: df2
+Out[189]: 
+                   A         B         C         D
+2000-01-01 -2.104139 -1.309525  0.485855  0.245166
+2000-01-02 -0.352480  3.000000 -1.192319  3.000000
+2000-01-03 -0.864883  3.000000 -0.227870  3.000000
+2000-01-04  3.000000 -1.222082  3.000000 -1.233203
+2000-01-05  0.669692 -0.605656 -1.169184  0.342416
+2000-01-06  0.868584 -0.948458  2.297780 -0.684718
+2000-01-07 -2.670153 -0.114722  0.168904 -0.048048
+2000-01-08  0.801196  1.392071 -0.048788 -0.808838
+
+
+åŸ·è¡Œæ™‚ï¼Œwhereé‚„å¯ä»¥æ¥å—axiså’Œlevelåƒæ•¸ä»¥å°é½Šè¼¸å…¥whereã€‚
+In [190]: df2 = df.copy()
+
+In [191]: df2.where(df2 &gt; 0, df2['A'], axis='index')
+Out[191]: 
+                   A         B         C         D
+2000-01-01 -2.104139 -2.104139  0.485855  0.245166
+2000-01-02 -0.352480  0.390389 -0.352480  1.655824
+2000-01-03 -0.864883  0.299674 -0.864883  0.281059
+2000-01-04  0.846958  0.846958  0.600705  0.846958
+2000-01-05  0.669692  0.669692  0.669692  0.342416
+2000-01-06  0.868584  0.868584  2.297780  0.868584
+2000-01-07 -2.670153 -2.670153  0.168904 -2.670153
+2000-01-08  0.801196  1.392071  0.801196  0.801196
+
+
+é€™ç­‰æ•ˆæ–¼ï¼ˆä½†æ¯”ä»¥ä¸‹é€Ÿåº¦æ›´å¿«ï¼‰ã€‚
+In [192]: df2 = df.copy()
+
+In [193]: df.apply(lambda x, y: x.where(x &gt; 0, y), y=df['A'])
+Out[193]: 
+                   A         B         C         D
+2000-01-01 -2.104139 -2.104139  0.485855  0.245166
+2000-01-02 -0.352480  0.390389 -0.352480  1.655824
+2000-01-03 -0.864883  0.299674 -0.864883  0.281059
+2000-01-04  0.846958  0.846958  0.600705  0.846958
+2000-01-05  0.669692  0.669692  0.669692  0.342416
+2000-01-06  0.868584  0.868584  2.297780  0.868584
+2000-01-07 -2.670153 -2.670153  0.168904 -2.670153
+2000-01-08  0.801196  1.392071  0.801196  0.801196
+
+
+
+0.18.1ç‰ˆä¸­çš„æ–°åŠŸèƒ½ã€‚
+
+åœ¨å“ªè£¡å¯ä»¥æ¥å—ä¸€å€‹callableä½œç‚ºæ¢ä»¶å’Œotheråƒæ•¸ã€‚è©²å‡½æ•¸å¿…é ˆå¸¶æœ‰ä¸€å€‹åƒæ•¸ï¼ˆèª¿ç”¨Seriesæˆ–DataFrameï¼‰ï¼Œä¸¦ä¸”è¿”å›æœ‰æ•ˆè¼¸å‡ºä½œç‚ºæ¢ä»¶å’Œotheråƒæ•¸ã€‚
+In [194]: df3 = pd.DataFrame({'A': [1, 2, 3],
+   .....:                     'B': [4, 5, 6],
+   .....:                     'C': [7, 8, 9]})
+   .....: 
+
+In [195]: df3.where(lambda x: x &gt; 4, lambda x: x + 10)
+Out[195]: 
+    A   B  C
+0  11  14  7
+1  12   5  8
+2  13   6  9
+
+
+
+é®ç½©Â¶
+mask()æ˜¯çš„é€†å¸ƒçˆ¾é‹ç®—whereã€‚
+In [196]: s.mask(s &gt;= 0)
+Out[196]: 
+4   NaN
+3   NaN
+2   NaN
+1   NaN
+0   NaN
+dtype: float64
+
+In [197]: df.mask(df &gt;= 0)
+Out[197]: 
+                   A         B         C         D
+2000-01-01 -2.104139 -1.309525       NaN       NaN
+2000-01-02 -0.352480       NaN -1.192319       NaN
+2000-01-03 -0.864883       NaN -0.227870       NaN
+2000-01-04       NaN -1.222082       NaN -1.233203
+2000-01-05       NaN -0.605656 -1.169184       NaN
+2000-01-06       NaN -0.948458       NaN -0.684718
+2000-01-07 -2.670153 -0.114722       NaN -0.048048
+2000-01-08       NaN       NaN -0.048788 -0.808838
+
+
+
+
+
+è©²query()æ–¹æ³•Â¶
+DataFrameå°è±¡å…·æœ‰query()
+å…è¨±ä½¿ç”¨è¡¨é”å¼é€²è¡Œé¸æ“‡çš„æ–¹æ³•ã€‚
+æ‚¨å¯ä»¥ç²å¾—æ¡†æ¶çš„å€¼ï¼Œå…¶ä¸­columnçš„bå€¼ä»‹æ–¼aå’Œä¹‹é–“cã€‚ä¾‹å¦‚ï¼š
+In [198]: n = 10
+
+In [199]: df = pd.DataFrame(np.random.rand(n, 3), columns=list('abc'))
+
+In [200]: df
+Out[200]: 
+          a         b         c
+0  0.438921  0.118680  0.863670
+1  0.138138  0.577363  0.686602
+2  0.595307  0.564592  0.520630
+3  0.913052  0.926075  0.616184
+4  0.078718  0.854477  0.898725
+5  0.076404  0.523211  0.591538
+6  0.792342  0.216974  0.564056
+7  0.397890  0.454131  0.915716
+8  0.074315  0.437913  0.019794
+9  0.559209  0.502065  0.026437
+
+# pure python
+In [201]: df[(df.a &lt; df.b) & (df.b &lt; df.c)]
+Out[201]: 
+          a         b         c
+1  0.138138  0.577363  0.686602
+4  0.078718  0.854477  0.898725
+5  0.076404  0.523211  0.591538
+7  0.397890  0.454131  0.915716
+
+# query
+In [202]: df.query('(a &lt; b) & (b &lt; c)')
+Out[202]: 
+          a         b         c
+1  0.138138  0.577363  0.686602
+4  0.078718  0.854477  0.898725
+5  0.076404  0.523211  0.591538
+7  0.397890  0.454131  0.915716
+
+
+åšåŒæ¨£çš„äº‹æƒ…ï¼Œä½†æ˜¯å¦‚æœæ²’æœ‰åç¨±ç‚ºçš„åˆ—ï¼Œå‰‡ä½¿ç”¨å‘½åç´¢å¼•aã€‚
+In [203]: df = pd.DataFrame(np.random.randint(n / 2, size=(n, 2)), columns=list('bc'))
+
+In [204]: df.index.name = 'a'
+
+In [205]: df
+Out[205]: 
+   b  c
+a      
+0  0  4
+1  0  1
+2  3  4
+3  4  3
+4  1  4
+5  0  3
+6  0  1
+7  3  4
+8  2  3
+9  1  1
+
+In [206]: df.query('a &lt; b and b &lt; c')
+Out[206]: 
+   b  c
+a      
+2  3  4
+
+
+ç›¸åï¼Œå¦‚æœæ‚¨ä¸æƒ³æˆ–ç„¡æ³•å‘½åç´¢å¼•ï¼Œå‰‡å¯ä»¥indexåœ¨æŸ¥è©¢è¡¨é”å¼ä¸­ä½¿ç”¨è©²åç¨±
+ ï¼š
+In [207]: df = pd.DataFrame(np.random.randint(n, size=(n, 2)), columns=list('bc'))
+
+In [208]: df
+Out[208]: 
+   b  c
+0  3  1
+1  3  0
+2  5  6
+3  5  2
+4  7  4
+5  0  1
+6  2  5
+7  0  1
+8  6  0
+9  7  9
+
+In [209]: df.query('index &lt; b &lt; c')
+Out[209]: 
+   b  c
+2  5  6
+
+
+
+æ³¨æ„
+å¦‚æœç´¢å¼•åèˆ‡åˆ—åé‡ç–Šï¼Œå‰‡åˆ—åå„ªå…ˆã€‚ä¾‹å¦‚ï¼Œ
+In [210]: df = pd.DataFrame({'a': np.random.randint(5, size=5)})
+
+In [211]: df.index.name = 'a'
+
+In [212]: df.query('a &gt; 2')  # uses the column 'a', not the index
+Out[212]: 
+   a
+a   
+1  3
+3  3
+
+
+æ‚¨ä»ç„¶å¯ä»¥é€šéä½¿ç”¨ç‰¹æ®Šæ¨™è­˜ç¬¦'index'åœ¨æŸ¥è©¢è¡¨é”å¼ä¸­ä½¿ç”¨ç´¢å¼•ï¼š
+In [213]: df.query('index &gt; 2')
+Out[213]: 
+   a
+a   
+3  3
+4  2
+
+
+å¦‚æœç”±æ–¼æŸç¨®åŸå› æ‚¨æœ‰ä¸€å€‹åç‚ºçš„åˆ—indexï¼Œé‚£éº¼æ‚¨ä¹Ÿå¯ä»¥å¼•ç”¨è©²ç´¢å¼•ilevel_0ï¼Œä½†æ˜¯åœ¨é€™ä¸€é»ä¸Šï¼Œæ‚¨æ‡‰è©²è€ƒæ…®å°‡åˆ—é‡å‘½åç‚ºä¸å¤ªæ¨¡ç³Šçš„åç¨±ã€‚
+
+
+MultiIndex query()èªæ³•Â¶
+æ‚¨ä¹Ÿå¯ä»¥å°‡açš„ç´šåˆ¥èˆ‡a DataFrameä¸€èµ·ä½¿ç”¨
+ MultiIndexï¼Œå°±å¥½åƒå®ƒå€‘æ˜¯æ¡†æ¶ä¸­çš„åˆ—ä¸€æ¨£ï¼š
+In [214]: n = 10
+
+In [215]: colors = np.random.choice(['red', 'green'], size=n)
+
+In [216]: foods = np.random.choice(['eggs', 'ham'], size=n)
+
+In [217]: colors
+Out[217]: 
+array(['red', 'red', 'red', 'green', 'green', 'green', 'green', 'green',
+       'green', 'green'], dtype='&lt;U5')
+
+In [218]: foods
+Out[218]: 
+array(['ham', 'ham', 'eggs', 'eggs', 'eggs', 'ham', 'ham', 'eggs', 'eggs',
+       'eggs'], dtype='&lt;U4')
+
+In [219]: index = pd.MultiIndex.from_arrays([colors, foods], names=['color', 'food'])
+
+In [220]: df = pd.DataFrame(np.random.randn(n, 2), index=index)
+
+In [221]: df
+Out[221]: 
+                   0         1
+color food                    
+red   ham   0.194889 -0.381994
+      ham   0.318587  2.089075
+      eggs -0.728293 -0.090255
+green eggs -0.748199  1.318931
+      eggs -2.029766  0.792652
+      ham   0.461007 -0.542749
+      ham  -0.305384 -0.479195
+      eggs  0.095031 -0.270099
+      eggs -0.707140 -0.773882
+      eggs  0.229453  0.304418
+
+In [222]: df.query('color == "red"')
+Out[222]: 
+                   0         1
+color food                    
+red   ham   0.194889 -0.381994
+      ham   0.318587  2.089075
+      eggs -0.728293 -0.090255
+
+
+å¦‚æœçš„ç´šåˆ¥MultiIndexæœªå‘½åï¼Œå‰‡å¯ä»¥ä½¿ç”¨ç‰¹æ®Šåç¨±ä¾†å¼•ç”¨å®ƒå€‘ï¼š
+In [223]: df.index.names = [None, None]
+
+In [224]: df
+Out[224]: 
+                   0         1
+red   ham   0.194889 -0.381994
+      ham   0.318587  2.089075
+      eggs -0.728293 -0.090255
+green eggs -0.748199  1.318931
+      eggs -2.029766  0.792652
+      ham   0.461007 -0.542749
+      ham  -0.305384 -0.479195
+      eggs  0.095031 -0.270099
+      eggs -0.707140 -0.773882
+      eggs  0.229453  0.304418
+
+In [225]: df.query('ilevel_0 == "red"')
+Out[225]: 
+                 0         1
+red ham   0.194889 -0.381994
+    ham   0.318587  2.089075
+    eggs -0.728293 -0.090255
+
+
+ç´„å®šç‚ºilevel_0ï¼Œè¡¨ç¤ºçš„ç¬¬0ç´šç‚ºâ€œç´¢å¼•ç´šåˆ¥0â€ indexã€‚
+
+
+query()ç”¨ä¾‹Â¶
+ä¸€å€‹ç”¨ä¾‹query()æ˜¯ç•¶æ‚¨æœ‰ä¸€çµ„
+ DataFrameå°è±¡ï¼Œé€™äº›å°è±¡å…·æœ‰å…±åŒçš„åˆ—åç¨±ï¼ˆæˆ–ç´¢å¼•ç´šåˆ¥/åç¨±ï¼‰çš„å­é›†ã€‚æ‚¨å¯ä»¥å°‡ç›¸åŒçš„æŸ¥è©¢å‚³éçµ¦å…©å€‹æ¡†æ¶ï¼Œè€Œ 
+ä¸å¿…æŒ‡å®šæ‚¨è¦æŸ¥è©¢çš„æ¡†æ¶
+In [226]: df = pd.DataFrame(np.random.rand(n, 3), columns=list('abc'))
+
+In [227]: df
+Out[227]: 
+          a         b         c
+0  0.224283  0.736107  0.139168
+1  0.302827  0.657803  0.713897
+2  0.611185  0.136624  0.984960
+3  0.195246  0.123436  0.627712
+4  0.618673  0.371660  0.047902
+5  0.480088  0.062993  0.185760
+6  0.568018  0.483467  0.445289
+7  0.309040  0.274580  0.587101
+8  0.258993  0.477769  0.370255
+9  0.550459  0.840870  0.304611
+
+In [228]: df2 = pd.DataFrame(np.random.rand(n + 2, 3), columns=df.columns)
+
+In [229]: df2
+Out[229]: 
+           a         b         c
+0   0.357579  0.229800  0.596001
+1   0.309059  0.957923  0.965663
+2   0.123102  0.336914  0.318616
+3   0.526506  0.323321  0.860813
+4   0.518736  0.486514  0.384724
+5   0.190804  0.505723  0.614533
+6   0.891939  0.623977  0.676639
+7   0.480559  0.378528  0.460858
+8   0.420223  0.136404  0.141295
+9   0.732206  0.419540  0.604675
+10  0.604466  0.848974  0.896165
+11  0.589168  0.920046  0.732716
+
+In [230]: expr = '0.0 &lt;= a &lt;= c &lt;= 0.5'
+
+In [231]: map(lambda frame: frame.query(expr), [df, df2])
+Out[231]: &lt;map at 0x7fb06bd71cf8&gt;
+
+
+
+
+query()Pythonèˆ‡Pandasèªæ³•æ¯”è¼ƒÂ¶
+å®Œæ•´çš„é¡ä¼¼numpyçš„èªæ³•ï¼š
+In [232]: df = pd.DataFrame(np.random.randint(n, size=(n, 3)), columns=list('abc'))
+
+In [233]: df
+Out[233]: 
+   a  b  c
+0  7  8  9
+1  1  0  7
+2  2  7  2
+3  6  2  2
+4  2  6  3
+5  3  8  2
+6  1  7  2
+7  5  1  5
+8  9  8  0
+9  1  5  0
+
+In [234]: df.query('(a &lt; b) & (b &lt; c)')
+Out[234]: 
+   a  b  c
+0  7  8  9
+
+In [235]: df[(df.a &lt; df.b) & (df.b &lt; df.c)]
+Out[235]: 
+   a  b  c
+0  7  8  9
+
+
+åˆªé™¤æ‹¬è™Ÿæœƒç¨å¾®å¥½ä¸€é»ï¼ˆé€šéç¶å®šä½¿æ¯”è¼ƒé‹ç®—ç¬¦æ¯”&å’Œæ›´ç·Šå¯†åœ°ç¶å®š|ï¼‰ã€‚
+In [236]: df.query('a &lt; b & b &lt; c')
+Out[236]: 
+   a  b  c
+0  7  8  9
+
+
+ä½¿ç”¨è‹±èªä»£æ›¿ç¬¦è™Ÿï¼š
+In [237]: df.query('a &lt; b and b &lt; c')
+Out[237]: 
+   a  b  c
+0  7  8  9
+
+
+éå¸¸æ¥è¿‘æ‚¨åœ¨ç´™ä¸Šæ›¸å¯«çš„æ–¹å¼ï¼š
+In [238]: df.query('a &lt; b &lt; c')
+Out[238]: 
+   a  b  c
+0  7  8  9
+
+
+
+
+åœ¨inèˆ‡é‹ç‡Ÿå•†Â¶not in
+query()é‚„æ”¯æŒPython inå’Œ
+ æ¯”è¼ƒé‹ç®—ç¬¦çš„ç‰¹æ®Šç”¨æ³•ï¼Œç‚ºèª¿ç”¨a æˆ–æ–¹æ³•æä¾›äº†ç°¡æ½”çš„èªæ³•
+ ã€‚not inisinSeriesDataFrame
+# get all rows where columns "a" and "b" have overlapping values
+In [239]: df = pd.DataFrame({'a': list('aabbccddeeff'), 'b': list('aaaabbbbcccc'),
+   .....:                    'c': np.random.randint(5, size=12),
+   .....:                    'd': np.random.randint(9, size=12)})
+   .....: 
+
+In [240]: df
+Out[240]: 
+    a  b  c  d
+0   a  a  2  6
+1   a  a  4  7
+2   b  a  1  6
+3   b  a  2  1
+4   c  b  3  6
+5   c  b  0  2
+6   d  b  3  3
+7   d  b  2  1
+8   e  c  4  3
+9   e  c  2  0
+10  f  c  0  6
+11  f  c  1  2
+
+In [241]: df.query('a in b')
+Out[241]: 
+   a  b  c  d
+0  a  a  2  6
+1  a  a  4  7
+2  b  a  1  6
+3  b  a  2  1
+4  c  b  3  6
+5  c  b  0  2
+
+# How you'd do it in pure Python
+In [242]: df[df.a.isin(df.b)]
+Out[242]: 
+   a  b  c  d
+0  a  a  2  6
+1  a  a  4  7
+2  b  a  1  6
+3  b  a  2  1
+4  c  b  3  6
+5  c  b  0  2
+
+In [243]: df.query('a not in b')
+Out[243]: 
+    a  b  c  d
+6   d  b  3  3
+7   d  b  2  1
+8   e  c  4  3
+9   e  c  2  0
+10  f  c  0  6
+11  f  c  1  2
+
+# pure Python
+In [244]: df[~df.a.isin(df.b)]
+Out[244]: 
+    a  b  c  d
+6   d  b  3  3
+7   d  b  2  1
+8   e  c  4  3
+9   e  c  2  0
+10  f  c  0  6
+11  f  c  1  2
+
+
+æ‚¨å¯ä»¥å°‡å…¶èˆ‡å…¶ä»–è¡¨é”å¼çµåˆä½¿ç”¨ä»¥é€²è¡Œéå¸¸ç°¡æ½”çš„æŸ¥è©¢ï¼š
+# rows where cols a and b have overlapping values
+# and col c's values are less than col d's
+In [245]: df.query('a in b and c &lt; d')
+Out[245]: 
+   a  b  c  d
+0  a  a  2  6
+1  a  a  4  7
+2  b  a  1  6
+4  c  b  3  6
+5  c  b  0  2
+
+# pure Python
+In [246]: df[df.b.isin(df.a) & (df.c &lt; df.d)]
+Out[246]: 
+    a  b  c  d
+0   a  a  2  6
+1   a  a  4  7
+2   b  a  1  6
+4   c  b  3  6
+5   c  b  0  2
+10  f  c  0  6
+11  f  c  1  2
+
+
+
+æ³¨æ„
+è«‹æ³¨æ„ï¼Œåœ¨Pythonä¸­å°inå’Œé€²è¡Œäº†è©•ä¼°ï¼Œå› ç‚º
+è©²æ“ä½œä¸ç­‰æ•ˆã€‚ä½†æ˜¯ï¼Œåœ¨é¦™è‰Pythonä¸­åƒ…å° / è¡¨é”å¼æœ¬èº«é€²è¡Œæ±‚å€¼ã€‚ä¾‹å¦‚ï¼Œåœ¨è¡¨é”å¼ä¸­not innumexpr innot in
+
+df.query('a in b + c + d')
+
+
+(b + c + d)é€šéè©•ä¼°numexprå’Œç„¶å¾Œçš„in
+æ“ä½œåœ¨æ™®é€šçš„Pythonè©•åƒ¹ã€‚é€šå¸¸ï¼Œå¯ä»¥ä½¿ç”¨é€²è¡Œè©•ä¼°çš„ä»»ä½•æ“ä½œéƒ½numexprå°‡æ˜¯ã€‚
+
+
+
+==é‹ç®—ç¬¦èˆ‡listå°è±¡çš„ç‰¹æ®Šç”¨æ³•Â¶
+listä½¿ç”¨==/ å°‡å€¼aèˆ‡åˆ—é€²è¡Œæ¯”è¼ƒ!=é¡ä¼¼æ–¼in/ ã€‚not in
+In [247]: df.query('b == ["a", "b", "c"]')
+Out[247]: 
+    a  b  c  d
+0   a  a  2  6
+1   a  a  4  7
+2   b  a  1  6
+3   b  a  2  1
+4   c  b  3  6
+5   c  b  0  2
+6   d  b  3  3
+7   d  b  2  1
+8   e  c  4  3
+9   e  c  2  0
+10  f  c  0  6
+11  f  c  1  2
+
+# pure Python
+In [248]: df[df.b.isin(["a", "b", "c"])]
+Out[248]: 
+    a  b  c  d
+0   a  a  2  6
+1   a  a  4  7
+2   b  a  1  6
+3   b  a  2  1
+4   c  b  3  6
+5   c  b  0  2
+6   d  b  3  3
+7   d  b  2  1
+8   e  c  4  3
+9   e  c  2  0
+10  f  c  0  6
+11  f  c  1  2
+
+In [249]: df.query('c == [1, 2]')
+Out[249]: 
+    a  b  c  d
+0   a  a  2  6
+2   b  a  1  6
+3   b  a  2  1
+7   d  b  2  1
+9   e  c  2  0
+11  f  c  1  2
+
+In [250]: df.query('c != [1, 2]')
+Out[250]: 
+    a  b  c  d
+1   a  a  4  7
+4   c  b  3  6
+5   c  b  0  2
+6   d  b  3  3
+8   e  c  4  3
+10  f  c  0  6
+
+# using in/not in
+In [251]: df.query('[1, 2] in c')
+Out[251]: 
+    a  b  c  d
+0   a  a  2  6
+2   b  a  1  6
+3   b  a  2  1
+7   d  b  2  1
+9   e  c  2  0
+11  f  c  1  2
+
+In [252]: df.query('[1, 2] not in c')
+Out[252]: 
+    a  b  c  d
+1   a  a  4  7
+4   c  b  3  6
+5   c  b  0  2
+6   d  b  3  3
+8   e  c  4  3
+10  f  c  0  6
+
+# pure Python
+In [253]: df[df.c.isin([1, 2])]
+Out[253]: 
+    a  b  c  d
+0   a  a  2  6
+2   b  a  1  6
+3   b  a  2  1
+7   d  b  2  1
+9   e  c  2  0
+11  f  c  1  2
+
+
+
+
+å¸ƒçˆ¾é‹ç®—ç¬¦Â¶
+æ‚¨å¯ä»¥ä½¿ç”¨å–®è©notæˆ–~é‹ç®—ç¬¦å–åå¸ƒçˆ¾è¡¨é”å¼ã€‚
+In [254]: df = pd.DataFrame(np.random.rand(n, 3), columns=list('abc'))
+
+In [255]: df['bools'] = np.random.rand(len(df)) &gt; 0.5
+
+In [256]: df.query('~bools')
+Out[256]: 
+          a         b         c  bools
+2  0.697753  0.212799  0.329209  False
+7  0.275396  0.691034  0.826619  False
+8  0.190649  0.558748  0.262467  False
+
+In [257]: df.query('not bools')
+Out[257]: 
+          a         b         c  bools
+2  0.697753  0.212799  0.329209  False
+7  0.275396  0.691034  0.826619  False
+8  0.190649  0.558748  0.262467  False
+
+In [258]: df.query('not bools') == df[~df.bools]
+Out[258]: 
+      a     b     c  bools
+2  True  True  True   True
+7  True  True  True   True
+8  True  True  True   True
+
+
+ç•¶ç„¶ï¼Œè¡¨é”å¼ä¹Ÿå¯ä»¥ä»»æ„è¤‡é›œï¼š
+# short query syntax
+In [259]: shorter = df.query('a &lt; b &lt; c and (not bools) or bools &gt; 2')
+
+# equivalent in pure Python
+In [260]: longer = df[(df.a &lt; df.b) & (df.b &lt; df.c) & (~df.bools) | (df.bools &gt; 2)]
+
+In [261]: shorter
+Out[261]: 
+          a         b         c  bools
+7  0.275396  0.691034  0.826619  False
+
+In [262]: longer
+Out[262]: 
+          a         b         c  bools
+7  0.275396  0.691034  0.826619  False
+
+In [263]: shorter == longer
+Out[263]: 
+      a     b     c  bools
+7  True  True  True   True
+
+
+
+
+æ€§èƒ½Â¶query()
+DataFrame.query()numexprå°æ–¼å¤§å‹æ¡†æ¶ï¼Œä½¿ç”¨é€Ÿåº¦æ¯”Pythonç¨å¿«ã€‚
+
+
+æ³¨æ„
+åƒ…ç•¶æ‚¨çš„æ¡†æ¶æœ‰å¤§ç´„200,000è¡Œæ™‚ï¼Œæ‰å¯ä»¥çœ‹åˆ°ä½¿ç”¨numexprå¼•æ“çš„æ€§èƒ½å„ªå‹¢DataFrame.query()ã€‚
+
+
+
+
+æ­¤åœ–æ˜¯ä½¿ç”¨çµ„æˆçš„DataFrameï¼Œå…¶ä¸­åŒ…å«3åˆ—ï¼Œæ¯å€‹åˆ—åŒ…å«ä½¿ç”¨ç”Ÿæˆçš„æµ®é»å€¼numpy.random.randn()ã€‚
+
+
+
+é‡è¤‡æ•¸æ“šÂ¶
+å¦‚æœè¦æ¨™è­˜ä¸¦åˆªé™¤DataFrameä¸­çš„é‡è¤‡è¡Œï¼Œå‰‡æœ‰å…©ç¨®æ–¹æ³•æœƒæœ‰æ‰€å¹«åŠ©ï¼šduplicatedå’Œdrop_duplicatesã€‚æ¯å€‹åƒæ•¸éƒ½ä»¥ç”¨æ–¼æ¨™è­˜é‡è¤‡è¡Œçš„åˆ—ä½œç‚ºåƒæ•¸ã€‚
+
+duplicated è¿”å›ä¸€å€‹å¸ƒçˆ¾å‘é‡ï¼Œå…¶é•·åº¦ç‚ºè¡Œæ•¸ï¼Œä¸¦æŒ‡ç¤ºæ˜¯å¦é‡è¤‡ä¸€è¡Œã€‚
+drop_duplicates åˆªé™¤é‡è¤‡çš„è¡Œã€‚
+
+é»˜èªæƒ…æ³ä¸‹ï¼Œè§€å¯Ÿåˆ°çš„é‡è¤‡é›†çš„ç¬¬ä¸€è¡Œè¢«èªç‚ºæ˜¯å”¯ä¸€çš„ï¼Œä½†æ˜¯æ¯ç¨®æ–¹æ³•éƒ½æœ‰ä¸€å€‹keepåƒæ•¸ä¾†æŒ‡å®šè¦ä¿ç•™çš„ç›®æ¨™ã€‚
+
+keep='first' ï¼ˆé»˜èªï¼‰ï¼šæ¨™è¨˜/åˆªé™¤é‡è¤‡é …ï¼Œä½†ç¬¬ä¸€æ¬¡å‡ºç¾é™¤å¤–ã€‚
+keep='last'ï¼šæ¨™è¨˜/åˆªé™¤é‡è¤‡é …ï¼ˆæœ€å¾Œä¸€æ¬¡é™¤å¤–ï¼‰ã€‚
+keep=Falseï¼šæ¨™è¨˜/åˆªé™¤æ‰€æœ‰é‡è¤‡é …ã€‚
+
+In [264]: df2 = pd.DataFrame({'a': ['one', 'one', 'two', 'two', 'two', 'three', 'four'],
+   .....:                     'b': ['x', 'y', 'x', 'y', 'x', 'x', 'x'],
+   .....:                     'c': np.random.randn(7)})
+   .....: 
+
+In [265]: df2
+Out[265]: 
+       a  b         c
+0    one  x -1.067137
+1    one  y  0.309500
+2    two  x -0.211056
+3    two  y -1.842023
+4    two  x -0.390820
+5  three  x -1.964475
+6   four  x  1.298329
+
+In [266]: df2.duplicated('a')
+Out[266]: 
+0    False
+1     True
+2    False
+3     True
+4     True
+5    False
+6    False
+dtype: bool
+
+In [267]: df2.duplicated('a', keep='last')
+Out[267]: 
+0     True
+1    False
+2     True
+3     True
+4    False
+5    False
+6    False
+dtype: bool
+
+In [268]: df2.duplicated('a', keep=False)
+Out[268]: 
+0     True
+1     True
+2     True
+3     True
+4     True
+5    False
+6    False
+dtype: bool
+
+In [269]: df2.drop_duplicates('a')
+Out[269]: 
+       a  b         c
+0    one  x -1.067137
+2    two  x -0.211056
+5  three  x -1.964475
+6   four  x  1.298329
+
+In [270]: df2.drop_duplicates('a', keep='last')
+Out[270]: 
+       a  b         c
+1    one  y  0.309500
+4    two  x -0.390820
+5  three  x -1.964475
+6   four  x  1.298329
+
+In [271]: df2.drop_duplicates('a', keep=False)
+Out[271]: 
+       a  b         c
+5  three  x -1.964475
+6   four  x  1.298329
+
+
+å¦å¤–ï¼Œæ‚¨å¯ä»¥å‚³éåˆ—åˆ—è¡¨ä»¥æ¨™è­˜é‡è¤‡é …ã€‚
+In [272]: df2.duplicated(['a', 'b'])
+Out[272]: 
+0    False
+1    False
+2    False
+3    False
+4     True
+5    False
+6    False
+dtype: bool
+
+In [273]: df2.drop_duplicates(['a', 'b'])
+Out[273]: 
+       a  b         c
+0    one  x -1.067137
+1    one  y  0.309500
+2    two  x -0.211056
+3    two  y -1.842023
+5  three  x -1.964475
+6   four  x  1.298329
+
+
+è¦æŒ‰ç´¢å¼•å€¼åˆªé™¤é‡è¤‡é …ï¼Œè«‹ä½¿ç”¨ï¼ŒIndex.duplicatedç„¶å¾ŒåŸ·è¡Œåˆ‡ç‰‡ã€‚è©²keepåƒæ•¸å¯ä½¿ç”¨ç›¸åŒçš„é¸é …é›†ã€‚
+In [274]: df3 = pd.DataFrame({'a': np.arange(6),
+   .....:                     'b': np.random.randn(6)},
+   .....:                    index=['a', 'a', 'b', 'c', 'b', 'a'])
+   .....: 
+
+In [275]: df3
+Out[275]: 
+   a         b
+a  0  1.440455
+a  1  2.456086
+b  2  1.038402
+c  3 -0.894409
+b  4  0.683536
+a  5  3.082764
+
+In [276]: df3.index.duplicated()
+Out[276]: array([False,  True, False, False,  True,  True])
+
+In [277]: df3[~df3.index.duplicated()]
+Out[277]: 
+   a         b
+a  0  1.440455
+b  2  1.038402
+c  3 -0.894409
+
+In [278]: df3[~df3.index.duplicated(keep='last')]
+Out[278]: 
+   a         b
+c  3 -0.894409
+b  4  0.683536
+a  5  3.082764
+
+In [279]: df3[~df3.index.duplicated(keep=False)]
+Out[279]: 
+   a         b
+c  3 -0.894409
+
+
+
+
+é¡ä¼¼å­—å…¸çš„get()æ–¹æ³•Â¶
+æ¯å€‹Seriesæˆ–DataFrameéƒ½æœ‰ä¸€å€‹getå¯ä»¥è¿”å›é»˜èªå€¼çš„æ–¹æ³•ã€‚
+In [280]: s = pd.Series([1, 2, 3], index=['a', 'b', 'c'])
+
+In [281]: s.get('a')  # equivalent to s['a']
+Out[281]: 1
+
+In [282]: s.get('x', default=-1)
+Out[282]: -1
+
+
+
+
+è©²lookup()æ–¹æ³•Â¶
+æœ‰æ™‚ï¼Œæ‚¨éœ€è¦æå–çµ¦å®šä¸€ç³»åˆ—è¡Œæ¨™ç±¤å’Œåˆ—æ¨™ç±¤çš„ä¸€çµ„å€¼ï¼Œä¸¦ä¸”è©²lookupæ–¹æ³•å…è¨±é€™æ¨£åšä¸¦è¿”å›NumPyæ•¸çµ„ã€‚ä¾‹å¦‚ï¼š
+In [283]: dflookup = pd.DataFrame(np.random.rand(20, 4), columns = ['A', 'B', 'C', 'D'])
+
+In [284]: dflookup.lookup(list(range(0, 10, 2)), ['B', 'C', 'A', 'B', 'D'])
+Out[284]: array([0.3506, 0.4779, 0.4825, 0.9197, 0.5019])
+
+
+
+
+ç´¢å¼•å°è±¡Â¶
+pandas Indexé¡åŠå…¶å­é¡å¯ä»¥çœ‹ä½œå¯¦ç¾äº†æœ‰åºçš„å¤šé›†ã€‚å…è¨±é‡è¤‡ã€‚ä½†æ˜¯ï¼Œå¦‚æœæ‚¨å˜—è©¦å°‡Indexå…·æœ‰é‡è¤‡æ¢ç›®çš„å°è±¡è½‰æ›ç‚º
+ setï¼Œå‰‡æœƒå¼•ç™¼ç•°å¸¸ã€‚
+Indexé‚„æä¾›äº†æŸ¥æ‰¾ï¼Œæ•¸æ“šå°é½Šå’Œé‡æ–°ç´¢å¼•æ‰€éœ€çš„åŸºç¤çµæ§‹ã€‚Indexç›´æ¥å‰µå»ºä¸€å€‹æœ€ç°¡å–®çš„æ–¹æ³•
+ æ˜¯å°‡a listæˆ–å…¶ä»–åºåˆ—å‚³éçµ¦
+ Indexï¼š
+In [285]: index = pd.Index(['e', 'd', 'a', 'b'])
+
+In [286]: index
+Out[286]: Index(['e', 'd', 'a', 'b'], dtype='object')
+
+In [287]: 'd' in index
+Out[287]: True
+
+
+æ‚¨é‚„å¯ä»¥å‚³énameè¦å­˜å„²åœ¨ç´¢å¼•ä¸­çš„ï¼š
+In [288]: index = pd.Index(['e', 'd', 'a', 'b'], name='something')
+
+In [289]: index.name
+Out[289]: 'something'
+
+
+åç¨±ï¼ˆå¦‚æœå·²è¨­ç½®ï¼‰å°‡é¡¯ç¤ºåœ¨æ§åˆ¶å°é¡¯ç¤ºå±ä¸­ï¼š
+In [290]: index = pd.Index(list(range(5)), name='rows')
+
+In [291]: columns = pd.Index(['A', 'B', 'C'], name='cols')
+
+In [292]: df = pd.DataFrame(np.random.randn(5, 3), index=index, columns=columns)
+
+In [293]: df
+Out[293]: 
+cols         A         B         C
+rows                              
+0     1.295989  0.185778  0.436259
+1     0.678101  0.311369 -0.528378
+2    -0.674808 -1.103529 -0.656157
+3     1.889957  2.076651 -1.102192
+4    -1.211795 -0.791746  0.634724
+
+In [294]: df['A']
+Out[294]: 
+rows
+0    1.295989
+1    0.678101
+2   -0.674808
+3    1.889957
+4   -1.211795
+Name: A, dtype: float64
+
+
+
+è¨­ç½®çš„å…ƒæ•¸æ“šÂ¶
+ç´¢å¼•æ˜¯â€œä¸å¯æ”¹è®Šçš„å¤§å¤šæ˜¯â€ï¼Œä½†å®ƒå¯ä»¥è¨­ç½®å’Œæ”¹è®Šå®ƒå€‘çš„å…ƒæ•¸æ“šï¼Œå¦‚æŒ‡æ•¸nameï¼ˆæˆ–ç‚ºMultiIndexï¼Œlevelså’Œ
+ codesï¼‰ã€‚
+æ‚¨å¯ä»¥ä½¿ç”¨renameï¼Œset_namesï¼Œset_levelsï¼Œå’Œset_codes
+ç›´æ¥è¨­ç½®é€™äº›å±¬æ€§ã€‚ä»–å€‘é»˜èªè¿”å›ä¸€å€‹å‰¯æœ¬ã€‚ä½†æ˜¯ï¼Œæ‚¨å¯ä»¥æŒ‡å®šinplace=Trueå°‡æ•¸æ“šæ›´æ”¹åˆ°ä½ã€‚
+æœ‰é—œMultiIndexesçš„ç”¨æ³•ï¼Œè«‹åƒé–±é«˜ç´šç´¢å¼•ã€‚
+In [295]: ind = pd.Index([1, 2, 3])
+
+In [296]: ind.rename("apple")
+Out[296]: Int64Index([1, 2, 3], dtype='int64', name='apple')
+
+In [297]: ind
+Out[297]: Int64Index([1, 2, 3], dtype='int64')
+
+In [298]: ind.set_names(["apple"], inplace=True)
+
+In [299]: ind.name = "bob"
+
+In [300]: ind
+Out[300]: Int64Index([1, 2, 3], dtype='int64', name='bob')
+
+
+set_namesï¼Œset_levelsä»¥åŠset_codesé‚„éœ€è¦ä¸€å€‹å¯é¸çš„
+ levelåƒæ•¸
+In [301]: index = pd.MultiIndex.from_product([range(3), ['one', 'two']], names=['first', 'second'])
+
+In [302]: index
+Out[302]: 
+MultiIndex(levels=[[0, 1, 2], ['one', 'two']],
+           codes=[[0, 0, 1, 1, 2, 2], [0, 1, 0, 1, 0, 1]],
+           names=['first', 'second'])
+
+In [303]: index.levels[1]
+Out[303]: Index(['one', 'two'], dtype='object', name='second')
+
+In [304]: index.set_levels(["a", "b"], level=1)
+Out[304]: 
+MultiIndex(levels=[[0, 1, 2], ['a', 'b']],
+           codes=[[0, 0, 1, 1, 2, 2], [0, 1, 0, 1, 0, 1]],
+           names=['first', 'second'])
+
+
+
+
+åœ¨ç´¢å¼•å°è±¡è¨­ç½®æ“ä½œÂ¶
+å…©å€‹ä¸»è¦çš„æ“ä½œæ˜¯å’Œã€‚é€™äº›å¯ä»¥ç›´æ¥ç¨±ç‚ºå¯¦ä¾‹æ–¹æ³•ï¼Œä¹Ÿå¯ä»¥é€šéé‡è¼‰é‹ç®—ç¬¦ä½¿ç”¨ã€‚é€šéè©²æ–¹æ³•æä¾›å·®ç•°ã€‚union (|)intersection (&).difference()
+In [305]: a = pd.Index(['c', 'b', 'a'])
+
+In [306]: b = pd.Index(['c', 'e', 'd'])
+
+In [307]: a | b
+Out[307]: Index(['a', 'b', 'c', 'd', 'e'], dtype='object')
+
+In [308]: a & b
+Out[308]: Index(['c'], dtype='object')
+
+In [309]: a.difference(b)
+Out[309]: Index(['a', 'b'], dtype='object')
+
+
+è©²æ“ä½œä¹Ÿå¯ç”¨ï¼Œè©²æ“ä½œè¿”å›å‡ºç¾åœ¨æˆ–ä¸­çš„å…ƒç´ ï¼Œä½†ä¸åŒæ™‚å‡ºç¾åœ¨å…©å€‹å…ƒç´ ä¸­ã€‚é€™ç­‰æ•ˆæ–¼ç”±å‰µå»ºçš„ç´¢å¼•ï¼Œä½†åˆªé™¤äº†é‡è¤‡é …ã€‚symmetric_difference (^)idx1idx2idx1.difference(idx2).union(idx2.difference(idx1))
+In [310]: idx1 = pd.Index([1, 2, 3, 4])
+
+In [311]: idx2 = pd.Index([2, 3, 4, 5])
+
+In [312]: idx1.symmetric_difference(idx2)
+Out[312]: Int64Index([1, 5], dtype='int64')
+
+In [313]: idx1 ^ idx2
+Out[313]: Int64Index([1, 5], dtype='int64')
+
+
+
+æ³¨æ„
+è¨­ç½®æ“ä½œç”¢ç”Ÿçš„ç´¢å¼•å°‡æŒ‰å‡åºæ’åºã€‚
+
+
+
+ç¼ºå¤±å€¼Â¶
+
+é‡è¦
+å³ä½¿Indexå¯ä»¥ä¿ç•™ç¼ºå°‘çš„å€¼ï¼ˆNaNï¼‰ï¼Œå¦‚æœæ‚¨ä¸å¸Œæœ›æœ‰ä»»ä½•æ„å¤–çš„çµæœï¼Œä¹Ÿæ‡‰é¿å…ä½¿ç”¨ã€‚ä¾‹å¦‚ï¼ŒæŸäº›æ“ä½œæœƒéš±å¼æ’é™¤ç¼ºå¤±å€¼ã€‚
+
+Index.fillna ç”¨æŒ‡å®šçš„æ¨™é‡å€¼å¡«å……ç¼ºå¤±å€¼ã€‚
+In [314]: idx1 = pd.Index([1, np.nan, 3, 4])
+
+In [315]: idx1
+Out[315]: Float64Index([1.0, nan, 3.0, 4.0], dtype='float64')
+
+In [316]: idx1.fillna(2)
+Out[316]: Float64Index([1.0, 2.0, 3.0, 4.0], dtype='float64')
+
+In [317]: idx2 = pd.DatetimeIndex([pd.Timestamp('2011-01-01'),
+   .....:                          pd.NaT,
+   .....:                          pd.Timestamp('2011-01-03')])
+   .....: 
+
+In [318]: idx2
+Out[318]: DatetimeIndex(['2011-01-01', 'NaT', '2011-01-03'], dtype='datetime64[ns]', freq=None)
+
+In [319]: idx2.fillna(pd.Timestamp('2011-01-02'))
+Out[319]: DatetimeIndex(['2011-01-01', '2011-01-02', '2011-01-03'], dtype='datetime64[ns]', freq=None)
+
+
+
+
+
+è¨­ç½®/é‡ç½®ç´¢å¼•Â¶
+æœ‰æ™‚å€™ï¼Œæ‚¨æœƒåœ¨DataFrameä¸­åŠ è¼‰æˆ–å‰µå»ºæ•¸æ“šé›†ï¼Œä¸¦å¸Œæœ›åœ¨å®Œæˆå¾Œæ·»åŠ ç´¢å¼•ã€‚æœ‰å¹¾ç¨®ä¸åŒçš„æ–¹æ³•ã€‚
+
+è¨­ç½®ç´¢å¼•Â¶
+DataFrameæœ‰ä¸€å€‹set_index()æ–¹æ³•ï¼Œè©²æ–¹æ³•æ¡ç”¨åˆ—åï¼ˆå°æ–¼å¸¸è¦Indexï¼‰æˆ–åˆ—ååˆ—è¡¨ï¼ˆå°æ–¼MultiIndexï¼‰ã€‚è¦å‰µå»ºä¸€å€‹æ–°çš„ï¼Œé‡æ–°ç´¢å¼•çš„DataFrameï¼š
+In [320]: data
+Out[320]: 
+     a    b  c    d
+0  bar  one  z  1.0
+1  bar  two  y  2.0
+2  foo  one  x  3.0
+3  foo  two  w  4.0
+
+In [321]: indexed1 = data.set_index('c')
+
+In [322]: indexed1
+Out[322]: 
+     a    b    d
+c               
+z  bar  one  1.0
+y  bar  two  2.0
+x  foo  one  3.0
+w  foo  two  4.0
+
+In [323]: indexed2 = data.set_index(['a', 'b'])
+
+In [324]: indexed2
+Out[324]: 
+         c    d
+a   b          
+bar one  z  1.0
+    two  y  2.0
+foo one  x  3.0
+    two  w  4.0
+
+
+è©²appendé—œéµå­—é¸é …è®“ä½ ä¿æŒç¾æœ‰ç´¢å¼•ä¸¦è¿½åŠ çµ¦åˆ—ä¸€å€‹å¤šæŒ‡æ¨™ï¼š
+In [325]: frame = data.set_index('c', drop=False)
+
+In [326]: frame = frame.set_index(['a', 'b'], append=True)
+
+In [327]: frame
+Out[327]: 
+           c    d
+c a   b          
+z bar one  z  1.0
+y bar two  y  2.0
+x foo one  x  3.0
+w foo two  w  4.0
+
+
+ä¸­çš„å…¶ä»–é¸é …set_indexä¸å…è¨±æ‚¨åˆªé™¤ç´¢å¼•åˆ—æˆ–å°±åœ°æ·»åŠ ç´¢å¼•ï¼ˆç„¡éœ€å‰µå»ºæ–°å°è±¡ï¼‰ï¼š
+In [328]: data.set_index('c', drop=False)
+Out[328]: 
+     a    b  c    d
+c                  
+z  bar  one  z  1.0
+y  bar  two  y  2.0
+x  foo  one  x  3.0
+w  foo  two  w  4.0
+
+In [329]: data.set_index(['a', 'b'], inplace=True)
+
+In [330]: data
+Out[330]: 
+         c    d
+a   b          
+bar one  z  1.0
+    two  y  2.0
+foo one  x  3.0
+    two  w  4.0
+
+
+
+
+é‡ç½®æŒ‡æ•¸Â¶
+ç‚ºæ–¹ä¾¿èµ·è¦‹ï¼ŒDataFrameä¸Šæœ‰ä¸€å€‹æ–°å‡½æ•¸ï¼Œreset_index()è©²å‡½æ•¸
+ å°‡ç´¢å¼•å€¼å‚³è¼¸åˆ°DataFrameçš„åˆ—ä¸­ä¸¦è¨­ç½®ä¸€å€‹ç°¡å–®çš„æ•´æ•¸ç´¢å¼•ã€‚é€™æ˜¯çš„é€†é‹ç®—set_index()ã€‚
+In [331]: data
+Out[331]: 
+         c    d
+a   b          
+bar one  z  1.0
+    two  y  2.0
+foo one  x  3.0
+    two  w  4.0
+
+In [332]: data.reset_index()
+Out[332]: 
+     a    b  c    d
+0  bar  one  z  1.0
+1  bar  two  y  2.0
+2  foo  one  x  3.0
+3  foo  two  w  4.0
+
+
+è¼¸å‡ºèˆ‡SQLè¡¨æˆ–è¨˜éŒ„æ•¸çµ„æ›´ç›¸ä¼¼ã€‚å¾ç´¢å¼•æ´¾ç”Ÿçš„åˆ—çš„åç¨±æ˜¯å­˜å„²åœ¨nameså±¬æ€§ä¸­çš„åç¨±ã€‚
+æ‚¨å¯ä»¥ä½¿ç”¨levelé—œéµå­—åƒ…åˆªé™¤éƒ¨åˆ†ç´¢å¼•ï¼š
+In [333]: frame
+Out[333]: 
+           c    d
+c a   b          
+z bar one  z  1.0
+y bar two  y  2.0
+x foo one  x  3.0
+w foo two  w  4.0
+
+In [334]: frame.reset_index(level=1)
+Out[334]: 
+         a  c    d
+c b               
+z one  bar  z  1.0
+y two  bar  y  2.0
+x one  foo  x  3.0
+w two  foo  w  4.0
+
+
+reset_indexæ¥å—ä¸€å€‹å¯é¸åƒæ•¸dropï¼Œå¦‚æœç‚ºtrueï¼Œå‰‡è©²åƒæ•¸å°‡ç°¡å–®åœ°ä¸Ÿæ£„ç´¢å¼•ï¼Œè€Œä¸æ˜¯å°‡ç´¢å¼•å€¼æ”¾åœ¨DataFrameçš„åˆ—ä¸­ã€‚
+
+
+æ·»åŠ è‡¨æ™‚ç´¢å¼•Â¶
+å¦‚æœæ‚¨è‡ªå·±å‰µå»ºç´¢å¼•ï¼Œå‰‡å¯ä»¥å°‡å…¶åˆ†é…çµ¦è©²indexå­—æ®µï¼š
+data.index = index
+
+
+
+
+
+è¿”å›è¦–åœ–èˆ‡å‰¯æœ¬Â¶
+åœ¨ç†Šè²“å°åƒä¸­è¨­ç½®å€¼æ™‚ï¼Œå¿…é ˆæ³¨æ„é¿å…æ‰€è¬‚çš„
+ ã€‚é€™æ˜¯ä¸€å€‹ä¾‹å­ã€‚chained indexing
+In [335]: dfmi = pd.DataFrame([list('abcd'),
+   .....:                      list('efgh'),
+   .....:                      list('ijkl'),
+   .....:                      list('mnop')],
+   .....:                     columns=pd.MultiIndex.from_product([['one', 'two'],
+   .....:                                                         ['first', 'second']]))
+   .....: 
+
+In [336]: dfmi
+Out[336]: 
+    one          two       
+  first second first second
+0     a      b     c      d
+1     e      f     g      h
+2     i      j     k      l
+3     m      n     o      p
+
+
+æ¯”è¼ƒé€™å…©ç¨®è¨ªå•æ–¹æ³•ï¼š
+In [337]: dfmi['one']['second']
+Out[337]: 
+0    b
+1    f
+2    j
+3    n
+Name: second, dtype: object
+
+
+In [338]: dfmi.loc[:, ('one', 'second')]
+Out[338]: 
+0    b
+1    f
+2    j
+3    n
+Name: (one, second), dtype: object
+
+
+å…©è€…éƒ½æœƒç”¢ç”Ÿç›¸åŒçš„çµæœï¼Œé‚£éº¼æ‚¨æ‡‰è©²ä½¿ç”¨å“ªå€‹å‘¢ï¼Ÿç†è§£é€™äº›æ“ä½œçš„é †åºä»¥åŠç‚ºä»€éº¼æ–¹æ³•2ï¼ˆ.locï¼‰æ¯”æ–¹æ³•1ï¼ˆéˆæ¥[]ï¼‰æ›´å¯å–æ˜¯å¾ˆæœ‰å•Ÿç™¼æ€§çš„ã€‚
+dfmi['one']é¸æ“‡åˆ—çš„ç¬¬ä¸€ç´šä¸¦è¿”å›ä¸€å€‹å–®ç¨ç´¢å¼•çš„DataFrameã€‚ç„¶å¾Œå¦ä¸€å€‹Pythonæ“ä½œdfmi_with_one['second']é¸æ“‡ç”±ç´¢å¼•çš„åºåˆ—'second'ã€‚é€™ç”±è®Šé‡æŒ‡ç¤ºï¼Œdfmi_with_oneå› ç‚ºç†Šè²“å°‡é€™äº›æ“ä½œè¦–ç‚ºå–®ç¨çš„äº‹ä»¶ã€‚ä¾‹å¦‚ï¼Œå°çš„å–®ç¨èª¿ç”¨__getitem__ï¼Œå› æ­¤å¿…é ˆå°‡å®ƒå€‘è¦–ç‚ºç·šæ€§æ“ä½œï¼Œå®ƒå€‘æ¥é€£ç™¼ç”Ÿã€‚
+èˆ‡æ­¤ç›¸ådf.loc[:,('one','second')]ï¼Œå‰‡å°‡åµŒå¥—çš„å…ƒçµ„å‚³é(slice(None),('one','second'))çµ¦çš„å–®å€‹èª¿ç”¨
+ __getitem__ã€‚é€™ä½¿å¤§ç†Šè²“å¯ä»¥å°‡å…¶ä½œç‚ºä¸€å€‹æ•´é«”ä¾†è™•ç†ã€‚è€Œä¸”ï¼Œé€™ç¨®æ“ä½œé †åºå¯ä»¥æ˜é¡¯æ›´å¿«ï¼Œä¸¦ä¸”å¦‚æœéœ€è¦çš„è©±ï¼Œå¯ä»¥ä½¿å…©å€‹è»¸åˆ†åº¦ã€‚
+
+ç‚ºä»€éº¼ä½¿ç”¨éˆæ¥ç´¢å¼•æ™‚åˆ†é…å¤±æ•—ï¼ŸÂ¶
+ä¸Šä¸€ç¯€ä¸­çš„å•é¡Œåƒ…åƒ…æ˜¯æ€§èƒ½å•é¡Œã€‚æœ‰ä»€éº¼ç”¨çš„äº†SettingWithCopyè­¦å‘Šï¼Ÿç•¶æ‚¨åŸ·è¡Œå¯èƒ½éœ€è¦èŠ±è²»å¹¾æ¯«ç§’çš„æ™‚é–“æ™‚ï¼Œæˆ‘å€‘é€šå¸¸ä¸æœƒç™¼å‡ºè­¦å‘Šï¼
+ä½†æ˜¯äº‹å¯¦è­‰æ˜ï¼Œåˆ†é…çµ¦éŠå¼ç´¢å¼•çš„ç”¢å“å…·æœ‰å›ºæœ‰çš„ä¸å¯é æ¸¬çš„çµæœã€‚è¦æŸ¥çœ‹æ­¤å…§å®¹ï¼Œè«‹è€ƒæ…®Pythonè§£é‡‹å™¨å¦‚ä½•åŸ·è¡Œæ­¤ä»£ç¢¼ï¼š
+dfmi.loc[:, ('one', 'second')] = value
+# becomes
+dfmi.loc.__setitem__((slice(None), ('one', 'second')), value)
+
+
+ä½†æ˜¯æ­¤ä»£ç¢¼çš„è™•ç†æ–¹å¼ä¸åŒï¼š
+dfmi['one']['second'] = value
+# becomes
+dfmi.__getitem__('one').__setitem__('second', value)
+
+
+çœ‹åˆ°__getitem__é‚£è£¡å—ï¼Ÿåœ¨ç°¡å–®æƒ…æ³ä¹‹å¤–ï¼Œå¾ˆé›£é æ¸¬å®ƒæ˜¯å¦å°‡è¿”å›è¦–åœ–æˆ–å‰¯æœ¬ï¼ˆé€™å–æ±ºæ–¼æ•¸çµ„çš„å…§å­˜ä½ˆå±€ï¼Œæœ‰é—œå¤§ç†Šè²“å°æ­¤ä¸ä½œä»»ä½•ä¿è­‰ï¼‰ï¼Œå› æ­¤å¾ˆé›£ç¢ºå®šå°‡__setitem__è¦ä¿®æ”¹dfmié‚„æ˜¯è¿”å›ä¸€å€‹è‡¨æ™‚å°è±¡ã€‚ä¹‹å¾Œç«‹å³æ‰”å‡ºå»ã€‚é‚£ä»€éº¼SettingWithCopyæ˜¯è­¦å‘Šä½ ï¼
+
+æ³¨æ„
+æ‚¨å¯èƒ½æƒ³çŸ¥é“loc
+åœ¨ç¬¬ä¸€å€‹ç¤ºä¾‹ä¸­æˆ‘å€‘æ˜¯å¦æ‡‰è©²é—œæ³¨è©²å±¬æ€§ã€‚ä½†dfmi.locè¦ä¿è­‰dfmi
+è‡ªèº«ä¿±æœ‰ä¿®æ”¹çš„ç´¢å¼•è¡Œç‚ºï¼Œå› æ­¤dfmi.loc.__getitem__/
+ ç›´æ¥dfmi.loc.__setitem__é€²è¡Œæ“ä½œdfmiã€‚ç•¶ç„¶ï¼Œ
+ dfmi.loc.__getitem__(idx)å¯ä»¥æ˜¯çš„è¦–åœ–æˆ–å‰¯æœ¬dfmiã€‚
+
+æœ‰æ™‚SettingWithCopyåœ¨æ²’æœ‰æ˜é¡¯çš„éŠå¼ç´¢å¼•ç™¼ç”Ÿæ™‚æœ‰æ™‚æœƒç™¼å‡ºè­¦å‘Šã€‚é€™äº›SettingWithCopyæ˜¯æ—¨åœ¨æ•ç²çš„éŒ¯èª¤
+ ï¼ç†Šè²“å¯èƒ½æ­£è©¦åœ–è­¦å‘Šæ‚¨ï¼Œæ‚¨å·²ç¶“é€™æ¨£åšï¼š
+def do_something(df):
+    foo = df[['bar', 'baz']]  # Is foo a view? A copy? Nobody knows!
+    # ... many lines here ...
+    # We don't know whether this will modify df or not!
+    foo['quux'] = value
+    return foo
+
+
+kesï¼
+
+
+è©•ä¼°é †åºå¾ˆé‡è¦Â¶
+ä½¿ç”¨éŠå¼ç´¢å¼•æ™‚ï¼Œç´¢å¼•æ“ä½œçš„é †åºå’Œé¡å‹å°‡éƒ¨åˆ†ç¢ºå®šçµæœæ˜¯åŸå§‹å°è±¡çš„åˆ‡ç‰‡é‚„æ˜¯è©²åˆ‡ç‰‡çš„å‰¯æœ¬ã€‚
+Pandasä¹‹æ‰€ä»¥é€™æ¨£ï¼Œæ˜¯SettingWithCopyWarningå› ç‚ºåˆ†é…åˆ†ç‰‡çš„å‰¯æœ¬é€šå¸¸ä¸æ˜¯æ•…æ„çš„ï¼Œè€Œæ˜¯ç”±éŠå¼ç´¢å¼•å°è‡´çš„éŒ¯èª¤ï¼Œè©²éŒ¯èª¤å°‡åŸæœ¬æ‡‰æœ‰åˆ†ç‰‡çš„å‰¯æœ¬è¿”å›ã€‚
+å¦‚æœæ‚¨å¸Œæœ›ç†Šè²“åœ¨æŸç¨®ç¨‹åº¦ä¸Šä¿¡ä»»éŠå¼ç´¢å¼•è¡¨é”å¼çš„åˆ†é…ï¼Œå¯ä»¥å°‡é¸é …
+è¨­ç½®mode.chained_assignmentç‚ºä»¥ä¸‹å€¼ä¹‹ä¸€ï¼š
+
+'warn'ï¼Œå³é»˜èªå€¼ï¼Œè¡¨ç¤ºSettingWithCopyWarningå·²æ‰“å°aã€‚
+'raise'æ„å‘³è‘—å¤§ç†Šè²“æœƒé¤Šä¸€å€‹SettingWithCopyException
+ä½ å¿…é ˆè™•ç†çš„æ±è¥¿ã€‚
+None å°‡å®Œå…¨æ¶ˆé™¤è­¦å‘Šã€‚
+
+In [339]: dfb = pd.DataFrame({'a': ['one', 'one', 'two',
+   .....:                           'three', 'two', 'one', 'six'],
+   .....:                     'c': np.arange(7)})
+   .....: 
+
+# This will show the SettingWithCopyWarning
+# but the frame values will be set
+In [340]: dfb['c'][dfb.a.str.startswith('o')] = 42
+
+
+ä½†æ˜¯ï¼Œæ­¤æ“ä½œé©ç”¨æ–¼å‰¯æœ¬ï¼Œå°‡ç„¡æ³•ä½¿ç”¨ã€‚
+&gt;&gt;&gt; pd.set_option('mode.chained_assignment','warn')
+&gt;&gt;&gt; dfb[dfb.a.str.startswith('o')]['c'] = 42
+Traceback (most recent call last)
+     ...
+SettingWithCopyWarning:
+     A value is trying to be set on a copy of a slice from a DataFrame.
+     Try using .loc[row_index,col_indexer] = value instead
+
+
+éˆæ¥çš„åˆ†é…ä¹Ÿå¯ä»¥åœ¨æ··åˆdtypeæ¡†æ¶ä¸­é€²è¡Œè¨­ç½®ã€‚
+
+æ³¨æ„
+é€™äº›è¨­ç½®è¦å‰‡é©ç”¨æ–¼.loc/.ilocã€‚
+
+é€™æ˜¯æ­£ç¢ºçš„è¨ªå•æ–¹æ³•ï¼š
+In [341]: dfc = pd.DataFrame({'A': ['aaa', 'bbb', 'ccc'], 'B': [1, 2, 3]})
+
+In [342]: dfc.loc[0, 'A'] = 11
+
+In [343]: dfc
+Out[343]: 
+     A  B
+0   11  1
+1  bbb  2
+2  ccc  3
+
+
+é€™å¯ä»¥åœ¨æ¬¡å·¥ä½œï¼Œä½†å®ƒä¸èƒ½ä¿è­‰ï¼Œå› æ­¤æ‡‰é¿å…ï¼š
+In [344]: dfc = dfc.copy()
+
+In [345]: dfc['A'][0] = 111
+
+In [346]: dfc
+Out[346]: 
+     A  B
+0  111  1
+1  bbb  2
+2  ccc  3
+
+
+é€™æ ¹æœ¬ä¸èµ·ä½œç”¨ï¼Œå› æ­¤æ‡‰é¿å…ï¼š
+&gt;&gt;&gt; pd.set_option('mode.chained_assignment','raise')
+&gt;&gt;&gt; dfc.loc[0]['A'] = 1111
+Traceback (most recent call last)
+     ...
+SettingWithCopyException:
+     A value is trying to be set on a copy of a slice from a DataFrame.
+     Try using .loc[row_index,col_indexer] = value instead
+
+
+
+è­¦å‘Š
+éˆæ¥çš„ä½œæ¥­è­¦å‘Š/ç•°å¸¸æ—¨åœ¨å°‡å¯èƒ½ç„¡æ•ˆçš„ä½œæ¥­é€šçŸ¥ç”¨æˆ¶ã€‚å¯èƒ½å­˜åœ¨èª¤å ±ï¼›æ„å¤–å ±å‘Šéˆæ¥åˆ†é…çš„æƒ…æ³ã€‚
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ æŒ‡æ•¸
+ 
+ æ¨¡å¡Š |
+ 
+ ä¸‹ä¸€å€‹ |
+ 
+ ä¸Šä¸€å€‹ |
+ pandas 0.25.0.dev0 + 752.g49f33f0dæ–‡æª” Â»
+ ç”¨æˆ¶æŒ‡å— Â» 
+ 
+ 
+
+æ»¾å‹•åˆ°é ‚éƒ¨
+</main>
+</body><xmp><![CDATA[PK  óXñP            
+   index.htmlì}ûWGšèïş+zœ3ëÉÙtë-bsN&İìîÌdïdîÎ½99!5Ğ!)êÆ63;ç0F0$1ØØŠ16Æòƒ—Ÿ2`|Îş)sÕİÒOùîWU-Ñ]’ZT#9q6HÕÕ_U}ïú§ññï?úâÿ|ş	7¨Å¸Ïÿø›ÿøì#î¤«»û¿<uwüÅÇÜŸşõ‹ßş'tñÜ©p\–)Çº»?ùİIîä ¢${º»ÏŸ?ßuŞÓ•Htñ¿º/ ¹ô°ñ£K1=ÙU¢'{¹Óø…†bqùÌáY„P(Dæ"±°,ŸÁ3ÄÂŠuÅ”Tïé_¸\'¸ÏÃ"'‡Ï‰Qî¼¤râ1ñS)&ş_î7œŠõpÆÔÉp<–]ÑDDî€¡Ã}]RÂü)ñœ$wËbêìÀ°»¥xT¼ 3va0N/Š=Ü§)‰û·á'87ïæ9Aèá=?÷/¿ıâŸù Ïs¿Rç¶Ô™kZnIÛYÔ–ÆJ‹ß¿Âåê==$*a.2NÉ¢rfXéw{O¬.ñ›aéÜ™?¹şø¡ë£ÄP2¬H}1‘‹$âŠWÎœüì“3ŸDÄ“ğŒ")1±WvGİ[P¿›)æµï'µøóÆ?ÒW9²8ïrûºø®¨xçş™øÜ]ŞP¿ÇÓÏGµÅIíáÕÓİd¢§cRük.%ÆÎÈÊHL”EQáSb¿é÷³|WD–9e$)QÄJ7üÖä“Bı'ñns”3ÚZ™Áîˆq<>µ*ĞÄp*2X~Ã|6®µ7‰Í‡E³««7È±t—]×Ÿ¿´ö6B†£çÂñˆ=ôêdJ<g¼šÌĞõqX	š
+‰]Jâ¬üM¬µwÃ3bJ„Wv‡“R7eê*hª·#ÊHÿÇ/>uá‡áGïiüIï{¿+ƒÿ¾pö·¢,•ÿ-™ ü£§_º F?ˆ‰ıJ }Ğ—P”ÄPĞåC¿„#_¤Ãñ¨+’ˆ%R=ï}âGÿÂ¨TTLõÉœœˆIQî½ıûÁP85 Å{øä…’áh¨½Çƒ‚ğû_]zŞı™­/óĞ¤è’¥¿Š=Aş—œ—¢Ê`OxXI|p~PRD—œGÄxâ|*œüûén²œƒ£:)&RJdXá$ é“d¤!X¢Üíî‚ÏÊ;Ğ%÷»¥hTŒÿ-*ÉÉXx&‹¿†’0A8®XL	Ã)nñ¸i¼¯÷t_":Ò{:*ã¤è™š£á0gÌ@öî†±½'8üaà âŞ\*ƒãğ¾0:O.œ’Â®X¸À×oæK×²êÖ•bæ!zxĞc<[ÙŠŞÓh÷7S
+Z¬+“â=R|PLI
+¼¿=h’áú3&•ÁËÃwáà˜“ĞÈ0¶cĞ¢ş"«ÎgfD`¿¾GÎ|ÖÔ*!W–kü†ÿcÒá5amÉ×P"zhyŸ(ƒ‰¸–[QW.ÇjaxJ‹…1™ûïÚ™oc×øñ;F-ä§ù´š~kw²yùÓ@úlîçÌ6÷r›7÷$0QHœ!®üƒ‹?ÙÛêV›t&6ğ7¯~:´ÿ³k…Ö7°Vx´<@¼?2Z—~5§e^ ïWg¯ïŞ	tº›ˆS"ŞMÒİ°O\HëIŠ©jÑo|Yı!ìİğĞ¡Oåä ¿ Ã.ö…SD`µo77J3k—UÖÊ§R¦,Q%%Š®˜€PÃÀœ
+câ$XZ
+¬Ú“­aÍùÁ°"ÇÅóİçBaHdFıÆEmqK½sK½¼\MSkÁR\VÂ±ËuªSÅ»?´{a¢¢€Â|–—=—=CU'î•Ó—yò`œÏ'X°%Ã;&×½º^t‚åŠ?û½úò:ñòÇ½’‹ÙÇ?îÍ|ô‡ÿşëÇŸúôõ©÷¦ìœ½Ûêì8êv¼Çêü¬œR–iytfî½¨Ô¿R\‘Á„rÖÕŸH¹Ê–+Ó• -ägÕyc=6xMsKéËRDfÅ(–w ˜ÃV””Ô7¬ˆ.¢Ô°‚vû±–¾_Ì=Tæ˜Ã,Ç¤à‚+ˆÌ ÎLêS“úæE5;Ëb1&FcÄÕ7BÜ"Ì¼SZnIß^u…« /{ëØÁ^x=«¿Ş8Øáõ°ïÈ¯ÆöRúFiôŠ:·Y|øÄšC+.Æ'‰%&Sb¹ÛXI§?qŸ‘éÕ—O´»a!ì—`0nºÊqÅ$Y!?I²Œ>ÆÄ ;²<ÄÛwwŠë[…×èŒô½uë[B-ÀùÕÌµâJè¦‰8p
+	§Š&†\rx(cÆ±Ò•nä´ËZî®ÒA&ê/921§DlŞ1â W÷ÕUëÀ˜ÃŞ\“á¥á”ë\86,ºeŞ‡á2VÆJx¼yTJ/ë³OÔ¹EĞÈŠ ÕJ“sjz½b‘HÄÄpœµV¤æÇõÌ¾CÄPÍ$ ~vVšM™S3/^]çáu¢kHTQŒBCaùkv›_|ğ¤ìH"*–AC~EŠÉ\LÈÂ1.¨Üƒ- ƒQc&Ú‹AıÕû§»Ñç0š‰É.¾Ò"@İ+^µãxh~§¿S#ÆNwàîbğœÜ]æ›N‚Ê‹qEÃ
++wbñé¤¶n¶¸Ê^ó‰JXsÄ¤¯1ëf‹¥•[êú5u¢ö¦­u´ B
+0‘Y,‘øz8Ù¹tFà{«9W¢ï/ ÷±Ró¯ËÖlq{Å	Ï•ÑŸtVX€õŸnàğ—C"9%*Ã©8Vç\ç$ñ¼`‘‡eø-’H°ZÈ›«êÍ[ÅµE5»XÌLªS›õ´l|B]–ÓËê8"F¡å­¶³tzÑC"
+ö`ºæùLáõó÷fÔË·Õ‰{Èİ™¾«]¹×A«Š'¯¨U]ù–Küº¥ôà=˜È´n‚ÆrÉÅ¥}şñÌS½ÙmCmâ!9‹T6ö‹.ä—ÕÕmtØiëFzê@"… gJÖ™K óuÜjÑLğ[œé«s›úƒmáZ/!gĞwoY…µ´káğë0 ıW/ÈxíH`Ï,vĞb#‰¡ä°Â|©Å\Fß¸F®;hµ(X7Ù7Â˜zõçû? *ÿ¸wC{Vq…“ÉØ¨{C}R\ì õ+Ò¨Ô)I”YnÉ6PwæÔÌµníÚ=-»l;øã8VcJØ‰•ß¹Uš´s™èôb1ÌL5°ôíÎâÑ‰$âXLÏ²4š/İ¨øÈ;h±b|ì'Ğ¸’bªŸ)úÎÍ«³“z~_[ÈtĞzå$ÊÛ`ß“Kë‹sR>¯İï$tH(‘A¶¬IÍç‹kÓêÂ\ie¦xÿ®¾~õÇ½Ì§şgSq=Ç¨~$¾îƒÿ™òİåâz¶E_ˆ#±zb$!ÈŠ8Ä§/].>ù^¿º¬MLëOwõçÛíI<Ÿg ÷áçŸ©sãÅôx»×Ï‰±D]5;†¸´§n/hë/õœîäl¤°«,OzøP»~¥>•â”,2—‘;¥$’$÷•Äy™ÖQÚı‰ÔP9Lœär†ñÕÏ™®®êœLî´#ê ‘‹‡‡Ä3ßp(kïŒäğ%?™’Ìæ·ÉÃ}C’B^p¦ø|«·z)'¸8Š-½?YµEJoBƒIaˆÿ%£­=Á÷òêÄ=²ÅÅ·´Ì"É´úqo9<2‹êäkÈêü¬Ûşé1©ù ’Áÿœe4¿eü?Ê¤~Q;“L"±P¢a%€„a”CdğÍä	rdÕ[¾ı1ŠµLèƒb8*¦p&fMÃaàË9Èë«(ğceéA[ùÂ«‰Ò\F»rôÿóÂŠ˜asNœN2ÍñQ·fÕñ¹B~ÖQÜÍ“¸©Â›mtSËNsÛènàj®”çC0ê œ[–PÔæ©¬"»p@—úò‰¾|móÌ$€W~yì(·T\¿NÔ5uö)¨è…ı›5«`ÆşÔ‰qk¿#³7€º‰È=½§¦-î©™KÚ­yt…Qö…ºvV;ß©{sÚ•ûjæ…:·UZÙÔWwÔıºÄ_ŞP !
+YíÃÂ2[qò¡:éoeAƒwà.½¾ì<£€¹úÍgÅûi5»U°E<¥7/¡ğÀõyøÑnYœšÍiÙÇúf¨MË|«¦¿U·&áXJ»·J×²ÚSV÷g
+ù4|8«®^/°etÔ™IÂô»÷Ô¹Ë¥ô°MÈ˜še•–\([­´	úËï¾ğ NÆ—Íı{¼à-•<ÍBÁ£Ş¼­í¨ãhQÙ\ñÁ“Òíëêò²ºMÍlv.i7Ÿ!^rãbiq´²^‹OVå¦G‡qŒÂpíŒ²à=Ù/¥d…;áÂ¼ù$³€Œœvñ'*i şhNÉh<„äcÃ¶şnxèó"¼J£ÓúÆ5ıñ³X‹/¿r"Ê‡‰¡D ö w9ï	à—€¢êüE=·¬ª°?$I‚;‹°í/Ó I„ˆÌ[¬„X…%«/ï^g‹—(w: œµ1íVVÃâîÅ÷ ñJ£ßº&7y‚à`¦2š \úó‹h©IíÉw °»éÒÎ¶¸ts€ü
+V×óú›ïì‘şëKÚõM˜Y¿º’¦°3­Nd
+ùYÌilOÙ	DîÈj@5‚Å.Dä7)¢SAuı:ì=p¸ÂÎMõâCZ¥¥yT¶À#òÌuıêÂî]ıÎŞCÅ±àh#3ĞÛã>ºÇ[ØÖŸ½BŒ¿íélÉrH¸…'J›5³¦óa¤rŒÜ©¸¾¦~{¨Î‚CÜ‰È¸˜ÒØE@â@ !TJ?A(‘¬ßÏ~
+ÉøkFÚöB”o?­-NÚ%Àhmi¬xçØ4@$Í?‹Ğar
+	¡Ñ7êÄ¬­÷MÃêJ‹°gsŒ‰P2q´“²…wG]ğLSxP˜´ÿ (¥rØgl*Òó0R·Î”#ƒa).F ¸Ú¯áox32(í3ï¶ïxK›ûO¨¸|—ìâ‘<Å‚¬tmE»~Ô?dh.#f@Â#Î¿@ôı|ÔKòI%_“ü€ˆ8;…E'WïÖ¾Eò>'4Z\«õì9›äV†İTï•?uñBwõÇa¥œÃ%›PL×WA'¨=R[Û
+Ã0c7+›è8N<ù^ù7Çìâ¼¨_Éø \˜qüßÇ	':d? ãp"ºD…øA[(ì¾ `!+ô#ìÅ†KiyÔVã×õ…{À‹ZĞ,‡ßÅà{åß\•ÌYÇ	Àúñx8–¥wºAùÃjcÜŸÚÍÊÉ‰K ·öS[²ªŸºş2Úêªv³ôœa'Ù uâ¥Ù1­e^ UiÛchq/wÕË·K·'ˆ{L»º©ÍŒ"İáúıÎÒ8°B²Ñ+ŒÆ–m`ÜÏ!O™¿ŸÒsÄşE¯X½QÜÍš¹Úcnø:Ë
+V ä%‰%"N0fâ 4Ô6|3€vöõ¥Â«e°ğ`‹‘M‚³I‰'¬úâó—Äì·µ­ÚÔ>¢ƒÌ–>õ@ı~l>v$‡öFË«³“ 
+˜AúïâÈ'©T"å´ö¼+Ä}~ã"¹sÃ›r÷Ó{ûõ7Ã	E$|¶—ŠÛlØÀâ†š>@Äıiu¢øÁ’Lm|rë 
+ŸrDT´{º‘ßf£6&¤Ãö³xçQñşİÒä´-oPµPmJu>t}Î.Jã¯cw„@éÈ’ñPâ£¬¤ÌÙ_k×7©t,_¡=ySñ¯İ°Ä÷¦hjå*Ñ	DA!Xì5X,½p_?ø5Íwª¯Îw‘S-\ß#¿ĞAùtïi™{$FÚsªßqfªßÌ«s³ÚÒF)®=É¹Åu’0K‡SØÎ¿8­ŞŸFw~£Ymı¼N™Ğ¦£µ‰ûHˆàt?Cù% ÖÑV=>Şr)0R]×rŞiC*…á,†ÍØxmC3«ïÇÿvË*ÌG¸˜0ª9â¤ÂŞj°:‡"}€ÖIY0â aŠoJÛ°¡›ã(?{^§ƒbÍÎOîî—©‰àì”¶A6Á$™BşrñÍVáªSNÇŞïº¢Aµ>¢Q1J|¦Ó3¾D•êû%f¥Á°Ç^Ğ§2$¾•ÒÅ©T°crqW¸cã¦»ÊŞaëƒ$Ñ1$ğîH÷LÓ(@èôeDıÒ„Çt+AãRGğH:U@w6«´ˆö/'2ã…¼3õTöFG¨ü"Æ@@:•î„\q/‘òE"'Í®+YŠe_ié.èó§gƒWâ˜ŠûÑˆ8^Ê_L ‹,]Öf+{ˆ’*R±'q™ñÛÌ Å×E9´Èi:e£İÏ1½‚)6‚a–VÕÕÅæÇ#òà‰ñ"ìÏ+¾@øØ‚ÏxS)½„B·æ3Äˆáº9æ˜éû‡R½™ÍÎ(>¼¥ï?¨ÖZšÀŠõ‹Aò–xDÛã¶Á;Ôn/Õ1ã¡~Ãw¶Ã_É
+¤)—±¿Fè	üd0Ñlo·€w&÷;“ûçnrWâpş‘ÎÖê0v,l£ªÓqØØæúÿHj˜ÃÜ9[sÈÔû)Ææ™#òHqiç·Wın¦%Ìc¾»®ÊƒğúTdA{L{®n¯jWHVó{~Œ#‡¬ô·Â•@ÒÙiË$¬j¯¸‚´+ sm«ªÎT‰
+¯³`vVüöÌ×lîˆò.Ré®â¼ÀS¿İSçU¨3mù6ûáb š˜ã,âı[ÄŞ"‘†FÔè‹`s±ãNùq¥j:ÉhNïï,j!?­?^+.-ƒ6Üü<Õ¬îö§70J¸¯n¼Rçg´ÜİÒèƒÃq:ÁÚuZvwQén¤8Ó@7öÄ>¶Å8l³³së÷´=€V«^zYœ|uksÚí½âGêè¤ºqÃ7Ö™eïÆK"rFÑBÎÈÒ›y}áEÕÅĞñ:Ô*Ë£zÏzèßÑ¯¦ iÈõ%RQ1uF(ÃIÄÎKQePvHçÄ8W^ÊúƒïpİTò#‡ÇñYõ»ßƒ~ï6UPè?ªL œéK(Jb}š2^™Jœw%¢`,)ƒ¦TV\—ˆ±®,¬bàØ¿ôĞIÕ»•ş¿ @µˆÊ»£$’µ[#Â)ÀŞ0ƒíé®š9ÔÚTÁD‚Ê2Fe#°5ÉÈÊ-ÕâH>¼¶R{·Æb}Ñ~¼@ ú¬±È_ÅÏ6±æn…Tœ‚°j‘ikJğ1šrZ$ò”Ûu²NäQ—AÃ¨­ÁFÍÜ!Püd2t´õ» ²pa‡ZãÏùnÍd/‰g£|º(…|Zß<ÔÏ™±EBJV˜‹hKcÚTUšÍ 
+¥±» ¹Úº&š4)Ú`™kÖi¶ºIÑ?2„gÏêÀÀ¡³g©+CÊ’\ZÖÆ¦ÈM9Êƒß\ÓçöA|¢Cih…5ı-Š÷yøĞîµ…‘’UU¼	ò¼¾IÅÂë+ú‹uŞ`³Ôtq%GJ‰v.½61%Ë…äŠÛ+€ HçÆwDc8Ü±ó0ÌòŸ‘nçöı²îï>şg¯ë!Ôœ¾zl¯3ŠÙ¤÷ê,ó§ª`âkÓ/qd¨µ®ÅN¤µE}ûÕØ~tßü%P,ªLKßÆÖ_@n·àuQ“S¨xäıïëœÌae›aÄRz©xw¥R±ôšRú6*ø¦_ßZQQz¶¹F¥f#.I†îÈIÉcÃLÄâÂÇM…x¥A fPqIIÈV}C+#{O£9mœùËtZÉŞÏâÜ—ÂW=œÅ·ñŞ(L,[y½g¬>÷&£%
+ášş,,`@´ø:Ùû+‹Oe¡÷”Ğ-t»y?eù”¥· ƒãKDeKèÎX|:$õ-ç/wz<qÂb'İÔìwn+A$Mïb¼7´ñÒÜæñ¦¡¡nµåQÂh¯õÁ”‡×Çq]]]•ƒáıS¼d.ÓOª‰¤)T$NƒæQ1Ùû%…>´AhüolÿÈæø­Çõ~s'cIR†$UıÔ`ïï‡ÚS‰^Ë‡XÁ}Xùé7•Ÿ>ªüô1e"Ä™\¼ ÿqßåõ‡ÁÍ¹ø.wĞô{8—ĞåãC¼/„~<>¿Çİh"7Ç	]nÁmL$<nÁ‡&„›Çñ^¯Ûão4‘=ôA/<äîx¯ÏBŸyCŞ;„^Ã„ ïm4‘½= Pø|èñ ï‡'ä`ØÜ0‘Ÿo4~Üëö†nôÏàİ<yÜïö¸ñ”Á€—MäGùˆ';ãñ{ƒèqo èuğäğš`°ÑDx¨—÷x¼_ À{ıh¢€àãy·±H·¿áDA‘¶ÆÀGíCøq×ëğrƒ^o0è«LÔeu9˜¬^¾Ÿr)áÒÒjé‡[úÔ+5shI()w~‰JkÙ)³ÒTM2ùÑø¨Ğ‹Ií-ìxêÀ‘²±Îµ±Bş2ÉŞ©hˆÄÛĞánr¥\İqº‰ÃÂ8T;›F…v²ê âh4;Ş½¶é¿^šˆ±§ûVÒ‘„÷Wõ„¡¯¤_]Oa±ú–ÏĞ¯êÈ_
+ À >ø "Y—2óñåHÜ ÊË\#ÙêØÓÒè­'Mıù*V…JÒ_ÆfË\³>…³ıLUï×QÉª™	uşLEŠp£Â]ÚÓ¶Ô|Ş‡µ†‹*/é¹à%êŞ)­¬®ŞÀoi‰û[Ò")O½Ó"ßi‘ªEZI@Cä¯4‘e×~¤‰¸¯¬°-W¶Š¿ª+‰ƒ-1ÊSÇËPØˆ‰µ´ÂPLl¤ÂZZc(f6Rf-­0”6bb-­0”6RÅZì3©°–VŠÁFXKkå€˜Y‹-³”­R†œ–GzÇÜşA{¨­Éâë)mî&j~µµ­fÁ šÒ&§ˆÿœXw¤+ºŸAfáU{íx:ª–=«7Xµ+îÄ‹õ;vÉ ‡ÜßLİgg8—şİŒ­¸t\Òl&‰ãPXÜÕŒøVŠ»ùÎ!w¸ª:p šé™WÌê]Ëöo6´«¯X&\¨`L—ôcœ àuÔ×ªøt¥L¼šV§f3tÇÆ+™¹6j¡VR€mU­lI…lI]lI5lIlIåkI½kI•kIm«gŸ¼-¦İäšXx5ºS²¨ŞÎw¦ãÁÑĞã-Ú®o¡Aû¹ü<˜‹£ö_ag,<¤¤÷PÌÔú]ıÎ¹„mÀè |eUìMï5vÃŸ
+ç\˜Tãèw,ÕqÕÌ+‰³ñá¡äˆåL¿ªÁ%47é$æÌ8Î¥¥Ûˆ–nZºehéF¡¥Ûƒ–n
+Zºhé .s¦E˜òËÂŠ’’ú†ÑDDeš±Ë$ÃÍ”I¾v³ùdµğ´?³¬*éîĞv‘Ã2‰ö»"‰˜\->ª:p‘¨?×jF—Œôâb{»m#w9¶qƒ¼U[R´=‹ZfÑ”Ä×Ä.”ãUŞ$©a&±vÆÓgÂ¶t
+[áÎÕ¸S-Ú),Bó’F»möXKmJì¯Íàâ¾Ş˜$+Ök¥¨á¾ˆµ"ñ~}½‡Zí·w˜¶”aÔò¸–Ö(.Ò9ô¦TĞ»™%öÕÓßè&îº§UçJßlR´›éõB;V:gÇ:çìXåœ-kÜ–nËú¶cusÖvõàOSâ7=ÜÇ¿æ~ò¤‡ûğ×\TIÂO¸g³ßÛ~¡ÆAØ¢;ÆhMT×}$KR´íD£Ó¦sú’†]ô%Ín2NXŠ›Î×2×¨‡·Ğw·)`¼½ü.ô±ùÔ!»k¥‰_$Ë§:("ô¾Ç%¾æ¤~°“Ã±X.#hô²"×=œ:>ŞzXH{®9ƒA¬áÑƒ]È¹Vè9j<!ç=j !ç;r¡ÿ¨¡ƒÜbİuœV×rœû;¶Ce;Ã²È)ƒ’Ìõ'RCœ’à"À~‘sqñ<G
+uÏ°/³.:’WñzÇ„Z`B6Òß:)to8V† †.Ÿdi(Ã¹y¨(3êø„¾ğ³ub\v5ßÂ•õ+m9µÜRqıºşx7âbZ~Qîr¤Áªå”Ÿ%-iìTBE‚(‡°iS³Åñ×äCm}•øÃ´Ç—KKó-slÂ»ˆ»İ5.&^8T"LîéîÆÅÁˆÖ•Ht{º+tÇ@©„Ãc#²d“¢b\AR2+)F
+Æ zGå,Ko8ê©mØA;†ğfiÁŞ’-ÂÒ*uØÙ<iÍöà‰áèÍLêsûèàğÍ¸:?«ç¶‹+?èG ø!)îÉWèİVÑ0[KÔƒ®gM`ey{Õ­IÛÜ¦)K· v&ĞJ’KÔqÀT:sTKü %hÊ(R{AĞ:rT)²ŒåÃÖŒCá¿$RgÃ`¥;+;H¥ø[)*<èÎR6G•½ÌmhãÚÓQ ¤Aä–´E£¡Âî¬~ñ…‘#üò^áu–}1kùËS‚3…¬Y5@	xéœ,3? NÌ‚tk’h”úÍ<Ê;ºqÑP¿3‹ÕÉ×UXkjÿÄ°¾æôFÕÊÁ øŒ(şúw[êq’½]»hd`ãqÅ»¯‹+9ÔnànVÈö/‘¥ôRaç&Êº"‹ƒeaáâpV…6–« ˆ3ğ/•&Øµ|ˆJÅ	ĞŸ¯áª¥éâÊ[’°ÔÆp 75 ¬2ñ³¿Qœ’¬’=VQëbtJXZĞ‹Y¿Ô^6ÚhJ‘¿×¯§GJ°¢ ¸_©!·vÎÕÃ:ÙËñ ”Pó{lĞìÖÓÿ½î‘P£"ÊGbéRn¥”Æø„ò5œ¼ôKTø.ÿQ{Ö|y{,•gŒxvSğHe’¬w¸#(Ép&v?Q<HïT?{kN}Rÿ¦İò/’ë×ŠÖ,!Q§«»;¨çe¥ ÌÆ8’ÕøsRŞ}KJÏÊ[ŸÛ­H“Íñ]n¡‹Wç.k7Ÿ¡®zS-û¸_‡·ã<p£3ÉûGYLıqÿÄdoã”¢Î‘½‰¸xtaÕß+XE“?ı½n{Ã=ÖÃMòÊŠ72IQÎ'l‰Šc!i£ıÖ›Cá¶&²ëá>Çyç\4!ÊñS
+Åç9ÂşĞgŸÈÁS@Ub…À$€@â8ÜBê3b¨9'‹"Wö'ñŒ]É‘(à#ö'ºntË¸tw9Ûè Zè>KºëœiËõGérVTGªuÑ®A¦¹©_"‰fú²N^€eB j¢†¢Ôñµ9Ût Ü­Aß¼¨fkí=j:@54íO`çˆz×²™Rta<§f.<ÕŸm‘Æ1…K¦>ä[‚ÜÉØº¦¨,ĞÆÅã“7…İ]íâjh¢(Üe=êeé‡Û…üUø9+&ŸÙJ€°^¬-54XÀûJ1Ôâı»¥Éé·¢$jitZß¸¦?^³[Õ8 t³zKßp¤;%–>8²ë†©oĞ@8Ïbfäe*Q7f¯0Ÿ6nÊ½FˆŒ©úİLÅ#
+Yß^m§Ï‰O©pÚc­,Q¼õ,ZÊ›éíO>h¾ÙhuKÕ™HN9HÊIZ»Ùhª)>É ëD[Ç`+¡™rîÏ=oã½®V\k–§jâtšÉ¥h-KÃVş‡­£´E~¶0ÊËh±	F¹„Q˜•·{4MJÑ#ÑDê
+›š_·Q
+y¨©ryK›s¿X7i9uÎÒ¥ºŠdkÖÙšÈl2“‡¯*ÕŸ"[cªa{Sk^2óøŸ¦È¬ÙÁ;ƒ½vûì~‹ÓÙØjÁß%Q„3E8¶ÕÁ”J%ÎË¦zTT·*¾šæç%fÙj8{¶åÕmmq¯”^"÷znCÍç‹kÓÈ2ù~–DğŞê~F]½¯ç¦Õ5Ô¡ãú¦>†:‚A[ØSLÏhsó…ı›m,8è±]x†Â—)7Çõæ»nI–Ûf{KF‰ ªÃú´"çÕ~$º,bSQŸYf]˜õA`Ö™Ù§jÛbŒüâêqáÎ°ehÌÅwÈeZav·¡ÍLq“7}½qæ¶_qt~¢•­Æ÷æÔ¦–}\Ca•(M%=[Ø -†™ª.U¯Î-jÛ; w€[fÙkE´•,J`*Şy¤ç¶A±•¡MN¡N@£oÔ‰Y[ï%I8¥ÅíZôlæŞéœ$wÁÄò°ìBvçÑ. È¾×Õìb13©î?0u
+³u³tX_k]s†¥¸Xàj¿&·ÒCb¼…@Ó¶ïxk×vfò{k2ûb‰È×ß'‘€Û‰ûõ…ÚX˜(¹ç~î8KjOİxõã^EšË1º`àtlV©K9bµªãˆiİx¦İŞ«nvØ„Œ3PnD~İH¡\x¦-°«ÿ¶¨HCâgNåÙe»(ì½RF¢Ö˜­õ‹‘¤øI*•H9¼Îò_¯»kQİyµN‘°˜-GçÏ­Áµ½ğª–\×ëp}ÄÔ­Ô¡ûğ7QÚA³[‡İVİÇÑŞÍ^à§»Ó[cÔûõ[m7êµ]§MbÌrbÃÔÎF‰‚§lj"ó9°ÍŠLNç÷"[øş§]oL„­y¬y¸
+¼~÷ì
+ü!Rÿ=ä†ºmL„ßéy}nlá{OÀ4~?6ˆ½7ï¡û>Œ‰ğ;á—/Íãwû¼ØÖçy¿à#¹=ğs£‰°ùösy Í‹¡äı^äqwùü>¿·~GÖ¶¶ä=@ÄfhØfâ‡õ?kâ@Cèá"á8ìMp(ÎÙ Dçç`ûş)¦|€ŸáN%IX«"ãx.<ª«J©:õOÊÜyIä”AQ6f›E"s‰~<º`áNGËÑRA¯Ä-ÚPU!ÿD]Ìjë+5ŠŒ8Äê•UÅË1›èà`«½­o\,këkêÖ•âä³âäC”<ŒŞø!æhŸOâ NIò¹ë÷Sò6è†m%ulG`±—:?aÑ”ËµSÍ}Ü‚êş-’˜TZœVïOWzåñXZÙÔWw˜™Ÿ+Ã)ÑÁŒ$©Ÿ0,ä+˜x™tüÖ÷vÔ­o‰ë{P/t»É[Zöaaÿ’S©Zÿ.‡Aİ¬ßÔT¼¨g^T„%E`.à©®”ˆ¿p!“*&}-:Í²ª°·GN¹rÜô›ö¸Sv
+å+^ÉËÙÙÙ	¤¨`‚(Í>‡íÁb‰/Úì8e¥[é—.Ÿ|O\‡…K(T{á™zïZ%å™î¿Q'^jÙ©x˜†ˆèÏ®ªËè¤ÂF,û(°K±}ÓRÎO% O©Áf¯×·ìqƒµQm{]ÏmÎ¡´Wrû7şZ}3Qº”2jÉàVu~ÍT‘ª£Yb…‡í‰¬ğV‡P5ñNF®ì”º~6ÎÆ<	b¹4vY_¨Ûbu¨T[dÖŸiëwª×ÑÔ ­2g€œ]€43ÚôcÄJ'î;f}Ù+Ñˆo1Ì52ËI*({e´§¿E¨^®¤SùÖITªdË'2V‹K:‘FÄ4-Ï©Ø¸Hfÿ»À³Q.©j?	Ôüt¡Š{yuâ%Ø¼R–ÔíeYÅlq£"pØ&ó9qZf‘€§Â§œ İ²–S
+€7tö~ï<"é“¶‚FªÕ²&Æ$„²{”Úú*ºÉ~Z«†2oá~}ÓQ®=ySq5‰Fò±a‰?îM9^2‘1€ŠáõúsiÂ,Ãr¾Ê·nŒŠ¸B_ï"­Ôtf?Õü“·ÇplÍ·kİáGb=§úg‘úÍ¼:7«-m”Ò7*ÕÇa5«O‡uX¶ÔF} ï«£Y¤’ƒ=gÒk‘hÀ&
+X„(±Á3z4ŸP¹Æº¾!A ²ã #1¤%#fì:F¥æÇõÌ>áO¿ìCvŠaòªKãÁÎ°pZ–A<b#(Ìí!rÊYR;è›¬BR»õX©èÙî‚•<s¾sæÛDe]uê}JLÍ±´ÚŒŠı­tÛôĞ³ì­ƒ8ŒÏÖzÔ	](×ÆGËÖè#c<^ŞÃÓrËQÇ:”¬àİÔ¢ŠQg€ºİ~Úª[DïB×›|z•ÙOÆOĞGËyi¾ —›m•<Åê2œÒ„µ§^j–ÔŸĞĞÎ<€>;Æş#HB½¡@(ä	º’™–µ¼ô$üvÒ‹ú^jÊm].L{ìx¸p£TÿhcÄ&Æô7ó®¶gï·“0êÄ(:¨Äı‚á­õ¸vÃ·YOü©õ)ğÜ['±¤.+¦<×L`k‘aœíqóF¶µ;à8¼.à÷úI’{0àĞÂÌû“Gn<Öëñ<ä'Áãâ v?¹i,7‚ÃÜİ^!È“¬óßëøB(¹İİåµüT¼^?Ëóş€Ã!Ïd%A¿‡¿ˆßêõ…|8Ãİ-„Ü†´Î Cğ‡è9æıxlPp“·Ü Ü°+89Ÿ‚AO]t©“§ÀD)¡i%aYu”Pêø(Eiµvr7°&üÍzx;©À>;©“”Ò7J£WÊw&ÈÅJ.›Û©œÔ‰wRm§ pã)İ¡iÑâÙ§mEË2¢5œlŸ¶ÆEÇb]5ò†˜„Œ~32›ÙEGû».È¿¶[Ö.;Êm4¢ÔgŸ Êi™‡¥îØ	Øj º™å1Y—J) Ò©ôCb )Dƒ¨¶"Ÿ(c>"cˆä¢Œù˜ãÊ4RÓ.ÜÊ˜eZ4ß‡ŒUÓ{íÄ@ª£»­Xc—›2ã¨$+œµí'òä‹Ô0­3Ÿ†c2mÀG|Üh@-ö%•Ü^+eÛGu 3:Bkåà­ÃfxÑÌ}uüü&İ£±îİX»nlE6Öfk.µ”cá‚¤¤cieSİ›31¿Œ¾[/îU²K¢ìnòAE•³çÂ±ai*¿•Ö)m¥-Œ<Ñû§J2ÿ[Ipâ7Ã,5äQÜŸÿtÚV¾4ÖşÕŸÿLñafR§QU¨İ®YROƒ¡-µõ1èUğïq‡¼«Û¢Ç0dQêÎ2®È€jĞÃ:­¦Îku”	µ¯	¶¶V¾ó4Í|:6ĞÕO3ÒíÓÅç/m„µWµ`i"J‡TœªIİ™ŸÏIB	¢3Ğ¢JW‰W·•³B
+Ä9…\x={ØFe…¬N<(¦'
+¯¦K‹ßÛj®Cº<Ú1,3F˜"Nji—|0;ıšØZ£jG@S«w7®nt¡D-Fb­WÚëÌ¦1‹âU_Õ‡òÑoâR
+¨[Æ¬AmMtë÷è£|‰»D(_â QÊ—†—èû‹Xé’îp,%P]€‰jzšT‚)N>U·¾%é¸¨Ê!©†Ï¶¶h3“ÚBT^Õ®|§î X˜B~Õ\İšU–Õé…Š`©äõã7¯÷ÆQ„úÅê¾Q~¾°;¿jÙqmfªt{^Ë.k‹¯À6P_Ş#]‰ãÄœšÕ‰Z}]
+,l¾¶"Cáƒ"ÖäO;5<ÂIË‰”r–ÆPÍ­N¬ yDFáV°.éâv4wŒ}Òµd Ôt'vÛfl]ÈÂŒíµŸÅ¸à£»\:æ`œº¤]ß¬¨ğl°‹C,Ú1í;¿†U>tnÍu«E	˜  H™ƒÒÌfñ!º³RoŞÖÇvP©ˆÜ]uô@
+zå2úÆµÒäœºzŸˆ!€Ú( ¾5«½|©ÎgH°ò»nk™ymı¾¾ÿ :ñ¥‰-Á¹¼BT÷ré$İôÕøœ’`æ¬’‘ú¥Ğãw¤a¦ºeÃÆƒ…ª³oGqŒú•]šîNPÎı·òÚTû–=5[˜;ù6í©±ü]—‚²â]—‚úùgïº8•ı®Kí!Šm}ëş™‹méÏ/ÖTÚBMû×œÌ~ÖŸ]ÕŸ¼2ŠmáZ Xl‹´º&¶J£ÏÕı‡$9öß}>r¨4jS<¨°sS[¿kªudúá]}a¹B?l»:à#i¹~ñå/zE¡@¿·§«ƒP¥{³VôÉzÓò‘¢¼4ßRMŠ&`¿~­øÀ¨Xúá¡:tF³OáCûTNJµ@¦Ä%Uxµ\±\R…£ÉÍ·yVöy^ìêÈ„+f·h"Tix¬Ô:–U´¤we´šµ‡Ê¤ü6Ğr¾ÎŞÎ¨óã¥VòñP¿á;§Â.¸
+Š2Ğ.ëÏ¸ÀĞx+1ì]–wZŞÂ->j†Ù»-v»\µ§@Œ·×¼ÉvÈ…`o¸uÌÅûõÅø¨y\uKĞkpõÉwùC¾@€Úc‚Œñx…€‡–ßé%cB¾PÀM‹öÙï¡¶’¬¿
+hcš¯Aâk\o©‚è1ìvBLê^Té•ÇyF6ö¶q-££í-³­E€VğNàİÁ øæå]ülÊ#1¦Õ]üëY±NÚcYgİJ)î&Æx›ã,ëü™TnñScUßUn©¯ ıœ*·ƒi/—¦@¾5dœßÑ “=R)?5”¹~)ÚsMu³ã+?¹+?y+?Ñ„ åà¼A\FÀãöxBXÅŒösBÀïõR»×á	¼ ‹ÒtÕçù¬ò‚ßíEu„@(HíLêÅÒÌã½!Ü™ÎçuóA\+Íïö‡ü¸“×#P'ğùİ~_Wığx}ŸR¼n›èË¼/@+©$ª0¨Ô~õ?õ„üRZ‡¼Á |æAıı¼ÔTJ²rğzœïèA“F«~!€¡‚‰ü|ı”/ÆµH¿.º]$›vŠÛ&
+¥µİú2ˆĞvÈ0<*	‘m %Ïk¢|—6 ­ a{Y,¶ZSR^êØ¢ş:ñÈœôqÛc¶vøªZ‡[³C—XígvŒJ“ÑIÁ-°I£$?Qª’9àWu™÷QºĞ»›!µÛˆÖˆ^RÖFÀ›‡ÿÏŞ·÷¶qeyşŸOQHÛ1&’«Šïm™LÓØtcºg·AÃ(‰”L4EjH*¶f·´dY”-ENbË±%¿mEq"Y~Ózù»4XEò¯|…½b±Hİs«.u‹¤İ2šfUİºsïyÿ?q¡'¤,	C,ĞS]€A¼<›|€Öïï9ïî)I¢âˆ€ ’}tjâR0nóĞÄ;UaI…~N(‡Œ8ª×ašñuœ5%JuX‘òsö9JS	ÖÜIÚ(~¡}¬ñ±N¢’°¯äœŸbûƒKò0ìU“üÔR‡õpBõ :‘Eèª•f#ÿH‡#ÔÁ»á1I8br¶À¡zº€(/çËœã>”=nâò(Æ›Ş,ÂWsæüNíÉsmÉ.8Ö¬dX¿q­vå"MÂ¯—çi†€rRù|jbrºZÙÄÕÌ7 év½8öS…”bäÑÿ™Lîl*©¤³
+}ÁÉ,îâ0ç´îÆs¬“r)É†—ç™mb ìow O¡)$`
+.Ê¨ür$ñG
+Œ9ÅÙ]­æìTt`¯³1€°ÄïğÌ6¤›_øhõÛ£!qD¸›_ğGâ‰-0¡pìYåÓ?äÇ£a3VBÃ»}!ĞÀ€74ÁpÑ7æDM¾Åc°e¶“
+Gª8©Ÿ2xTtKôÅŸ±„NGËİÚ«,ª+¸•V]^’=íÀ@P,ŒÚ;õİ
+Ò'¤šì\E»[XeO{&es”Î&Ìïql‹¬eø‡ PçŞÔæé¦eœ£•e˜;šrAè9Áª
+ ÇÄˆìq]«D×‰ë‰è€'S\%¢ÄÚÇ=¼¥!=”P±+‚Cä }T6	'BÑ(µà«ªb¿‡ñz,¬‡T9p§ƒƒ› ò.¢BMñ([÷È:¯61YœV:ÏŠÎ»>¥›Å-–vÜAr9ÑuõcEû«¹¡•0W†sBşïÀĞö|ë~<Éœæg{ym*Ï­äkùØ6œà*9Ë(AèG's\CïS³u
+Í™|°$µ²…Å"bõ1ol˜Ûóí©ë}Íå–ŒPİİ­î_£Ğ½ÓĞš š@ÅJ2ÈKTìÙ\xJ²òY\m¡ù°Û]h¿ËÁÇ.¯#ëû+¥	Ä…h‚Ä>§òb®ÌM‡rcC#¹©l² Ÿ½›TŠÅI¹G^HgÇ3)Æ`7søÌÏ7V›“[ËÀjkåİÚ£‘ÖFã™ø¹¶ş Ûš} È6…—.™L%)ïq-·}q"—L¥Ñu9ıBL0>¬ÕÊŞÒZÙ6/İAê=ãT³O£v©Áƒû—	jHu÷‘¹Ü	wdˆ@À*íoî í†:Œ6ƒ¹Ü	ã5˜ğÕıµÚÌ#]ˆI„Ò
+rŒæÛ¹Æİr½<OMlæò,Am)›_ï™Ë?Öï"™Š–XßŞ4ß”~Ş[ &9¼Í€™ùæ,A»¾WV¹øq­ğ.­rOgÇµÂı$XÅ»¬='h±t¾ù©’Œ­˜z(ãˆ¸°¦j±‰µ‹¨X
+u5ªFà:nèy=¢%Ô­ëŠÄI¬…ôş¦G£Zz~”¼!‘@ YRÑPœf”„Õ¸®’èQ5WãP\r’ö?b×±MÄÑã1bJ„ÕH„¾—ÖO‘;â‰D‚>×±i·‰Ä"¤'‘P4Ö £ÁĞ‰hœ¦9D¡X˜<
+Gb$›¥ZF%&¹]+œñë_NeŒ‰‘dÓå{¨®!×šäçn¨“Ÿ°Úè¢za7õÆãÖ?*%S"“’‚®©ÍÖ›å\(w–Ç\M ƒĞÇ±Î¤‘SUä¡1‘“Q„öDN<.Mö)°>h¢Ï¥ï‚ 9P;ÇÙ-A
+½…cA:åS^¦<CQZôR‘Ò¢#˜zZôRÒ¢˜ZZôR‰Ò¢à’üI_B’­™jå!V6íRéM3+J½{³H{äb¿œ1’	IÁûŸÜ+Oâfïgà¼ ‚Z%U §º(4°.êg;ûÙªıÜ†6:…õ'Ò'+&.ÒÜ¥Ô7Am{Ôâ7©—kî5ÖJvßü®Q²u©1¿ÜÏİFóŒŒ°©I†u/Ÿ2’§G_
+Ye’FÑ8‰K Œ™Ì0zZ@ò·í_§“dv“e9ÂïL'»HNH ;İÒ™i?S7ÏMML³›‡”¤é”‘Ô“Š)cP•Djé¦X6V°ü!Ó øŞØ8ò¬6¸ç³¦'´o;$ë‡Ó`<u
+tL¦Ña‰şŒãËsJœQ”?é#äõôÆúHàÎŒL’_ÎO$r§““À«0©*˜øï?ÍWyı^¥«jLùô·ŸÛwE%„œJ,Œ„*URq¦B(b¿JÓcÃ8ú2Œ?±1³ù©EÈg|²’üóg´_…áö5GhjøCãWEÂÍWÅ¢¤ùiX%ßékãøS÷xÕ¿üîßíW¡CÎÔHèEEÔ5œçŒÔ-ú*]Ó[¯Rä…ôåäS‹ñ_õ??±'¿%¬…ğKt<¶úª'ğ¨0>UXk¾Ê~-U‚ÿªÏÿOóU¨Õ¨§.gÇÚ*<4²jäU!:i:™4=Ô\ŸæZ…=&ğ¿i’EßŒ_R1Y$ĞÜ…B1<ªæjqÒpÄ56÷â1ó^õÇÏşd¿J·ÛWb:‹ÁHV^u&ĞM
+d$ŠŞşZî«~÷o-²G¤Al—ÇÆñP¿‡"S²ˆFZ#±I$Üú%äšÀÎw}Wò¹³åjX±õÒ–L)İ’>7dGÌ¥CÉz|I=IV€‹su(}N~Ëoÿ¤ü–öÄ|ıÌzp‰q~C\ AP”ËßQaB¤LcÖ°JkVÉMq¼¬òc>pDæëgõû?RâÃZÅ‹K¸xëêóÒ]ZÂlğƒl>0¿‘8ßuòPI4v±¾#DÚÖWÖÊk)Q~eÍ>¯¯Ÿ7Ïß¬î–;{HwmÜºï”4ÊæÃ›Í«æ¥U±Øá7wÌí§ÖwOê¿»Ç”ºû©åí63„€NdªÏ“šÉş´î˜[7qÑÓ+ë"¥q ¥XÙ3ZjM°ø™¹½Ô±lò
+Ü“ÀêçÑÚ±+ØEuÃ‡7Í7/ªq7J7Ğãõ—¯Ñ†©­Vj×^¡«8Hn°×è÷™¬“ZÎõ•u'ê¿özÃDÃ"F.Rv] ÎÙàã´d<:ƒ¢u´÷êßFë rÊO ƒ|Ò>`ø“Ş»RN	NÎ³rOb/ÿ/`d"1Ä\çb`b(ô@†âBıF—ˆÍARxşúnÅ™œ™à:³¡Jlkj7ÀÛŸğb2FU!V"ç<äíÒ%fÎ•Íœ,ˆd±ÚÌí«,Zk«æÁí¿•Ö”OşVºe–¯;’Ne!èoµŸ~R‘ˆşÒq„<É@ì£ÌÇ)ëçØLèHR‚„Ø'Ç˜só<»h`’DDÉsïBA8>Ût¶·Û73ˆ¦À e¤şàŞlå¯ÍÒ×8Aùà¶³½¨ËWæºöÊÙvèæÚ…WæÁ"sJd
+Ân%´g2YÏ<åœà}‘cBÄS)|Ì7àSHê1Í3ÌOßÉã©™½G7eõà")p‡˜TJİÛƒoÆÅ‡PÓJ`}÷UíşÍİ›¦êjå:„šˆ¶‹ÕÊ:ì!wK/DkEÏÙêÎåÚÂı<’8	"BÇ†(È@p²‹h×yé`@ Mªx/˜(ÜsLlñ]<Çêëçé®jKcKl©³Ö¸ì-M£øê?^–-5bb³ı¾ÁÁ}ÃÄNpRŠÏÎÙÓAíçOĞYNü«›2"][2üØ*¸a!Í˜³éâ™!lE¢ß&Ò¹2”1FR™‚HÈ¢Ä¡|Š\ íeÒIµï ôœÏÛ¥ÅœT+KÔAc‡şW^Ykµ½sûkªqüOŒÒdîîÔ~¼ÌL	€ÃRº˜Äã•¾„¬ÜV‡uÍ²ÒAoê°ÊBÂ «¸·Eï@}¦sÇÑ¨ş`Á>Y¶9±ƒZäìÚN["&âÚBÙZû©ZÙ”+‚èôrdåÆìƒ*ª0—»\™>è|áÀ,o%×çŸ#BL¦dßXzin?¥
+  ²¦0ãPü?…¡q®¬›óÄ 4
+ù©éÀàÛ±²}ñqÄ ë›ÛvµŸÍ‡ßÄÜš5·ç÷Ôîà:"÷oQÎb½*[çŸ`3Ëâ¼yåkôHcvÃ,_z¯İa­¾­î>p,6WRa8±¤ã6z?9Ğù=®S18Şy~¦˜²Í+ƒ=åQ¬GB÷‹:ÏlÓskeMÖB		8èŒG§‚mÉ|{ËZ<¨úÖ¥>nMsuE´ì`ëÏB>Áã‚)î"*GÊ£­_Ä†o:éH¬#]ø”Àì JQàeR¯çsãs>Éõ2!Gá.,S\ÿ(.wê÷1)DÃÖ¯.3ŠÕ2‘#;¦:;4aGÏàS™ÔD*[, Ë™Œ’7Ò¨BSrÇeìŠgRÊØTq*ŸúX™ÎM)£èÆ©BJi‰œŠQ@/SŒT³F1ıeÊ)w×ÙğR)Ò –nq_b;B4•‚vÎ™bqòW'O¢ß’Faxr§¡çòãö/C¨¥ÂÉBÃ‰lšÓ†Ï'2¿à›
+Ù=|Wö1Ó$kM ºãLHV¸ÿ<ÖœÄìš­ôÕZ’iOy²^[>°A%öWqÏÚc*ĞÑ:<²¹X·$U*‘×Kòîèx~l2ëõ1¶ncå)5èâCDhkgGSXÂ‡CæCJ!m»šìááqtfM§sî_‡Ğ||™.œO‹ˆšN£/¦’‡"!ûœ~rQ¿{æ>,“h0It}L–åm	keÛ¯ÑI~öú’^¨ü­t‹ü¯Q_	ÖD„7wØ`Û¸â ªÈLÕ˜	/Õ£ÿ,FÚÁ¹¼n>\Áv6’–B°z[³Ï™5
+ä…C(ot&fª5Ÿ\l|½Çµ0É*—q á ÕÊUçı?ï­
+X)ßŞªo. ÏÚµt~PdÍúº›ÁXÔì/`#¤ÄeKSÁ¨t)ÚÅ‘[†ó< ûÿµeEöê½ÀípcÀù{/L.”ó#) ş»MjWï×®ŞyGä¼>Æ,iª§Ê>õ …êhbÆıWIğ®4p¤|.§ÙŒ`½Dğ~ ‡ŒïoĞT0	@'ât
+€QÇGÜéÉ~“Rf›+…3àÿ_Ff*eWì5²hû½ÊX>7¡Jrj2“ÆÖÅ8—æ×ê’uÌ#ıİ¬TÜø’æö¼µPj¬•h$J½<oBw+µÕJuç¡“ìãVû*»yVª?–ck34(áøõQ¾f˜8Í°º‘ \`‰´tÈƒëfyÛI²£²˜HÔÆ	,fw	H2Nù¼Û¼ÔÏ¤İ0há‘È‰E…/NÌ’)Â r{|@æ)YZğ_à3;>DË–ŒºS`Å³ÛÖèIí[´mÔp-?0İÎ5¾¹aıpÇÚx`­ıä×9¦ïårsÏë?<Ü-á4tÒ˜L7}”~Ë0Xê¥ .Ú“^»x©şìÛCWÛÍçĞë”ÉiôßĞDªxF3+Ğ¤ù(hh£ +?¸MUs«¼âŒ'Ñ’¦ä]¿·ˆCÀË×»r{øˆæıáívc÷»úã%kvÎz~¾Z¹Œóú·qxÅ:³¾º‡¶Í¡¥å>ëëçª‘µ…7hîZ¥1¿LÃpN¢Œ€œLLü6è×¾ªªà`D8Ê(İ¤ÑX¬|¤fdûÈú…ò¿Ï¤01(F~|ŠÆpàêİ“èz*ù1b~Å©|¶ h÷w˜É4›tàéêgaéQÂ^X¾R¼VjÂ-YÀğ{xî~—M)Æ´R˜L¦Ç¦•:ÑSy$$d§&FĞ—ÜKf‡|4çÍ3Òõ¨óÆ6Eú¶üÉPt=8å„HĞ-¤Lr—Eã…ëú\3¼>cyƒŠ`h…pĞç*iRâW…W	÷ÓÿBR‡Ù w©Ücë¼!B€Ò‹!ëDx©‚5¸µsa™ÙJí‹*5?i{ŞZ+™oRÀz²Œ˜>b÷8•ä'DÍˆ#Äc,mxùÔdÆd|HkÜó/SÙ"Óê[ky•
+N"f™ş9§4Ï˜•ci E$ÄÖsSØ@¶–’”’©1c*S<ÁgRL@Á2wjæÙÎÓÀ³ı‘ÉS¿12vç¹4u¹<XÁeGİs9Z AÂÄ¤ç¦;>µI‰,y·©íù)bkŠ@¡ ¤Õ€(G˜¬z,Y!9±éúı83k}¦öÕ|mµb^YtÄ––Ã…@‹¢GÌ¹×$?	İæ<EÃà'é» ¶ÍïãºD@±~ºÔ˜_0]Í<oœ¿íÿşÚÌÎ!Ğµîçäl
+K5A×	õ#è‘rŒdîì
+ˆ^šÈŸOMü~Ípíå«¼R{¾Kmbˆªp¾uékœüxíµ¹³n¾kÜ-×Ëóõõót90ÀÃöRıé=J‹B¢@¸…Ò"DDßõõ4ÿ´›èKcõ•†W¹Š‰xî|}ã)•ÉÓÙ1ô”X <İ¤qÔZmsÁZÙÓğnØ§áÿ4d ‡ƒ’›7â‰¢¼¹l~³ˆñìH°€µYÁéÿ‹+b‰í$yº¯‚ó EuÎ¾çæ‚qU©sä>İ~è)ÔWlDîÆ¦‘•èÅıìÕãkR‚vúamDÄ–åÙ>Dw"š‰püW¿è^„ô©BĞqÒÔÌ‘Ò&†²¹ü:ëÿ3•TŒ©bnÂ Çfšù&å€~	ÕY%¶“aC¦Œ½<øw{ìáÀ=-GßÃ<NÂfŸœüM,ì/âê½ü˜_ 	¡{ƒÛº1ƒ¥ÃåÇµö2—¯›Wp…r$™š›×k?!±ôU/ˆùÔQ©œ0¦3Ë×±yÍ­Á`,§…%kù
+®·~º°ë%UGDóvwöB?=ÒèQK‰N½)®3šËh2jË$„Î¸Ğİ1¡»J4…hÄÊñĞšµ}úD,~Á÷‹‰ı cø«G%R8šú1[{£ÿÜ#P	Ğ'ùp¹4\@]¼Ó¥íÕÀÍÄX­Äİ EoL¾¤$Úo†„MbuTbí7·Ìâ ÇD+[cæµ°Ğj’Qï\±’!'g­k+Ğö¶{5mGÜØ»‘²¯ƒîÏäXˆµ§ß~ÜÇzw‡Sâr]Æ˜zo‹r1<6?¬-Úê??Ò†ÜGO÷óÙ—°oÕf_\Ä…Qäç_»L*MH3:À(Ì<Ú0pØ$™³ÑÈ|wSÆû%Èá\0o>n¾yÁÎK¸V©]½c•¯˜76ü?^ßØ¬íoÕ6¶ÌÍ+âû‡gô»?§aÚÖµ¨H-¦v³Í«¼BüSÊ¿‘yşfêrê+æTB³¡c|Ì‚½X°Ÿb(ãé/SY¥Â!ã8ÖÎ@!&g#sÖ˜.(É¼q¶yÜrÃÉuNÑVV?ûÃØV#Ë<y»	ŸÁwSº–ê§˜Pù¬ZñŒĞV:˜:{…9eWØ+bÉ={=]Kár>v"-?“ÊfŒü8	eC÷KKY´®˜¿§ìİ²"»_ïH²¢”*'ƒ)·‚‹ÔÎì ñª¾[¡‹‚ãa6¿3×6°·ô’ú*D‚j#|‹=¶‡ãÎkl0!p¹ZÆÉ‚Ò¤õö`©E{\{¨Óæ“õÆÍÕjåF½qÁ¼t—Îa_¥V8X!Å:€«'83'e²™›rƒp¡¸P`v†³e`	à&2›;Ğ©›}…Sıø«ÒeY°åh@ 4šFƒé=ÜKã»·ÒNÜC:«\ãáH¸€Ö.ÎåÚ­ĞPÎúı)ƒ’ZC+ˆô“„8ÎËtß¬l#X¤?¶‹ı„À;ó©ÂcRè¥bÆ@§9J@ûxEZÅ¥Õ`õ;66{qüdifÓ6€ì¶¼+â*—©ëÜ´–°+Ö‘=PÓ&-@Ã 4Ò¯À¥û”ãäïô¼— AòÃC/Ÿ|„umòQ”OùÄMÇÓ‰ù#b:r'‚d¼Câf—Íí¥ÃĞŞGˆ#˜œLef#U#êÙ»!öôUhà’¥lcf)¤O´”`Ãs¨ü<8h¾ı†¹qÒ‹š"ÇŒBq¨€èÓÈ}‰‘Ş†ìêCF6é ªÁĞkènúœ|Ğ5óíÒÚÒ3syÅüf‘ZÍ°r~Ù,uNmš¾ø8}˜¯>µVö°ıÖAë”vcµ3o\«]¹h”Í‡7©‡W¯lÙĞ¿ÍkË8F»<_[ ù¯•ÙZùÀ.
+³¹ğóŞşqõ..5»~ŞÜ»`Uæ¬G7­™ôOœ 8÷½¹õ†–º®î¬6V.7.½î"ùVÓ ıqH'ø®•¹b²	¨æ¬Qdò¿‘ú’¦‹tB©EgÀ’â‚P4ÏóZÅúöfíåëûËÕÊ%Z7*`“6¢^­T÷äÕnÈ0!Ò' Å]¾R=pb˜wvĞñÖ1¨B1ŸÃ ŸrzDœC¦d¾Ÿäè°î<²pÔMIÀñCiÏ\ë¬º>x;WpqÑ¾êÁú’ ¥À×—¬¬¼:|@ôP[’ë¢1?ºß÷ÀááT¥ô%ÇDL–şˆZF«Âv¨‰MH×ö’¢3ˆ'bHÆBÑx"¦ÆÕx<S£üÙ½MB³'Hb†W”Ræ\àa©Ã1]‹D"ZT×ÃáP4šp	4&wf£ÀÊ>¡ÃìÍ4ójF}µ(pòßÙ-ôÙÑ£®DAöî	sü7ïÆîù	UÁH/
+Uølˆ›æ†#éÄOê³ûÖÚ¬9»ŒTÆ­û|rã6–®mSŸeÿÃ›á’ƒ²#s§†ØÔÉèíØş!oæÓ©d*S4˜/f¹şğñ )IcH”ìÍVbŸ(OO|‚ãZ@;ÿ|â|û'çÛ§Î·ÆŸ‘KÈâ©ªêª¡ÿHzg4¡i:–Hô¸†”!m8¢&ÔHÓB‘hH'Uvx¥vœ&uş¡kºİ¤!ŞNr=µ„®’&ÕpXEı7ÂÅ£Z<Œ×‡55‰&ğoáD8¡'H¼IL‹«aÿM¢[cÃ*ùƒBÒW,¦‘¾…‘é¯šŒªş›ŒéáDL'y°Ñ˜ª«´¡¨f7…ñœûm2Ú*ÁP4Ç…cñ°#¯A/ŒÇÉh|5I
+«á˜J‰ÅÔp7Ó"ªªÛS Gãş{Ç½Äl8F&‹'HC!$Ìid2âáp<ñßd3§˜ÜÏÿF>b®˜ QÓüH.—IÙ!wyi¶u—ıÔ¯%½³?ı7š·;$h÷¤…%­càÒe³R©¯_Æc#ŞEÇ²KgĞ¼òuc~£ÊÿÊz{@Í‘bÀ~ç/×¶0	©ÎÕ	,×½Tôÿ‚ŠÆryyĞŠ¹ü =ÿ›11ù?F0Şt™¾ÿøIDƒècŸAZ?©³-Pë'Ş¤g¤uù§ú;ÕÊ&®ÔI<“÷÷D×A*T}£Œ¿ú½Æù«æŞ2R¹ê÷4Ëk//øŸ¶6ÀW_D½´h-”(È.."ôÃ5söMãîEsgÂ"Vñº'ÁäØğ',‘ŸœDãÅ„®1œ:¯CÑÛş	|0¿-$¾Mú63u?5'Ş•¹ù¨k²‡È›œº&œ.*¬á¾=,¾¡„f¸Ô^o˜åWvTñå£C©^§éëÙ¤‘ÏÓæÖ¢9·ÑDîîpØÚ¾Ç™@¬FN‰rƒF!iÛ'øBaOhe¶áD8±§¢ñŠñ„† (äÏ²æ%%ExIIQ)IIa02Ï¿Å¤lè˜ëÎõæä÷}…œ±hÙ¹Ğ<Ç· ©–ÉXrFÚê ÖCh¥9…¾ø‹…»û}Úw2ñ¬@éÇ>ÿ_Ì{¥P¸3=V+¯Ö A»†İ~a·cÜn«ìÚ¬éJQ}Úäf5$Ú¸‘nmÁÇ–lÊÍb‹î–q,eùzõÍeìôzqP»z‡– ˜}†Ä¢@–ÿ›}YÃ¥šb‡0ZsWşšÏäzk°Q\ª¯Ægƒşİ*>ôï®èl0Èã„±¾Ú0·¿’i¿›0œäM™Ö1»$5	éu"^(†wíê}Œf¶ú¢şp¾±º†µ±û·ª»¯úzÈ¼S(ÚÆ‘±µp+¹lJ0Tü‰âÙœègò©àß">’BúÀ¤B}HYZ «àà€`i÷İÑö{²”£K)˜CO¡·`!éïlü]#²cø¼\63­œ5ë ;VÉå•öíÎTx"`İh3¸t.ËšQN>3;YÚKÀaûgÙwñXÏ¹ÿË©Œ11’4Ø?'BR¬›A\¹¢‘/pv™ï’“ˆ’â›ã"œ6ÿ‹s˜ dl¨2¶¡(#Î–î%˜2ˆÆe‹jXÓ¨”[²	å¾7ÕbZ¸7ìjKã¡¸"àñ†KıÇTúK#ƒaŞF¦À–ÉMå¹{a,{eúHz¬½ğìQæo’öÃãì©4óT‘w|ü™kq/Ä{@ˆÿ:•)¦1Fª½c.r r:têì +°ƒ‰®< ÊA!¡LvÅVøæ´§Æ¯ñ‰"H…×N ¶.ªGş­´ÖÒŒhû0ŸKåSÙÑ¶Ø¥òY#ó¡ÛæD‘eŒ‘T¦m?,“¨É!tã‡²Ìx‹@¢!YBâæß;*2<|a<•|€tEşVºõóŞ"Z4ŞêşRmËùıH÷¼Ô!œ)'uò$êLÒ(%s£…áqÄs¦F†Ó9÷¯CÅ¼ñeºprªÊŸŸJ'S'ä—j19|¦8‘ùEó_ÁÏôßÕ^ÜdFrÊT­›{«	ÅÜ •6mÜµ—WÌ+e†¥û›EsîUuw…Ú	²½5Ş4K—	ˆÎŒ¢½ígF„ƒµ"R]Jkåıçj Îîañ©}ó•‚n€Ä}ñP¿Ì“4îœôÃ9]H;ob€·´Ø¾¯9&iAæ¸Ê7jX,Êüğ úg.8¢4kÍA`Üòx’ÓĞIc2mß0LMíÃx>)ƒ:ü»=Ïµ‹—êÏ¾¥5äÛ}çPËÊä4úoh"U<£&±£W|Ô&7µs¤™¦îXn(ÈjÍíùúÛ«æêífúB‹oö¿óe®mĞ­ÔóŒ˜}µ²é §ûŸ/»/2s³µwë7®5f÷…b‘kkwºŠö¾ÿÖ¨pƒ1sï-Zå,ú”¯›s¯1,ÎB	—¼-íáèæ{}SŒx~@˜bĞà´@dP3ƒ°@fØ¥ŸûÓù/~Å’ªD³z) 5¾§ ‹r$Ç£n)Û’äRÇ…KŞsÇ®( DË¡ %‚zÁú'‹…“ …4à]’RØI¤ø0X‘™[`&Â‰>#‹û#ÀÖÛÌ»•ùc~
+ºAójAõjÁ^pœ)É_o¸‚€€úŞÑß–‡‰ƒ»…·h UcÆÚ[~Bãq¤IŠ¿u37©‚"ÁÜ@2nµ²^­\Å3HV\ªİA’Ò·N1*:šß>Æ`‚%sû²õt†cñ¨›%`·n›•
+¥Ğğû*>Á2‚ÚŠ ôñŞmİ&+.&ÂeåÜİîÍs±+l471iäSJº¨s¤DàX.“ÉMgÇ™íÚÄ£ D Ÿ‚H`°Ö”w»g‚½>`±º¶àeˆö£ÔË‡ÖæÃê›ËæÃZÈWÚaM\²ÁØ¤X½£ÆbkÅÊVmiƒ„¢#eö‘Š«Ú~{¯ş|Şº»g=¾oİyÔÏ39
+F¦NOXueĞ´Z äJ÷ñqGSƒ…æò0eûxh,Ÿ›8=™Ï%§FÙ¸X1#]À èÄÑ•…ƒJD}'pı^(håÄ«¾DÁ #×şbrrèIn.¦ÁcæMß¤šc‡vnğôfûĞl?\÷­ÃGátáÖ¤ú’÷Ä\‘¢­Ë“>SK 2!g±mwàQ) q¶¢àKÎ~>á¡øF9ADêw‡ê†s·ßSê–tè‹ŞdD@vÜLêËT†9` î3QÌ§À0—½Î÷£ßÂçs Ú@+ôÍZïÉÕıñ9;]9ìvn¿Ôæyn¿ô®y …zõÇ%é†<!÷!Ùkmnc%­ögûV÷×j3;Öµ
+ú§U^I¦G‹ÔIÛEIR”§€qõ©ÒFñûæ~ZÜv\¾à«;æ÷—6÷ï×.—‹ªíx/í97`X¬÷ê?®Pg3¶K–öÌeœa]ÙDTwK=;trvÍ9¶î÷3-Ê©°œæÛe
+$"­Â‘SåúRÌZÌrc˜§“GŸ€^è’c‚÷gÈÍcÌŞ—É'M†ƒ&¯ë¼½æÙ zÒé/p>ô‡…·:¿¤!0KrÊÀª÷
+t×ÌUoZT€ŞòSàğÁ‹ÿF[ˆ~òœŸ˜¥µÿËâÄıíÜìåNwİåéœwßÕys°eVoš•
+.!7³ÑX+áêuÛóÖ+ÕU$ ¡Âş^¾n.¾iÌ-‰IXËqØö<nŠT	A"„a.=7—ŸÈÃ­L‚Š}K/‘`ˆÆNA;Ñ(Ğ?ÑQ Æ±¹;W[İ¢q}‹Àˆ‰.>Hœ0fKı‘»€Ãø¯üÓXNåš^ÆÂê£Æ¼3ó½<ÑQéèòÀ¥S?ËòTd#;}È6"+O^'3™`:)eOSÓ¢ÏÛªÁJN˜£áà´\²Ÿ·û¶şêyíåº¹u“â&áØ&RœÀÜ¼ÒX½(f¦Z?o7ûdÛ:(rk¾öÓ:šsî•Ó~ŸÍc`ğËß#î›ò
+y…ßa!~äsgOO…¿Yß%?oE®ï—zâÁ“ê]°Ê{ı­  ‘³„*¨\¡ŠÈTX ò§‡mRÏB4©³x&5tÅ)âõÈ%Iéz<XZˆ¼µ-÷“Ş‹nŸÔéJ^ë—7‰p'‘kmş¤Î‹2=J¤Á ]J8İıérıê>0ï‡RhyäòŞ$Óš·i®[²-’s pÍÒµ°àj#Ä[c—Œ¿y¡I¨6³Sİ¹X»¿S}k#!Ô÷*æüí‰ã²_á8~ˆˆ–D‚š4i˜¬q "ûÚ†´N˜úÍ"ZæàdpÉ)Å‡|XÕ
+¢f¶JÎÎÑıƒèi ï{Ö¿ğ#6[Q )a ]…%ŒAIÔØ‚¨Š’”spvxÌ)A_‰Ì³&ˆ)ºí ö!¼Ë"J®-šGÖœú@iLœğH» t^¦”^îCÚEmù ñI
+ï–D{Èa4~,ŒÌ\°üßŞª]»Å‡¹G-‘„Ğ¿Ì¢bAÊæ’h¶)[¥Aæ“u4-B"ŠÊåêîƒÚı½Úæ‚u­ìÊ6ì†ñ©ÌèÙ¡,^®Ô#¸êÍæ¿ã‡mBÁ>Âõ>ø|è¬ÌĞiÕªm@+;k!Rv ¤&"zÄ~¸­â¯WC¤’A(¢‡ãªëq\!¡‡´„ÿ†ìªÓáx<änHÖõX<¦úo(ÜŞ]×Õ¸Şñ[(¤«4áª0İÖ¨‰FH1-šĞâaÿ=Š¶7”ÇÃ‘xGãñpL‹{5Ã«©Z„Ì–¦…cºŞŞŠ"ìÙûíÇâ¤Ât\E+ï	Ï1—×i’Ÿ€s`mƒ
+Y˜½,<±Ö~Ršp>u›Ş4¸ÉN!\~‚˜­´ŞæŠg4d¹üsy³ıÕ·Öòª-2ÌìG'-¨ÓÏh†È%d²{¥1¦ÑŸLò=¾ì,şÒ+Æ„Î£p<oz8¢E£"Œ	K¨¡xÂÅ˜Ğ·h$×!½‘É˜ğÛ‰h,ìbL¤4¦F ¼hcÂ…£	tø·á,*.¸#À˜ğCÑD4¡3nXks¥CC3v1&´ z"£óvÆ„¿Eã	:p¿Œ‰°MK…ºŠ+õ‰1QP²úì>-ªlİ}ƒ;rÍ¥Ñ´öÓÍ·{v¹Qºam<¨­¾¨_2×¶Í­E«|¥¯æI¬ ˆ5a479Í>U=m0ªb:4²®E?3äjŒ“Â¶”5Or¹Øƒb·cÎQŒ­_%$tK¯qI@ÀÁõ—bã>Êh0Iz°·Â†H¡õôÚ¾ÙÂ‡â_øh{Ü>\¿ù>Ú²…öß|
+Š#|´=nÎo>´bGø fË¯ğ¡8Â‡ëqGøğİ£Ô[øğİ™[øPáƒÑxO„ÆîwõÇKt—K=\eµÃ]}»e]}c,:Zº„ä$úRí—ê–2ç!Ì£Á¨í»ªomo#¶™/Íİ:nL6{’\.ö~Ê~qNšÓ¹|z| 9*§»Ë=UîEZ2”{x·Ê™ëæşudò”+]	°°W‚c†w¯[ ³¸âX”–Y¼K io	 -³¸ Ğ4‹»€¦Y¼+ eo	 fq· `[”–Y¼K iw ~­Šc}PZfñ6À¯Y ¨õAñe}pÓFr"—M“€Gt@£“‰Íkcé|¡¨´î"1lÒj1=ß°.t"áKÁ‘Ûûæ•¥÷4prl*;*8ÙÑtp!”Xœ¸²xÀ–1÷©s‡æ¾€&ŸÌza‰Ã¹ü8şçÉìÔÄä´k²ÇSY4äb*I¯¸çÙõƒ=¹ş¼WFrÎçS¿ŸV¾Ä‡Aµ²ùóŞÂ‡2ç×õÚàæVÌˆ÷ğûúüPËÕJíÚ«>ÆhöôM°A·È=z÷.ÿî»–ôÑ3-˜^wŠ×è³¨(c;¢ØµJ¡¢Y‚˜Ÿƒ51bâºLDg¾%êO\’ô§¾%hšÛùéCbîîÁP·†»}0ÒíƒÑnŒuû`ÜóANÖ’Å|.;.ËŞÚY9TÎÑ~…TáÔÚ|ØR2¸634+ıK4dÒÁÓ¢E$S!y6Ÿ7¦­òŠ_kÇ¯¸LÒÍÆù¯¨Ò.9»a–/*éÃêXºÑ¸w»º·‡dÚ¬»Aú
+is:ì‚¥”‹±Q®î_Ä±œsß›[oê¥ÅÆ­Ûõİ
+-ˆP­\BSØÏH”8,g]V ‹µ[—•÷İ`Ú%«<!&É:'è"ñ§“ÎÁw‘u…“!ÛBÆíÆBæ
+5],®ÀÑO¯M[àh«¡–…ÌoCáö~4-dm¿	[È˜£İXÈ†²£vŸÃ²õ-pôÎk\%ğÆâ‡„?;yÖWÌåëò:Î¥ƒJö“ÖÇ6Pbù1Øå’T_®ê'ƒO¼[1)	Á˜yŠ7Ã"Å}&^áû1p÷±À\ÌÎö	–G9Gç‡¨oœ¿å%;"çoEæ¶~ë&2WqGæº~ë&8¦õ­Cõ1¾uåk~sûÆèoBœ¿ÍKfsşæo]ûÆš¿5¿õ„ó#5ÕI«£Úõä*Mºk”î˜;ëÖêóí}Öó>‚á‰pb?^oLNf€÷3~ıË©Œ11’4Øãf×kcöK™xKì–eñµsìµ•ÅÕØã„ê.³î†ŠM	dKòØ%Ÿ—	Ãó²c^6€¼¬Å“*¤sY#™L%m»yëÅöÅ‰\2=–F×å0@4èø°V[(Ó’
+ÖÊ¶yéN}vŸÁîl.5€şMJÎÖÜs+İ4dİœ1F2)»¦1gËÔvÎ`C’üá™9¿2ßÎ5î–ÍÊ+Wä*Y-Ó¢(6ˆaÌ'Å}íèÙ5,×P¦wöz/sq¢ACl¾ÜÇZ ôBGªHq+óŸdL‚XõİˆĞİ@­^©“ğ©ŒIˆ	+.tw‚=	G-¯‘àÄ³ˆOŒŞÖá¡HøöH5ø~şĞI­ğ%h-ù¢ı'TŠÿ¸ÑH8ÓÈnÁ—q"YA±İ‚Ó‘p×¡ùRª”€~ğßÏ„d™/ÎoÕöğ‹|‰ßŞW„Ë•{Ù‹öºæäP\/…ˆ•‡‡ŠÛõ»'¸äGé"ühœ¿\Û’ç¹z?İ+` ¥HÆ9ˆ«,_ç•*+r„
+ÇìáÌm>|¢ˆ{Uã^U¹WÙĞul	@Né(ÁåäenÉXO»Š«{pÇ°^NCÇ°^ƒëåºı?¦Rùi‹»Ù%7\;¹îœâïR; —k`bO‰<É„44R»@»›(”½ç´Á¤
+€@J ¿t›{1˜ÛKõ§÷(&ìñìÑüÀœ;_ßxJÁ
+ë÷6ç¯š{ËvH6‰îÈ=»yA&>` vŠ¯Uİ}T[zf\·î]´n¿¢@xîUµ²9šËLMd]}?²J4ˆá»´Wİ½|8#ó1‡tó›Åê›Ë•o¥u3 ~1¬åƒËæúL?A3`€|–­d@
+†ÆWJx—uì½kƒ=n‘|=´ÉÜ„à"‘àñ€¢+èñä?
+0;r*“.}÷+ÊàÆó µÀ“\X6ğ9?†ómÄù6
+<E¡µBñ„®QÜ†x´Bêl•@÷†âè?ü-‹…¢!
+ª‰Wˆ$"!
+‰†#4†!¢«Ñø)vZH{zTÑ¸-ªq©·4ˆ„Ã1òÖx"Ó#ÀSƒ+ÓˆÒ5ö)†îG‚bH)“êH‰¥ø h„H³ŠÑ`•X<A× ÖBk$FtPä°X8¤ÑŒP,¡Q€2-K@³Aâj"h¶UúMENÇªGQl
+Îú…29•O)ô¤\L”Ê9ÁËÌ]ó…‡AÈÏ	ÄtÈÀÃ‚­°w;ğNcb’ŞïeùéJ0e”ŸŸ³O'ÍEMäêîDéå.÷¹_ï!¢pwXBh!İïñÇÔ>2LDÊÈ	…P°òÑıaô„H€|“(ôc¢€ñ@3°ÎßÄ@40ÚßÎekv@ë_Äõí×g¬ÛkÖ³op™+Kµ§µ™¬Ü‘º÷æÂ<UjÍ¯1†PíÅ}sO^U²@t§>z¼tÕ;4ûïFòOgı‹Ï vş¢£²§
+éÿô«'G;a÷ïD?Õ“nµN  EƒÀıÙ9ûÙ1mÅ¢xb«YİDËŒÀËæneFÛÖÈUÄw~_‚A¾Ã¤V0ôl„¼z6ÊíUŒÛ+œ'·œ ½Òøë*¦I\4jJF
+:ì”¦TÔPå
+E]“R'9Znµb./aŠ3J×š}n•Wjîá:Â.ùÊ’ëÑ¶0’kÍYwÕ¸ïØõ»(üŠcÏ‰põ"Rş¨o¶R]õö8–d*(‹&GM8€7\<×-GWÉAñ?\å&EÌ2å…ÈUóâÙP¯¢„ïBšnŒûlœÄçB#J^%ø+çí!	†g.ÑäÛİsìD·»s¹ÿ‰©¤@%Äqæòuô¥1¿T[¹dËäóÂcs®Ü•³±3«wTóöêN~“!Õ2hW,MHå‚Ÿø+Ÿ7ibîÁU›µ~Y‘z5Îg>·ghj§~¡LR¥xéDtQĞ?ÆÛšüæP¦p —+À%ÖÎ4Xë¹/\8¯º»T»ğÊOI–ÚÂkë’µq£¾ù]í§u‡©ÙØª]ÿTM.F×B…jeS\7H]P\ˆkıÑùgß‹>|Q–şõ©µ²gİ¹RÛØÂÅuVï"¢låe#¹é|K73;{x_½¹cWÚ»FõÉ¾“4’;­4Û9´¶Ñ(İ@kÑØ½MğXñêÌ/ áÔK³ÖÜ–¹e4$²Ùö™\óàáckã^íù%¼pÄêød¸¹|S™bš,•­\˜Îsvz_BYÿwâ·¸mQ¬­Ÿí ÖC¿Kn5Û±Ø'ÄÎ£zÏŠ¤†Ç·âê‚„ŒPiÂ‚s¨mÏ¸°Ì‹›fùÒÜEÚ¹ÈK:Éê/_SåƒÎ>Ÿ)RwÖà·ŸšöÍÙeskÖ,}
+§`8ˆq õ°6ôUhİ›Rc‚uô>"-%—²Ve”ÙVÀGÏäÒÌ:tH† Æò©$[òe*áø‰ñ|*•ÃñÒÜ!³¸‡Ú:Çr¹ä»¾J©ññ‚à21&o‘@ßTÛ^b+[À³°²E
+;|ô!ñ•¿(ûúërøOçíşX!¹Ù¿ş%¶Rÿ{ä—SºBÜtË4f»…Æ© uÍş‹ãoŞ]£'7uŒ9ì5fĞ‰àÖğ0²æ>Ëç&N“ùdùÒ€MÛAÑ¾ì›î÷·e±ÑĞ¿ƒÆ™$}<_po½à)™«¯¢}}Än.g¢:‹Á¶Ğ`şĞı^@÷6®3è9!LSÕùùGÉ>P0e3‡ZÄPĞEtv*$¢9Û¥q-&mĞ›…´x$Nª¬ªñ„ƒœ»ô!|ââöcz\O@5¡êè!Â•Z…q¯(§O„ ‰p¿	uJOÄ¢ÍD˜hòj·)ÕTŒ¼ GÂz,áªºÂs¦FB´G8–Ğ>&v'"jˆÉĞcªšà¿É™5¦…I…X,óÇÔ|“®'Â5¤†Ã-à	6­÷ËÿB©ø×¿şÿí}iSIºî÷ş5¸Çîk_ÜcNôÌ¹w"ÎéèÓóÁáã(¤k¬m$aÌœ™	±J0t°1´1mŒñÂæU#îO™PUIŸün.%QB•U•R–$0n6eVåòæ›ïú¼Ğ‡Cçğ’;MûqçÊÒ8lS¯Xf˜eˆÖ6–¥åØ|¬T»¡°¹x8éØšĞN«“«©ï.ª-ªõ$º¿‹Ç´%Í‹]¯Ã5}æe<®}Qú1¾¨;7œİ¹qç§
+XsçVœzM]»Šk×Üià„4p>ÚzsÊoGÅ­‡òğŞIqĞ–V7ä5è—_½²ƒëı_%œßşöe~fç—±ÌkŞ€oû×úS‚-È§„Tk}Â_ #È\ÅÃI³Ğc»sj 8$Ew-ÎHÏ
+Øİù÷Õ˜ ùİh»ü¶_xŒcÊ,÷–ÔXrâØ®8;…İ¶Xû\ÈÁô.Õs©òÁl·9[^§ŠÚ®‰;Y˜Q†Ş‡Åá7å¡Gò»uqì98…Ø\ß-DYÅ~dêBÇ™=›û
+I}“¦²@æ “.­áYÂé¢™µO³5Î¦übÌê–YÕOv•Ó8MP[Á§vÃé,ÔØUN§Û‰ksù\@µõaÈ€ÃK‚ìp`=è!¨­×ãóÛq‡Ë •7ÀU· ñà7x½Nğ»^]ì* /;İHMw8]núÉëôùº &^‡ßëÃ:­Ïáõ¢¹ÚöM„=Q*€Ûí~Œåuøı~8B/Æ©òÛ1XŠÛïr{Ñº¸İ§Ÿ¤³cØ Á¹ñøÜŒÔA‡]'µ´õø•q¹}>Ÿ7€g¨c(Q°«ìnO N³#Ìj¤ëƒÑ§`$Bºâ_&Ç3Y§„E9#f’¶N'éñ†~J4Gí3Za„¦ìŸ”üÏã(f2À0¦‘×N<¦®rºñ‰x ¶úÉëñz‰àîœÂâv\˜Ğå8ÜŠ™ÈK´sqnÉëÁE
+]AôÚı¤ØÍá÷a†êö{=ÊÛün±Ö£G1uÙı
+Ì“İãÃsó:Ü—Ârp‰J¯ÓÀ˜R^X6‰y²Ç£ğ9?`ªØ
+k÷Ë?úq7§İ‰‡.•Êáv8‰Ö× ‡oA§¯¤\<˜?{§$Zç•&nlKö»ı
+|¡? ¶ØƒcùáM‹hÃi·ã[Œ€ˆ‡¦œ1¾C¸Hj3b¸ëP¶ïW¾•ï`|úùo.R¬AOw”×bÈT²ê%Ş„LR6¦èš56ÃƒµMDhGÊ2ğº…j‰Ô‡áÁ&q|š³ßöõöØ½=!Ÿ#ØëWUıÒ-® c}Äz—–íOÙØˆ€CşmÁx4Á'Ã©xìÌ4i±}è{´¥\ö{4Mœ²!mÏ•
+#töJsûyjŒ™âÖ”4ÿV´Z}T,bıÑÄ ø¯_;]ë.ãx—/F?]À3¡ş$š=\ÆñÚwUC©¾Fà3@†ô«ë%“Â†š\–Ñ‰ `|dœÂ{qêÑ8Q’pìA8~ò¼h:cğ!à²® z….=D?QÇÅï°İH»êi0 )í¥¢“8ƒô>áŞ.ıÈj>ei$dîEyqMš|UZ\‘–GäiñpK|z€sÙ?rìB~?$n=,|Â"#®ê)¿Z¿2‹œP“	ë*1¾µ¥·ò‡;âö¸¸¼ƒgÍl‚·brŸíDrvµU_ ”U„ê¥vˆìÌÉ] –÷ŸHKŸÀÑº­ú	›2¨m€›­E#®·"‹òÏÄ|¨Û¥O?Âåùíb1GZÊ‹Û/¡J¾ğQ,Ì´•JŒ¡)­fÓG#è˜LèÃ¨”i8f´o{Œ'ÀÍ”'+ál®Ôå†“VÜ‹¥E-A(ÏdWÄùqSUA	ëËÀæ¥2hñV|¨)v7¸èí]Mß™ÁØ*ƒqyxTšÛ–¦†°å˜e€´E2>dø15†ª–(Îµ² S¨òğ^é”ÔÌwáiæ”[ -ˆJÑ~f¶x¸TÜ—wV¥ƒ¹ª	œfÑëõ”NcmMPuª-¯ıxÎ&A_ÜüTë„LX2¬OHs|$Â%ã)n ¡‚wšâÎñç’p®Üü-‹ƒ!GøD"ëãnñ‘~A¤"»vbùR&ÈÅxø`0„Ş^‚0MÄ¶è±|lptp|A’ ¯»’€"{üWİèºÌ0®n:„wœDCô/ ëOÀI9)ëhÇúÿC[ÕÕØ m‡»ÁÚ¼¤~ú|ŠÍq!B#;nÄc¡‘£ÚÈ­ëôƒïâ‘SL/ğ®§ò:R, ³¢v.ò“<ÕFv]' ª<‰äJôUéŒ	†Ç	è:%¯ÕFN²×†¾õ¢FvwT9T³Ó&(6¸ğ†Â1p#ézİú…\ÍĞ¬’5C±fÖ½š!×zj=Şè×Üÿ‰pƒñşó! ârá4\aTù{ÃjÈn:Tªø:#Ï©™¶j±ß¼ØøXu]n},™/•+ÔÔ.ä{ÕUh”±¸ô
+7õTßÕÒê&˜	]ÈŠ63‰wÿóg1ú3_9Z]y¤šé+½‡ÅŸÆŞ÷ªuEäw³âl;€Qi’×¥Õ)ìø«ZêpÎl[Ü|ğtÖZ^R€@°g–ÆäŸ{pÁó)¥)ÇƒgF„,cÛ‚Cçum6îv!Ö`±Ïû	jª®Ï‘4|3>ÇÎ¸ôJ•f¹>]„
+R‹¯¶ƒ¿kİ3m
+Ó^Ê&LO;#Óà"Ó¯'ÜqVvÖ·İR‰±ôr¿„Êë'.o`&UÌoŠ;ÓïG¥›@ÒFqo¼ô|¾XØ°”KUØ`ÆOøªôüµtoºx°\ÌOË›Ò<eıJT~‰v?Êë‹¥é‰ê®Tú¦ÒÉx¬ÏÔ3FÆÔ[i¾#w‰£[UØ“–_•ö^6ğZ¼QÒî°˜)4V¬šV]ïSçÇõGÕ9Ôo6¿'Ç·‘k1/håÖ}ÕÄº0q)3ÒgZ¥&ü\»¿1ÖŒ+6¾»4ó*à'šĞğMO·Gèxø›Ğ%”²€ï$vŒªQÆ@uç²†ç‚5K­CèRÅMu¨<ó–.`AÖÅ-@`ÄJ*ôóyqä#Õeº‹ù<¼UÈÛøjÅÄ^Üß/Ìã—–GNùíd¥/ªrœJÁ0x*D²Œ÷Ú`h%îÓ6Nß°Á€[¼ç/ ErÓKvåŠ%Ì¥3¨
+0nz¨ê¶[	n4‹@E' c÷³f¤gÍ)¹D
+MÛ™mÛ¹û˜Òò2[_YÃ3v„´PèğË’f×:?˜·uYLîvåºõ@ ü«çøsa+ø<w­·BC(“f=‹ÂjÆ°Û¸….…¯ƒü+šõùœİà8i¶×_í{(ÛµÛ_3pWèÔŸ<;§û8VšqÆ5÷Lİ3‹œ“êz©Pn ”Ë(MQ‰90¿·ãj«ööWMì­zØí­)†Ób6aŠhîúk´?c[Â±K8Pï*õ´+èo?´=SeÂWh@?òùì|£½mW}Jeo• Ô†ö× @åÙ7)*{èâ™ˆÊZ VlDe˜Nd^ğ%b›ˆ½f£ŸOs¡Fé‰Ç#oH~DÎVmâfÆuc:!FaŠ€]l¦¶JÏY`(c[Xö9 é!şÓŠÖ˜	ÊœYg¦1}V#Wš1o¶Îœè1ÎSøb }iCuÚBjxQÂ  WNiáİuY€š¯VíÁñøå>íøåho·½Ë£¿oí‚Nü§ÎFëú	H#Ö÷àšÕVÀ/p(d¡ÌŞåø|¸ ±ÓáôpñgÀi?ı¤Bg®¦äqp•¨€ÃîÂ¥8œ^¯Ã ³_)mâu+%“ü>7.¹äu¢¢N5µw·]>!¨èQopEØöéÛ_èV¶¤ĞäVgÊ®Üê$G5=hß&Ú4hàç¨Ğ_Iºû!Ù/Ô~EßÈ´F×ÁoÜÁÒzÜóïåÑ÷¸ÎµıqEÑ@ö÷¥Ñ™ÒZ¶¼´Ü¶ä¿Ôx2Íad<\%D×@Btp ç4õŒZ!Šrû.Tì×\<‰â ŒÀ9Øq½QIøkø¤À/Ñ‰ÇúX,à<}çÃÓ3™¨Å— a·n'TC1+Å“Œ–G6KíSHtäÔò1M)›ÔÙ")›NºÒ.Ñ·QÃt4¯{¯s¡­ó"Úëõ¯#;5±Æn*ÙÇ„(CkKNÉŞx2ÊÇ‚(ĞcÚ24'K™g¥£ y¢ùXkV¡/Ÿ!W€
+a¸Õ;£i¯g ^Ú¥=ÅN44õ/-Äµgâ£Iiu\zô*A¶6ÀÜLZÌŠ¸+Á`é–ùô’`?Gû8>’¾ÒÕuéz8Ê÷	©KJYA@8]‰X—J¯(Ÿ¸àº¿˜ôrqdŒ"Mcş½4¼Ú`iyì·üvÔi·_´Ûí0Ûwq˜jÛ¥‰i¬7ÊË“bn‡qš•ä^˜—îİ¥X:°hèG_ˆ“¿0›"®Ò°_ª'Şük?8Ê€"0ınıCgKEùHäøÑs+G	¿½tôxöp/ˆËÒƒmLqò»Q)7Ë2±°	¨jã&0pì=„v˜g_ºÄÜ}ğ'i{FÌ€StÿU™ÙÜ
+™ôn«¼ÿHÌ°KAeI»°'}‹µ”úLH¡şD<0-ØB`; ÌèdåÎN—Ö²Ò|^ºwÜÆESjGÓÖà'ºÂÀ
+…c!áv8Ög«\–-—Ö‡ÀìJ›Šùu\ô­z. õÂ·hÁÅIz"o”±çòÆ® -€¿HñãKñÎóz{bãÄ[oÈ’Û¡.¹º‰‘&ã‰ëÕá6 »OuÂÌ$¿!633¨¿<r ïî¹ úá®n(Ø\ÀŠŠËòğnL8Çı‘ÊÁGÈë#áÎİY®ôiN\zTÌgà" @qöÇrvóäòü –Âš@š‡iÛ€ò¥©¬¼¶.qv¯èh,˜zÓó·^8|–ñ\`Uò\.õG^Ûåı¥ÓÒÈ˜ôf¨˜Ÿ„ˆgq{ˆUfR^?Ë¯^áE.ıòt;×nü|
+÷ø b®r@Ì€Ûàevzo
+BÂƒTñp—¸õ0Úâ§ŸåùE8õ¥-p[tÚàü®œGZĞyKHVE»ş¹0. Èe6\R`ùñŞO¼çÒ«U1»'Ï‚âÚ‚5‡OÊ»–ÌZg¢9i9#Ná‰â)jWãd5KµÅÒÒI‚{œ¿êTõ9JKbâ¼:1qN‚VÛ
+ÛiÕVÈñXñ˜ ıb%úéx'ö b:íLzãıIBğZ3ÕEšªVCŞÛÛ”³¤lßiÏgÔíVvZ¥óqŠÑp·O³qÓ•\¼:Ñ¤Ú	7·e#ØÄŠKKåÔ#´…Y`ow›³9ºì^ŸÃEÊ$rTÛ¢3{Àc'%YÀÄ0(ô\˜æ°{ôò?pÛA8¿Ûiw’2‡ÜµÏuì~'iĞ2<en¯ÛíóÚÂÜ&Èé`[ÎÑåø]Î€ş†ê„™j9·‰»uÊœ!•ê\…ºaˆ^d^Dzh÷õ"¶œFOp=ÁmÔÀcô
+¯QƒPz0!\Fş]ıİÕ	3mßî¢èÕXÍ˜´Bèáãk¤z
+úÑ	cµíÃhkœFO0G?z¯h!ıèÄ¶lúéIt×èKä£j|ÙOóäÓ!ìG‘‚Š|´-eÖİ0Vˆ%4¢†µ"Ok¢Í»Öæ›Ãg ga–.hDĞÎ}:ø§€.¿|fÉ‚ÙöYšS Î¬#SæÔQõ¡á7å¡GĞŸ»_Z……†Ô.&maËÒe}:È,E’)‡†buH×tSïH“$k×æ%CA×PQÒkĞA’ŠO{ƒ9ok©T˜•añé4¹œæ
+ã0¦&ä·¿ˆ…y1S¨÷•^Nâx!Uô^Ó¾Ï?Âà’.kıñk^\ùPZsYy"KÌPzşú„¸zi@(*QmKyqb”‡ò`›ËKã'ŠÂ§ãvsiq­ãv£´çó`9ûÌCcDÃİ^ÍÆMUºoÊÕqÂı£™ª
+©3­u´×6£kØà·bö|Âø	b‡i×’OÇµ¤}©W„ßË^*ÿzxëæèr»ínIRÀ`Î.·Çk÷“Äí«Ëîò»í$Xº Ä£? ^ ?	%©yı.‹ô:0& ì¸ºì~§ÏëÖ_sïx”S¦ô%X8h>™ä/\E²ÿE¬D\ä”ßjÿˆ¾]ÓÉñéøI´¡€èpÚº–ºx
+>}LFÇ¤‰ ½_:~‰“¾_šXZ8õéA_Ã˜ÚÃÇtgô oÙÔ'}OHÃä@›Z
+£ùä -¾)Øú„4ÊY‡*o¬É‘¨¶†«»¤T±EÜ¼/åës‘Zƒ>!åƒXfƒÇiæ³ICaß¦Ówˆ´ÒşTV‚R;ş~RRn¡º«–DÆƒõ³ÆZ}8K‹™Ü´Ùí4kø‰P@£ŞLí+ÀB|e: ÌkG[»TiFª±và'ãµPl°ê^ğ&j­AG-$T:Î¥®‚Gh_îŠâLš´Øë/Ñ§få‚Ğ	±Jèåû#Zo Di£9PºÊ(Z
+Û’7­`«!Fâñ›ı‰#y†™œRo4o¹l‚çFOğ‡$	ÊRHÁOì9¥nëOx²<ñ%¤áòr:µffÅ™ùİº¸õfö½ÙG±S`¢òîšøÓøÿ«ä‚ïF4€³2‹ù9–Ş¼äVH4xûÅ±¡ÒÆn9³(m<‡Àl×±Œó]ôûAi>¦Fåù*NŠëÃmh¬°{çxÍják\*Õh-s‚—[û2…<nfıÉÂ×·”ÂÔï(Ûÿ²ı4&¬éø$k¾‰½&v Ã‰ÓàºƒöÔC:jrĞ5'ÀjS™’¬¦«)Õò4¥iáAK&vVØ»\»÷"gïrû|ôİïôÀïGÀ¿{ì€ê-´Â$RÃTµÔÑ(Ô†1Ôƒ½=L‰WAåÄÍJ?5c=5’q¹öHİ8ŒG-j£¿ÔÈ×x«ˆB5ú¥TıGµòÏZ¤.¯>gîˆcïÅÍYô³‚AV<X·×å™ÃâŞø±Õ¢ìÄXqoâ£¬=TÅäT¾1{•8¨ˆ—($ŒND8ı!şÀèİ÷KÏ×Åì¹²"WqìCAúågyi‹
+y‚³-LH3KòğŞWÇYNãúQÊso7jì§¼XçwÄ<	i(qFƒÍ°ÌáQ n— k”VJ‡PGh€jÊw€º(TZØÁ3“&2@I‡lneO^»+¿›•MÖïÌÙ4.-½RÅáx'îïa7¶fgU\ØªºFÎº‰+ìÁ6àï<;î Öo™ƒH‰ûàÆs÷)Ö
+%ŸPpÙwëuÌòŒ´›ÁjŸ]Š1¨öGY`”ú#Áİ¥“ÛA‹WjOP©‘q…/¨^qmõ˜\-ç…«`.r`âà¿ôœ¿v‘C	<WÎc=ñ¼ÁèQ|5ëYKİÕš¶:.MmÏ|[Ë*ù@Kúğ¨:ß<¬Eà·¥õ!qó8úZ\ŞÀlC‰¶•eÏXF£,ƒ`šiíÉ!‹©8tƒ…c}Tµ*KŒ ¤ÇS[›‘ŞøBı,NÅ–7v?rX¥?¼.mlÊ[Ÿ@ê+¯nËk{àğIwŸ‰¹÷âÌò—İpÛy
+Ä ›öÂ6™ó=Ú´Nò÷Pªd|À¨Ô£æy
+c^è]NÖ³Ê6¹®˜±¾ qANí]ÒIn·nƒ:Ó'K•]¦}ìØTƒ¦†#·'†6Q—›ÖéaHa:¾½[’Ôœ”Ï@5œüÛêO¿«şô{BGÈâ´Ò!UyÚ1ZÌïöü¨ş«ÃïñùPıW·ËëôÒ0Š“½Ëëó;ì”Òîp¸¼èîqú]>?¡#Jn·Án¿İóĞv—Ç‰:z=^‡‡”AïR†ê÷Ì8³û¼^?Âé’jÆhät8||/àğ¹qÑ3—ÛçÔO¬›¯¥&J­›| ~¹Ö¦ëmkeWõv°²:›Uİ+½}©l‹ÎTw€Ğæ;ÀM/sß*úîe®7çÓGI/šR¤¦8%¤ÓĞÓäP^©¥Ş¤ö§p@<ş¼²-Ìª´aš“ÇFèên{[½Â.†rºbg°ı¯Ìr1)IsK[wkñ™¸ö}ô3G·F”Ğx´âOS¸1ü{æGõº*¾¼©¬
+u c­=· ï1éõGÒa-ã&+;£¹pKˆXRàPC×ìiÉ0µïY–G«‚Q1®L–¬;ìpÎëpœmÛZw CdXĞÖ²#ñv
+b&_Î,÷–ÄİWRæ]PÇş¸púTMÁ›‰miùUcñ!Õ£„+–0[Îp,áƒÂ•ÍœqaK¥Î—Vvî#ªR8m5ÛY(ß_6¿ÈGw–‚`æ6¤7óT…K/aI§òÂ®å>Ìş”¼Ş×	—øĞ-X´5„—•ßjvø\*#ÙÀ«XUÕ,¿| ¿}ˆ¥§ã»¨Ğ+?f;óz~Ì±³µ'áĞÀ:¡ç¤±	“!ÍÙ}O$"Â9}‹Š¦aDÏ
+T>Åê¸È9/r®#h~xş"zå<z»;4@59Zm½v41ƒ×ë¹Ú(ö¦N¶1&Uƒı!g±¢Ê´]­'Ñ­¾Ë´i@{mô¼Uk£¢Z3®KO¼çœŞØ\v=çŒe;ÒQ6ßyıø¦Š{ŸIÊŠÜøTœ¹s2$åòğ(N"TDÛ™íò„İ`¨ø¢…¶D&­„lµdá²½x;Zëm3&:õ&ãÑë‰d<Ô$8]µ˜}#^W‡Ë
+lÄZg×ô\‰æ==ä±Ö~47Ú”ŒÇQ%ú‚™ËNtLŠ»’=GGÄvsÌ+W¯Ú/rğ¢·ÌU´O9´ø×%Ââj¸HÄÉğ3ğcğ•…†ÿpôÕÔÑ&^¹ªlŠ²²F‹Hô½ÑÆ´Ô^$†CõõÜ5x¸•X>õšâ«\õÊ*,ÑE»õ7ª1sA’¤¶©}l „E'uÖÜ=†'¼!”ŠšE¤==•XÌ=9ÔI’ĞûO ™ ş!e‹ÇlÇÓ&™¹ÂªJ¶²õI÷¦‹Ëë–OLo´íw‘Õyã‰³dªç@Ş+æ÷ì'†Nz°M‘ğ…eÊZªXlq:"²äÊ»°‚úözñp'j@ŞÇÜ¦œyXºÃ
+å¡Iyë¾üjû*(ßŸ£ÂÃ0a£¬A%1Ñ%‰¶äùfpÈÇûc€Ø5e1ğá…¿Ço1AlŒ× ‘ÂEˆ#û7>šø¦£ë
+…{«oºù÷·P/!Z<ù±wv”¶¶HD´zöœèÕcğn´zD³(öş®½zÚˆ§%†ğU¶‹"W/ÁjŞ‹@™òâ²¬„É E3¡ŠéW	÷Aêaí<	19ÓºşÑ¬h¤å€j®†©HÖÖƒ¡ºèk$KF@$œàZ2¼û›Åì<s$]Šî¹œ	Dƒz0"¿}l¾=¥‚±V³SÒ"¼Be:Xø¤}/˜­)oNHó9i¡ ÏíâÄ_è®ñyš/.TÜ×©¼Ö„‘w0ÒÉpğzİA¬…ş»-BZè¶£=¯u¶i¶jÁãë.$;£Ÿ}æøú$H†²÷éhsÛ/Ş´ÅNg 9È®#rîˆ…nıÒ‘Zkg-4Ù®bW&VN‡ÿš„Ô\Ê„,¤²¤Ñ×;u=Tá.Ù¸M<èÿ­Mª™iÊsW}<y´±öçøP4#k"`z€ÛA#˜ò2SrG-lÈ<Ç*Jz³!Îh†³) _L=Ét?–ôä¹_ä¹•ªXí¦&Äé¬¸7#İı	|%DO™°ÆFÃ©´Şâ#ıSã«\Ø×vÅLÁ¬©µv(m·¬j“\8šˆ'Ó|,}®ÆğªŒ½u´%Ìõ¡Ñ¢8ı¦xğ‰™ kYÎ€şégy~’ßJ×€8Æ9fƒÿÿÎŠ¡.L¨¡á æ”Ÿ’–—`9‰ııâÁ<à<âÚäïfAlÛ–²å¡OâØt–ì
+®ñ”´2[Ü[R¬ûË#å‡»bò ÊTÏ°>ƒi*"£òô†#‘oÅÊr0ÈERCxIvVv]})Í¯5"7ÙÃzrEnÊŒã¯>ÜN|´-Ú2¹ âp^aEê²C_|ì"¬²u‘swÙ¤"%ÑHŠ#àÒ	·µçÏPœ%cë
+‚p´Kà„_^r˜­¥ŠÔ€sŸGÊcDù–ÀRi>jZæv‡Ãf‡ÿPšªs‹sºŸÓwüºÇ·-ƒjr¡]¤bÍUeu9ÈQÜ$­«Â…=Áa¬!İWÕär‘;¶~SMíèH†”^÷ÕXêhÖ›şzå»xL08¤ä€kmµ˜Ÿj-8	D ÏáÒèïˆêMlŒ^¤QÀNR€_‘ºÃ´@Rr/e¦¬kåéæ¨FujÌqí1³ˆ3!`ïòFñ¥˜ßï<.& ^'rVà”»òÒ8.Ö‚µè?Ùš’r³âá”ôatÁ‹K¥ @øí‡òÆvã˜/wŒvøØá09 ¦˜ÊXÚn]¨ÛÂkÄæÅUz!U#ly*ü®Ã_Õø\Ùr–©ªµº&]Š)}t™tw¨¹bî¾8;ñèv¦¥…‚˜Ï—ÖÛ+;Ğló³34xT–j£:…V1AÅZ!4§czaárÖÀ‚ƒ¿T©¿`.'Ñ#1bô$PROr&âQQãÂï¤DI;hÂ'98÷7TÛœĞÒ¡´LÄ9nA7Z:9®7Wy•¾&´t)-Ñ38¨¶êŠ¿Nı< !DgæQ-¼)ÇU…ËQIµ„è1}9ß©Ÿwr4Qm‚¡N=©!2µë‰ÚÍş¦&*2Eª)ŠLN·ÕäD¦¥5-’~JŠ¢3x°%$‹«ÊØëœú‰*GK£MzäêQz¤‡’.ô(¯¦.áAr2ædğÆ\“1«>«–{µ*˜®éûœO$„£Tm¦é®÷—ËÓïÄÍûå¡|ùñXië^ñàqñÓÏÒÔ<sê
+–özéÓÔ¬Ş­¡EÉ]{áÀ6Ûza×½Iº|õöŞ4¤ÂÂÉ¸¶g ğ>’j #Àå$šÖé—±—€ÖÚ¡Œ–°òµgÎÌÚ7ÏàrMúê…ÔæãäÀo#>nÀÉƒœ9^ş7Î7DíŒùùmÎG@íZÍÓq 1.ƒ&SPƒ°U´i¡Jnm…í*±5¹ûPİÙ—wÔ–3 ‘Ê£«ååŒbu[ØÁ9…ÈoßF^Ot|œ[“M«Ç	“º„#0« Ş6­ Ğ*¨DÿÌÉRÚ,är5l-!õ<Ó@ôİSØ	”¾!°÷2`¿”&À/ÑËpl8íw4°
+ç—ŞÇâá§Ò»¥õÉÏ…)•SêNÕÏ /ÆìX¯z,¦–ûĞVèzT-H~U–Õc­ó=P9ğ¶Ñ7w²ŠĞ”)ˆÃoJ…¼˜Û©®¡^¼	5eä®ÃrTMqş-xaÉrfQz°PÎŒã\şvSÚëİjgÜ¤‹hT7¼j	=¿°«V[€!—´¡“UN[ÔŠQãz‰¬µ³Fœİ+å²ú¿ÿYZİ úliãAyjrÛw£ÒÒ[y)_,èÊ>Rª(¼=Ä¹(€¹Ã¯¨,s[)5ÈLÿ·&ã|+–4ş
+olbÕ.ŒaëHydCÌWl!í3x¸ˆ0CÓ ©ëlÔ¾ˆ4Z3¶á Ù«€l.@¶ê.ò†Û®Úrı}G{„.ƒG›„ì<z"º^¶=54w5S«ÃR“-P—Å™ûjZMt×ÆÇ¯¶O².‹»€Nöğ÷‰,U<XíLÍ©fHÏ—wŠùéÉh…uO•2SÅü4.L_Uß¤¹Cu˜iUwÓÏûÒ´Çğ¡iäc6>d»²7Ë`»|)»!-Ó…€jíÔØhªéƒ¥ìñCÍ¤²ñ€æ”úÕ;Yqì=¸ÎËcÓò»u–nyË?E¤­w4’#ÁƒZï¡Gv®…äm0J?)¤û“1Dİ¶[aaÀ2ÕŸ¿ã‰ÁÊ½ :V·Bm*ÓaŞŠJëâòPGpQó†T½	šxˆQ:~§ôú¸3-ÀÊĞJİ9À”az®øi¬ü8‡±p²¯4‘)½®A`§²Ô˜µ°á«æ	oÎ²2
+ŞàÃ1A³²J•‡€}§g#­×Fˆ¡6¡Şh˜Š	°¬ L€i§*¦¼r=AÆ_“	„ÍLèí»Ñ‘ÿåf¤#Å¤Å¦FVK˜ô¥‘;¢¬A+*4Ÿİjğ¯ö}-+DpŞh:ÅÕE´S1Qm‹¹–“n4çÊ?¤ãå#õÀ@.xj~!9Å>]1
+)a#¤¸µ2ª^ôµÿrƒl„ÿÂ¸Ñ_Ğ×›ø—¡®`Åbè«2óDµ‡•Fii{®T‚…8ö\ŞØ*m¼çg*ÉQm´'CUÄgîd™Å5Rİs¥KøÔQˆ(I³ˆş´ËÉ+¤ö=ªŠ>ÄEµñ$«•µ1|«.ÉµfãÉ‘sÚO¬íj“ÉeB9ÒMÙèÑÏ×úD#×>º æ¢BF_ÓĞ3mìy)3V9–G(¶¥<Îˆ®‚1•‡Ÿ”÷
+0a;;Qzş;zÄ{/ ­òÇ_>VÌ+_òìxéÙ\à@Á{8Z~<.îÍà²aòğ^q?_‡Ø§“%¼U—ŠœYçxnÏá;À€±šÎlØW¯Y4hŠDÜ¥·âÌ¶8³ M«‡9i™¢¯8¿"/¤Ì3*Pf²×²	8`~¸z%+ZÊK÷²Øu,¿zUÌgä·Q*ªvòÂ–<½QŸKeÁGß‹‡SâÌ:~æ÷èòĞ,ıÒÜZ]§o\ëuµZÇºu“çv«Ë¸XFfs9~—°<5"÷ÜniëN9;#Meåµ=–Uk¶Ì;õÒcÀ+½¬š‹—Ö`LİG‹{“Åı÷Aö‰;ÓĞ£J/˜Æ\¿Ş'¤AÃèõëVùÂ–K›kØ¬	][#bæG¼8ò‡‡€	âå‚-ÑGà(g ş.^‹5J¹,¼İg¦Ò¼T8xWe«Ö]³èÎB°®ï¦Ä§(DglD~7*¿)=b6©©H8(\@ Cuk èÜG·i°sLóZLõÔ¥­>‰kÏ.¢òÙAYp¸1ÿ¶ür®x8^Zœ"#şôÏA±pÛe‹˜Ç–Tˆ2Åf=~x™=^zp·¼ºe°O/1˜ … †<§¸Ì- ²Òó]ó}á‰«DwY¶z¨†e«WÚÏ‹9°ûë4ØN7m¡¸²¿ƒ‡E…XÚÖË‡#¶BÌÖ°œW­âÓaPUƒ°²…5
+%Hqq»·Åµ]iş¾Jı2ò:62©S?PÌßùvF‰œŸ³!€#c@©7siä ÿ‘HoØ%$øŒ3ãÛÒi°İïã‰A+xwis]üñ?ÿ†|®|(­BÖ Vs–ÒİÒë}ñã¡´ıR~ö¤“ÅáòÂ=ìè¥XĞÜ@.:¶ˆ©t2#}#óPÌ×ÕÍfú
+„´<B±¨‹Õ¬ì†6ô9«¡ŒC÷÷Ş¤¸½^Úœ wäñ•x™òô±0SUÄä¹_Ä{CâØˆ—·´" ç§aˆÚãY)ÿªj&¢…ˆ’VÊË“PV{&n}„±[/'K™ilë³ĞL”7ÀõU<˜ÇÚ÷ŸÈ¿Ú,sºŒ§æ|÷¨b–3èèş5×^tÉş•ë¥İº7
+ÄÚÔq±¶v55#p{º‘poÚ¿Ü“èşN¥N×®d{÷Qûõµ;v¬KKLÊ˜ÃT*9‘/-|¼nvÒùmµ×«³Î:Iu
+bsôü5ÓsÜÀRwèÉ 7˜Ûa& Z¬Ø—‡Ÿ”¬Š÷ïRÉ‡0æEgK@°~3Tü8)®-@ã0W^z‚¥qk:f×æ¯£DÀ¿0:Q2‹Ğß°»'-pr2÷<7rânb/O”ï/Yv¦!×ÉC…)~úÈ8JılšCÃÙ·‚·3Ü‹:*f*¨¯?mIs™Z‹­¡šQ°·jŸfÇ2@L„q8%¿œ§ßHs@îïî×ëælEşá'ÖÊûH<IšÜ#¤n4/¯.Îe*­4òF^yZºÇ.Ñ×óWİ"_#DXÛ+Nó›´Ú6fÆØ»*Xs:t”sJçí9`g'œÌ*×>â»ğéx¾ûU)û¢´÷²øiš¤Ğ]Q-ª4gyx¯z2_ù.‹%‘K4É òÒ[–Ñª9ZzÃ—3¯¡ƒ½¿í>yş½<úPCŸ–åÁBÄ–xç°Ã²TOÒNi$9²-ìq’äpoJ¯‚ãFÎ5…¦6}"‡<Uqw¼[}­€Q¬F2ğIØShuº¿wvz^¦`àîOm—^¬ÑÜ3*©ÙÄ*în(\n>)=_‡iƒhçĞ‰Ëáˆ^ËïïÁô´'âĞÃ6˜Ènv‡„^MÓIow(~=‡@Mªì5C;´EiÛ[.W.Ç³;b÷‡ÊRFx1ñ¥‡OÒ"2ò#%ˆTºÔôA&º?¦2ÏÁÏç¾å`jç¿sßÅ{â¡Aîf,>úiĞººº¸(ç+&¤8@Hü›nŸ?\(;ŸFÏçn€ı’Ø´7D¸h<îäB½\<	É…8õ6˜3–şµ¿ÿ6sÃçñaİìÆ©³Ú]†l­ï¦"èÌzYÌœTäx2$$mQ>gJ+ùxÛ£üefU¦Ï;8.Å´j.#	HS9=Ñ8ìB%`?¶òsmäºøÓTyõ‘øhEb,!d_ÄQ¨\ß]ŸMb‚ŸÈÊYÅPöü5şş‰”‡~àùŠ'¥‰jñu/ ÛVÉoæQ®»u!©J<XwÕ:b7?†‘æÇ¤Ñ\‡¨”s•çvÕ»+îÜ-eßVå Øìùkü3ŒN»»(e' ¼ö-ØĞiñU±/p<E˜ rÎÊ¬¼±%oLŠ{ë0¾åÓjq_=­ÒêFyhş
+©.R5 «ŞøÍY²?%$¯÷õ‡CÂ¥xr‹ÆT~©¡›s©t¬BÈ^Ä¬¼h{…
+y°Al8)Â4`vxÀ-t)aX×"µ,	;…QfO‹ùI1S ¡˜Ï„ÎşHå:Gü%n*" °Kâñ!}O¿)ï?(½˜³‚yuC^Û;‰¼íÃkiâ8½Ãk°°şMoB’§Kv0[ñÇ7¥ïW}s@1.¯İÑ¬×Èl/ş÷í €8‹%öÕâÁc×£ hóónéé'k6ç;‹r88”•0%mHïsåÅ5’õÏáR¤e9«d”şŞ*‚%ÚÈÿ”¦ÿe­5_BÔD‚60Àl¨{˜Á¤Â$Í”<ˆNÅM¢ˆuÇ´ë…h“)ÎXŸù¨µh¸Û§mwùG£€ñî_s?Tí©ñ.}Càt¯Ãú'ôô§Q7„¶É!U_ybÀ¥„4apˆC¸Éå'ªÂÜ¹#l”fTééÄ¢h›J'©ZóÉt
+&øÑEi1ôä>*1h}ğ ÔG7×”Ô¡ç@‡%•Ğ )î8º*½™ÇZ:N{Hèåû#i·Ö¿õ¥¿©ü¯M–T„×H/¦v— -è3Èã©‘Æk©„p 'Os&Oï£å@ŸÉZFûC’
+=|ğ&w!O¥¹¤DÁãá@›4	?]k*ó±µ™ıe½‡}‹™<.tr%Å^Ïé‘GVq.Ş~BÙD´¿•Ğ{úÉAå-q(5À½ƒñşIH^ã®TÆK¥>Ô>¦dlUÌ.Å+ŠÙeyCúğAœÍ!¨iu\zô¾˜ßÄŞlI0æg_H8vZâE)­ÏˆÙê]ÀL…„ts©+lQøPk¼ïÑRÚ„a­0D¡Cà§Üä&½A
+F×î[&ÏSW{ë!Ô{#öI·±ËïšŠ^ó µ“ªµK{BÿĞ/Hç&×sé5ŸK¤“©¥½vºı"På]ïpè/±vÄÑRh¢e‘:Tø–ã~Gø¢i9àÂç°MOÇ‘„'Çç8WõsK/êÌ¢e‰íÖÂ@QâÕªøá)š“¸5RÌO—F*yJÀ§”ÀèÊm½ˆ¥7h¯ºÃTEÕ^ÌEÿØ<»Ğc Tì…š]ğ`R}~Ñ.©¿pœd~Á4POzü±>¬”yrzéİÀ0·Ñ‹8³¦h=¤Ö­VÓ¥sJË¢ñ‚•@ã øÖ˜/ªîÂSeÀĞ6`SM-Ø±Ø*KAÅÚ¸šôt¿û’<¿#æó8$º=Qô-´ÏçªMË™‡òÊShTÈÑáÕá§ÁÊ€Ë0JèñîçÂ’ùîĞC¾¶ zâÑ+Gqâ¬¾é@ëGú~:¢Š`Dà“( P³qõ×£I2ö—ŒƒéÄø[á>ùÇñÉ0o‹ğ=BäŠ¼”‡‰¸;wK¹°óW…]ôÚn„C!!FdBù¸ßBß3÷ÛH¸2x‘(ˆòÉ¾pÌ†ştÙaOÜ†-ùÆ‚”ú„ØQy[%€Q~¿,ÎæpqlV»V¥m¸=íÇçÙÄ|`=İx¨nJ
+JèÆª¸z‡±šz¤ÆÄØÄ+ü]+0ár©bÔøĞ->Bêe×âÕºT~ù@~ûéÒó“š1'gõjG§ã×S¨×“Ğ„Ù‚j‡µnAÏiƒùh\å›ı\w£Ë{tŠ¿ƒ³w9=]ö®pËÎı†óyœ]}î@¯ËÕkIYéÅœeë÷ÿöéĞÑøªN7óµÄBàëâôq¬b‹×Şè—ğõ¨ÜÚè!İ]© ¸¤#?Äˆ'ş'-ÜN+OƒÒ³ü>À6  K³'	}“ˆ§äw¹7|[}ÓO§ãÑË^pŸ~ƒ¯V7øñPıDAŸÊ&üºr¹½M™E(œJDøA0|˜³Âê‚Ù?'çÅÜNùñpyä80Šã…ÂJ8¤êxŸ­/mK§+Ä”ºNTuS®*œãBáä•H:‰µUüú® xÙÄ	¼®*!(]£ªÙ7½‘8Ÿ¾zÓß„Cé@±ÿ¯úÎQğÒˆ`æ5xÌ´L¥ùtÊR)¾O8¶ş±x¬¢T…@U_´NiÁ–J„c1!itĞ­ó1G‘È¾[}Üíh$–ªœÄ®WW<ÙwÉi·Û/ÁšOáĞ]	x·¹ˆñÏ0;êwñÛWÎÙ9;çõ‚ÿÀi†“@N%–OßàzÃ‘È8MÚFn
+6üxoåWHA>q%ï…¸àí+. ’Â¯É+.;ôò¡W@kÄ­¾š¥úÿPKÔ5êÅ   Òp PK  óXñP            
+   index.json­’±N1†{bu-¬íÛ]tpÀ&ÍÉgÏy-¼öâñŞqBHIE“*))©)(ò4‘8Ä[àÛ=`I‘Æ’¿ùç×œn%ÉÀy­´åæƒ7ƒq2(C¨Ç”ÖÜJ©t‰Ò¡l¦D»¾šÏçiƒà'ªÑ¨¶N´U¤•ì¬áAkìıÍÕİÏË»¯_>ß®¾¯.ãùã×§‹¤C&Œd»„	s–l'£İŒ¨b–ç3&WßÏW×{Qê9êª¥f,c)¥ÃÑ!ËÇl4Î÷HQììŠ[?Ú€å]y+ôÜy@×xO£¥)GÊ»ÆÊTW\Ò!©­zJc4‹Å‚(<hA„«è¦nêã$qzZ{'hvBcF0É
+Y· ®ÏæSF´pÿû¤3@gñ&œm1¯Ñyß÷_¡7€ãü2­ÁÏ~c¼øô+nL¿†¥,Â„ø€,‡–ò–>|/½^ª
+lÀ?ğ³>½;ÏA”sÊ ¯5¶Kô²)rüø"‚u›–›œm=PK»‡cXœ  »  PK   óXñP               background-images/1.png‰PNG
+
+   IHDR   0   0   Wù‡  şIDATxí˜Õs#I„{ŸñßYfŞCûLËÌh0Û;ÌÌÌŒf‹ÙÌ0$Ïs^åIÕV‡JVT\È‡ŠøÔ5è/«ò'hãßåñÿ€Gò×…ó5F'–¬zˆ%?Î±8Á¢o4¦òzCœ×¼·væ§#Û˜‹Ü5wó).Y¬—$‹'â¯&x¹bè‘mÌÅ¢†øÎK¬òê ¯ÏàÅÓM#Û˜‹Ì»¯€Ô?ÄßJ¿ÙÄ\Ha…|† Wxá‡¾¥#›˜]ùôı—¦FæB%®_k€…¨‘¹P‹«å3×g¿\"0²…¹H/.åõwÿAşºû°Ù{100†ñ‰)LMMazzšW“ÉÉI‰‰‰ÆÇÇMÆÆÆ&‡†Fÿ$0$æBŠêË«w_ G.¸á
+	
+Ocff†!$– VÔ¡z{ûÿ,0ˆ!jqyÅîK–íD{‡}ıÃBÊ€âÚ†‡‡Ç1äÂ*«–Ïß4‹ıÍ1x‡"¸s7Œ»÷Âğ‹õş–ò6Î*wŸä®¹ƒæ;ìv/FÇ&(®@A¹˜OœTŸ~€™»„Ãa%ÓwÂ(;ò Eşå:¯QW·^o@ty\;€b.bÈ%UHùûI²Á‘NwÇˆXÇC…FÂ('ôªB°F­m8]^!Š,L ÖFî<+Óp6fé=×u§cÈ]?›v÷_ä¬–5òÀçŠAì¥Dzyı êİ':Oy²î¢¨ˆzhÓÊË äÈyÖÈÇ`0Ä|iÔî¿2 eUp`)?<a8}yIrœñ…B!ôõõ1DvP’¯6pİMO7Ğ—Q«<©×¨©Ù›-^£`0^¥Ââj•5hÔG ¥Š R<S€îhŠ¼äğy—Y£@`.@AqOB!ÿOğÆ+4"+”T™ú31“—æfåxG,m€×¿¿†¿~QÜo*‘ÿ}
+~ ÕD©Á›åõx«¢Q\ç(*oÈ€R*ö6Í‰­¿ô@ö<¥ó›¯Ìı½Ê“”ò/
+^^1‚ ï!^Lé*–Ô ˆ”Š eµa‘'R^; _§o‡Í—ÑUçùJdV
+ËªL†ñFã¬R^røœ].¸İ>³F„Mj¶ì3QÓW›)N4(vxÅqëYïhgoEq¦;
+ÿ°õİy™ø»óÉ¿P3‹Šİƒhiµ¡Çæ‚Ï°°»Üâ$êÄIÔ!ĞÛ§’W°J«CLÅOBÉmqgbR:­<ùËª;ø¶v;r¿ªÄª]‡ùjdX³û8Ğ;b``€ƒ­ÀÒm]7‹İ7cpD„püOœÀÁ–(
+7?Ì(/y^°ùP;r¾ªFşwU¸ÑÖ	hêè™'Ğms ¿¿ƒƒƒÍ@Jfâ%µzò¤|÷ ª×@Î×+ñEõzØn|Q³|5Úrğ$å	OXCèx)=*ñò„5º‹«×»ñÉò5È/§ï”×!_È]¿ÁPH!,'ÁZ	bÈ…ULOZK^R=‹Cç\8w¥yßUørZ‹î;gâ¼Z1„~ )­/^”îèGiãQ£J0@ŞUb¨rÒ ###Ä †\¨åôÄuäÉ«•ãøã§•(ü®ûN^ÀÛ¬‘ñãÎƒ…zÓÄ}i]q+Ï%øÓW[pò\øÙèzK§QÎBÃö¡@)«!®#O¾ØèGk›ÄGìë­b ÀµÛö³N2€DÀ*¦/-ÅuäŸ­'ĞxMÍ6ó#6¿#Ü!Ş®¨g¢fÛ>y
+óxnexJWX_Ü*/9xÖ‰Ngò75¢o•ÕaçÑ32 Ià…•“9jAiR­'ÿŒ tç ZZípº|¬‘ås‘d’6€ä©ïŠY~wêùªT<7•©<[¶ğÌJ+O'øcı4š[°Ù=– òJ2È__[şøk'A{õ„•W¼|_W\Bk»‡W~¼¶ğ/ğÎçÇ~ÿÄ¢³°ğF¯ŸEñŠkà«P÷-~Íp8ÈçU@b>e•¼/İyréyüƒ%I,>’êhïp »Ç—ËŸ‚'ª da”T5?%„-ù²ªhk·¡»›Õá-G?ëCi†P à›o®üæ©% yrÑy”Vqçí¸uË	Ê{¼>øıŠU ²ğ$y]¾ÃÊP¾$içívÜV‡» ”ÏT#Ô¤À |Ê:ß-¿V,w¾µ­]]vPŞåöˆêøD €?% ¯ª /wäÂ§¬Ã•T^ASS'Z[»D€Øìì¾.ïNˆyÆ›BR8şı©óÛ
+ÃxÄøÿãßäñwßÜ‹üŒW¨®    IEND®B`‚PKo¼17  7  PK  óXñP               images/2.icoíÖÍ+ağßŠ(/[bMæ"Ë%Z.(Î^ÏNNJ9ppØ¸º9¨‰D^òH—Ó¨e|íokæ1³ídRólŸİú=»Ï÷Ùgçyvˆx&áÙ¤t’(EDi0`€òunËuD×"l³[Y
+V`ClÂ÷éh’Ù	¯à¸lkÎì€g%s+ÎŒ3£È„2Eâ§s)’É{tNàXA—ÆL>f”Õœ9¥Ô>a8(SÆ*ŸCo>k;íó=GŠŒ3»;Ğ°'5î_‚&˜„Y1=Ğs®:¯µ!ıî1V!)ótÏï2p¡Ôï &äº*c<A3¬+uúáT©ß2CüşÊqfœù3× ï‚Ï™>8Ó˜iJFA/ÔÃ¹ÆL¿ó£Üú~E–ğŞ
+M™÷¿ÙãVş¾›_¡Js¦/]™aÚg^)™·P«1“÷Ê¾•ÿåëû,¨Ö˜É Eö0k´"¸gåæ\fì`äáù`e®$/­úPKÁ‹¿‚  >  PK   óXñP               images/3.png‰PNG
+
+   IHDR    ,   í·åÂ   sBIT|dˆ   	pHYs  a  a¨?§i    IDATxœìİy\Sw¾?ş×'€J‰š "{«`]Z‘b[%ØZµU§Uz¿Î«Ø™ßÛŞ;b§NïÜ:Ö¥38¿éŒV¼¿ig
+Şvj«RÛÎ¬­EÅ.8İMÜH¬@€ÈçûGÈ°$d%ïçãáCÏ’s>ğ¼8ç³1Î9!„â$‘¯@!$0Q€Bq	!„—P€Bq	!„—P€Bq	!„—P€Bq	!„—P€Bq	!„—P€Bq	!„—P€Bq	”ŠŠ
+ˆD"‡’’’°~ız_³ßröü³iÓ&_• 77Wø>555A¡P ¦¦ÆÇ¥"=…úº $°Èår¨ÕjaY«Õ¢¢¢(((À_|iÓ¦¹tì`åÊ•xóÍ7ñÈ#¸µœ½İ}÷İC:>ñ¬ŠŠ
+ìÛ·MMM €¨¨(<óÌ3X±b>ÿüs—XQ€§¨Õj¼ñÆvë7mÚ„;w"33555Éd.Ÿƒ16”"è»œ$0¬]»yyyˆŒŒÖıâ¿@^^Şzë­!ÿ‚AÜƒ^a·Ø¾};6nÜˆ¦¦&lÛ¶mHÇ¢I2ƒ[EEÎœ9ƒÜÜ\»mË—/òÏq
+â6Ï<ó `ß¾}6ëµZ-V¬X¤¤$ˆD"(
+¬\¹Òæ}vVVV®\	 X±bD"š››:†³V¬X…B X·nD"‘MÙ{ÎÜÜ\á8¹¹¹ËåËåX¹r¥P/”››+gşüù}–{çÎ˜1c†p¾õë×ú­å•ËåBY+**°bÅ
+$''ûeeeA$²ÿ¯ßÔÔ‘H„õë×»T®¾¾;wî„H$Â[o½åğ¸"‘o¿ı¶°nÛ¶mHJJB||¼İş¹¹¹¨¨¨ ºÁ	„/¾ø‚3ÆøÊ•+ûİoúôé\$	Ë†3Æ¸H$âóçÏçë×¯çYYYœ1Æår9ojjâœs^ZZÊsss9cŒ¯_¿ïÛ·Ïéc8SNÎ9_¾|9—Ëå|Çœ1Æ
+ë­·œ>çºuë8cŒgeeñ™3gòM›6ñ3fpÆOJJâÓ§OçÉÉÉvë}íc|æÌ™6çcŒñŠŠŠ~¯å‹/¾àQQQÂçW®\Éår9gŒñ3fğääda_µZmó=²jll¾ş®”«¯¯gSSgŒñ+V8¼æŞe‰ŠŠ²+COŒ1¾sçÎ~¿Ä;(@È öÆ¬V«9cŒ×ÔÔpÎ-7W‘HÄ=j³ßÎ;9cŒ8p@X÷æ›orÆ˜p·ræÖrÊår¾|ùr‡
+
+
+8ç–5$Îœ9ãò9­2ş|›}“’’®Ÿ1c‰DÜ`0ë¬7İ?üĞfßŠŠ
+!úc…_»¦¦&!°\gÊÕß×ÓB=YCºçù¬ëzÿô”””Ä³²²úÜN¼‡*Ñ‰[%&&âèÑ£ĞjµˆÇúõëñÀ`Ş¼y6ûY[j566xLWÑÔÔdóZ°Ô­0Æ0fÌ›õ{÷îÅwŞ9äsîØ±Ãf933Z­yyyvë+**ĞĞĞ ToÛ¶YYY˜>}ºĞò ™™‰£G¢¹¹Ù¦RÙJ«ÕâèÑ£X±b~øaa½L&Ã¾}û0cÆ»Ï–+årôõ|ôÑGqæÌ=z™™™Â~ lê:*** X~ú2mÚ4=zÔåk"îCBÜJ«Õè¾L›6M¸é655áóÏ?GEE…póW±bÅŠA·Âš9s¦[ÎÙ×MÏÑñ{3())\.w¸1f8=YoºYYY¯c(\)—£ë]·nòòò°wï^!@8 ¹\n6ÖŸŸ¨¨¨>Ë¤P(lÂŒøq«††0Æ„
+Ğ¦¦&äååáoû›P¡<cÆÌ˜1cĞ¡î8Fİø=}Î¬7Í¬¬,»§•úº‰÷íŞ¼Z.GåÉd˜6m8  BExïã^»v „ÊxG¬áÒ×ñ
+â6MMM8sæ’’’„u™™™B“ÌÜÜ\á·Í£G
+7“¸ã}aŒ9¼	yòœ½Yo–QQQv¯ÌÃzÃÖh4?ßĞĞ`÷ÚÎ‘†††!—«¯¯'`ûëƒ>  »¦º£GÊÒ×q¬O¾GÍx‰ÛXÛç/_¾@w ¬X±{öì±yUÁÙ×ÃÇp–·Ï™L†ÒÒR‡Ûår¹M3ÜŞ¬]RRb·­¢¢bĞCÌX_…¹«\½Y.Ş|óM`ÆŒvMu­aØß+ª†††>ŸÆˆwQ€·ÈËËÃ‹/¾¹\.ô±ê]ál}=8¾!;Zçì1ÜÁ›çÌÍÍEcc£ĞÆjçÎ06}3´Z­M(L›6‰‰‰8pà€]_‹µk×Ú+**
+œs›Šè×æj¹’€éÓ§£   ƒ?úÑìö™>}ºp}©¨¨T½ñŸµÿ"¥¯æ±Öæ™}5ß´öX±bß±c_·n—Ëå|şüùBˆÒÒRÎ¹¥/ˆu]^^KÇp¶Hï¦¥®œÓÚŒ·g³ÜşÖoÜ¸Ñ¦©³•µÙoRR’Í×væÌ™Â>%%%›õZ¿vÖmË—/çQQQ\¡Pp¹\nÓŒ÷ÀÂ¾¹¹¹6×&—Ëíú`¦\}=­¬Í {7cîI.—óÜÜÜ>Áã/¾øb¿ç!ŞABÅzc‰Dv
+_¿~½ÃBSSÏÍÍ:µÍœ9ShãŸ››ËE"‘ÍËzãV(.Ã™ Y±b…ÃşÎÓºÜûúûZŸ——ÇE"‘]€X·õì»±iÓ&›íÖ è}óæÜÒ7#++‹+
+®P(øÊ•+¹V«:2öTPP ƒB¡Îã(@S.ÎûÿzZYûyôîÓû8:ZrŞ ¾vÄûç4ğ!ÃÙŒ3ĞÜÜŒï¿ÿŞ×EAAAÖ¯_ØôYééÌ™3˜1c4]²+Vàüùóøì³Ï¼Q\2 ¿N‡Ó§OC©TB¯×C­VC,÷¹yy9Z[[!•J iiiŞ**!~ËŸ$))	çÏŸGggg¿ûÍœ9jµÛ·o·Y/‰úâ]~]‰¾k×.dgg#--jµùùù}î[ZZ*„Lbb¢SÕî|ı{¢uPÊššlÜ¸qÀıwìØ!TÔ[Yt¤ğğ~ ½[aˆÅbh4èõz‡û!;;  T*ñ§?ıÉãe$$0ÆÜ2ÇÊPÔÔÔàüùóÈÍÍÔpì™™™X·nğÒÔÔ„íÛ·ãÍ7ßôtQ‰ü¶#¡V«^EYI¥Rèõz(•J»} ªª
+ PYY‰¬¬¬~_w,üa?WÊğòË/ÿŠŠ²ëèH|ÏoŸ@ŒF£İ:‰Dâp½V«…Éd‚J¥BJJ
+–-[†-[¶x£˜„´ü6@$	Z[[mÖFH$»}•J%Äb±ğd"‹¡×ëqşüyo•B‚’ß¾ÂJJJ²B¡µµÕîõ ¨TªA·¬¬'Nœ°Y'‘H““Óï „Blùm€$$$Ø¼®2ˆÄZG¢T*¡R© R©„ú£Ñ•JåpJÌŒŒddd8<gcc#:::<r=ş*22ÒfêØ`A×\‚ñºCCC=>f˜_÷©©©AUU”J%4²²²„ ÉÏÏGrr²ĞòJ¯×£¤¤*•
+Z­K—.uø´ÒŸ«W¯¢½½İí×áÏ
+EPVNÒu—`¼î°°0Œ;Ö£çğë ñ6
+àA×\‚ñº½ ~[‰N!Ä¿Q€Bq	!„—P€Bq‰ß6ãõGr¹Üçc
+¹›H$æ¾&ƒ¹nÎ¹İ¬„„n N`Œ]K`ŒÁJˆ3è!„—P€Bq	!„—P€Bq	²ãÇ£¨¨Èf]zz:^xá•ˆâ dÈ9‚ÂÂB›uş0*!Ä³(@!„¸„$ÈÄÄÄ ºº7nÄäÉ“1yòdäåå ¶nİŠ˜˜»Ï=úè£X°`,X€ıû÷£ªªJ8ç………HOOGLL,X`³ 
+ñàƒ"&&÷ÜsöìÙc³==={öìÁ‘#G„ı‡â}  ››‹‹/âÅ_Ä“O>‰¢¢",X° K–, |òÉ'Â¾ƒeeexüñÇñÆo`áÂ…HMMÅ©S§0eÊ –ğ(**Âşıû±yófìØ±uuuÈÍÍ³uëVlÚ´	wŞy'
+
+
+°páBlİºU/Àò*¬¸¸»wïÆ†°wï^»ãB|ƒz¢ €L&Ãşıû…åØØXäææ¢±±2™GÁœ9s  ï¼ó `ñâÅˆˆˆ€L&C]]&NœhwÜ÷Ş{ÏfÙƒ{öìÁÏ~ö3<óÌ3 €‡zr¹[·nÅ“O>‰‰'‚sºº:|ùå—Â1ššš——‡––DDD¸÷A4
+èüÍÓ€Ác(ÉäÙœï–CåääØ,/\¸2™Ÿ|ò	-Z„#G`Ç ,•æ÷Ş{ï€7okàÅ•É  ---8{ö¬Ãó®Zµ
+[·nEUU•H½ã(¨!ŞGâ	†F éš¯Ká”¨¨(»u±±±¨««ÃêÕ«QTT„êêjLœ8eee(((è÷xŒ1ÄÅÅõ¹½®®Îáy­!ÓÔÔÔoÙ!¾Gâ	2ÏNdï‰ó8u¶¶¶÷Ş{/æÌ™™L†ââbÄÆÆ°¼n
+ëqmd€îĞ ¦À„ø/
+p×k%o*,,ÄêÕ«…å#G ¹¹S§N ,Z´ï¾û.bcc±hÑ¢!ŸÏzÜÂÂBüò—¿Ö[;$¦¤¤ù„Ï¢ ! €êêj<öØcX¸p!jkk±gÏ¤¦¦
+O‹-BQQjkk¾¾ª««Ã'Ÿ|‚©S§"22œó~Ï'“ÉğÓŸş»wï†Á`Àœ9spöìYìÙ³999B=Ç@Ç!„ø5ã% €½{÷"66Û¶mÃşıû‘““cÓ‚ÊZ‘Í³{}µxñbDEEaÕªUBİF_¯z®ÿå/‰;v ¬¬ë×¯Ç{ï½‡Í›7cûöí÷ïë8„{\óÇÏÁ8ıŠ'¸zõ*ÚÛÛûÜ®P(†İ„Rƒ“'OÆë¯¿ŒŒŒ~÷MOOGjj*^~ùe/•Î·†ã÷{8^Ó`Óuó50xa7Úı‡¢?0ô
+‹JUUêêê°sçN_…â oøüP!xù1€s é6ŸÓ¯D§ÓáôéÓP*•ĞëõP«Õ‹Å÷-((ÀÑ£G J¥ÿñÿøøx/–vø*,,Daa!âââ|J!„xo3¿ ¼´h¿Ù½Aæù)™ı:@víÚ%¼7™LÈÏÏÇæÍ›îW^y úâ<ƒÁ€mÛ¶!..{÷îõuq!]xGøñ¿ƒ¿ó:ĞÚÜ½A,[¸¢öxü6@´Z­Í²X,†F£^¯‡R©tø
+çÉd2\¼x±ßí=‡!„øç8s
+æ·ş
+è/wo›»láJ0IX¨çoï~ R©ÔfT*í7@ÊËË!‘HPYY‰¬¬¬>÷#„@Ä5ßÀ|ààÜ×6ëÙ]sÀ–=66Ú«åñÛ 1vë$‰Ãõ  t>“J¥ÈÏÏ·iJ!Šë/Ãüö_/NÚn¸u2DË–p«OÊå·"‘HĞÚÚj³Îh4B"‘8Ü¿gÏe¥R‰šš˜L&»×Zeee8qâ„Í:•J…5kÖØN$¢n3ÁD$A¡ğ|E¤7………»kŒ@½nssLo¾Š¶Âú	q<şFÌ¼Ç§}¥ü6@’’’PZZj³®µµÕák)­V‹-[¶•è}… dddôÙ’¨¹¹yÀ~ $x˜Íæa×w ˜úCôh×ÍoŞ ?züı@[·.2°ìUàsæÃ£ƒ1ì¬ÂÂÂ0vìX–Óo$!!Áæu•ÑhDtt´ Ö:¥R‰èèh,[¶LØ·¼¼©©©T©N	(Ül?ı1ø¡×€†º7Œ	6)ØËÀFùÏ}Ío ~úiC©TB£Ñà©§¶:tÉÉÉÈÎÎ†X,FBBŠ‹‹!‹¡Óélö%„Ç¿>k© ¯ëÑ•‰ÀîÉ[²
+,j´ï
+×Ê¤‡`Ê„ôm8~¿‡ã5†?_7¿TóWê/l7L™Ñò5`úW§?Aı
+‹B†3Ştüğ~ğGnîŞ01¢ÿ
+6iªï
+7H „âEüº	üÁ?8Ü¼Ñ½A1léã`³îŸ „â¼³¼¬¼x?ĞÜ=e3ÂÅ`V€e.1ÒwtA`Äñ˜ôôtìÙ³GÁƒ>ˆ˜˜,X° ÕÕÕÂ>wÜqöìÙcó¹ÂÂBÄÄÄØg÷îİHOOÇäÉ“‘—— Øºu+î¹çÄÄÄ 77×®=Ï=yòd¼ğÂÂ¶ªª*ÄÄÄàİwßÖÕÖÖ"&&û÷ï‡Á`@LLª««±qãFL<ÙæÜ=ËWTT„ÂÂBL<Ùf®B<‰s~öS˜ÿ{xáîîğ	Ë\ÑÖˆ<páĞHĞcŒ¡¸¸Œ1lØ°œslÜ¸¹¹¹B‡KÆØ€’cøãÿˆ9sæ`çÎ8~ü8vïŞ#G`Îœ9Ø±c‡°nÏ=xâ‰' X‚hÓ¦MX´h6lØ€şóŸØ½{7jkk±wï^¤¤¤`õêÕØ¸q#æÌ™ƒÈÈHäææ"55«V­æPÏÍÍE\\^|ñEÔÖÖbëÖ­¨¬¬Äûï¿/”ïÈ‘#¨¬¬ÄâÅ‹iÊ\â¼æ{KËªïªm7ÌH‡èáS÷MÁÜ„Ä~ÿ<šÚ:Şqˆ¢ÂC‘¿ ~HÇàœ£®®ÎfÀÄ¦¦&äåå¡¥¥ƒ>NTT”0ÙTFFŠŠŠìÖ½ûî»8{ö¬ğ¹^x‹-öyè¡‡‡¼¼<TWWcÊ”)Â¬…[·nEJJ
+ª««qêÔ)›óËd2ìß¿_XEnn.ÊÊÊ‘‘Î9ÊÊÊpòäIaº\B<…_­?øøgŸØnHºİRAt»o
+æf ĞÔÖk^w±NWkåÊ–1fwœØØXLjÛ’¤g UUU¡¹¹«W¯¶ÙgõêÕÈËËCee%¦L™ Ø¾};{ì1 ÀÎ;íÊ˜““c³¼páBÈd2|òÉ'ÂÈ.¤ğ Å-àïşüØ»6C@9¢Gş˜6{XMÇLâQáŞù²ºã<Œ1DEE¹¡4Îkì†Á=1ÆĞÜÜ=ÇÁœ9s‹.`Ñ¢Evû;º†‰'¢¶¶V8^\œkíé	oo?vüİ7S1ü¤‘`‹»÷A¯¯îmÃïŠüÀP_+‚7wWÉår Àë¯¿nws·¾³:räêêê “É°uëVìØ±ÃfÿFcÕÕÕá¾ûîr9	é7›Á?ûüàkÀ5}÷†°`êl°÷=6_ £VXdPz÷âµV¼;«çg¬ÙUUU˜8q¢ğ§¦¦¹¹¹B¹Á`Àúõë±yófìÜ¹EEE6­Ä Ke|OGAss³İ+4BÜß¼şÕ?aŞöğÿù]wx06{D¿Ùc©$ÆáĞHĞÌH6©©©Ø½{7âââ0qâD¢¥¥Åæ³Ó×ºëŸ}öYlİºçÏŸÇœ9spöìYìß¿S§Nê+¬­®Ö¯_Àò:«g+1 ¨®®Æc=†…¢¶¶{öìAjj*zè¡A_'!½q“¸r¼ş¢åïË€ú‹À: ÷ÏÔwZææ˜˜à›Âú HÌ\{÷îEnn.òòò‡E‹áñÇÇªU«ú=N_ëz®â‰'‹?şñ(**‚L&CNNyæ –'‹'NÍq`ÇHOOÇ¶mÛğ³ŸıL(ãÇŒmÛ¶°Tª÷œPl8U\÷âœ-K@\¹ \¹Øõ÷ iãgÅÄ[‚cò4ÏÖÏĞ`Š=Ğ`ŠÇ`0`òäÉxıõ×ûœçÅUÃñû=¯i0
+®]»f"ıJø•‹6cËà626.¸cØİsÀD!+¼‹h0EBqïì®Öõ]¯œ®\DãÕË0_¬n\ü¤À¸‰`ã&vF,0.¡'Ú. „€ÄÛoºKBHuºK¶}0 ôÛ++j40¾+(¢cÀÆO´G„Ì£å(@!ÿ ³Fxñ¼¥~âªÎvôşˆDÀh%0>,:Æã»#Üfø4 $ Éd2\¼xÑ×Å ÄĞ¿÷&øÉ£@ggÿ;‡„ªñ]¯º^=ŸÅíSĞØjìÿ³Äi „¿Ä¯Öƒ¿ÀqpŒeyzê'ºcl4Xˆ}…¶e¤[
+w£ !„ø•>ƒ#\léİ	(ÆÌ¤KÃ!Ä/ô0õb°Ìl0‰Ôw$v(@!>Å¯Ö[ê8N}è88ÔÙ`b
+DBñ‰şƒ#Û~Í¯D§ÓáôéÓP*•ĞëõP«Õ‹nrWPP€œœœAíëÎ9
+…[ék"‘fó ›B#ƒ¹n¤Á3(8†¿]»v	ã™L&äççcóæÍı~¦²²§NÂÒ¥Kİ †tÁ<´E0^·/Qp?~ Z­ÖfY,C£Ñ@¯×C©T:üŒÉdcR)ıâ/øÕzË,}§>z>õ…KÀ²–€e.¢àP~ ½ƒ@*•ö 'O„Z­öFñ! àşü6@ŒFûN?‰ÄázÀ2)Qzzº§‹E@ŸÁ!–€©)8†¿‰D‚ÖÖV›uF£‰ı_&“	 Ü^çA<®¿şŞßÀO£à~ III(--µY×ÚÚêğõUee%Z[[¡Óé  z½åååHIIABBğÌFˆ/ôYKÀæ-öS»+¿„„›×UF£ÑÑÑB€XëH”J%ÒÒÒl>»oß>¤¥¥9›²²2›©P@¥RaÍš5ˆŒŒº¦›aaaÃ®iò`Ğu]gı%˜Şú®ôÀÜİªŠI¤_ü(ÂZ‘ŸôÆï·7æ,ñë	kjjPUU¥R	Fƒ¬¬,!òóó‘œœŒììla“É„’’ìß¿jµK–,é³Âİ‘f$‚µ9+]·ë,uoÔG0~¿½1#¡_ˆ·Q€ºn×ğ+aŞö ­Gc±,k)Ø¼E~VÁøı¦)m	!~ƒ_oƒyÏ¶îğ€à å‘ 1™LĞëõ  ¥RI­£	pœsğ¿¼d™	 &ÄA´qµªòcfÏ¿\r[€”––¢¼¼UUU·§¦¦"--™™™î:%!ÄKøÑbğÏË,ábˆx†ÂÃqÎ¡m¼cZ.Íxù±Á×»bÈR\\ŒƒB*•"--jµJ¥Rè¯a4¡×ëqîÜ9:t………X¶l™Må7!Äñï¾óaYô¯ÿ¦ïÃ‘Ş®™ÚñqM3ÕPg¸	 ¸Méù€R€üüç?GJJ
+{î¹~û[$&&"--999Ğét8|ø06lØ€?üáC9=!ÄÃxSÌ;…ÖVlÁr°;Óøñ†¶v3Ê/´àX•õ&ô~a"ò|3Ş!ÈæÍ›¡R©œúŒJ¥Âºuë„N„ÿÄ;:,áaè…zÒT°¥«}[¨ ×iæ¨Ö›pLkÀ©-¸Şa_Ï1il8æ&È0/Ùóı^† Â£ç`‡¥¥¥ĞëõHMMÅ”)Sü,!Äğ·ÿ|ÿ•eA>¢µÿ	&
+ñm¡‚TÁR¯ññùf\3uØmWIÃ07!÷'È0.b  ,Ìóß+·U¢×ÔÔàùçŸGzz:Ö®]‹ââbA,ãğáÃxúé§1kÖ,wâAüó2ğ’Ã–…PˆÖçEÈ|[¨ c¸Şãç›q¬¦š†ëvÛ%a"dÄEbnB$nî•ç½¹-@öîİ•J…%K–  JJJÕ«W#??‡¢ !$ ğ+`~µ»~’ıèßÀoóa‰‚ÇÍN3>»ÔŠcÚfT\nEg¯7T"Ì/ÁÜîŠ‘bDˆÈ7íâÖ'µk×B©T
+-¯²²² XšğîÛ·Ï]§"„x¿n‚y÷6à†å7^–6ìş>.ÕğÆ9Ç7WÛp¬¦euÍ0Ş´Ÿj9I1sd˜‰¨QşÓÿÛm%‹ÅÂ#Ô©S§ ‹‡Šâ[œsğW_ê/ZVÄÄƒåüÔ'¯F‚A}ËM|ÔÕô¶¾Õ~¥Ñá¡¸/!sdˆéƒÌm’˜˜ˆÃ‡C*•âğáÃHII`©T?|ø0«NˆŸã¥Åà_tT.è‰M`#ıóÆ¨Zovâd]iøêj›İö‘!³c#07A†•Ø+Mq‡Âm²nİ:lÚ´	ùùù‹ÅÈÉÉ äååÁd2aóæÍî:!ÄÍøwÕàzuTRgAwè0sœ¹lÄ±>½ØŠö^CŒ0 ©ÑbÌM!mbÂÃ|[¯á·ˆJ¥Â+f¨t    IDAT¯¼NgÓD777©©©4!~ÊÒYğÅ^©ÁËPôRäøùfntÚí9óe¸/!cÄa>(åĞ¹½6¦wÿŞ“=Büïè€y/ut—º†ù¨Ç"=EÁ½ñ–z$ÅÈ€¯_R€ ''Çé§“É„ÂÂB¬[·n(§'„ë/À9ê,8)*b˜#Åı	‘˜>^ŠP?¯×pÆ$11?ûÙÏššŠ¬¬,»Şæ½UUU¡¤¤UUUX½š~Ë!Ä—ÌŸ•—RgAG8çh7sÜìähïä¸ÙiîúÛ²¾½“£õf'Ê/´8¤È=±¡<¤ Q«Õ˜={6<ˆßıîw0™LHLL„R©„Tj	²¥¥z½555‹ÅP«ÕX¿~=Õ‰âCürø_zt|Ôÿ;rÎq©ù&šotvßØÍ–{÷ÍİÜã¦o½Ù›ÁB®¡µíz×6³Mëz,»:—F´4÷÷Rd8së”¶Z­UUUĞh40™L ,ıC’““1eÊ$&&ºëTASÚ`¾îk—/Â¼õ?…ş,m.Ø¿ş»ß¾ï4s”_hÁÁ¯ğı5û!=|Í†q$à¦´MLLôû $˜qÎ-Ã”@gÁf”j(ş¦ÁaG»¡b ÂBF„0„…ˆ,‹˜íº®ea¨k¿®?qQ#q×ß)â+şÓ'âqmï¼|qÒ²à§×;ğŞwx÷»&´ôjşš ‰©Ñá&n½©wßôFt-wog;ZSKs÷Í_$B¨~œ„„ Á¿«†ñµ=Â²è'OùUgÁ+-7qøëÕp³×(‚w“`Ù$¦F‹]ºé+¢ÂÑ`¶ïùM††„ À›®Yú{˜-¿Ñ³‡V€M½ÛÇ¥²øî‡6üºåZĞ³îZÄ€9q‘X:IDÅ(ßô‰„aNè,ØÜdY1i*Ø’U>-“™sT\6âí¯®áK½í“Á¨P†ùÉQÈ¾]±’Àì¡,Ü 555Ğjµ0P«Õhmm¥Qy	ñ!şÖ«À¹¯ ¢1JÀ‡Û;Íøø|3}İ€½zjG
+ÁâÛxğ–¨aÛob¸qk€äççãôéÓÂrZZòóógŸ}Öéãét:œ>}J¥z½jµºÏş#•••0™LhmmEee%rrr(¸HĞ3z¼´Ø²ŠÈÿüZ|ĞYĞx³ÿø¾	ï|Ûˆ†6Û)Y'DÀÒI
+ÜŸ´­™•Û¾[EEE8}ú4Ö®]‹7ŞxCX¿jÕ*œ;wû÷ïwú˜»víBvv6ÒÒÒ V«‘ŸŸßç¾[·n…T*…Z­Fjj*¶lÙâÒu2\ğËuàı£°Ì~´a·ÜáÕ2ü`jÇ+züä ùçU›ğ¸cl8~yßüqQæ'GQx ·=”––";;jµÚf}jj*233QZZŠU«ÿŞU«ÕÚ,‹Åbh4èõz‡O/½ô’ÍzjG‚o3Á¼§ÇÌ‚³ç‚İ÷ ×Î¾ñ:}İ€ãç›m¦ee fM”bÙ¤Ñ¸}l¸×ÊC<Ãmb2™œœìp[rr2Şyç§§Õj…áP¬¤RiŸÒs]yy9µE‚VwgÁK–1ñ`«=ßYs*	¿j@Å£Í¶0Ã¼D–LR`Bäğâ#X¸-@âããqòäIÌše?@ee¥Ó3F»u‰Äáz+½^’’¨T*‡å $ğ=;>ãÑÎ‚f“u–¡F4¶CHGˆğĞ­r,¼U¨pjô9Ü¸í¥ã²eËP^^]»v¡ªª
+€å†^\\Œ£GbéÒ¥NO"‘ µµÕfÑh„D"éó3J¥«W¯FBB6mÚäüEàø·ÕàoÿEX¶tç‘s]ï0ãİoñÄ;ZüöÄe›ğPJBño3”øŸ¥ÉX=u,…Ç0å¶ïjZZÖ®]‹¢¢"”——€P‘½zõj§'–JJJBii©Íº¾šët:”––
+¯­RRR°oß>TWWÛ1_VV†'NØ¬S©TX³f"##áÆ±%BXX
+…¯‹áuÃñº;~@ãÿüV˜YPüÈ¿@2×¶ŞÃ×İÔÖ·Î^ÁÛUõh¾nÛ¢ê–±¬š>÷'ö«y/†ã÷{ Ş¨vë¯jµjµZ­­­­J¥.®˜`óºÊh4"::Zk‰R©„N§z K  pxîŒŒddd8<gss3Æ$†Ûuó˜÷,ĞÔuMwÜ‰ëó—áF¯kêuŸo¼ç^°›¢uÚ8	–İ¡@ªÊ2ÔHsS£Ëçğ„áöıoŒÆëÖáÜİ­¦¦UUUP*•Ğh4ÈÊÊ$??ÉÉÉÈÎÎ ›§•ÊÊJ<üğÃˆwê|4œ{ğ.×Í;;Á?/ÿÇÛÀ…ËJÅˆ6ÿ,"Ònÿ¡\wá6—Ô	áÂ€9ñ‘X6Ix¹52\¾ßÎ¸ )..†F£±[Ï9cO=õ”»Nå Á#Ğ¯›_o/+±t¼¦ïŞ
+ÑÆí`	·:üœ«×}±ù-©CÓuKxÜ:z6Î™0Cú÷Û5ˆµºR©´é-Î„24ÜĞşáğŞL¶L—Ñò5}†‡«®´ÜÄ¯J/á‘¬…ÿš7Ò4ÜH°s[€œ>}ÙÙÙÔÿ‚àõÁ?8~êĞÑë)yÊˆ|¸uŠÛQ«o¹‰gKë„ä	ò‘ø5…éâ¶ Q*•˜:uª»GÀÏ}ó?g?z¾m	»û^°–MˆóÈ¹õ­íØ\Z‡k&KxÄEÄó™±ˆ I·È¬Y³PRRb×l–ân6g?…ùošol7
+»÷A°ÌÅ`Š1+ÃUc;6­ÃÕ®ğ˜(ç3'"’Âƒôà¶ ÉÉÉÁüclØ°)))÷Y»v­»NGÈ°ÃÛo‚Ÿ:féI®»d»1J¦Î›ó ˜¸ïÎ´îpÍÔ_­ƒ®kò	‘#°%3Q£¨3 ±å¶Ÿˆ‚‚˜L& °k‰E•è„ô[À?züÃ#İ“>Y›¿lÖ½`¡oñÔØÖÍ¥p¥Åã"Â°%s"äÔ“œ8à¶ŸŠS§NQ%:!Nà×ôà%‡ÁËJ„Qs·¥@ôÀ2`Ê¯ıòÕt½›Këp¹Å2Ñ“J†-™±-Œ¦ºÄûÜ R©”*Ñ	^§ÿÇAğÏË„aG  L6}6Øƒ%ÜâÕ25_ïÀsG/àb³%<”’Pü&36`úyßp[€¨ÕjªD'¤ü»j˜¼|}ÖvÃˆ`÷¨ÁÔK<6ğaZntâ¹/ ¶é `´8[2c¡”Rxş¹-@c¨¬¬¤JtBzáç¿‡ù`!ğÕÛÒH°¹-;â­7;ñ_^@M£%<á¡ØªEtÍÙAæ¶ )))T*ç•••î:,!‹_ªƒùp!p¦ÜvÃØh°ùKÁfgztovâ×^†a—
+ÁõDŒ£ğ ƒä¶ yé¥—Üu(B×_çÁOlÛùo´,û1°´ûÁD¾íOajïÄóÇ.âûk–ğÁóêXÄDú.ĞHà¡¶y„¸	o¼şî–VU=†;—)À®›“å•¦¸¹ŞaÆ–cñÍm €ˆ‘!Ø¢E¬ŒÂƒ8gHR\\,L[\\<àşÖ¡×	NxK3øß€{h¿Ù½A¶à°ûúôUUO×Û;ñ›.â««–ğáùyåå#eHrğàA$''cÖ¬Y8xğà€ûS€á„›Œà%‡ÀKŠmİF…ƒe-±´ªòp¯qgÜì4ã7ï~ƒ*¥Ã¯$L„ÿ‹D…ÏåAü—_O(åm4HğÊuó7Àÿ-Û!ÕÃFXZT=øˆÏZUõ¥½ÓŒ>¾„Š+–Y>Åa"ü÷¼‰¸uL¸KæÁøsî÷ólØ°«W¯Æ¬Y³ÜUBüïhÿäğwÿzLÙ6g¾¥#j´ï
+Ø‡öNŸt‡Ç¨P›4áA<gH¢ÓéĞÚÚ:ğ„0ŞÙ	^şø;ÿk;ûc–U‹í»ö£ÃÌñÛ—ğÙ%Ûğ˜4V<À'	µÂ"¤¼½8{æÃûú‹¶§§C´dØøXßn:Íù'.£ü‚å—¼!;OB¼¸s€O28 $¨q³hºÔ_×]t—Àu—€úKÀµ« 7Û~`Êtˆ–æ€Å%û¦ÀƒÔiæøıÉ+8Q× 1<{_¦ÇÈ‚®.€xÎ¤°°EEEıîcÎıÏşóPOGˆK¸©Ğ]¯¿è.¡¹á*:/œô—›7>@ò-{ìÖÉ/ëPuš9şP~Çk› ¡"†_Ş7wóŸadxr€¨T*(•Jw”…·à–^àç¾ê~šh1Øì3`dŒ¢'€EO K»˜<= æ´1s?®ÇG5Öğ 6Í™€éã¥>.† YYYÈÌÌtGY2şÕ˜_ÿàÊ…w	ÆDªñ`Ñ,«b Õx@&ˆÀèÉÌ9^şT‡£ZKX†0àpW…ñª!Ã¿Zóßşü³Ü~£L¨&€©Æ[*T »íBG…ÿœs|¦Ã?ÎYf41à?2Æ#mb„KF†3¿şß£Óépúôi(•Jèõz¨ÕjˆÅ›VUU¡¦¦ pîÜ9äääĞ«µ À¯·¿À2xGN 	·B´ìq ş°pûŸ™P…lT&×5İ@Y]3NÔ¶“A‰ğTúxÜë_Éğ3¤ ™5kİU;»víÂöíÛ &“	ùùùØ¼y³İ~F£Z­K–, ”——cË–-4Bğ0Æ9ÿô8øW-­¨¬dr°‡ÿO×ˆ·"Ÿ•Ï“…†ğgÃ½ñÄó† O?ı´»ÊaG«ÕÚ,‹Åbh4èõz»'Fƒıû÷’’’½^ïp_øx­æ×€s_w¯	Sgƒ-Z	6jøu’«kºuÍ(s€%8&ÇÃwŒ¦:â5~û
+K«ÕB*µı •J†Bjj*vìØ!,k4  ğfx‹üàk–áÒ{á–zD+b©ãFê7p¢¶'êZpÁĞwhÜÙ#0Zìû¡âIpñÛ 1vë$‰Ãõ /ü»¸¸ëÖ­óTÑˆ—ñğŞ/~hëñıWM€èGÿ–2Ãw…s³:Ãœ¬mAY]s¿¡‘ôX
+â[~ ‰Änœ-£Ñ‰¤ÿÎP¥¥¥˜={vŸM‹ËÊÊpâÄ	›u*•
+kÖ¬Add$‚mpâ°°0(
+_£O7Ï~†Ö?ÿ0_</¬cábˆWşá–ƒ…¹võ§ë®i0á£ï¯áØ¹PÓĞæpŸÔq˜{ËÜ—¤ÀX©ëswøÓu{S0^·7š¡ûm€$%%¡´´Ôf]kkk¿¯¥ªªªÑïèÀÈÈÈp¸­¹¹™†s÷ÜØ
+ó«°k–ËîÉ[ö/¸.“ãzK‹ËÇ÷õu_0ÜÀ‰ºœ¨mFƒ' ëõTï'›F448~
+__·¯ãuûıpî”`óºÊh4"::ZkIÏe Bx”––"==½Ïf¿Äq³æÿù-P]Ñ½2ñ6ˆ]–p‹ï
+6DWí8ª5àdmjûÂ[CcvlÆĞë)âçü6@ K+¯ââb(•Jh4<õÔSÂ¶C‡!99ÙÙÙĞétxæ™gl>+‘H V«½]dâ¼´¸;<$`+°Ír9çøêj|Ûˆò-0;xCzû˜pdÄQhÀC3ö@3ú¯=ó¶@g @ôïÿ6yšÛÏãéënï4ã“Ú¼óM´öO·én=5Vâ½Ğğ·ï··ãuõ+,|øuÌ/
+áÁXæ‘ğğ¤†¶üıûFüıû&®ÛÎ»5*n‘#3IæÕĞ ÄS(@ˆßàû ıËB\2ØÒßÈ	ß_kÃ;ß4âD]3:zM!’¤…Å·É‘°À{GH_(@ˆ_0—~êCËÂÈpˆÖı'X¨ÿ–Şaæ8U×‚w¾mÄ·?Ø6¿1`öÄ,¾]ÛÇ„ÜÈ¾„ñ9®¿^´GXf9ëÁ”şÛ«¼ùz>8gÀ{ß5âZ[‡Í¶ˆ"ÌOÂ‚[åôšŠ{ Ä§xG;Ìû~\·üÏfÏ…(mîYßrÇjhlëÄhqh×Ÿ0Œ‡bŒ8â°—{¾ñ:Şù¶ÇÏ7ãf§mÛ“8ÙH,º]ûâ#12”^S‘à@B|Š*ÎoYP[•ëÒq:ÍŸ_jÅûß7áÌ•ş;Ú…‡Š Œ‰¨‘£Åa#…"<cºBf´8‘#CÀC§™ã³K­8òm#ªt&›ã0 wÅH±ø69RTbzME‚ñşåğ¼mY	…hİ/œI÷š©%>8×„k¦?  ­ÃŒÚÆ6Ôö³O˜ˆa´8ífnw\q˜ê$ºUq#œ*/!Ã	ñ	ŞÜóŸw	ËìáÇÁâ’õY3ç¨¬7áïß7âôÅV»ÎyJI¸%
+)*1šÚ:ğƒ©møÁÔk¦\ëZ¾Ş»¹TífúVÛ>Aã#Â°è6æ&FºüŒá„„x7›a~å÷@³eúUL™¦^2àçšotâCmşş}®´ØŞÜE˜9AŠ“£0m¼¢^'Éår\¨ÿ×Ú:pÍÔL–¿­sÍÔkmíhk7#%Z‚Å·É1}Ç%$˜P€¯³ª$2
+¢ÿß>‡)áœã›Úğ÷ïšp¢®í½7ä£B•…ùÉQNµzbŒA:2Ò‘!ˆ‹ê{t[3ç„ô„x¯=şö_…eÑ¿>)·Û¯ÓÌqTkÀ‘oQÛd?Hj´n‰Âİ1yîOáAHß(@ˆ×v¨Î9ö|ZÁf½t„™‰2<p‹"©òš_£ !^c3TIü-}UòöW6áqÛ˜Qxğ9î‰ >„ø
+â6C•Œ
+‡h­ã¡JNÔ6ã¯ÿ¼*,?•>÷'È¼ULBˆ(@ˆGqÎšïl‡*Yı˜rœİ¾ß\mÃ®“W„åÕSÇPxâÇ(@ˆGğ†«à§ƒŸş¸ÔİeÍQÚıvû×·ÜÄÖ/
+­¬æ%Ê°bòh/•–â
+
+â6ÜÔ
+şÅIğÓßU½ç*¶jİçZotâù.¢ù†eşŒ•?½;š†!ÄÏQ€!áí@õ0—œıèp0£cò$°Y÷[¦¥n³©½“cÛ'—p©ù&  &r6Í™€°
+Büq	¯Õ€—} şY`l±ßA5Á³îíøœc÷§WPİ5H¡ld›éH&„@@BœÂÛLàoÿü£÷í7FÈÀî¾,í~ËŒ‚¼‚z³ú>Ô6 F„0<{TRêßAH   !ƒÆÿYsÑ^ éZ÷Ê#Àîœm	;îÜÓÃÇ5Uş ,ÿ{ú8Ü6&¼ŸOBü74Âü¿{/Nv¯9
+,{Ø½ó‚ı+½	(¯–ÿÏcqOl¤»ŠKñ
+Ò'Î9xY	øW SIš¦Ì€(ç	°ÑJ§y¹ù&^8~	]Íuç'Ë°ì…»ŠLñ"¿N‡Ó§OC©TB¯×C­VC,îÿ·İ-[¶àW¿ú•—J88çÀ7•àßU29XLÀñÍ›ë.ÃüÚŸ€o«ºWJ#Á]k©çp¡‰móNlùèZºšëŞ9N‚Ü»¨¹.!Ê¯d×®]Ø¾}; Àd2!??›7ov¸oyy9t:ª««a2™š`Â¿«†ùpğİ—İëºş¾=æñ±`1	`ãñqàŸ—¿óºM“\6{.ØŠŸ€E¸öª©½ÓŒm_Äå®y<âd#±1c¼GGÒ%„x–ßˆV«µY‹ÅĞh4ĞëõP*í_¤¥¥ öïßï•ò®ùÆ_Ÿíssı% şxÅ)pG;ŒVBôøÏš;èrp?”×ã««m ,sxüjn$#¨¹.!Ì¯D*•Ú¬“J¥}éÆkÏÁ|x?Põ¹íÕ°–Y,.Ô€_<ofä¦ı|`"°¬lKEùÈQ.•£­İŒSZPr®Iks]g&"„ø'¿£Ñh·N"‘8\O,¸Éó__²m- c£ÁıÈÒ¼W3[¹L††o¿¿p¸h	6rØü¥`ñ·8]3çøRoÂ‡ZNÖµàzG÷sğ÷ŒÇ-£©¹.!ÃßˆD"Akk«Í:£Ñ‰Dâ£ù?şÚŸlÃC1láÀÒ3ÁB«YHXtXtpW†Ëç®o¹‰c5|¨m†Şh?œÉøˆX=uÒ&F¸|BˆñÛ IJJBii©ÍºÖÖÖ!¿¾*++Ã‰'lÖ©T*¬Y³‘‘‘–ÖJèÆ©chş¼ ÀÄRHV¯Ã¨ÌE`aı÷ìƒBáZ3ZÓÍN;÷Şÿú*Î^n¶Û.‚Ì[Ç`Á$%îPIıªµÕP®;ÑuoüóÛ IHH°y]e4-ˆµÄÙ@ÉÈÈ@F†ãß´›››ÑŞî`0@?Ç[0ïım÷ŠU¹h»û>´µ´öı¡.
+…ƒ>W§™ãl½ŸoÆ©ºÜè´\KóÜy‰2ÌŠ‘vÍ ØÆÆÆAŸÃœ½îá‚®;x„……aìØ±=‡ß <ıôÓ(..†R©„F£ÁSO=%l;tè’““‘ ¨ªªBMM°-%%)))>)··ñı{–®)`§¥İ}¯İ>M×;pª®ç›n V6ÓÇK0.bpãNqÎñİµëø¸Æ€²º®wÚí3!ræ%ÊpB$Æˆ©‚œ`Àx ¾³ñ€«W¯ÜÿâÌ/ï°,H" zş`‘r @ËNœºĞ‚²ÚfTéL0÷úNGKÃ– ÀŠP¤¨Ä‡ÙV°_0ÜÀñóÍ8~¾õ­ö_I˜sâ#1/Q†[Gò«WT	ÆßHºî`ôO ¤¼Å sÑËÂ2{lL£"qZk@Ym3şyÅˆÎ~~=¨omÇ¡*aÀ¤±á˜6NŠpü|3´öÍ{ÃDwÅHqo|$fŒ—`DˆÈWF	 ¬÷««/ãfbÛaŒ7Ívûª¤aÈˆ@j´ç®]Ç™+­øúj›0¨Ö·¡Zßf÷YRUbÜ‰´‰Ô€$`ñ/N€wµº‚4¬Ã‹Ÿ\¶	1âPdÄE"#.ÉŠîWLw“`ù”Ñ0µwâ¼1Ç¿«Ç™+F»×T·Œ…ûâ#qO\$áô£B±Ew… ÔûÕUç£¹øíY#]ƒNQ†ãñ;•¸uÌ(ˆú©—‡… #Q;¢,ËWZnâŸWŒh7sÌ/ÅøHšÜ‰Ò7
+ Â¯·Yæ/-¶yuõZÈmøúª¥™ìXq(òîA¤ÓÂ‹1è–Y„Bâç¸É^ùø'/+€ö›İ¥(Ÿ÷ca	P°qÎ—ÂƒBœEâ§xGø;¯ƒğ6ĞÑa¿C„Wÿ^:Û"¬úÉn¥ia	!^Bâ‡øÕz˜÷ı¨ùÎvCdØôÙ`ÓÓq=ñì,¹ˆ¶KSÛûâ#±à–(”–¬(@|„7ü Ô_ÆO‹-¬7z¼p7Ğf²¬	›ó Ø]@ò$0Q8çxùäÔ,á+ŸÎ¢™ı!ŞEâe\û-xÉaKïjr«–xÀ9ø=zÑÚÿK¸UXÕiæ(ş¦·^8*T„¼{'`T(uè#„xˆ—ğ‹50î4ßØol¸
+ŞpÕf»û>°œ'ÀÂ-SóŞè0ã¨Ö€âop¥¥»¿Æ†´hÄDôhÙ	!Ä
+/àÆV˜ÿkÀĞcDÚØ´ÙàºK–ºë¬€#G­Zo™ƒœ14µuàİïñş÷Mh¹a;ˆá²I
+ÜçÚå„2T ^Àßzµ;<T`ÈZdSpõºSçH6>aõÀ/×‚İ2PŒÁ7WÛğ÷sM8QÛ‚ö^£ Ncé$¦£Éµ!¾Câaü»jğO>  œ—Çãˆú)¿|-Rª1@62™I2ÜwÛl|©oÃ?N*È­B0'>KnW QáÚå„âN ÄÛoÂüÚŸ  …	âí¸yÀ%ûn7:ñöWxû+ûá¦¥#DÈJŠÂ¢Ûå4Ï!Ä¯P€xïè ?øP	eÊ©–ğè"!ÂÉQ˜¬ãXåZĞÑk İIcÃñ@rÒc#ºfõ#„ÿBâfüøGïŸüh1à¢X‰İ·-¶?–2K&)f	…™¤hjë@©Æ€j½	ã#Gàä(ÄEQË*Bˆ£ "ŞÑÜ¸´ÁK‹Á?zè´=r]†'çàzˆ%æ%FâG)£í:üE…‡bù”ÑXÑvÇ'„6Ä[¼  	IDATE2üì§0¼Øİ·‹_Ë“ğöä%¸ª ÄÉFbı]Ô[œ2|P€¸ˆ_­GçÿŸ3Ò8D¶›Ôr¦Qx7î>”ÄÍÁ5Ş=,ú¨P6Ş;ê2!Ã
+ˆ“ø…ğê
+˜?;—'>ˆ’ñi €‰4„J`D(Ğ£ÛÆ¨P¾gõ'„; Nà5ßÃüâ3@ûMü}ül!< àB¨Lø·ˆ3ÆK‰»c¤‡Ñü„á‡d ¼Í~ö4`l…éıC(UÍÂÉ±)ø>2VØ'A>57 bÀ¼DVLhšÙ2ÌQ€ôƒsO÷½‚7FÜ†ó\Ly¦PÛ	›–MR`Ít%t­7"‚"œ¾¤„àà×w;N‡Ó§OC©TB¯×C­VC,yßÁj>ù1~/K· ˆ‰û"ñğ–¦·*)=qB‚‹_È®]»°}ûv €ÉdB~~>6oŞ<ä}ûSüMşZ¡ƒœ_‡Ñ6_¡Q"{âeXzÇhÄÊ¨RœÜü6@´Z­Í²X,†F£^¯‡R©tyßş<õ^¾Õ·`Ğ£û©#”›ñ_ê8Ü6&œšâBH¿½jµZH¥R›uR©z½~Hû:k2kÆóêX¤FK(<!¤¿}1vë$‰ÃõÎì;X‹•Xµäˆ'Üîò1!d8óÛ ‘H$hmmµYg4!‘ØO¢äÌ¾ı‰Wˆq¯î/HChôjç€c¾aâéºƒK0^wh¨çoï~ III(--µY×ÚÚê°NÃ™}ËÊÊpâÄ	›u‰<ò~³x
+°xŠJXÆëë"ø]wp	Æë6Édïè"¿}©Ÿ`ó
+Êh4"::Z­V+Ôq´oOÈËË³ùóä“Oâ­·Şòğù§W_}Õ×Eğ	ºîà¬×ıÚk¯yôø~û O?ı4Š‹‹¡T*¡ÑhğÔSO	Û:„ääddgg¸ï`¥¾$ét:_Á'èºƒK°^·§ïk~ 			HHH  ¤¥¥Ùl{úé§½/!„÷óÛWX„Bü!„—„üú×¿şµ¯á/bccŞi¢ë.tİÁÅ“×Í8ç|àİ!„[ô
+‹BˆK(@!„¸„„BˆK(@È°¤ÓéP\\ŒòòrÃd2êsƒŞ—°eË–÷qõÿÃ@üº#¡»ùz†C_qæZªªªPSS 8wîrrrœšSÅ_¸2ÁXee%N:…¥K—Å÷ ÊËËÑÚÚ*L‡¨pı¿]UU%Lù’’"tB$åååĞét¨®®†Édê÷ûì®	÷ìğ ’——'üÛh4ò-[¶¸e_7Økimmå‡–O:ÅŸ|òI—Ïİ4Í5sÎùš5k¸N§ëó3F£‘WVVò'Ÿ|²ßıü3?·%%%üğáÃœsÎu:_³fÇËç)Î\waa¡Íòï~÷;•ËV®\ÉFcŸÛ]ùÿ0XAó
+«¿Y‡²¯¿sæZ4öïß/,§¤¤@¯×Üu»2ÁØÉ“'‘’’âé¢y”³?·EEEÂXrJ¥úÓŸ<^FOpöºËËËm¶õşYn<9á^Pˆ?ÌpèmÎ\Kjj*vìØ!,k4 ¸WXÎN0VUU…ôôtOËãœı,×^UU…¢¢"»9u…³ÿ_³²²ğóŸÿEEE(..ÆÒ¥K½QLŸñÄ„{VASâë}ÅÙk‰ş]\\ŒuëÖyªhãÌcÖÊÄ@­óèÉ™ïµV«…Éd‚J¥‚R©DRRòòòğÒK/y£¨nåìÏxff&êëëQ^^ ÿä9wM¸çHĞ<øb†Càêµ”––böìÙÈÌÌôdñ<"))Én]_ŒUVVB§Ó¡´´¥¥¥Ğëõ(//g¾×J¥b±XøšˆÅbèõzœ?ŞEu+g®Ûh4bïŞ½X·n^zé%¤¥¥áùçŸÖ-ïœùÿà¬ 	g¾ˆü‚{›+×RUU…ˆˆˆ€À¹ÉÈÒÒÒ V«…?ÖuØ*Ç™ïµJ¥òF‘¼Â™ëîıºrõêÕ˜={¶ğºv¸puÂ=gM€xj†CçÌu[—`Ö¬Y ,O"øÛ™u‚±òòr:tÈn22ëë+“É„Ã‡ >õ]Î|¯U*T*•°l4¡R©l^a
+g¯»wXH$‡!äïªªªP\\Àò3]UU%lëı3Şßÿ‡¡ªÁkjjPUU%ÌZ˜••%üåççÛÌpØß¾f°×­Óé°aÃ›ÏJ$üùÏöE±‰œù×ëõ())J¥‚V«ÅÒ¥K‡ıÏ8Ğİ
+ËZï•œœÁé‚*@!„¸OĞ¼Â"„â^ „B\BB!Ä% „B\BB!Ä%A3”	!„GF£O>ù¤MçĞç{Î+ÃóP3^B	`555P©TÂp4z½S¦LñÊ¹é!„øG³ö5«`BB‚ğ´QYYéµğ ş_{w›¶Åüï”ÕÎj’1¸[1t¬YfB
+t R
+C!‘Z:”Hm†ÂĞ¯v¤.¥1fMÍJ2V	#&#1cyCäûøpğk¯=?‰c¸7Døpï=ÜC„B–†mÛ¨×ë¬Êà¨J¥UUÙşmåryìqÃ0 IÒcv—Y¬R©„T*5¶ÏäãŞ×u‘J¥p~~şàmÍÃu]ìííİÛ·z½T*å{+
+°,ë{M&ù½ÿ®ëNíÉ&Ë2677§Î¥h–WÒ÷1Ñ":Y
+ÕjÕ·Çqà8n=ZµZN»»»ˆD"÷?Y¿Åu]œB×u `;“Çµ¶¶Ó4‘N§Üü_LÓD&“™éùwÍò‚Æ"*+R !ÅqxG¯×û€y†Ãá_@€›ÚOŸ>éÜx<>•}£ª*R©Z­ñÊ˜¦‰/^°à1k¦Ô,E³>~üø{:;
+ d¡†Ã!A@2™„išH$wÖâÈf³ØÚÚb;«7Óº®ãë×¯ €B¡€d2‰ápË²p}}x<×¯_Ã0´Z-ôz=Äb1hš6ÕŸjµŠ?~ ¸©V—ÏçÇ>è¶m³‘A(‚¢(c¯P(°iÓ4‘ÏçÙöø“,ËÂÉÉ	:xG2™d[©TbÓV©T
+Åb1ğ©ß…ê®¶÷ööÀq>}úàæöêÕ+ğ<?6RÌf³ì½uÕj•U;E¹\îY[å!ˆ¢ˆ~¿ıı}Î•f»¬Eîh„,ÇqPU<ÏO-U«Õpqq\.EQĞl6‘Ífquu…\.UUÑjµX=O¹\ÆÕÕòù<EA«ÕÂŞŞ{Ü²,T*¬®®BÓ4(Š‚F£1ÕoÛ¶ïˆ†a@×u¬¯¯CÓ4È²Ó4Q­V »»»xşü9»hÏ<®¯¯áº.»9Ã00ÆæÖïkûÙ³gcU½½^-î:ƒÁ`€'O  ö÷÷quu…L&ƒ À‡îíóßÂ[óÈd2¨Õjs=wY‹ÜÑ„,MÓ°¿¿F£16Âbee…ÍÙØØ€eYSÇlÛ*.´ººŠ·oß¸)ªµ¶¶†J¥‚V«…X,Ó4!Ë2{X,A ë::«+qvv†/_¾Üúw]ÇÇÇØÜÜÄöö6{­••6Íá•0ó…¢P(ø×4 YÚöÎ=??ÇÆÆÚí6DQÄåå%Úí6dYf‰±XŒ“ÑÑ–$I¬8×¢/tË`tÚŠçyß)ÛÛ,k‘;¥!Š"TU…išÿ¹"`4»/ÂÔ1¿áÿä,Ë,ãÅ›š™<Ç»?ŒdY¾óÃí;ùZ^á 5Ù5MC±Xd·7oŞ@E”Ëe6r˜¥íH$‚P(„v»àßR°¢(²cív›-ì{?d3–eÁu]ğ<…_ä–Áäš‡(ŠH$SÙYwU|¨ª‚ÿ@ÈRI§Ó°,år™Í¿?¿Müj…‚ ÇqØ7ÀÛÒŠG¿!ŞWsÜ“™3^P›œïU4š[D"(
+8==…¢(3·FÑn·±½½N§ƒ—/_¢ßï³ÔÓ³³3lmm±çÂ0˜¦	]×§ÖUşf~#Q§¦7£Ñ(¢Ñ¨ï{6z¾,ËÓÑ9Q !KGÓ4À²,pç{¡å—¡T·ÛZkp’$±n±XôıV=O¥÷üëëë±¾÷·üÎ”L¯-/pÌÚv"‘@¥Ra#üúõFívƒÁ`ìBÆó<KJğÊåš¦ÉÈŸ‡¦°ÈÒ‰F£ˆÅbĞuãL¥ñöûı±û§§§ÚñKœR°mƒÁ ’$±oàyİºİ.>ş<×¨Á[=99ñmÿ!2—¼ 1kÛŞ”ßÑÑ›ªò~é|tt„p8Ì‚‘mÛÈf³cA*N³ı™ÈŸ‰F dáüFù|gggèõzcÓAkkkh4<ÏÃ²¬©-fmc8Nïõz888€,Ëèv»8>>†$IlT’N§aš&ºİ.$IÂÏŸ?Ñl6±¾¾>×\8†ªªh4p]—½Öññ1Eùíë<ÏÃqœ¹Ú‡Ãlá|4ƒË;6:ª$	ƒÁ ¥R‰ëR{{òx(€…ºí—æ¡P¹\•JeìqMÓP.—Ù{<G2™¼w»¿6üÚ~ÿş=¾}ûÓ4ÁqEa)© Xºñ÷ïßÑl6‡‘L&Y6Ó<Òé4A@½^G³Ù„ H§Ócóß³şÿ¾sA`ÙÜ×6p3
+¹¼¼~ÇB¡Ş½{ÇÖ?€›µ—Ñì/òç¡íÜ	!„Bk „B¡ B!$
+ „B¡ B!$
+ „B¡ B!$
+ „B¡ B!$
+ „B¡ B!$
+ „B¡ B!$
+ „B¡ B!$
+ „B¡ B!$
+ „Bù¢¦ĞÃ9XÏ    IEND®B`‚PK_ÎO  O  PK   óXñP               images/4.png‰PNG
+
+   IHDR    ,   í·åÂ   sBIT|dˆ   	pHYs  a  a¨?§i    IDATxœìİ{XT×½7ğïÚ0 3Ãe@T@¹$š(xÁF4hb„$^¢5›(mMO#4IíÛ¦“ØÓsj—¼Á&G#ÆÓ¾@ÓÄ4MšDLšˆ	4Š‘!‰&2(âe…fa`ÖûÇf6Œ3Ü˜~ŸçñIöšµ×^tÿf¯+ãœsB!ı$Œt!„x&
+ „B„!„¡ B!d@(€B
+ „B„!„¡ B!d@(€B
+ „B„!„¡ B!d@(€B
+ „B„é³²²2‚àôO\\²²²ĞĞĞ0ÒÕì±]ÿlŞ¼y¤«Jz‘™™)ıBCCQUU5Âµ"6¾#]âyT*RSS¥c­V‹²²2äææ"77§NÂ¬Y³TöÁƒ±fÍ¼ñÆøŞ÷¾çÒzŞê®»îTùdh•••aÿşı0 €<óÌ3HOOÇÉ“'G¸v  B 55ûÛßÒ7oŞŒ]»vañâÅ¨ªªBppğ€¯ÁLt_Oâüqdgg#((HJûõ¯ììl¼ùæ›ƒş‚Aš°ˆËìØ±›6m‚Á`ÀöíÛUm”9º•••áôéÓÈÌÌtølõêÕƒşûE\ƒq©gy °ÿ~»t­V‹ôôtÄÅÅA„††bÍš5víÙiiiX³f  ==‚  ±±±_eôWzz:BCC 6l€ vuïë5333¥r233¡R© R©°fÍ©_(33S*çşûïï¶Ş»víBRR’t½¬¬¬>ß£­¾*•JªkYYÒÓÓ/åKKKƒ 8şó7YYYªWw?Ï]»vA¼ùæ›NËÿûß¥´íÛ·#..“'OvÈŸ™™‰²²2êqœ>:uêgŒñ5kÖô˜oöìÙ\é¸²²’3Æ¸ üşûïçYYY<--3Æ¸J¥âƒsÎyQQÏÌÌäŒ1••Å÷ïßßï2úSOÎ9_½z5W©T|çÎœ1ÆCCCù›o¾ÙïknØ°3ÆxZZŸ3gß¼y3OJJâŒ1ÇgÏÍãããÒıìc|Îœ9v×cŒñ²²²ïåÔ©S<$$D:Íš5\¥RqÆOJJâñññRŞÔÔT»ß‘M}}½ôóH½ºûyÎãéééNïùÖº„„„8Ô¡+ÆßµkW?2ô(€>ëëƒ955•3ÆxUUç\|¸
+‚À;f—o×®]œ1Æ<(¥½ñÆœ1&=ÄmúS†­*•Š¯^½ÚéŸÜÜ\Î¹øÀ³‰Ó§Oøš¶ rÿı÷Ûå‹‹sš””ÄAàRší¡ûá‡Úå-++“‚@OlA¡ëÏÎ`0Hk ¤?õêéçiB]Ù‚t×ëÙÒnı;ĞU\\OKKëös2<¨¸\ll,;­V‹É“'#++<ğ î»ï>»|¶‘Zõõõ½–92ƒ]³ ö­0Æ0vìX»ô}ûöaæÌ™ƒ¾æÎ;í/^­V‹ììl‡ô²²2ÔÕÕIÄÛ·oGZZfÏ-<€˜˜,^¼ÇCcc£]§²V«Å±cÇ‡~XJÆşıû‘””äpN_¤^Î~<òNŸ>cÇañâÅR> v}eee Ä¿Gİ™5k;6à{"®A„¸œV«Ğù ˜5k–ôĞ58yò$ÊÊÊ¤‡G_¤Œôôô>Âš3gK®ÙİCÏYù·jhhÀÑ£G¡R©œ~Î³8]ÙºiiiNïc0R/g÷»aÃdggcß¾}R 9xğ T*•]°±ıı			é¶N¡¡¡vÁŒŒ
+ ÄåêêêÀ“:@²³³ñúë¯KÊIIIHJJêsG¨+Êè‰³ÿP_³+ÛC3--Íám¥«îâ·í[ÅÄÄk½œÕ#88³fÍÂÁƒ@ê¿µÜ7n €ÔïŒ-¸t÷FF†âRƒ§OŸF\\œ”¶xñbiHfff¦ômóØ±cÒÃ¤7®(£;Œ1§¡¡¼æ­lË‡&³¾°=°+++_WWçĞlçL]]İ ëÕİÏ°oÆúàƒ Àa¨nXX˜T—îÊ±½}PğY4Œ—¸”m|şêÕ«t”ôôtìİ»×®©‚÷q®‡+Êè¯á¾fHH‚ƒƒQTTäôs•Je7÷V¶€}ôèQ‡ÏÊÊÊú¼ÄŒ­)ÌUõº•íïÅo¼ÜÜ\$%%9ÕµÃš¨êêêº}#Ã‡q™ììl¼ğÂP©TÒ|›[;œmÍC€ó²³´ş–á
+ÃyÍÌÌLÔ××KsalvíÚ…††»¹Z­Ö.(Ìš5±±±8xğ Ã\‹ÇÜáZ!!!àœÛuDw½·Ö«7111˜={6rssÑĞĞ€ïÿûyfÏ-İcwÊÊÊúÔ¯D†Øˆÿ"§»á±¶á™İß´ÍHOOç;wîä6là*•ŠßÿıÒ|ˆ¢¢"Î¹8Ä––= 2ú;äÖ¡¥¹¦mo×a¹=¥oÚ´Én¨³mØo\\œİÏvÎœ9R£G:ÖkûÙÙ>[½z5		á¡¡¡\¥RÙã=xğ ”733ÓîŞT*•ÃŒ¾Ô«·Ÿ§mô­Ã˜»R©T<33³Û2cü…^èñ:dèQ !}f{0‚àğ'44”gee9} ™™)Mj›3g4Æ?33“‚`÷À²=¸CCCTFHzzºÓùı½¦íøÖûï.=;;›‚à@lŸu»±yóf»ÏmâÖ‡7çâÜŒ´´4ÊCCCùš5k¸V«•&2v•››+†ĞĞPé:ÎH_êÅyÏ?OÛ<[çÆÜZ³‰–œwPg?;2¼ç´è!Ş.))	øöÛoGº*ÈÍÍEVV<h7g¥«Ó§O#))	•••#ÈÒÓÓqáÂ|şùçÃQ]Ò· :¥¥¥P«ÕĞëõHMM…\.ïwŞòòr˜ÍfF”——###jµ€ø—ÙÖ¬V«ñôÓO;]‡OæN$...\@{{{ùæÌ™ƒÔÔTìØ±Ã.]„ƒF#ûÔ³®mà&“‰oİºµÏy÷»ßIÇkÖ¬á†s.¾ş>õÔSÒg‡â&“‰›L&WV·2{öìn›„†ËêÕ«yll,gŒ9mşº•­©®ëšc;wîtÚtGF†ÛÂºu†\.Gee%ôz}ŸòjµZ)ïK/½„éÓ§KŸßº×„\.ïöÍ†oÀsÉ+ƒQUU…. 33³OË±/^¼6lŞ@vìØ7Şxc¨«JúÈm'jµZ(•J»4¥R	½^/5?õ5o×ü%%%X·n]Ş’’(
+”——#--Í¡|B<;ìà7:¼òÊ+Òÿ‡„„8Lt$#ËmˆÉdrHS(NÓû’W¯×ãèÑ£ÇÜ¹s¥ô˜˜$$$ ƒNNNC›+!„GnÛ„¥P(`4íÒL&
+Å€òªÕj¬[·111Ø¼y³”n¶<UUU0›Í®ºBñZnûç°|‚ÑhtÚ¼ÔS^N‡¢¢"©Ù*!!û÷ïGEEär9¶nİŠ €ÓàdS\\Œ'NØ¥)
+dddô¸j(!„x+· 111vMP&“	R ±õ{¨Õêó–——C£ÑHŸét: ëí¬ZµJú¬¤¤‰‰‰N;ÔSRR’’â´®õõõhkkÄİº·   »­e½İ£çóöûóõõu»õ¿ÜzHUU4Ôj5*++í:¸srr+Vôš·ëÛIyy9~øai®‡F£AUUär9t:V­ZÕïYµµµ°X,.¸c÷êõ—tÏÛïO&“aÜ¸q#];n@<ÏG÷èù¼ışÜ1€¸m':!„÷F„BÈ€P !„2 @!„ˆÛãõ&*•jÄ×!A¤½±½•+ï‘sî°“!!ŞˆÈ0`ŒyõèbÏÛƒ-!6Ô„E!d@(€B
+ „B„!„¡ BFÌ'Ÿ|‚üü|»´ùóçãùçŸ¡Búƒ1GA^^]š;l½Jé
+ „B„††DFF¢¢¢›6mÂ´iÓ0mÚ4dgg ¶mÛ†ÈÈH‡óyä,Y²K–,AAA4Tçyyy˜?>"##±dÉ»Ï //>ø "##q÷İwcïŞ½vŸÏŸ?{÷îÅ‘#G¤|ÎÊ!„2(™™™¨©©Á/¼€§z
+ùùùX²d	V®\	 8~ü¸”·¡¡ÅÅÅøÁ~€¿ıíoX¶lñÙgŸaúôé Äà‘ŸŸ‚‚lÙ²;wîDuu5233¥r¶mÛ†Í›7cæÌ™ÈÍÍÅ²eË°mÛ6)xbSXaa!öìÙƒ7bß¾}åB‡f¢“A	FAAtÌÌLÔ××#88GÁ‚  ‡ <ôĞCDpp0ª««åPî»ï¾kwlØ»w/|òI<óÌ3 €¥K—B¥RaÛ¶mxê©§Î9ª««ñå—_Jedgg£©©	®ıA2
+Q q#í¿ÿ%Ğ0k(«à³%Ç%EeddØ/[¶ÁÁÁ8~ü8–/_#G`çÎ ÄNó…öúğ¶©ºÁÁ €¦¦&œ9sÆéu×®]‹mÛ¶A£ÑHéÖrœ*B†
+ooóñéj)
+ î¤¡0ÜéZôKHHˆCZtt4ª««±nİ:äçç£¢¢QQQ(..Fnnnå1Æ0iÒ¤n?¯®®vz][1=ÖáÀ-­°¾ğ,Øœ°´•^;²ˆ;	VyÜuœ­:{ñâE,\¸,@pp0
+@ln[9õõõvo2 :ƒ†·şƒ%îs¿¨ú¼ê ¡,ı±‘®Öpë ¢ÓéPZZ
+µZ½^ÔÔTÈåò~ç-//‡Ùl†ÑhDyy9222 V«û}¡æªf¥á”——‡uëÖIÇGAcc#fÌ˜ X¾|9ŞyçDGGcùòåƒ¾­Ü¼¼<<ûì³RºmBbBBÂ ¯AÈ`ğOŞ?qL<ğó›wïˆÖg(¹õ(¬İ»wcÅŠHNNFjj*rrºÀŞš÷Å_”>Û¶m”J%RSS‘˜˜ˆ­[·èÄQEE}ôQäååaÛ¶mÈÊÊBbb¢ô¦±|ùr\¼xÇÇŠ+Î¯®®ÆñãÇÑØØ@üöÖ“àà`<ñÄØ³g²³³qäÈlÛ¶Ï?ÿ<222¤~ŞÊ!d(ğÊ³àíl¦e?|
+,2fk4´Ü6€hµZ»c¹\ÊÊJèõú>åÕjµRŞ—^zI&
+t6oôçÄ¹}ûö!::Û·oGAA222ìFPÙ:²cÍW=ôBBB°víZ©o£»¦§®éÏ>û,vîÜ‰ââbdeeáİwßÅ–-[°cÇ§ù»+‡Wâõ°¾²ho °Ô•æŞ3ÂµZnÛ„¥Õj¡T*íÒ”J%ôz½ÔüÔ×¼]ó—””HM.ı¹q.((;wî”FZ9ÄÄD‡ôàÄ‰vi·â[Ì­Í_ëÖ­³k:»•³r.\ˆK—.u{!ÅÛÚ`İ·0tlwût°ïıhd+5ÜöÄd29¤)
+§é}É«×ë‘ŸŸğğpÌ;·ß× £ÑhP]]í0ì–oÂßü_à›9G!a2æë¶ßÏ]ÆmïP¡PÀh4Ú¥™L&(ŠåU«ÕX·nŠŠŠ°yófìØ±£_×(..vøVõë×#((¨Ç6wApÛ8=¤òòò——‡I“&!%%e¤«3lÜuy™Læ–õr•‘º¿›Ç¢©¨P<ğõEHö6È&Ç¹ü:îØüê¶$..EEEviF£ÑiÓROyu:ŠŠŠ¤æ„„ìß¿ıºFJJJ·ÁÆÆFX,–nïÅ›ÿÑv§¡¡Û·oÇ¤I“°oß¾‘®Î°²Z­¨««éj8uËz¹ÊHÜ¯©‚uÏvé˜=²Mc' CP™L†qãÆ¹¼ÜÁpÛ c×”d2™!=ÜmıjµºÇ¼åååĞh4Òg: ¹\Şã5H÷‚ƒƒQSSÓãç]—!ÄÛp“Q­­  vw*ØÂF¸VÃ‹q7ïXUUFµZÊÊJ¤¥¥I÷œœÄÇÇKCC{ÊÛõ-£¼¼?ü0&OÜëy}U[[Ûëˆ7ó#öÜõ÷í®õr•á¼?nµÂúòïÍI1aR<„ì`2¿!»¦;¾¸u ñ@HWîúûv×z¹ÊpŞŸµ° üğkâ2Â–İ`aCûpwÇ 2:{w	!d€ø™Ï;ƒ løõwE„Búˆë¯Àú§ÎÕ*ØÃ? »cÆÖhdQ !„>à-7ÅNóæ7³çƒ=ğğÈVj„Q !„^pÎÁÿüpù¢˜0>
+ÂcİrnÆp¢ B!½àE…àŸwlÏ<& ÂÏ€™U»İ	Bé?§?x@:~ü°ˆÈ¬‘û  B!İàu×ÅE­V  [ºlVò×Ê}P !„'¸Å".ÏŞ$îv‰i³ÀV>:²•r3@È€ÌŸ?{÷îÅ‘#Gğàƒ"22K–,AEE…”çÎ;ïÄŞ½{íÎËËËCdd¤C9{öìÁüùó1mÚ4dgg7»ûî»‰ÌÌL‡:t½ö´iÓğüóÏKŸi4DFFâwŞ‘Ò.^¼ˆÈÈH ¡¡‘‘‘¨¨¨À¦M›0mÚ4»kw­_~~>òòò0mÚ4»½Nˆwã¯åUßˆaj?yLğÙJ¹
+ d@c(,,Ä={°qãFìÛ·ÕÕÕvzÆX¯£Tcxùå—Q^^]»vaİºuÈÏÏÇ´iÓpéÒ%ìÜ¹O<ñŞyç»`”——‡¬¬,L<¹¹¹X·nöìÙ#]?!!ëÖ­Ã¦M›¤İ333‘˜˜ˆµk×Jådff¢¦¦/¼ğzê)äççcÉ’%võ;rä¶oß‡zˆ¶Ì%¬Ç? ÿä}ñ@æ'vš+ƒF¶RnÈmS~ù04·ùuB|‘³dò Êàœ£ººÚnÁDƒÁ€ììl455!00°Ïå„„„à•W^ ®zœŸŸïöÎ;ïàÌ™3ÒyÏ?ÿ<–/_.åYºt)&Mš„ììlTTT`úôéÒ®…Û¶mCBB***ğÙgŸÙ]?88Òqtt4233Q\\Œ””pÎQ\\ŒO?ıTÚ.—x7^õ-xAç
+ÒìO‚E»~yvo@ÄšÛpcˆ«Ø¶«µÈ–1æPNtt4fÌ°ŸİÛ5 i4466:ìH¸nİ:dgg£¼¼\ÚÂxÇxôQ±İz×®]u¼u£«eË–!88Ç—–ï_¶lQ‚75ÀúÊv M\Û-ZaŞ¢®•û¢ âFB†ç×áŠë0Æâ‚Úô_}}= H¡+Æ˜ÔdˆA.::—.]rØ€Ó{ˆŠŠÂÅ‹¥ò&Mšäªª7ÆÛÛaÍ}¨».&Äß¶æÇ#[)7GÄ¶YÉt}¸”J¥ ¼öÚkw[“˜Í‘#GP]]àà`lÛ¶Íaïv[0êªºº÷ÜsÏ ëI<ë/ÀÙrñ X!3ÌW6²•rsÔ‰N†Ô­Ëkhù‡®çØ:²5¢¢¢¤?UUUÈÌÌDCƒ8ì²¡¡YYYØ²evíÚ…üü|»Qb€ØßÕ‘#GĞØØèĞ„F¼?Yşş[â<BFßN¢ıEo d@ú²Lbb"öìÙƒI“&!**
+yyyhjj²;×Y9İ¥uMî¹ç°mÛ6\¸p,À™3gPPP€3fHı¶QWYYY Äæ¬ÌÌL»½í+**ğè£bÙ²e¸xñ"öîİ‹ÄÄD,]º´Ï÷I<¿\ëÿşQ:fkşì¶;G°FƒŞ@È€t÷Ñ5}ß¾}X°`²³³ñÌ3Ï &&;vì°Ëã¬œîÒº¦ÿô§?Å¾}ûP^^¬¬, ##CQ•——‡'N`×®]Ò9;wîÄÅ‹±}ûv©¬}ûö!::Û·o—Êè:×c´/–çí¸ÙëŞí@ËM  K^¶h™KÊ>yÙˆz3´#¡Ğ„§¡¡Ó¦MÃk¯½&¶rwı}»k½\¥¿÷Ç­V1x|Q*&DÅ@ÈŞæï?èº”_3á??º„Ğ _üfQ¢ƒ_&íHH!n‚ÿã`gğ+!üô—ê†ìøä2Ú¬€ŞÔ†¢ó†A—é®ÜºD§Ó¡´´jµz½©©©Ë/¡ÜS^Fƒªª* Àùóç‘‘‘µZ ÈÍÍÅ±cÇ  jµO?ı4&O<ô7G1¼âø¡|ñ€1ÿ
+l\Ä Ë­onÃÖ.Ád_œ3AÍRº\wåÖd÷îİØ±c Àl6#''[¶léW^“É­V‹•+W JJJ°uëV¼ôÒK €ˆˆ8 .ÕÜ]p"„x^{Öı/­÷lå:°é³]n³ÅŠ­ÿ¬Ş$ö{Ä…úãW)á#xo?šÛ6aiµZ»c¹\ÊÊJèõú~å­¬¬´[ª"!!z½Ş®¹\NÁc”	FMMËû?ˆ{ã--â¶´f£˜0s.Ø’Õƒ.·İÊñâ‰Ë¨¬;ãÇÉ}±åŞ(ÈÜöën{wZ­J¥Ò.M©Tv@ºË›˜˜h7y¬²² ¤&,@|+Ñh4ÈÏÏwZ>!ÄóqÎÁóö 5bs6Â'Bxìÿ€	ƒ{rÎ±ÿ¤Ÿ_÷JWÈüû¢(„ÓÊ#ÉmˆÉdrHS(NÓ{ËÛµO£°°6lcbbœœŒ„„ÌŸ?999.¨=!ÄİğŞ/ùH<ğ#®°+WºÜ·¾®Ã?¾;Ê}`óÂ‰ˆ|g¼'pÛ©P(`4íÒL&
+Ç_x_óaŞ¼yX¼x±”ÖuynµZªª*˜Íf‡&­ââb»	h õë×#((¨Ç	gÂ ¿áÏ"BCİo³L&sËz¹JO÷gùú¯ÿI:úÙsğŸ>sĞ×üğÛëøóéZé8{q<î:4æî8'ÉmH\\ŠŠŠìÒŒF£]ÓSòj4bîÜ¹RšV«ÅÖ­[¥NtgÁÉ&%%¥ÛöòÆÆÆ^çÑÃjµºå|‹Ñ:„nÀúÂ ½ Àx¦)3`äÏâ+½¿?vI:^›8w©}‡ìgLó@ú!&&Æ®iÊd2!""B
+
+Z­Vê¯èK^ Rğ(**‚ÙlFDDV­Z%WRR‚ÄÄDêP'ÄKğ6¬¯ì:Íœš¶êƒ.·¦±Ï\‹UlyHÆšéaƒ.×Ó¸õLôªª*h4¨ÕjTVV"--M
+
+999ˆÇŠ+zÌ«Óé°qãF»r
+^}õU sDär9t:V­ZÕï ÒÛLt•Jå–¯Ÿ}%¬VëHWcH¹ò9çNWùi£ñÄZğ
+øGKÓ„…°e7X`ğ ®c¸Ù†ì÷/âšQü7?s¼¿¹7¾C<\×ß@Ü:€xŠŞˆ§óö@÷èn½?ë§‚øƒxà+ƒ½lòmƒºFK›[ŠªñÍq¸îäl¿?rÙĞï•îÄm›°!d xu¥8d·[—…Áq®Ç)x„øâ7‹"‡%x¸+
+ „¯ÂâdAK+ €-|BJÚ Ë=P¦Gi8Ú3ÀWÀoEb¬|to8E„â5¸µ]\¦äFÇ„à˜ÛÁy|Ğå>[‡ÃçÄ~-Ù'"F5fĞåz:·ÆKñl¼­MÜgÃÒ*şi³ ­­öÇ–VğVûcX:òµµÚó¶ÿ·t)ÃÒyÎõvxK‹ôæÀ`Y›Ádƒ{KøìRştªs…Š'çF`ÖøÁO@ô@!.g=Qşú«kN»Ñ@‚ !sXèØA•yîz3rN\‘Ê^3=©q!ƒ*Ó›P !„¸?uüÏ/I«İ_@&d~€Ì>cÆ ]ğÆ€İ»lJBïeôàjS+~ÿÏ´¶‹÷qoLÖ&. y
+ „—áßTÀú?9Á#n*"6#ù‰zøúu>øıì™_ÏŸwû‚	ö£Ÿ\9L¹±¥¿ûè[ÄÙë	ár<5w¼GÏç
+@!.Ák.Àúò6±/ ›¿lıF{è¶¶[ñüÇ5¸Ò$ŞGT°6/œ™gİÇp QX„Aãuµ°ş×ÍK
+MOûÁ“<¬œãŸ^Å×µÍ  Õüû½QPúŞ¹=’7³Ù,­S¥V«im)B¼75Áú‡ÿ 7Ä„É·AÈÊóõ¼¿œ®Å‰ê& À_†-÷FA­İs=zâ²ßpQQ‘´1“3‰‰‰HNN¶[JâÙxk¬/ÿ¸Ú±*­z„ÿæïys$Şı¦o}-ö¡øuÊDÄ‡yŞ}§AÂÂB¼õÖ[PËiD€    IDAT*•HNNFjj*Ôjµ´4ºÉd‚^¯ÇùóçñöÛo#//«V­’A$„x&iÒŞù¯Å„ ÿç?½XáHøWMöŸÔIÇæ„cÎDeg`‹)şìg?CBBÒÒÒÓ§st::„ŠŠ
+üñè¥İ
+-¦èùèû‡s¿üã÷Äÿ ›‹sIù1ĞûûöF3;Z–áºßŠÍšM¡ÃSÔÈ–-[Ş¯sÂÃÃ±aÃètºŞ3BÜçõÎàáãá‰Í#<JgçzØ‚GÊ¤@ü`¦{=¤İÙ Fa9¶Îs@ì)((@EEEŸÎ%„¸?ëñÀåKÇlıÏÁîœ5‚5cK;~÷Q7Å¹wÀÏç‡àa#ÇF’Ë†ñVUUá±ÇÃ¡C‡ ˆ}#û÷ïÇÑ£G±uëV”––ºêR„ÂÏ|n¿LúêÇ $ß;r K»Û?©AM£¸nÖ„@?<sO$ü|hfC¸ì§µoß>„‡‡cåÊ• €£GbÅŠ8pà æÎ‹·ß~ÛU—"„Œ ^yÖÜ@ÇÎ,u%ØıßáZõç/•\C…^œëìïƒß.ŠD?Íõè/—¾ØF`ÙF^¥¥‰kğ'&&Jû’B<¿VëË[ÅUr°ï, KÌã&
+@ş™ëøøB# ÀÏ‡á¹{#è7ÂµòL. r¹\úËôÙgŸA.—Kû—B<7Ô‰â;LM{ìÿ€	×ÜóÁyŞøRœğÈ <}÷L0²•ò`.›H‹C‡A©TâĞ¡CHHWÂÔëõ8tèPŸ‡ùv¥ÓéPZZ
+µZ½^ÔÔÔngµ÷”W£Ñ ªª
+ pşüydddHÁ­?× d´áf“¸D‰mƒ¦ÈO<;è=6FBÙ#öşëštüoIj$G`<ŸË¾BlØ°MMMÈÉÉÑhDFF  ;;z½ëÖ­ëw™»wïÆŠ+¤	Š999ıÎk2™ Õj±bÅ
+¬X±óçÏÇÖ­[tBFn±Àºw;P#~ùB˜ÂÏày_°´u7±óøX;f½=4U…‡¦†l¥¼€ËŞ@ÂÃÃqàÀèt:»!º™™™HLLì÷·ú[ûLär9*++¡×ëšÆzÊ{íÚ5Hû			ĞëõĞëõ0İGÍod4ãV+ø? gËÅe 8Ë<Äóºµ&¶ş³7ÛÄÎÿä(%sÃ‰‚Èå˜·ÎïHNNP“V«…Ri¿”€R©´›gÒ—¼‰‰‰Ø¹s§”^YY	@\ä±?× d4áo ÿü¸xàçá©ß€EDl¥ÀÔÚ­Õ ®¹ 0eìürşø×ùï@rssa6›û}ÙlFnnnyL&“CšB¡pšŞ[ŞÉ“'Ké………Ø°aC¿¯AÈhaıà-ğ"q>Â†l°¸©#[©h³rì<~Z  J»'ş¾×ùï®Õ„‹'Ÿ|‰‰‰HKKÃôéÓ{Ì¯ÑhpôèQh4š^ûD
+…C“Éd’iHŞ¢¢"Ì›7OZ¸?×(..Æ‰'ìÒÂÃÃ±~ızaKŠ¹=™L†ĞPÏkºèºGÑÍO>@Ó¤ceæ&,z`¨«æ]ïsíÇÎãÌ5ñnĞ_¼øİéˆVyîˆ+w2=¨ ’ššŠyóæá­·ŞÂ‹/¾³ÙŒØØX¨Õj©i¨©©	z½UUUËåHMMEVVV¯ÍZqqq(**²K3Nû&ú’W£Ñ 00sçÎĞ5RRR’’â´®´˜¢‡£{øW§a}ùyé˜­\‹æÙóÑì!?—®÷÷šæ:şñõu €L`xvÁ(y3êêšG²Šƒâu‹)â·øŒŒddd@«ÕB£Ñ ²²RZ,Q.—cşüùØ°abccû\nLLŒ]S’ÉdBDD„ôp·õ_¨Õê>å ¢¢"ÌŸ?¿×ó-øÅJX÷ì ÚÅ¾vÏƒ`Ë¾?Âµ˜µøkùuéøóÇãµçóƒZÎ}¨UUUA£Ñ@­V£²²iiiÒÃ=''ñññÒ¾"İåÕétØ¸q£]¹
+…¯¾új¯×è+ZÎİóæ{äµ×`İ±	h4ˆ	3“!ü4Lğœ¥=Ú¬µm~8şÍU¼V~‹ëbı¬qXugØÈVÎEÜñÄ­ˆ§  âùFë=ò¦1xè¯Š	ñw@øÅïÀüüG †}giç8_×Œ/uÍĞèÍ8[kÆÍ6ûGÙ’ÛBùp·ì;w ·i1!Ä%øÍfXÿø»Îà1>
+ÂS[Ü2x´¶[ñíõ›¨Ğ›Q¡7ãlm3ZÛ»ÿî»prŸã=ÁÃ]Q !dâmm°îÛ\øVL	ƒğóÿ S¸ÇÒ-mVœ»ŞŒ
+½_êÌ8wı&,Öî†*À³#Cp[ˆ¦‡Ëì~AĞQ !d”áœƒÿ¿ÿ*N‰	
+q–yØÈ54[¬8{½:3¾Ô›ñíftLwj¬ÜÓÕrL—cºZñ2„……y}3¤»qy ©ªª‚V«…ÉdBjjj·Ãb	!#ƒ¿şé1ñÀ×Â“ÏMœ4¬u0[Úñµ^|Ã¨Ğ™QYw=´H!\)Ã4µÓÕ˜.‡Z!£æ)7àÒ ’““c·ó`rr2rrrˆç{Î•—"„ô“åü×°¾ñgğ“Åbc~ò4Ø”' »‚±µ_éÍøR/¾ehëo¢‡)Œ´9¦‡Ë1Náy«ÿ. ùùù(--Åã?ÔÔT|ÿûâòµk×b÷îİ(((ÀÚµk]u9BHpk;ğÅ¿`=z†ó_Ù}Æy,éî!¹®¥İŠ²+&htb§÷…úô4Ü32ÈOárLS LNÃ¸,€aÅŠHMMµKOLLÄâÅ‹QTTD„aÂo6ƒŸ8~¬¨½fÿ¡2lÅZ‹–ºüº†æ6¼÷­ÿø¶†›íİæ›ìiáb?†Z êõD.û­™ÍfÄÇÇ;ı,>>‡vÕ¥!İàu×Á?zü“÷ ³ı¢ >‘“a½o9ØÜ{\>TW[w‡ÏÕá“Mh»¥mŠ˜¬ò—:½§@Ğ
+ŞÀe¿ÅÉ“'ãÓO?µ[kÊ¦¼¼|@;Bú†_¬?ú¶Ø¿Ñ~Ë7ÿ;gBH[	UÊbÔ.»f»•ã_—8|¶_êí×˜ˆ{c‚0mœJÏ™ÕNúÎedÕªUØ½{7vïŞ-5céõz”””àØ±cøÅ/~áªKâv¸Å\©Æª‡m.·ZòÏa=zø¦ÂşC__ñM#uX¤øåÍU{˜›ZÛQTÙ€#çê¡7Ù¯À ğp\–Ş®‚ZIıŞÎ¥K™!??ßauëÖIkVy#ZÊÄóæ¹Õ
+ëığÕb‚zXì vŠøß‰“À|]×dÃ[n‚ú!xQ! ¿bÿ¡2ìŞ¥âŸ`•İGƒı=^ilÅ‘su8¦m”v÷³‰òÃò)*,ŠÆ˜ÚoÃÛÿzıR&©©©HMM…V«…Ñh„R©ì×
+¼„x"şÙGÁ ôWÀõW€’Ä‘G2?`R<Xìíb@‰™:¶ÿ×1Ü ÿğğßÌöûØ b"XêJ°äE`ş®ëßàœãÌ53Ÿ­Ã©+&‡‘T³Ç+ğĞTfW@ y£ÎôdQĞ £7ÁßüßÎ„IñÀå@[[gš¥8ÿøù¯:À!¡Ò
+‹¹]0şcœ_£Z~ô¸Ål{›ı‡S!¤­¦'¹¬‰
+—ùøB#Ÿ­CuC«İgş>÷ÅcÙ-2Ê¹4€J{wÅ9cŒúAˆ×á‡
+€¦ñ i>|²6‹ı!5UàÚo í9ğªsCiu@ÙgàeŸ‰AE€ÈÉb0‰3¨½*öoœ-·?×Çì®âG´k¿¬]7[ğoxÿ¼M-öñcå¾X6E…ûãB¨Sœ pa ±ÍBW«Õv»2Æ¤ Bˆ7á5Uà½+øùCXóo  &“1·‹Á`ñr1oS ıÜPª¾nv¹dµÕZğj-ğñ{Î'İÉ•`÷.[´,Äµ{\œ»ŞŒÃgëğiu“Ã’"wŒÀCSUH„@ÿI'—ÒÒR¬X±¢×½Î	ñœsXó÷\ìLfËÖ€…vßÁÉƒß›ññ|k;põ²L´çÀµç€+—¤òì¨'€¥­ ›w_·Í\Ñfåø´º	‡ÏÖá›7í>ó€”è ,ŸªÂma»8Z. jµ3fÌpUq„¸5^ú1`[D=,í»ı:Ÿ	>ÀÄh°‰Ñ@JšXæM3pá<xÕ7bó— @˜·HüKû7[ÚñÁ·¼ûM=n4Û÷©ûûàÛB°ävBiv8é…Ëş†Ì;GÅôéC¿0!#‰7›Á…G›­‰‘SÁ¦&º¬[5[¬8öÍu¼ÿÕœºbrØŒ)FååSTX89~>#3—x—ŒŒ<öØcØ¸q#œæyüñÇûU¦N§“úUôz=RSSíúWú›wëÖ­øÍo~c—–››‹cÇÄ¥­Õj5~úiL<¹_õ$£?üW ¡^<˜™6=id+Ôf‹Ÿ_6âÓêF§Aƒ¸+R‰‡¦ª0]-§~JÒo. ¹¹¹ÒÂ[Gb´}÷îİØ±c q­­œœlÙ²¥ßyKJJ ÓéPQQ³ÙlX"""pà€øm²»àDˆ¿\~¬c]7™„ï‹ç'/ñÁy&ùaæxî0"ßä{ <Æ'aùí*Dú{‰÷pY ùì³Ï\Ú‰®Õjíår9*++¡×ë6¨ê-orr2    Àéµ(p¾àœÃú×}âˆ) lÉj°±á¸n¶`×ñËhéxXÿı«:øù0Ü©–cF„3#˜¬ò²‰v¶ q¢ºe=E·E’Z\6FSWpY Q*•.íD×jµP*•×è.€ô5¯3%%%P((//GZZí Hœâ'‹sñ`l8Ø«  9]+›Öv/®šğÅUşŒZûû`F„3ÆË1#B1è’ú4æGb~t ¦©å7–¶|%®å² ’ššêÒNt“Éä¦P(œ¦÷'ï­bbb¤>¥R‰œœ©)Œ~³üõW¥cá‘ÇÁüüqîz3>¾Ğ ô÷Ág«Q¡3ã‹k&Ü0wpjhiÇ'ñÉE1ïÄ ?ÌŒcÆxÂåËzŸ˜g¶´ãäeSŸ‚Æİ“qç8zÓ CËe„1†òòr—u¢+
+öëı˜L&(ŠAå½U×ºªÕjTUU9ô“Âßy0Üæ€Í¸VÎ±ÿ¤NÊ³6q,î‹Æ}±Áàœãrc+¾¸fÂ™kfh®™ÑÜeÂË­¸ÜØŠw¾1@`À”±Rs×mcàÛñàïKĞãƒy4ÈpY 9zô(”J%8ç(//ïı„^ÄÅÅ¡¨¨È.Íh4:m^êOŞ®´Z-¶nİ*u¢÷pŠ‹‹qâÄ	»´ğğp¬_¿AAApá¢ÆnG&“!44t¤«1¤zºÇ¶ËÕ¨/:$øÊšù+ø„†â½³z|Û1/6LGîŠ•ü $vlƒÓÖnÅW:#N^2àóKøúZçŒo+¾®mÆ×µÍxMsr™fG1†Ò‹´¶;N.•ËpO\Å‡!qBPŸ‚†·ÿ½ışÜq”œËÈK/½äª¢ ˆMK]› L&"""¤ `ë÷P«Õ½æíNDDV­Z%—”” 11ÑéÛGJJ
+RRRœ–ÓØØHË¹{¸îî‘së+/H‹#²V¡Á_fİuì-¾ åûÑŒ04ê{¼Fä ò6%¾{›fK;4:3Î\5á‹kf\nì\°ĞliGq•cY¶7”IA¸c\@GĞhGC/×íí½…·ßŸ×/çîj¿üå/QXXµZÊÊJ»Åß~ûmÄÇÇKûŒô”W£Ñ ªªJ:/!!			Ëåˆ‰‰Aaa!är9t:-øHìşøê´øÿ¡ãÀ–¤ Şüòê:fqß©ÄÌñ½7—v%—ù`nd æFŠ›OÕš,8sÍ„3WÍ8sÍ„†…BÜÃ 6”*,,Dxx8æÎ‹ÂÂÂ^ó{ë¦R´¡”çsv¼¥Ö¨« ?İ6{>tÆV<y¸
++‡¯ ¼´,‚\7ŸÂÊ9ª-°X9bUc\4¼ı÷èí÷çuo o½õâãã1wî\¼õÖ[½æ÷Ö B¼ÿÇRğÀ³€Yó  >]‹UüŞµ|J¨Kƒ Œa²Êu‹&2T@lÏ·ş?!ë¯€¿ÿwñÀÇW\ïŠ1|©3ãDu qáÁ5Ó]»¬:!dPk-lÜ¸¥¥¥®ª!nÃúÚÿtvœ§­‹ˆD»•ãNuÛÍ˜9
+?ÚX‰Œ^ƒ
+ :Îaş!Ÿù 9)„„-[ øPÛ m} qõÚÅ±Á#UEBÜ­ÛLHÜÒ
+ëkû¥c¶æÇ`c`¶´ãÿ©•Ò’N#¢È¨G„.ø{®w4SMM›#Îıy£ânŠCkçEbz8­T@È çäåå!??¿Ç<¶åÜ_}õÕó2’xí5ğ|| <ºŒ1\mjEáYq²L`xl¶{¥$d¤:€„‡‡ÓêµÄ+X_°ˆ3ÂÙ}ËÁ&D ”éÑÖ1lwå¡WÒ„ . iiiX¼x±+êBÈˆi=]|Q"«Àz P~Í„Òq ˆ*À«§Ñ°]Bl¨„ŒzÜbñOÙêÇÀäÃvõRúgC€ŒşÉbãÖka2øoÁzµF<¸íN°¹÷  >8oÀEƒ8l÷¶°1¸7&h¤ªHˆ[T ™;w.bcc]UB†çü½7Áua„µ™`ŒÁØÒüòëRŞKRÙ–´„xªA_şò—®ª!ÃŠ·´€ÿå%ğ}"¥±û¿)nàñZÅu4u¬ˆ»pRîGÃv	¹5a‘Q‡×ÕÂúßÏÕ•RšüÑŸàæ¢‡  5-x÷œ8l×Ï‡á‡³hØ.!ÎP !£
+?ÿ¬{¶Mb‚ „ŸüŠû–¢¥c)ğWËôÒnßŠq
+ÙÕ–÷F„ŒÖã€ç¿´‹‹$b\„'·€MŒ–ò”]1âÔqwË0¹/¾“†íÒ
+ Äëñ¶6ğ×ÿü£w;ï˜aÃ¯Á”#«Ú¬ê2l÷G3ÇÁß—†íÒ
+ Ä«ñ¦FX÷íÎi¤4¶ø!°ôƒùØ/ÅşoêQÓ±7ù”±X8™†íÒ· :¥¥¥P«ÕĞëõHMM…\î|4L_ònİº¿ùÍo|âYxÍX_ş=p£ã­Â×,ã	w§:ämh¶à5Mç°İÇç¨ÁhØ.!=rë÷óİ»wcÅŠHNNFjj*rrr”·¤¤‡BEEÌfó€¯A</ûÖ›:ƒGP„_=ï4x À«¥—`lµ Åá¶°€áª*!ËmˆV«µ;–Ëå¨¬¬„^¯ïwŞääd¬\¹rP× [­°şÖ½;€–›bâ¤xÏå€ÅMuzNµ¡‡*® Æø2ü`&Û%¤/Ü¶	K«ÕB©TÚ¥)•Jèõz‡Õû“×ç÷Äo6Ãzà@ÙgR›{ØŸóó·ÏË9.ZPZcÄ‡ÚiØîêia“Ó°]BúÂmˆÉdrHS(NÓû“×ç÷ÃuW`İ»¸|QL`Ø÷~$Î.ïèËh·rœ½ŞŒÒKM(­1âšÑbW†Z!ÃÊ;B‡»ê„x,· 
+…Âa¿u“É…B1¨¼®8¸ŞÔ ~äoà¿×9¿#@aÃ¯À¦'¡¥ÍŠ3×Œ(­1âó#:–'¹ÕáJd%…ŸÛ¶êâvÜ6€ÄÅÅ¡¨¨È.Íh4:mZêO^WœG†Ş³V(üø
+#¢xKxÑ!ğ÷Şn6w~1æÏâT[J>¹ŒÓW¸ÙÆÊ0=\äÈ@Ü©Ä”¨pÔuÌD'„ôÛ˜˜»¦$“É„ˆˆéánë¿P«Õ½æè5º*..Æ‰'ìÒÂÃÃ±~ızsÇ‡”·Éd¦úfvÇ§ê¥4
+?_úû@éï¹©c®h¡h¾	ÅÄû hk†m¦ÏÁ©àx|qÜˆvîØ9ÆWÀÜI!X†ù“UÓù×8ïq¤xû=zûı¹ã°rÆİøÉWUUFµZÊÊJ¤¥¥I÷œœÄÇÇcÅŠ½æÕh4¨ªªB~~>V®\‰„„$$$ôz^_ÕÖÖÂb±ôÑC…††Ë·óòk&ä|zõÍm.+3Øßß‰T"92‰òng–×=$o¿Go¿?™L†qãÜk„ [OAdpÚ­«¸×57`ûË<ÆÓÔr˜ZÛaj2ÃÔĞ“U€Q +óé±¼¥s#•˜ˆ©cà#ôşÍÍÛ>€÷ß£·ßŸ;·mÂ"ÃƒskFÆÊeùÿ+òu³9'®àK}g?ÆŒ9~1Bõ°¾U œú´³¾ nÆOGóò˜'ÆÁÔÚck;L­VX¬·‡Á¤·|İ'ÄÛP å~yyg®#VåçÓ&ëßŸ×ñ_%W¥›¬M‹‡£°·şÖOŞÚ»Œš
+ŸŸ‡Å¬d()@2â(€ŒbmVC_‹¯üÚúä¼†ŸÏ›Ğïr¬œ÷k»WK;Ç_¾Ğ£ğlgGùX¹/NRaê©wÁ÷‚·¶töĞ£`)i`¾ôW–wAÿG±òk&4u¬ÿ j‘®À¢Øà>oåÊô8|¶ã¾˜26@ú£ã´IìjS+şoñœ¯»)¥İ5! O™NAùâàæ.£§üÇ€İ¿Jœ8†Ö¦"ÄİP Å_ltH{åók¸}l &ùõxn›•ã¿>½ŠO:ÊĞ›Ú 75áøÅ& âV°q¡c0el ¦À”q¨Ğ™±§ôšÛÄ å+ ëz,9¼Ì¶C  ®š{Ï°¥«Á‚T.º[Bˆ«Q ¥ZÛ­(¹$ÎÂ—ËÌ™¨Ä'q³ãÿ_Æ®&AÖÍ¬ì–6+v¿,íÜ'0ÀW`hmç]Êçøº¶_×6;-c¼¯OU€Ø+_v&2lş}`=F“9	qw@F©²+&˜-â›@r”æD ²î&.7¶B[ß‚?Ÿ®ÅOæ„;œglmÇ¶Öà«À cO_}³qÕãâq.0
+ç|BqÎ2º›§ îiøÊĞŞÙÏÁæ¤€­X6>Òõ7K@F©®ÍW&!@&àWwOÀ¦÷/Âbå8|®	rÌ”òšÛğ]BU½øà8=‹iõ• €Ø³g`‰-¿LoÆİoÆMÅ¹À(¬>x¸òÜ«;©w$a„ï®‹ú›&„¸Qèf›Ÿ×ˆÍWş>HŒŒƒÇf«‘{R xé³«ˆ]:¡¡€ÎØŠß~x	W›Ä	“Á2`Ë©}ˆ«×:¿€‹	w]9»®œvüğ¶;!¬ú!Ømwºøî!Ã…È(ôy-ıó£áÛe¦öÒÛCpæš	¥5F4µZ‘sâ
+~ªÄæªQ×±ÄÈØ1~{z&ÖuYÉ~ğP§j¯×^ÿ{]Ô^êjkÇh¯è8«~ L›E“ıñp@F¡®ÍW)“í>cŒágÉãQùn®›ÛğUm3~ò·r´[Å€è‹×¼Š±ºoÅbn‡ğoOƒùûAÀ¤xÜx[Ph³ ‘8ñ´ùÁ(cjm—FO©:Ö›ºU ¿~u÷Ø^LlÁ#Nå­ŞÀØâcÃ!<µE=`¾¾`ã"ÀÆGQğ Ä‹P eJkŒhëwO
+êv¡Á;Ôr<š8V:N—ãw7ŞG°¦c»X¹ÂÆß‚…y	!î‰š°F™ãºo¾ºÕêiaPÈ|Àdş¸ïì{}ò®ø¯/„'Ÿ¥!·„Œr@F‘Æ›m8sMl¾'—é‰À–MQAşõi4½õ¿R:[ÿs°Û§eU	!€š°<·´ÂúÑ»à•gû”ÿ³KFØ&‹§L
+êÓˆüÛ¯ĞôÇßKÇì»æŞ3 úB¼½x0şêÀOƒûÊ üçË`êñ=æ·›<89¨ç²ëo€ÿóàGOâj¸KÓ_qBˆW  â¡ø™ÏÁO‹mğûÑÏºÍ_×Ü†
+ 0!P†X•ãÈ)Î9 =~ì0xÙ§ö{qÜ9lİOi!DBÄñ›Í°¼b—Öôù§(±Ç¯_Õ6C­ğÅ¬	JÌ¯@B¸'.6JÛÅ¦L
+²¼Í"¾É;\øÖşb>>ğ_ËÃëi/Bˆz"x ~¨ ¨«ğÙøÙøgX"¾½m_š¥<Wš,¸r®ïœ«‡L`ğóí&‰ÍWÜj?şøá¿õöQİó Ø=Kw›Wï5M· :¥¥¥P«ÕĞëŞWh  mIDATõHMM…\î8ñ­·¼=}–››‹cÇ Ôj5~úiL<yXîo øÅóàÇ òã—áï‘Ú¡¾0ÜlCÇtX¬–Vñ`R°?¢CüÁ«µ°æï´çìOŠ[¼ì®`²÷!„Œnn@vïŞ;v  Ìf3rrr°eË–~çíé³ˆˆ8p  ºNÃÉÔÚ³µÍˆƒ1ö¿ŞŞë_^¸•Ê‰x;r¡ôYhKîÖŸÁÂ(n[µf‹å:3N_1áÔ#®›Åu¬ŠWÀú·?‰AˆwîFˆYÉRW·İIı„>qÛ ¢ÕÚ¯ò*—ËQYY	½^µZİç¼F£±×rÜ!pœ¾jÂÑó|~ÙˆÖv¹LÀc³ÕH‹–èüÃ#@µí`xeú£°v¬:µæv%Òÿü[ø´4}¥B¡
+Ã¼¨@Ì‹
+ç5-hûò¢ÿ´Üp£óÂ‘ÖeMM‰Û&„x0· J¥Ò.M©Tv@œåÕétĞét½–SRR…Bòòr¤¥¥9”?ÔŞ¨¸¼3×íÒÌ+ş»ô>¹Ğˆ'çF ÂÏ
+şÎë €÷"ç£rŒXÇè`?¬™=>ÕKÁß{hkÿï`< c!Ã3ÿÂ„ŞÎi:/ ó[¶ìU`¾²á¹QBˆWqÛ b2™Ò
+…ÓôòšÍæn?€˜˜$$$ KNNÔÜ5N^6"¿Kğò÷A¬Ê_\ë­Ñ™ñówªğx ‹LM¸áŒü¸eRş'îŠ€Ì‡§­ßPZ[À?yü®…âPßG;È§'AX›	6.bXî‘âÜ6€(
+‡æ'“É…BÑç¼J¥F£±ÇrlÁ;Ñ«ªª`6›‡¥YëjS+rN\‘†×®™†ï'Œ…¯Àpúª	{J¯Ao² ¥ãeƒ_Ü±Í¾ş¸ÉÄ_Ûñ!¸£c5]vïğŞ,­°nÿµãÇE@øŞz`ö<êç „šÛ¸¸8Ù¥F§ÍK=åU(İ~¦Õj±uëV©İYp²)..Æ‰'ìÒÂÃÃ±~ızsÎ94W›¦ğÃÄà1=Şç›j`êØ—|al(º÷véÁ¾84ón›€—‹/àğ—âÅá3¥óU2ü|ÑíìÒÑn]ónüó] µµóB‚ü¾“‚€¾YB˜ĞÿÕkd2BCCû}'¡{ô|Ş~îø¥ÏmHLLŒ]Ó”ÉdBDD„@lıjµº×¼İ}¦T*±jÕ*é³’’$&&:}ûHIIAJJŠÓº666Âb± øb#^(¾?†ıßsEÕÕ×z3¾Ö‹oFeøéœ0Ô××;äûÉL¦{‚î‚Ù·sñÃÏ‹¹uv-tleø¯¡ãÀÜ–’Šö0À`è¶>=	õúy tÏÛïO&“aÜ¸q#];ŒsÎ{Ï62ªªª Ñh V«QYYi×Á““ƒøøx¬X±¢×¼=}¦ÑhPUU¹\N‡U«Võ»ùª¶¶‹+ó;5üáÌqøŞ´°nÏÉ9qw,­¾±ö#Ü÷Ó;İ˜‰_<ëï	½ş0c=ÎÊ'`^T ²Lèö	oid²½m8ãíÿ0ºGoàí÷GÄK9 ßOÃÚDç¿ìÆ–vüøïßÂb”3öö{Œ™öø¯úÖı/‚ÿëcñ ã	\Oºcå²n7‚
+Şş {ôŞ~î@Ü¶	Ë“ì*:}‹}Z{Ç=K»ßŞ¸‰@(ü|  V6 £ë÷^;k›¸0bD$ØÊµR¼®üTÇ‚‰Ê ó!Üf‡BÜ¸Úêƒsµö#½7ÛĞl±â÷ÿ¼„
+}s·çŞµTú~ä5X-­`ÿ¸rÖWvI+â²{—‚ùõ¼÷8!„'
+ C¤¨²E•=æ™f¨D¤µ	ì{?óÏ  şşßÁµgçKÇhªÀ`°EK‡ºÊ„Ò/@†Émac ş¸ÛÌfŒ9[†G«> n›áÁïÁê?ü¯ûÅõ©¾ıªóÄè8™›À‚BF¨æ„âa½`æGwî hığøW  6UE&,Z>.Ö}»€›b“»w)ØšÓª¸„·Dd¥OòEFJ¼tÌMMàeàoş¯”Æ¦vÎ„gÓ“ <û"xñQ°©	`	s†³º„Ò/@†À«'~£, Ï+”ÿ ÎÍ°¾ğ,pùbgF¹ˆŒ±;—Kl8«K!BÄ…Únâ•’l3#ÄbÌµàõ7ÀO:¬½f—Ÿ%ÎqÙd?Bn@\h_Év(Ûì‡ìZ7İò6!ó[üàë¶h!ÄSQ q‘ßÉuÎ°ôC !¹„/ğÿÛ»ƒĞÆí|à_ínßANèáQ9=´ÔI[ˆİÃBíd
+Ãclè²à4í’á[hÊÎ$‡¤0CMJ™äĞ9Œó °ĞJ¡Q °íÄÎíYé©MìK¡r`/µc¤ğ(e,_T{Èê_;vœD‰Góı€!úÿIÿ‘æÿó_E?ğ§ÿû'^ûù§¶ëH‘ÿşéæ›—tTDDÅ rş{ïñÿÇU*/âwÉEHÿy¹Y‰ˆ:¤SûHş+¤›oò ‰È“@:@úÛHºéüç%"ïbw¤· ıå6sÑ3ä‚üîïÿà+Gˆè™Â¿b» ¿_ø"zæ0€‘+ DDäJWÏ†B¡ EQ`š&¢Ñ(dY>óºnëˆˆèx]=Y^^F<G$A4E*•rµ®Û:"":^×r¹Ü°,Ë2J¥LÓ<Óºnëˆˆ¨½® ===e===ÇVë†áª„ˆèd]@,Ëj*óù|-ËÛ­[«Õ\ÕQ{];‰îóùP­VÊ,Ë‚Ïç;õº===¨V«g®kµvşàñW–H’„ç{îª££ØÆëÏëíëÆ~¦ûèß iZCYµZ…¢4¿Õ¶İº>ŸÏUİQß}÷¾ÿşû†2ŸÏ‡wŞy/¾øâ™Úv½ğÂW}Ç6^^oß/¿ü‚çŸşªCèÚ[X@ áV’eYèëë{¹\síÖu[wÔo¼ÙÙÙ†Ïôô4¾şúëo{·ùâ‹/®ú:m¼ş¼Ş> øòË/¯útí ’É$²Ù,EA©TÂıû÷EİÆÆÇO\×mİi<ó%†a\õ!tÛxıy½}@÷õ7]@    ‰4Ô%“ÉS¯ë¶ˆˆ×µ·°ˆˆ¨»1€‘+¿ÿä“O>¹êƒ¸î^~ùå«>„c½Áëmôzû€îj£dÛ¶}ÕADD×oa‘+ DDä
+¹ÂItZ\\ÄÍ›7ÊÃÀ·ß~‹Ÿş?üğ^zé%ñî Ë®#:juu¯¾úê•]“¼^]°É•ıı};“ÉØ;;;v&“±-ËºêC²mÛ¶wvvì{||¼é˜fggÅÏ–eÙ‹‹‹WVw^º®Û™LÆÎd2öãÇmÃ0D]»ssÙuçñã?Ú;;;v.—ólëÛúşûï7´Ñ×ëgŸ}fÛãããöôô´]©TDÎ!ˆKì/ÂÑ R*•Ù¶mñö²ëÎ«Z­ÚbyggÇË^èxlûğ‹EÛ¶m;—Ëy²Îöt]·§§§Åõá•ëÕé¨[uÖ^8‡]ı*“nÕ.“a«1vƒv‰µÃ¸´º‹ø7*•JX__Çèè(  Â4M˜¦ÙôzşússÙuçmçÊÊJÃ6$IĞşú»nm€íímD£Ñ†2/]¯²,7•yå2€¸Ğ.“a·N$İºªd]¡P=Ë¥R	  (
+t]÷LÇSÿûù|‰D€·:×b±ˆ‘‘‘¦r/]¯ù|>Ÿº®#‹AQÏœC>…åÂY²%v‹vI·dY¾´º³&ë:Î+¯¼"~Îf³¸wïØÇQ×µã Ó4¡ª*ü~?Âá0 ï´ÑÙn«oè^¹^ "‘‚Á FFFJ¥Ä¶ºçÄ…³dKìMeNò¬Ë®»Hš¦axx·nİàÇ¡(
+‰ æææ<ÕF]×a4Mƒ¦i0Mù|•JÅ3×k0?+Š‚J¥‚Z­æ™sÈ âÂeu©I·.*Y—[Åb½½½"x Ş	”†a@UU±Q©T°»»ë™6F"D£QñqÊœ×ız-—Ë˜˜˜ËõµWÎ!ç@\¸ŒÎÑ­b±ˆJ¥à0éV0ß‚:‘t«“ÉºÚq&!Û:š¦addäÄssÙun†b±Ø° ıııeÙmtÔj5är9 @&“Áèè(E¹ö×k__ÆÆÆÄr>ŸG(‚,Ë¹Nù2E—*•
+ŠÅ¢¸ØœÉ1ê<Ã0ğá‡6”ù|>|şùç ÚŸ›Ë®;MÓÄÏº®ãí·ßs?^i£×9_èdY†as>^8‡ DDä
+ç@ˆˆÈ""r…„ˆˆ\a !""W@ˆˆÈ""r…„ˆˆ\a !""W@ˆˆÈ¾‹®Üââ"vww1??ßğöÒúzI’0??ßÑã°,|ğ044ÔÑ}…eYxøğ!öööÚ[&“ÁúúzË:EQ0::Ú”¸‰è<@¨k¬®®bee¥©\’$‘ïYôäÉìííáÁƒèïï?q}'7ŠÃ²,loo#N ƒ]ºr’$AQ‘<ÉÉ¼ç°mû™ Àáâõ×_?ÕºÃÃÃMIšâñ8nß¾B¡À B†„®œmÛğûıˆÅbPUU¼–ı8C<eš¦!Nã«¯¾ ÌÌÌ ‹Á¶mhš†jµŠááaÜ»wkkk(
+0MápÉd²éxVWW±³³à0ÇÔÔTC§œÏçÅÈ@–eD£Ñ†À733#r¶«ªŠ©©)ñêù£4MC.—ÃŞŞEA,msnïÀíÛ·Ïu{­Uæ¿vû…$IøôÓOüv‹OQ”†‘âÄÄ„ø·5«««(—Ë¨Õj˜œœl{>éúâ$:uI’Ç¡(ŠHûy^O<A¹\Æää$¢Ñ(¶¶¶011ƒƒLNN"£P( ›Í6ü^*•ÂÁÁ¦¦¦FQ(0;;+ê5MÃòò2úúúL&F‘Íf›;ŸÏŸ×ÖÖN§188ˆd2‰H$UU±ºº
+ xğànİº%:íÓjµ
+Ë²ÄÇ0¬­­¡V«‰ vš}ß¸qCä–~Ë=oš¦H‘jjµ^{í5 ÀÜÜğî»ïâîİ» €‡xÌt=qB]%™LbnnÙl¶a„áFoo¯H
+444MÓšÊòù¼è}}}øè£ &¬Àòò2
+…Âá0TUE$Û	‡ÃğûıH§ÓØÛÛ9;ŠÅ"VVVÍ¹`Y6771::Š;wîˆmõööBUU¼õÖ[PEŒN›»aff¦ey2™è4ûvÖİİİÅĞĞt]G @¥R®ëˆD""éU8Á¤~´
+…Éd`š&ó‡xG ÔU âñ8TU…išçÚÖÑ'ºü~SY«œĞGç"‘dYF©T·f®ã,×£H$Ò¶ÓtÖ=º-'Eoı·ÿ³H&“XXXŸû÷ï# •J‰‘Ãiöíd?ÔuÀa@tFSN™®ëbbßï÷C–e¬­­AÓ4X–EQp÷î]â„ºN"‘€¦iH¥Râş{§´Ê§æ÷û[–†!Ò‚.--µÜ^}ÚĞVÛ©çÈ†r'¨U«Õ¶¿œ`0Ø4ßÑßß™™loo#zßÁ`º®ãÎ;ØÛÛÃ{ï½‡§OŸ"ŸÏ8*õi[=z„µµ5¨ªŠt:İ4¯BŞÂ B])™Lbii	š¦A’¤–}½úû¼ö÷÷›æÃ@(îÂÂBËoÕG;ävœß¯V«¾Ó–³lë´ûrÇi÷=22‚ååe1âÂ¯¿şŠl6]×Q«Õ‰Döã<”`š&r¹TU·ğu¥`0ˆp8Œt:Ã0šã}úôiÃòöö¶«ı´z<¸>9p8^«Õ
+…Ädx¹\†¢(â³¿¿ÇŸiÔ000  Èår-÷ß‰'—œ qÚ};·üÖ××Å­ªP($Ê|>ŸFù|A*‘H@–åsß¤îÄu…V#Œ©©)‹E˜¦Ùp;h`` Ùl~¿Š¢@Ó4qoÿ¬û°m»©Ü4M,--!‰`›››…BbT’H$ ª*ö÷÷
+…ğÓO?akkƒƒƒgº×ïóùÇ‘ÍfaY–ØÖææ&¢Ñè…Ï(ŠÃ0Î´oŸÏ'&ÎëŸàrÊêG¡PµZ‹‹‹b]g”âòºrÇı¥¹,Ë˜œœÄòòrC}2™D*•÷Ø‡‡‡‹Å—¨ßÏiöıñÇã›o¾ªª$	ÑhT<’
+@<n¼±±­­-ø|>Äb1ñ4ÓY$	øı~d2lmmÁï÷#‘H4Ìœö/ñOZÇï÷‹€ìŒNÚ7p8
+©T*A U™,Ë˜ŸŸóÀáÜKıÓ_ä-’}ÒÍe""¢8BDD®0€‘+ DDä
+¹Â BDD®0€‘+ DDä
+¹Â BDD®0€‘+ DDä
+¹Â BDD®0€‘+ DDä
+¹Â BDD®ü†‡ù²‚VÜ    IEND®B`‚PKˆçY5ãT  ãT  PK  óXñP               stylesheet_0.css…Wÿ›8~•\W'µº€€Àn
+º“ºİÜKT÷‡Á&Xk05N“ñî76¿xw¥k=öxæ›o&˜şr3F ¢Õã”Ë¢Ã „!Ip{¥X±ïyšâİ…µ%gZÅ^R#Œiu½úø^}Km¤ÓÈ;#qÅ+²Pe´Å´©ºÇ´bt³ê
+z.d›3d¬ÇI•£'qTß´FS´º5“‰Á‡‘\Æ27¹r«@uœ
+‚^5Oø/"àäëza{¢z¢íëM³+úËƒÕû›ŸğïGª’×àÉaA¼Œ=‹RÎEiê(ow´<·)<‚}ÆÍY-åøŞ– ÑËÃH™8ï;zŞàRµqWï§!£ó8e<{ıyá’´NÉ;Å½.HÕÄè"yâ”ÍJp%é+•a‡Ü‚ °‚şÚş¢M)£òcRu…*>ÿ˜ûöE`•¬ÒĞ*¬ÒG›K›4Cµ¤¼²-Õî;‹ÊyÇÄÑÎsŞŞizC™"q+ÉM:ˆÑs+unNE#àùƒ–5URk"\òŠªëÖpY¡L‹Æ~ Ô†®#©ddJõú¦Ó{)¸Sj9¯$DZ§eÊî$Ë]Ì³‹¤¬™AÙœŒ3†ê†Äã`¥ Oİ¯%E;çÃ­GeBoÁxhŸ:ÃD§à4ë	cš/ı†3Šw¡nX¹wt‡A8.D¬‡”Óœ/ê§÷N%¨f]-H;ÒKŸÙLojT¹jã"…·,R¨¬RHÍI§ åŞÉ÷h§ÆmŠ²×³à—
++WsK*¸SJnƒU>Öê4whÕ•”İão‚"¶o`‡ÓAóşÜ†ş&šp’Íi¾ï'Ã0Š¢d[74`UÄK¸QsõÈÂaãÒx‚®7Á“ÆôÄnQø»7lü@Èœo–å\ÿq8…‡ğ«Qö*'¦ÿ‡xîWR.ÊéöìÇçoGÿ”¨Bè}tœ2_hx6Â ,oH o÷†á{wíP;œq
+ş=|ÿn)š¦öSDÊ…¾«$½'‘ëk³N•·}¹,\Åá}ÊA˜€r0Ánõ±ÑUk5f0EGYÃ/\éO®¼TÚŒ®İš¢¬´}y<w­1ú#M˜I²ŞøXÏ³•ø)l_Ë2­ê‹™Õ ²,ËÓÃö b9ò‡¼×äoåŸÿ6ıL7ÙäyÑóÑïİˆIÆÒMÓêÛ„ºCpò¼ÍVˆ®yF+ü¹Í(cüf¶!~>½„§gbF|ù€°pÄÎÙ©ª™1Òn7É3l†g´FIÒØìc£÷%‹NoI`2<ßHJ?²òé÷ãKt:t7õ:UçåørEÏ1,e^îå&9BÖÍôêÇ†£6a7Î°½¸¤Ÿ­ü¶h8Û­Ú™İ¶?ù«¶ı¢(à¦JlÌ™¨T?kå°ÄšbZéŠD®±
+’Ğ¢š?>Ú«•ÙÛ1Ê¥N©JBåŠ?ÅŸtŸ1µDV¦çôsyûáûÅ$×¥{½nŒÕê¿¾_„2fúÅ×ÿ–”ßÖ«¾ø¨>‰n}Şß=@ª(Iš!6´f}ûÖI±—Å^n–Kh±™qÛ[å®ËÚÀt9™‹ÊØ3èVkğ‹Æ8ôˆÛ^·oÎa‡,œ¬ æ1PxˆÔ§ûPK<®å  h  PK  óXñP               stylesheet_1.css•Ë
+ƒ0E¥àº2¦õ•~‰IF#š"EúïµR#ã"Ğ¬Îä^ÎÄVYŸ[XÅ[5Úg_ÓH)9Ç^âváÖØ‘F 9xHÛ»ë,¾2kj´l÷ålÄx²Ã;Pş’&÷2‚jW{UsÃú!\¬|óm‡ò,­¡Gõc(=ÌH‘l?ÿs«ÎG‘U/Å=À‰—Ì¡:Á$ Ùp“İÉíPKšÁˆª«   %  PK  óXñP               stylesheet_2.cssToâ0ı*•Ò.½”kÙHş¹¯ˆSr´I•˜Ñ­â»ŸåÇ“¦	U$Nû=û9¯½¯‹uë|Ş™uzQpÎ%,Zï„±=h‰A¹“ihÔ›àù"Ê
+–îw½Dß×‡üóûÊÙV%÷AÛØ¥L½T­³mkpAşÛE´æ­=mÍ{«qC©•i¶Şà¸Yù )@PÚî¢¨R&+µŞÖÁïœcL¶ÍÓÕÆ(“âï"ï\=Ë*>=~Î³ (¼Á*TÓd	i*ÑÃün<7>´"®UO</gÒwjm‘x¹Ã>´*ÔÖ‰y×gœ~ô//tˆÏD
+}ÈŠ¼ŒYc¨Yg¬#’·ğf‚j!f_ø|:\ó;)Aõì@¥yp6>Ş—¬S¸"¿¦UÜ¨¨lÅË³¼1zc" à£MLÊùKeÊ+GÌ›Ğeüxzí„ú†ëoAO	÷}Z”ì¡zxR.òçJŞ±Qü©®\=|ïŞ§¬F'ÇÄjdˆ™¶¯çºó±Eia¨§Y´ï46=n…uå+´ÔOì¨	±"Rù%B£-ÉM&#à(Õ|œ¯<¢o‡–<ë¤¢»è9|Ñ¾ÂEEÓş‘@í"#¢#Éd¸Ñkı;;µ$«“Ş¨¤O¤ú_“ùrYpñ)-¹2²„ov+D¶‡ÕÖâÏııÏ]ÛøcßñÎ§)“æÎ‘æçıÉÊ÷ŒT¤ıjNİ”Ñ¨JÃàøM
+X,øòüêwn^}ãòÚ7>ˆı†”tÓ„ËO»ı©V¾¡œå©oYšçEVÒÚºZ,ÒOİ8†+(ÀùşPK3{-~  Y  PK   óXñPÔ5êÅ   Òp 
+   H         ÃÄ index.htmlhttp://pandas-docs.github.io/pandas-docs-travis/user_guide/indexing.htmlPK   óXñP»‡cXœ  »  
+             Àe index.jsonPK    óXñPo¼17  7     E         ”g background-images/1.pnghttps://www.gstatic.com/images/branding/product/2x/translate_24dp.pngPK   óXñPÁ‹¿‚  >     C         o images/2.icohttp://pandas-docs.github.io/pandas-docs-travis/_static/favicon.icoPK    óXñP_ÎO  O     F         Ìp images/3.pnghttp://pandas-docs.github.io/pandas-docs-travis/_images/query-perf.pngPK    óXñPˆçY5ãT  ãT     L         …À images/4.pnghttp://pandas-docs.github.io/pandas-docs-travis/_images/query-perf-small.pngPK   óXñP<®å  h     B         ¢ stylesheet_0.csshttp://pandas-docs.github.io/pandas-docs-travis/_static/nature.cssPK   óXñPšÁˆª«   %     D         ë stylesheet_1.csshttp://pandas-docs.github.io/pandas-docs-travis/_static/pygments.cssPK   óXñP3{-~  Y     J         Ô stylesheet_2.csshttps://translate.googleapis.com/translate_static/css/translateelement.cssPK    	 	 O    ]]></xmp></html>
